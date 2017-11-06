@@ -1,0 +1,88 @@
+body {
+    background-color: #d3d3d3;
+    font-family: 'Anton', sans-serif;    
+}
+.navbar-inverse .navbar-nav li a {
+    color: black;
+}
+.navbar-inverse .navbar-brand {
+    color: black;
+}
+.col-xs-12 {
+    padding: 0;
+}
+.margin {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.navbar {
+    margin: 0;
+    border-radius: 0;
+    background-color: #d0e6ff;
+    border: 0;
+}
+#navlogo {
+    height: 40px;
+    width: 80px;
+}
+#navbar-black-text {
+    color: #000000;
+}
+.jumbotron {
+    background-color: #1c3144;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+#latest-posts {
+    color: white;
+    background-color: #1c3144;
+    margin-top: 20px;
+}
+/* DIVERSE MARGINALER*/
+.margin-maker {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#h1margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#margin-top {
+    margin-top: 20px;
+    text-align: center;
+}
+#margin-top p {
+    font-size: 1.2em;
+}
+/**/
+/* KNAPPAR */
+#btn-orange {
+    background-color: #d28a00;
+    border-color: #d28a00;
+    color: white;
+}
+#btn-blue {
+    background-color: #1c3144;
+    border-color: #1c3144;
+    color: white;
+}
+/**/
+/*Navbar styling*/
+.navbar-toggle {
+    border: #d0e6ff;
+}
+.navbar-toggle:hover {
+    border: #333;
+    color: #d0e6ff;
+}
+.navbar-inverse .navbar-collapse {
+    border-color: #d0e6ff;
+}
+#profilbild {
+    height: 100px;
+    width: 100px;
+    background-color: #ffffff;
+    text-align: center;
+} /**/
