@@ -6,13 +6,13 @@
     $comment = $_POST["new_comment"];
 
     $statement = $pdo->prepare("
-      INSERT INTO posts (title, post, category)
-      VALUES (:title, :post, :category)");
+      INSERT INTO comments (name_comment, email_comment, new_comment)
+      VALUES (:name, :email, :comment)");
 
     $statement->execute(array(
-      ":title" => $title,
-      ":post" => $post,
-      ":category" => $category
+      ":name" => $name,
+      ":emali" => $email,
+      ":comment" => $comment
     )); 
 
     header("#");
