@@ -2,6 +2,7 @@ body {
     background-color: #d3d3d3;
     font-family: 'Anton', sans-serif;    
 }
+
 .navbar-inverse .navbar-nav li a {
     color: black;
 }
@@ -42,32 +43,58 @@ body {
     text-align: center;
 } 
 /**/
-h1 {
-    text-align: center;
-}
-h2 {
+
+h1, h2 {
     color: white;
     background-color: #1c3144;
 }
-.col-xs-4 {
-    background-color: #1c3144;
-    color: white;
-    margin-top: 100px;
-    text-align: center;
+
+.text-center{
+    text-align:center;
 }
+
+.antal_posts, .antal_kommentarer {
+    background: #4f4f4f;
+    color: white;
+    text-align:center;   
+}
+
+.posts p, .kommentarer p, .info_profile p{
+   background: #4f4f4f;
+    color: white;
+    box-sizing: border-box;
+    border: 1px solid black; 
+}
+
 .index-login {
     background-color: #d0e6ff;
 }
+
 .latest-posts {
     color: white;
     background-color: #1c3144;
 }
-.container {
+
+  .container {
     background-color: #a8a8a8;
 }
+
 .text-center {
     text-align: center;
 }
+
 .footer-padding {
     padding-top: 100px;
 }
+
+/* För desktop profil*/
+@media screen and (min-width: 800px){
+    
+.container{
+    max-width: 70%;
+    height: 100%;
+    margin: 0px auto;
+    background-color: #a8a8a8;
+}
+    
+}/* Media stängs */
