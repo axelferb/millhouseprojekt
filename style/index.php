@@ -61,7 +61,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi in hic ea nulla soluta sequi cumque maiores
                     exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
             </div>
-            <div class="hidden-xs hidden-sm col-md-4">
+            <div class="hidden-xs hidden-sm col-md-4 index-login">
                 <form>
                     <div class="form-group">
                         <label for="username">Användarnamn</label>
@@ -100,6 +100,9 @@
             </div>
         </div>
     </div>
+    <?php
+    include "footer.php";
+    ?>
 </body>
 
 </html>
