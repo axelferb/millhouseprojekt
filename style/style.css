@@ -10,22 +10,19 @@ body {
     color: black;
 }
 .navbar {
-    margin: 0;
     border-radius: 0;
     background-color: #d0e6ff;
     border: 0;
+    margin-bottom: 0px;
 }
 .jumbotron {
     background-color: #1c3144;
-    margin: 0;
+    margin-bottom: 150px;
     color: white;
     text-align: center;
 }
 /* DIVERSE MARGINALER*/
-.margin-maker {
-    margin-left: 10px;
-    margin-right: 10px;
-}
+
 /**/
 /* KNAPPAR */
 /**/
@@ -47,6 +44,7 @@ body {
     text-align: center;
 } 
 /**/
+
 h1, h2 {
     color: white;
     background-color: #1c3144;
@@ -69,6 +67,19 @@ h1, h2 {
     border: 1px solid black; 
 }
 
+.col-xs-4 {
+    background-color: #1c3144;
+    color: white;
+    margin-top: 100px;
+    text-align: center;
+}
+.col-md-4 {
+    background-color: #d0e6ff;
+}
+.latest-posts {
+    color: white;
+    background-color: #1c3144;
+
 
 
 @media screen and (min-width: 800px){
@@ -80,4 +91,7 @@ main{
     background-color: #a8a8a8;
 }
     
-}
+ }
+
+
+
