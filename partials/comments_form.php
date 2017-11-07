@@ -13,17 +13,17 @@
   <form action="comment.php" method="POST">
   
     <div class="form-group">
-      <label for="post_title"> Namn: </label>
+      <label for="name_comment"> Namn: </label>
       <input type="text" name="name_comment" class="form-control">
     </div>
    
     <div class="form-group">
-      <label for="new_post"> E-post: </label>
+      <label for="email_comment"> E-post: </label>
       <input type="text" name="email_comment" class="form-control">
     </div>
     
     <div class="form-group">
-      <label for="new_post"> Din kommentar: </label>
+      <label for="new_comment"> Din kommentar: </label>
       <input type="text" name="new_comment" class="form-control">
     </div>
     
