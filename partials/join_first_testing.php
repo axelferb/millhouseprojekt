@@ -3,7 +3,7 @@
     require 'database.php';
 
 $statement = $pdo->prepare(
-    "SELECT comments.comment, posts.id FROM posts
+    "SELECT comments.comment, comments.date, posts.id FROM posts
     INNER JOIN comments 
     ON comments.idoriginalpost = posts.id"
     
@@ -15,11 +15,15 @@ $statement = $pdo->prepare(
 $statement->execute();
 
 $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
-var_dump($comments);   
+ // var_dump($comments);   
 
 
 foreach($comments as $kommentarer){
-    echo $kommentarer;
+    
+    
+    echo $kommentarer["comment"] . '<br>';
+    echo $kommentarer["date"] . '<br>';
+    echo $kommentarer["id"] . "<br />";
 }
 
 
