@@ -16,7 +16,6 @@ body {
 }
 .jumbotron {
     background-color: #1c3144;
-    margin-bottom: 150px;
     color: white;
     text-align: center;
 }
@@ -56,10 +55,19 @@ h2 {
     margin-top: 100px;
     text-align: center;
 }
-.col-md-4 {
+.index-login {
     background-color: #d0e6ff;
 }
 .latest-posts {
     color: white;
     background-color: #1c3144;
+}
+.container {
+    background-color: #a8a8a8;
+}
+.text-center {
+    text-align: center;
+}
+.footer-padding {
+    padding-top: 100px;
 }
