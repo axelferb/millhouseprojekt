@@ -31,25 +31,10 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </form>
     </ul>
     </div>
+    <?php
+        require 'index_login.php';
+    ?>
     </div>
-                 <?php
-                
-    
-                if (isset($_POST['Klockor'])) {
-                    handleCategory($_POST["Klockor"]);
-                   }
-                elseif (isset($_POST['Glasögon'])) {
-                    handleCategory($_POST["Glasögon"]);
-                    }
-                elseif (isset($_POST['Inredning'])) {
-                    handleCategory($_POST["Inredning"]);
-                   }
-                else {
-                    allCategories();
-                }    
-
-                ?>
-        </div>
     </div>
     <?php
     include "footer.php";
