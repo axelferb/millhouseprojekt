@@ -39,11 +39,11 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="login.html">
+                        <a href="../register_form.php">
                             <i class="fa fa-user-plus" aria-hidden="true"></i> REGISTRERA DIG</a>
                     </li>
                     <li>
-                        <a href="login.html">
+                        <a href="../login_form.php">
                             <i class="fa fa-sign-in" aria-hidden="true"></i> LOGGA IN</a>
                     </li>
                 </ul>
@@ -62,14 +62,14 @@
                     exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
             </div>
             <div class="hidden-xs hidden-sm col-md-4 index-login">
-                <form>
+                <form action="../partials/login.php" method="POST">
                     <div class="form-group">
                         <label for="username">Användarnamn</label>
-                        <input type="text" class="form-control" placeholder="Ditt användarnamn">
+                        <input type="text" name="username" class="form-control" placeholder="Ditt användarnamn">
                     </div>
                     <div class="form-group">
                         <label for="password">Lösenord</label>
-                        <input type="password" class="form-control" placeholder="Ditt lösenord">
+                        <input type="password" name="password" class="form-control" placeholder="Ditt lösenord">
                     </div>
                     <button type="submit" class="btn btn-primary">Logga in</button>
                 </form>
