@@ -3,27 +3,26 @@
     require 'database.php';
     require 'head.php';
 
+
     $statement = $pdo->prepare("
-      SELECT title, post, category, date FROM posts WHERE id = 4"
-    );
+      SELECT id, title, post, category FROM posts WHERE id = 12
+    ");
 
     $statement->execute(); 
     
     
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
-    // var_dump($comments);  
+
+    // var_dump($posts);  
+
 
 
  foreach($posts as $poster){ 
-//    echo $poster["post"] . '<br>';
-//    echo $poster["date"] . '<br>';
-
 ?>
+ 
 
-
-<div class="container mt-5">
-  <h4>Nytt inlägg:</h4>
+ <div class="container mt-5">
+  <h4>Redigera inlägg:</h4>
   
   <form action="edit_post.php" method="POST">
   
@@ -57,11 +56,11 @@
     
   </form>
 </div>
-     
+
 <?php
 
     }
 
 ?>
-   
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+
+
