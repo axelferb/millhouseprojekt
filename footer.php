@@ -1,45 +1,25 @@
 <footer>
-        <div class="container footer-padding">
-            <div class="row">
-                <div class="hidden-xs col-sm-4 text-center">
-                    <h3>
-                        SITEMAP
-                    </h3>
-                    <p>
-                        HEM
-                    </p>
-                    <p>
-                        BLOG
-                    </p>
-                    <p>
-                        OM OSS
-                    </p>
-                </div>
-                <div class="col-xs-12 col-sm-4 text-center">
-                        <h3>
-                            KONTAKTA OSS
-                        </h3>
-                        <p>
-                            millhouse@kontakt.se
-                        </p>
-                        <p>
-                            +461234567890
-                        </p>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 text-center">
-                            <h3>
-                                MILLHOUSE
-                            </h3>
-                            <p>
-                                Bloggatan 11B
-                            </p>
-                            <p>
-                                111 22
-                            </p>
-                            <p>
-                                Bloggebro
-                            </p>
-                        </div>
-            </div>
+    <div class="row">
+
+        <div class="hidden-xs col-sm-4">
+            <h2>Sitemap</h2>
+            <ul>
+                <li><a href="#">Hem</a></li>
+                <li><a href="#">Blogg</a></li>
+                <li><a href="#">Om oss</a></li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="col-xs-12 col-sm-4">
+            <h2>Kontakta oss</h2>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <h2>Millhouse AB</h2>
+            <p>"Nånting kort om millhouse"</p>
+            
+            <h3>Gilla och följ oss på</h3>
+        </div>
+
+    </div>
+</footer>

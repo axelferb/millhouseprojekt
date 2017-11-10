@@ -11,7 +11,8 @@ function handleCategory($category) {
 ?>
             <div class='col-xs-12 col-md-6'>
                         
-                <div class="profilbild"></div>
+
+                <div class="profilbild-small"></div>
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
@@ -33,12 +34,12 @@ function allCategories() {
 ?>
         <div class='col-xs-12 col-md-6'>
 
-            <div class="profilbild"></div>
+            <div class="profilbild-small"></div>
             <h2> <?php echo $list["title"]; ?> </h2>
+            <span class="author">DATUM   |   NAMN   |   EMAILADRESS</span>
             <p> <?php echo $list["post"]; ?> </p>
             
         </div>
-
 <?php
                                     
 }
