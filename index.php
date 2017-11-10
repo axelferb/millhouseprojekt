@@ -19,6 +19,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </div>
     <div class="container">
         <div class="row">
+
             <div class="col-xs-12 col-md-8">
             <h1>Våra blogginlägg</h1>
             <hr>
@@ -35,17 +36,9 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
             </div>
             <div class="hidden-xs hidden-sm col-md-4 index-login">
-                <form>
-                    <div class="form-group">
-                        <label for="username">Användarnamn</label>
-                        <input type="text" class="form-control" placeholder="Ditt användarnamn">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Lösenord</label>
-                        <input type="password" class="form-control" placeholder="Ditt lösenord">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Logga in</button>
-                </form>
+                   <?php
+        require 'index_login.php';
+                   ?>
             </div>
                  <?php
                 
@@ -71,6 +64,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
         <br><br>
         <hr>
         <p style="text-align:center;">button previous | button next</p>
+    </div>
     </div>
     <?php
     include "footer.php";
