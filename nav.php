@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">HEM</a>
+                        <a href="index.php">HEM</a>
                     </li>
                     <li>
-                        <a href="#">BLOG</a>
+                        <a href="blog.php">BLOG</a>
                     </li>
                     <li>
                         <a href="#">OM OSS</a>
