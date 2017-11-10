@@ -5,13 +5,21 @@
 
 
     $statement = $pdo->prepare("
-      SELECT id, title, post, category FROM posts WHERE id = 12
+    SELECT id, title, post, category FROM posts WHERE id = 12
     ");
+
 
     $statement->execute(); 
     
     
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+//    $post_id = $_POST["post_id"];
+
+//foreach ($_POST as $key => $value){
+//   if(isset($_POST['edit'])){
+//
 
     // var_dump($posts);  
 

@@ -29,15 +29,5 @@
 
 ?>
 
-<!--
 
-Möjlig lösning?:
-
-UPDATE posts  
-   SET title = :title,
-       post = :post,
-       category = :category
- WHERE id = :id
-  
- -->
  
