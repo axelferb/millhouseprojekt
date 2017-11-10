@@ -19,16 +19,17 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </div>
     <div class="container">
         <div class="row">
-          <div class= "col-xs-12">
-           <form action="index.php" method="POST">
-                        <input type="submit" name="Klockor" value="Klockor">
-                        <input type="submit" name="Glasögon" value="Glasögon">
-                        <input type="submit" name="Inredning" value="Inredning">
-                        <input type="submit" name="all" value="allt">
-                    </form>
-            </div>
             <div class="col-xs-12 col-md-8">
-                <div class="profilbild"></div>
+            <h1>Våra blogginlägg</h1>
+            <hr>
+            <span class="filter">Filtrera efter:</span>
+            <form action="index.php" method="POST" class="filter">
+                <input type="submit" name="Klockor" value="Klockor">
+                <input type="submit" name="Glasögon" value="Glasögon">
+                <input type="submit" name="Inredning" value="Inredning">
+                <input type="submit" name="all" value="allt">
+            </form>
+                <div class="profilbild-big"></div>
                 <h2>Blogginläggsrubrik 1</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi in hic ea nulla soluta sequi cumque maiores
                     exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
@@ -63,7 +64,13 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 }    
 
                 ?>
+
+                
+                
         </div>
+        <br><br>
+        <hr>
+        <p style="text-align:center;">button previous | button next</p>
     </div>
     <?php
     include "footer.php";
