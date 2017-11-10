@@ -19,37 +19,31 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </div>
     <div class="container">
         <div class="row">
-        <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Välj kategori
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    <form action="index.php" method="POST">
-    <li><input type="submit" name="Klockor" value="Klockor"></li>
-    <li><input type="submit" name="Glasögon" value="Glasögon"></li>
-    <li><input type="submit" name="Inredning" value="Inredning"></li>
-    <li><input type="submit" name="all" value="allt"></li>
-    </form>
-    </ul>
-    </div>
+        <span class="filter">Filtrera efter:</span>
+            <form action="index.php" method="POST" class="filter">
+                <input type="submit" name="Klockor" value="Klockor">
+                <input type="submit" name="Glasögon" value="Glasögon">
+                <input type="submit" name="Inredning" value="Inredning">
+                <input type="submit" name="all" value="allt">
+            </form>
     </div>
                  <?php
                 
-    
                 if (isset($_POST['Klockor'])) {
-                    handleCategory($_POST["Klockor"]);
+                    handleCategories($_POST["Klockor"], count($posts));
                    }
                 elseif (isset($_POST['Glasögon'])) {
-                    handleCategory($_POST["Glasögon"]);
+                    handleCategories($_POST["Glasögon"], count($posts));
                     }
                 elseif (isset($_POST['Inredning'])) {
-                    handleCategory($_POST["Inredning"]);
+                    handleCategories($_POST["Inredning"], count($posts));
                    }
                 else {
-                    allCategories();
+                    allCatergories(count($posts));
                 }    
 
                 ?>
-        </div>
+    </div>
     </div>
     <?php
     include "footer.php";

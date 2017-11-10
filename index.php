@@ -44,28 +44,23 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 
     
                 if (isset($_POST['Klockor'])) {
-                    handleCategory($_POST["Klockor"]);
+                    handleCategories($_POST["Klockor"], 5);
                    }
                 elseif (isset($_POST['Glasögon'])) {
-                    handleCategory($_POST["Glasögon"]);
+                    handleCategories($_POST["Glasögon"], 5);
                     }
                 elseif (isset($_POST['Inredning'])) {
-                    handleCategory($_POST["Inredning"]);
+                    handleCategories($_POST["Inredning"], 5);
                    }
                 else {
-                    allCategories();
+                    allCatergories(5);
                 }    
 
                 ?>
-
-                
-                
-        </div>
-        <br><br>
+            </div>
+            <br><br>
         <hr>
         <p style="text-align:center;">button previous | button next</p>
-    </div>
-    </div>
     <?php
     include "footer.php";
     ?>
