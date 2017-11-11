@@ -19,48 +19,32 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </div>
     <div class="container">
         <div class="row">
-
-            <div class="col-xs-12 col-md-8">
-            <h1>Våra blogginlägg</h1>
-            <hr>
-            <span class="filter">Filtrera efter:</span>
+        <span class="filter">Filtrera efter:</span>
             <form action="index.php" method="POST" class="filter">
                 <input type="submit" name="Klockor" value="Klockor">
                 <input type="submit" name="Glasögon" value="Glasögon">
                 <input type="submit" name="Inredning" value="Inredning">
                 <input type="submit" name="all" value="allt">
             </form>
-                <div class="profilbild-big"></div>
-                <h2>Blogginläggsrubrik 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi in hic ea nulla soluta sequi cumque maiores
-                    exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
-            </div>
-            <div class="hidden-xs hidden-sm col-md-4 index-login">
-                   <?php
-        require 'index_login.php';
-                   ?>
-            </div>
+    </div>
                  <?php
                 
-    
                 if (isset($_POST['Klockor'])) {
-                    handleCategories($_POST["Klockor"], 5);
+                    handleCategories($_POST["Klockor"], count($posts));
                    }
                 elseif (isset($_POST['Glasögon'])) {
-                    handleCategories($_POST["Glasögon"], 5);
+                    handleCategories($_POST["Glasögon"], count($posts));
                     }
                 elseif (isset($_POST['Inredning'])) {
-                    handleCategories($_POST["Inredning"], 5);
+                    handleCategories($_POST["Inredning"], count($posts));
                    }
                 else {
-                    allCatergories(5);
+                    allCatergories(count($posts));
                 }    
 
                 ?>
-            </div>
-            <br><br>
-        <hr>
-        <p style="text-align:center;">button previous | button next</p>
+    </div>
+    </div>
     <?php
     include "footer.php";
     ?>
