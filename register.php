@@ -44,7 +44,7 @@ if((!empty($_POST["username"])) && (!empty($_POST["password"])) && (!empty($_POS
       ":lastname" => $lastname
     )); 
 
-    header("Location: ../registration_success.php");
+    header("Location: register_success.php");
     
 } else {
     header("Location: ../registration_login_form.php?registration_error=true");
