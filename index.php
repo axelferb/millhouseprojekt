@@ -27,13 +27,8 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         <input type="submit" name="all" value="allt">
                     </form>
             </div>
-            <div class="col-xs-12 col-md-8">
-                <div class="profilbild"></div>
-                <h2>Blogginläggsrubrik 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi in hic ea nulla soluta sequi cumque maiores
-                    exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
-            </div>
-            <div class="hidden-xs hidden-sm col-md-4 index-login">
+
+               <div class="hidden-xs hidden-sm col-md-4 col-md-offset-8 index-login">
                 <form>
                     <div class="form-group">
                         <label for="username">Användarnamn</label>
@@ -46,20 +41,21 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     <button type="submit" class="btn btn-primary">Logga in</button>
                 </form>
             </div>
+                
                  <?php
                 
     
                 if (isset($_POST['Klockor'])) {
-                    handleCategory($_POST["Klockor"]);
+                    handleCategories($_POST["Klockor"] , count($posts));
                    }
                 elseif (isset($_POST['Glasögon'])) {
-                    handleCategory($_POST["Glasögon"]);
+                    handleCategories($_POST["Glasögon"] , count($posts));
                     }
                 elseif (isset($_POST['Inredning'])) {
-                    handleCategory($_POST["Inredning"]);
+                    handleCategories($_POST["Inredning"] , count($posts));
                    }
                 else {
-                    allCategories();
+                    allCatergories(count($posts));
                 }    
 
                 ?>
