@@ -8,30 +8,34 @@
     );
 
     $statement->execute(); 
-
+    
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     //var_dump($posts); 
 
 
-
 foreach($posts as $blogposts){ 
 ?>
-      <form action="delete.php" method="POST">
+      <form action="edit_post_form.php" method="POST">
             <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
         
             <?php
-            echo $blogposts["title"] . '<br>';
-
+            echo $blogposts["title"];
+            ?>
+          <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
+           <?php
+            
 } 
 ?>
 
-            <button type="submit" value="Ta bort" name="delete">
-                Ta bort
+
+
+<!--
+            <button type="submit" value="Redigera" name="edit">
+                Redigera
             </button>
+-->
         </form>
-
-
 
 
                 

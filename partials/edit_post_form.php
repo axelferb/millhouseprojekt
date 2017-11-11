@@ -3,25 +3,34 @@
     require 'database.php';
     require 'head.php';
 
+// Denna funkar att hämta info från databas vid fixerat id 12:
+//
+//    $statement = $pdo->prepare("
+//    SELECT id, title, post, category FROM posts WHERE id = 12
+//    ");
+//
+//    $statement->execute(); 
+//    
+//    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+//
+//// var_dump($posts);  
+
+
+$posttoedit = $_GET["posttoedit"];
 
     $statement = $pdo->prepare("
-    SELECT id, title, post, category FROM posts WHERE id = 12
+    SELECT id, title, post, category FROM posts WHERE id = :posttoedit
     ");
 
 
-    $statement->execute(); 
+    $statement->execute(array(
+    ":posttoedit" => $posttoedit
+    )); 
     
     
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-//    $post_id = $_POST["post_id"];
-
-//foreach ($_POST as $key => $value){
-//   if(isset($_POST['edit'])){
-//
-
-    // var_dump($posts);  
 
 
 
