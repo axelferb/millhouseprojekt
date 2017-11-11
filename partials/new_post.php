@@ -1,20 +1,15 @@
 <?php
     require 'database.php';
 
-    $title = $_POST["post_title"];
-    $post = $_POST["new_post"];
-    $category = $_POST["category"];
+    $new_post = $_POST["new_post"];
+    $post_title = $_POST["post_title"];
+
 
     $statement = $pdo->prepare("
-      INSERT INTO posts (title, post, category)
-      VALUES (:title, :post, :category)");
+      INSERT INTO posts (post, title)
+      VALUES (:new_post, :post_title)");
 
     $statement->execute(array(
-      ":title" => $title,
-      ":post" => $post,
-      ":category" => $category
+      ":new_post" => new_post,
+      ":post_title" => $post_title
     )); 
-
-    header("Location: ../registration_login_form.php");
-
-?>
