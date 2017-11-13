@@ -43,7 +43,7 @@
                             <i class="fa fa-user-plus" aria-hidden="true"></i> REGISTRERA DIG</a>
                     </li>
                     <li>
-                        <a href="../login_form.php">
+                        <a href="../index.php">
                             <i class="fa fa-sign-in" aria-hidden="true"></i> LOGGA IN</a>
                     </li>
                 </ul>

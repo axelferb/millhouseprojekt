@@ -18,31 +18,26 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
         <h1>HEROIMAGE</h1>
     </div>
     <div class="container">
-        <div class="row">
-
+    <div class="row">
             <div class="col-xs-12 col-md-8">
             <h1>Våra blogginlägg</h1>
             <hr>
             <span class="filter">Filtrera efter:</span>
             <form action="index.php" method="POST" class="filter">
-                <input type="submit" name="Klockor" value="Klockor">
-                <input type="submit" name="Glasögon" value="Glasögon">
-                <input type="submit" name="Inredning" value="Inredning">
-                <input type="submit" name="all" value="allt">
+                <button class="btn btn-default" type="submit" name="Klockor" value="Klockor">Klockor</button>
+                <button class="btn btn-default" type="submit" name="Glasögon" value="Glasögon">Glasögon</button>
+                <button class="btn btn-default" type="submit" name="Inredning" value="Inredning">Inredning</button>
+                <button class="btn btn-default" type="submit" name="all" value="Allt">Allt</button>
             </form>
-                <div class="profilbild-big"></div>
-                <h2>Blogginläggsrubrik 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi in hic ea nulla soluta sequi cumque maiores
-                    exercitationem consequatur, sapiente quasi sunt fugiat aliquam? Repellat ea nesciunt culpa ipsam. Officia.</p>
             </div>
-            <div class="hidden-xs hidden-sm col-md-4 index-login">
-                   <?php
-        require 'index_login.php';
-                   ?>
-            </div>
-                 <?php
-                
-    
+            <?php
+
+                require 'index_login.php';
+            
+            ?>
+
+            <?php
+
                 if (isset($_POST['Klockor'])) {
                     handleCategories($_POST["Klockor"], 5);
                    }
@@ -54,15 +49,18 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                    }
                 else {
                     allCatergories(5);
-                }    
-
+                }
                 ?>
-            </div>
-            <br><br>
+        </div>
+        <div class="row">
+        <div class="col-xs-12">
         <hr>
         <p style="text-align:center;">button previous | button next</p>
+        </div>
+        </div>
+        </div>
     <?php
-    include "footer.php";
+    require "footer.php";
     ?>
 </body>
 

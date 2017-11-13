@@ -26,7 +26,11 @@ body {
     max-width: 960px;
 }
 /**/
-/* KNAPPAR */
+/* INDEX LOGINFORM STYLING */
+.index-login {
+    background-color: #1c3144;
+}
+
 /**/
 /*Navbar styling*/
 .navbar-toggle {
@@ -112,10 +116,6 @@ hr {
     background: #4f4f4f;
     color: white;
     text-align:center;   
-}
-
-.index-login {
-    background-color: #d0e6ff;
 }
 
 .latest-posts {
