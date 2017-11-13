@@ -62,7 +62,6 @@ function handleCategories($category, $amount) {
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
-
             </div>
         
 <?php
@@ -74,7 +73,6 @@ function handleCategories($category, $amount) {
                 <div class="profilbild-small"></div>
                 <h2> <?php echo $list["title"]; ?></h2>
                 <p> <?php echo $list["post"]; ?> </p>
-
 
             </div>
             <?php 
@@ -101,7 +99,6 @@ function allCatergories($amount) {
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
-
             </div>
 <?php
             
@@ -113,7 +110,6 @@ function allCatergories($amount) {
                 <div class="profilbild-small"></div>
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
-
 
             </div>
             

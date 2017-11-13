@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'partials/head.php';
+    require 'head.php';
     require 'partials/database.php';
 
 
@@ -107,4 +107,4 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
     
-<?php require 'partials/footer.php'; ?>
+<?php require 'footer.php'; ?>
