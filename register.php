@@ -1,30 +1,21 @@
 <?php
     require 'partials/database.php';
 
-//FUNGERANDE FÖR username och password:
+$checkUsername = $_POST["username"];
 
-//if((!empty($_POST["username"])) && (!empty($_POST["password"]))){
-//
-//    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-//    $username = $_POST["username"];
-//
-//    $statement = $pdo->prepare("
-//      INSERT INTO users (username, password)
-//      VALUES (:username, :password)");
-//
-//    $statement->execute(array(
-//      ":username" => $username,
-//      ":password" => $password
-//    )); 
-//
-//    header("Location: ../registration_success.php");
-//    
-//} else {
-//    header("Location: ../index.php?registration_error=true");
-//    
-//}
+$statement = $pdo->prepare("SELECT username FROM users WHERE username = :name");
+$statement->bindParam(':name', $checkUsername);
+$statement->execute();
 
-if((!empty($_POST["username"])) && (!empty($_POST["password"])) && (!empty($_POST["email"])) && (!empty($_POST["firstname"])) && (!empty($_POST["lastname"]))){
+if($statement->rowCount() > 0){
+    header("Location: ../registration_login_form.php?username_already_taken=true");
+    }elseif   ((!empty($_POST["username"]))
+            && (!empty($_POST["password"]))
+            && (!empty($_POST["email"])) 
+            && (!empty($_POST["firstname"]))
+            && (!empty($_POST["lastname"]))){
+    
+    
 
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $username = $_POST["username"];
@@ -46,7 +37,7 @@ if((!empty($_POST["username"])) && (!empty($_POST["password"])) && (!empty($_POS
 
     header("Location: partials/registration_success.php");
     
-} else {
+}else{
     header("Location: ../registration_login_form.php?registration_error=true");
     
 }

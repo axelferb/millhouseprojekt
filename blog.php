@@ -43,8 +43,10 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 }    
 
                 ?>
+
     </div>
     </div>
+
     <?php
     include "footer.php";
     ?>
