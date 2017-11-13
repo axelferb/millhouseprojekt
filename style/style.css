@@ -125,6 +125,7 @@ hr {
 
 .container {
     background-color: #FFFFFF;
+    min-height: 600px;
 }
 
 .text-center {
@@ -135,6 +136,7 @@ footer {
     width: 100%;
     background: #1c3145;
     color: #FFFFFF;
+    min-height: 200px;
 }
 
 footer h2 {
