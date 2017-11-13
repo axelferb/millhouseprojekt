@@ -27,10 +27,17 @@ body {
 }
 /**/
 /* INDEX LOGINFORM STYLING */
+.index-login form {
+    margin-top: 15px;
+}
+
 .index-login {
     background-color: #1c3144;
 }
 
+input {
+    font-family: FontAwesome;
+}
 /**/
 /*Navbar styling*/
 .navbar-toggle {
@@ -44,7 +51,7 @@ body {
     border-color: #d0e6ff;
 }
 .profilbild-big {
-    margin: 15px 0 15px 0;
+    margin: 15px 0 0 0;
     height: 280px;
     width: 600px;
     background-color: #000000;
@@ -52,7 +59,7 @@ body {
 } 
 
 .profilbild-small {
-    margin: 15px 0 15px 0;
+    margin: 15px 0 0 0;
     height: 200px;
     width: 450px;
     background-color: #000000;
@@ -151,7 +158,58 @@ footer .row {
     max-width: 960px;
     margin: 0 auto;
 }
+/* FÄRG/KATEGORISTYLING */
+.klocka {
+    height: 15px;
+    width: 450px;
+    background-color: #48843a;
+}
 
+.klocka-big {
+    height: 15px;
+    width: 600px;
+    background-color: #48843a;
+}
+
+.glasögon {
+    height: 15px;
+    width: 450px;
+    background-color: #d28a00;
+}
+
+.glasögon-big {
+    height: 15px;
+    width: 600px;
+    background-color: #d28a00;
+}
+
+.inredning {
+    height: 15px;
+    width: 450px;
+    background-color: #3e50bc;
+}
+
+.inredning-big {
+    height: 15px;
+    width: 600px;
+    background-color: #3e50bc;
+}
+/**/
+/*  KNAPPAR */
+.button-blue {
+    color: white;
+    background-color: #3e50bc;
+}
+
+.button-orange {
+    color: white;
+    background-color: #d28a00;
+}
+
+.button-green {
+    color: white;
+    background-color: #48843a;
+}
 
 /* För desktop profil*/
 @media screen and (min-width: 800px){

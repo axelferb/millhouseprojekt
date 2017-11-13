@@ -41,11 +41,11 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 <form action="partials/login.php" method="POST">
 
                     <div class="form-group">
-                        <input type="text" placeholder="Användarnamn" name="username" class="form-control">
+                        <input type="text" placeholder="&#xf007; Användarnamn" name="username" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" placeholder="Lösenord" name="password" class="form-control">
+                        <input type="password" placeholder="&#xf023; Lösenord" name="password" class="form-control">
                     </div>
 
                     <div class="form-group">
