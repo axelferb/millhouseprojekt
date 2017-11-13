@@ -21,7 +21,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="login.html">
+                        <a href="registration_login_form.php">
                             <i class="fa fa-user-plus" aria-hidden="true"></i> REGISTRERA DIG</a>
                     </li>
                     <li>

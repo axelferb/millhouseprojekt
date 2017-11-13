@@ -19,6 +19,8 @@
             <p>"Nånting kort om millhouse"</p>
             
             <h3>Gilla och följ oss på</h3>
+            <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
         </div>
 
     </div>

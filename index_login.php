@@ -19,8 +19,13 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     if(isset($_GET["registration_error"])){
         echo "Din registrering misslyckades då du inte fyllt i alla fält.";
     }
-?>
-    <div class="hidden-xs col-md-4">
+?>  
+
+    <div class="index_login hidden-xs hidden-sm col-md-4">
+    <h1 style="text-align:center;">Logga in</h1>
+    <hr>
+    </div>
+    <div class="hidden-xs hidden-sm col-md-4 index-login">
          <?php
             if(isset($_SESSION["user"])){
                 echo "<h1 class='text-center'>Välkommen:<br/>" . 
@@ -32,16 +37,15 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
             }
                 else{
             ?>
+
         <form action="partials/login.php" method="POST">
         
          <div class="form-group">
-           <label for="username"> Username </label>
-           <input type="text" name="username" class="form-control">
+           <input type="text" placeholder="Användarnamn" name="username" class="form-control">
          </div>
          
          <div class="form-group">
-           <label for="password"> Password </label>
-           <input type="password" name="password" class="form-control">
+           <input type="password" placeholder="Lösenord" name="password" class="form-control">
          </div>
          
          <div class="form-group">
@@ -52,4 +56,3 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
             }
          ?>
        </form>
-</div>
