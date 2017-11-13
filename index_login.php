@@ -38,7 +38,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 else{
             ?>
 
-                <form action="partials/login.php" method="POST">
+                <form class="index-form" action="partials/login.php" method="POST">
 
                     <div class="form-group">
                         <input type="text" placeholder="&#xf007; Användarnamn" name="username" class="form-control">
@@ -49,8 +49,10 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Logga in" class="btn btn-primary">
+                        <input type="submit" value="Logga in" class="btn button-green btn-lg btn-block">
                     </div>
+                    <p>Har du inget konto?</p>
+                    <a href="#"><h3>Registrera dig</h3></a>
     <?php
             }
          ?>

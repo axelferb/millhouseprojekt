@@ -29,6 +29,14 @@ body {
 /* INDEX LOGINFORM STYLING */
 .index-login form {
     margin-top: 15px;
+    text-align: center;
+    color: white;
+}
+
+.index-login h3 {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
 }
 
 .index-login {
