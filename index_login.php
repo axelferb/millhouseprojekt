@@ -20,19 +20,21 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         echo "Din registrering misslyckades då du inte fyllt i alla fält.";
     }
 ?>
-
-    <div class="index_login hidden-xs hidden-sm col-md-4">
+    
+    <div class="hidden-xs hidden-sm col-md-4 index_login">
         <h1 style="text-align:center;">Logga in</h1>
-        <hr>
     </div>
-    <div class="hidden-xs hidden-sm col-md-4 index-login">
+
+    <div class="hidden-xs hidden-sm col-md-4 login-wrap">
+    <div class="login-field">
         <?php
             if(isset($_SESSION["user"])){
-                echo "<h1 class='text-center'>Välkommen:<br/>" . 
-                $_SESSION["user"]["username"] . 
-                "</h1>";   
-            ?>
+            echo "<h1 class='text-center'>Välkommen:<br/>" . 
+            $_SESSION["user"]["username"] . 
+            "</h1>";   
+        ?>
             <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
+
             <?php
             }
                 else{
@@ -41,15 +43,16 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 <form class="index-form" action="partials/login.php" method="POST">
 
                     <div class="form-group">
-                        <input type="text" placeholder="&#xf007; Användarnamn" name="username" class="form-control">
+                        <input type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" placeholder="&#xf023; Lösenord" name="password" class="form-control">
+                        <input type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
                     </div>
-
+                    <br>
                     <div class="form-group">
-                        <input type="submit" value="Logga in" class="btn button-green btn-lg btn-block">
+                        <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
+                        <br>
                     </div>
                     <p>Har du inget konto?</p>
                     <a href="#"><h3>Registrera dig</h3></a>
@@ -57,4 +60,6 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
             }
          ?>
         </div>
+        </div>
+
         </form>
