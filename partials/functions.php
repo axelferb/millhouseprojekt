@@ -12,6 +12,7 @@ function handleCategory($category) {
             <div class='col-xs-12 col-md-6'>
                         
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <div class="profilbild-small"></div>
                         <h2> <?php echo $list["title"]; ?> </h2>
                         <p> <?php echo $list["post"]; ?> </p>
@@ -20,6 +21,12 @@ function handleCategory($category) {
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 >>>>>>> master
+=======
+
+                <div class="profilbild-small"></div>
+                <h2> <?php echo $list["title"]; ?> </h2>
+                <p> <?php echo $list["post"]; ?> </p>
+>>>>>>> 364c8ab95225fa271c8721328a506528a532ffa0
 
 
             </div>
@@ -38,6 +45,7 @@ function allCategories() {
 
 ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class='col-xs-12 col-md-6'>
         <div class="profilbild-small"></div>
         <h2> <?php echo $list["title"]; ?> </h2>
@@ -45,15 +53,21 @@ function allCategories() {
         <p> <?php echo $list["post"]; ?> </p>
     </div>
 =======
+=======
+>>>>>>> 364c8ab95225fa271c8721328a506528a532ffa0
         <div class='col-xs-12 col-md-6'>
 
-            <div class="profilbild"></div>
+            <div class="profilbild-small"></div>
             <h2> <?php echo $list["title"]; ?> </h2>
+            <span class="author">DATUM   |   NAMN   |   EMAILADRESS</span>
             <p> <?php echo $list["post"]; ?> </p>
             
         </div>
+<<<<<<< HEAD
 >>>>>>> master
 
+=======
+>>>>>>> 364c8ab95225fa271c8721328a506528a532ffa0
 <?php
                                     
 }
