@@ -78,6 +78,7 @@ function handleCategories($category, $amount) {
     $i = 0;
     global $posts;
     foreach($posts as $list){
+
     if($i==$amount) break;
 
         if ($category == $list['category']){
@@ -87,6 +88,17 @@ function handleCategories($category, $amount) {
             <div class='col-xs-12 col-md-8'>
                 
                 <div class="profilbild-big"></div>
+                <?php
+                        if($list["category"] == 'Klockor'){
+                            echo '<div class="klocka-big"></div>';
+                        }
+                        if($list["category"] == 'Glasögon'){
+                            echo '<div class="glasögon-big"></div>';
+                        }
+                        if($list["category"] == 'Inredning'){
+                            echo '<div class="inredning-big"></div>';
+                        }
+                    ?>
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
@@ -99,6 +111,17 @@ function handleCategories($category, $amount) {
              <div class='col-xs-12 col-md-6'>
                         
                 <div class="profilbild-small"></div>
+                <?php
+                        if($list["category"] == 'Klockor'){
+                            echo '<div class="klocka"></div>';
+                        }
+                        if($list["category"] == 'Glasögon'){
+                            echo '<div class="glasögon"></div>';
+                        }
+                        if($list["category"] == 'Inredning'){
+                            echo '<div class="inredning"></div>';
+                        }
+                    ?>
                 <h2> <?php echo $list["title"]; ?></h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
@@ -124,6 +147,17 @@ function allCatergories($amount) {
             <div class='col-xs-12 col-md-8'>
                         
                 <div class="profilbild-big"></div>
+                <?php
+                        if($list["category"] == 'Klockor'){
+                            echo '<div class="klocka-big"></div>';
+                        }
+                        if($list["category"] == 'Glasögon'){
+                            echo '<div class="glasögon-big"></div>';
+                        }
+                        if($list["category"] == 'Inredning'){
+                            echo '<div class="inredning-big"></div>';
+                        }
+                    ?>
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
@@ -136,6 +170,17 @@ function allCatergories($amount) {
             <div class='col-xs-12 col-md-6'>
                         
                 <div class="profilbild-small"></div>
+                    <?php
+                        if($list["category"] == 'Klockor'){
+                            echo '<div class="klocka"></div>';
+                        }
+                        if($list["category"] == 'Glasögon'){
+                            echo '<div class="glasögon"></div>';
+                        }
+                        if($list["category"] == 'Inredning'){
+                            echo '<div class="inredning"></div>';
+                        }
+                    ?>
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>
 
