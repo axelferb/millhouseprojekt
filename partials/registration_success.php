@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require 'partials/head.php';
-    require 'partials/database.php';
+    require 'head.php';
+    require 'database.php';
 ?>
 
 <!--LOGIN FORM-->
