@@ -27,6 +27,14 @@ foreach($posts as $blogposts){
             
 } 
 ?>
+
+
+
+<!--
+            <button type="submit" value="Redigera" name="edit">
+                Redigera
+            </button>
+-->
         </form>
 
 
