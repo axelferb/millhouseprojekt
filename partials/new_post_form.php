@@ -17,9 +17,16 @@
       <input type="text" name="post_title" class="form-control">
     </div>
    
+<!--
     <div class="form-group">
       <label for="new_post"> Inlägg: </label>
       <input type="text-area" name="new_post" class="form-control">
+    </div>
+-->
+    
+    <div class="form-group">
+      <label for="new_post"> Inlägg: </label>
+    <textarea name="new_post" id="editor"></textarea>
     </div>
     
     <div class="form-group">
@@ -28,3 +35,13 @@
     
   </form>
 </div>
+
+
+<!--    Detta script är till wysiwyg editorn:-->
+    <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

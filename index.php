@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
 require 'head.php';
 require 'partials/database.php';
@@ -8,7 +9,6 @@ require 'partials/functions.php';
 $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
 $statement->execute();
 $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
-    
 ?>
 
     <body>
@@ -73,13 +73,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     <?php
-
                 require 'index_login.php';
-            
-            ?>
-
-                        <?php
-
                 if (isset($_POST['Klockor'])) {
                     handleCategories($_POST["Klockor"], 5);
                 }

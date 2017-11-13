@@ -10,6 +10,6 @@
       VALUES (:new_post, :post_title)");
 
     $statement->execute(array(
-      ":new_post" => new_post,
+      ":new_post" => $new_post,
       ":post_title" => $post_title
     )); 
