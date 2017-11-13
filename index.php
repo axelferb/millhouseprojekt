@@ -12,17 +12,21 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 ?>
   
 <body>
+
+  <!-- NAVIGATION -->
   <?php
   require 'nav.php';
   ?>
   
+  <!-- HERO IMAGE -->
   <div class="jumbotron">
-    <h1>HEROIMAGE</h1>
+    <h1>[ HEROIMAGE ]</h1>
   </div>
   
 <div class="container">
 
   <div class="row">
+  
     <div class="col-xs-12 col-md-8">
       <h1>Våra blogginlägg</h1>
       <hr>
@@ -56,21 +60,27 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     }
     ?>
 
-  </div>
-  <!-- END DIV-ROW -->
+  </div>  <!-- END DIV-ROW -->
+
   
   <div class="row">
     <div class="col-xs-12">
       <hr>
       <p style="text-align:center;"><i class="fa fa-3x fa-chevron-circle-left" aria-hidden="true"></i> button previous | button next <i class="fa fa-3x fa-chevron-circle-right" aria-hidden="true"></i></p>
     </div>
-  </div> 
-  <!-- END DIV-ROW -->
+  </div>   <!-- END DIV-ROW -->
+
   
-</div>
-<!-- END DIV-CONTAINER -->
-  
-<!-- GONNA FIGURE THIS OUT -->
+</div> <!-- END DIV-CONTAINER -->
+
+  <?php
+  require "footer.php";
+  ?>
+
+</body>
+</html>
+
+<!-- SHOW "CATEGORY" as DROPDOWN MIGHT USE LATER
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Välj kategori
     <span class="caret"></span>
@@ -84,10 +94,4 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </form>
   </ul>
 </div>
-
-  <?php
-  require "footer.php";
-  ?>
-
-</body>
-</html>
+-->
