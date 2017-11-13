@@ -19,6 +19,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     </div>
     <div class="container">
         <div class="row">
+<<<<<<< HEAD
             <div class="col-xs-12 col-md-8">
             <h1>Våra blogginlägg</h1>
             <hr>
@@ -71,6 +72,24 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
         <br><br>
         <hr>
         <p style="text-align:center;">button previous | button next</p>
+=======
+        <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Välj kategori
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <form action="index.php" method="POST">
+    <li><input type="submit" name="Klockor" value="Klockor"></li>
+    <li><input type="submit" name="Glasögon" value="Glasögon"></li>
+    <li><input type="submit" name="Inredning" value="Inredning"></li>
+    <li><input type="submit" name="all" value="allt"></li>
+    </form>
+    </ul>
+    </div>
+    <?php
+        require 'index_login.php';
+    ?>
+    </div>
+>>>>>>> master
     </div>
     <?php
     include "footer.php";
