@@ -20,36 +20,39 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         echo "Din registrering misslyckades då du inte fyllt i alla fält.";
     }
 ?>
-    <div class="hidden-xs col-md-4">
-         <?php
+
+    <div class="index_login hidden-xs hidden-sm col-md-4">
+        <h1 style="text-align:center;">Logga in</h1>
+        <hr>
+    </div>
+    <div class="hidden-xs hidden-sm col-md-4 index-login">
+        <?php
             if(isset($_SESSION["user"])){
                 echo "<h1 class='text-center'>Välkommen:<br/>" . 
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
             ?>
-                <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
+            <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
             <?php
             }
                 else{
             ?>
-        <form action="partials/login.php" method="POST">
-        
-         <div class="form-group">
-           <label for="username"> Username </label>
-           <input type="text" name="username" class="form-control">
-         </div>
-         
-         <div class="form-group">
-           <label for="password"> Password </label>
-           <input type="password" name="password" class="form-control">
-         </div>
-         
-         <div class="form-group">
-           <input type="submit" value="Logga in" class="btn btn-primary">
-         </div>
-         </div>
-                <?php
+
+                <form action="partials/login.php" method="POST">
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Användarnamn" name="username" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" placeholder="Lösenord" name="password" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Logga in" class="btn btn-primary">
+                    </div>
+    <?php
             }
          ?>
-       </form>
-</div>
+        </div>
+        </form>

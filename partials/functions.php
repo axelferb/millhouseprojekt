@@ -57,7 +57,7 @@ function handleCategories($category, $amount) {
         if($i == 0){    
 ?>
             <div class='col-xs-12 col-md-8'>
-                        
+                
                 <div class="profilbild-big"></div>
                 <h2> <?php echo $list["title"]; ?> </h2>
                 <p> <?php echo $list["post"]; ?> </p>

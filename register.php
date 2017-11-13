@@ -1,5 +1,5 @@
 <?php
-    require 'database.php';
+    require 'partials/database.php';
 
 //FUNGERANDE FÖR username och password:
 
@@ -44,7 +44,7 @@ if((!empty($_POST["username"])) && (!empty($_POST["password"])) && (!empty($_POS
       ":lastname" => $lastname
     )); 
 
-    header("Location: register_success.php");
+    header("Location: partials/registration_success.php");
     
 } else {
     header("Location: ../registration_login_form.php?registration_error=true");
