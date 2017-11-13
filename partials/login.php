@@ -19,7 +19,7 @@ if( password_verify($password, $fetched_user["password"]) ){
   $_SESSION["loggedIn"] = true;
 
 
-  header("Location: ../registration_login_form.php?success=true&log_out=true");
+  header("Location: ../index.php?success=true&log_out=true");
 
 } else {
 

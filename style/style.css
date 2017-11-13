@@ -1,6 +1,5 @@
 body {
-    background-color: #d3d3d3;
-    font-family: 'Anton', sans-serif;    
+    background-color: #dbdbdb;    
 }
 
 .navbar-inverse .navbar-nav li a {
@@ -19,9 +18,13 @@ body {
     background-color: #1c3144;
     color: white;
     text-align: center;
+    margin-bottom: 0px;
 }
 /* DIVERSE MARGINALER*/
-
+.row {
+    padding-top: 15px;
+    max-width: 960px;
+}
 /**/
 /* KNAPPAR */
 /**/
@@ -36,34 +39,79 @@ body {
 .navbar-inverse .navbar-collapse {
     border-color: #d0e6ff;
 }
-.profilbild {
-    height: 100px;
-    width: 100px;
-    background-color: #ffffff;
+.profilbild-big {
+    margin: 15px 0 15px 0;
+    height: 280px;
+    width: 600px;
+    background-color: #000000;
+    text-align: center;
+} 
+
+.profilbild-small {
+    margin: 15px 0 15px 0;
+    height: 200px;
+    width: 450px;
+    background-color: #000000;
     text-align: center;
 } 
 /**/
 
-h1, h2 {
-    color: white;
-    background-color: #1c3144;
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #1c3145;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    color: #1c3145;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: 'Raleway', sans-serif;
+    color: #1c3145;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.author {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.8em;
+    color: #1c3145;
+    text-transform: uppercase;
+}
+
+hr {
+    margin: 5px 0 15px 0;
+    height: 5px;
+    background-color: #1c3145;
+    border: 0px;
+}
+
+.filter {
+    display: inline;
 }
 
 .text-center{
-    text-align:center;
+    text-align: center;
 }
 
 .antal_posts, .antal_kommentarer {
     background: #4f4f4f;
     color: white;
     text-align:center;   
-}
-
-.posts p, .kommentarer p, .info_profile p{
-   background: #4f4f4f;
-    color: white;
-    box-sizing: border-box;
-    border: 1px solid black; 
 }
 
 .index-login {
@@ -75,26 +123,47 @@ h1, h2 {
     background-color: #1c3144;
 }
 
-  .container {
-    background-color: #a8a8a8;
+.container {
+    background-color: #FFFFFF;
 }
 
 .text-center {
     text-align: center;
 }
 
-.footer-padding {
-    padding-top: 100px;
+footer {
+    width: 100%;
+    background: #1c3145;
+    color: #FFFFFF;
 }
+
+footer h2 {
+    color: #FFFFFF;
+    font-size: 1.5em;
+}
+
+footer h3 {
+    color: #FFFFFF;
+    font-size: 1.2em;
+}
+
+
+footer .col-sm-4 {
+}
+
+footer .row {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 
 /* För desktop profil*/
 @media screen and (min-width: 800px){
     
 .container{
-    max-width: 70%;
-    height: 100%;
+    max-width: 960px;
+    padding: 15px;
     margin: 0px auto;
-    background-color: #a8a8a8;
 }
     
 }/* Media stängs! */
