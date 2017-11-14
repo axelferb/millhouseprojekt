@@ -1,7 +1,8 @@
 <?php
     session_start();
-    require 'partials/head.php';
+    require 'head.php';
     require 'partials/database.php';
+    require 'nav.php';
 
 
 // OM INLOGGNING SKETT FÖR ÖVER 10 MIN (10 * 60 sekunder = 600) SEDAN SKER AUTOMATISKT UTLOGGNING:
@@ -20,8 +21,8 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
                     "</h1>";
                 
                     ?>
-                    <a href="partials/log_out.php">Logga ut</a>
-                    <?php   
+	<a href="partials/log_out.php">Logga ut</a>
+	<?php   
             }     
 }
 
@@ -56,6 +57,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     
 
 ?>
+
 
 
 <!--REGISTER FORM-->
