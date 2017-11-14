@@ -128,4 +128,4 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
     
-<?php require 'partials/footer.php'; ?>
+<?php require 'footer.php'; ?>
