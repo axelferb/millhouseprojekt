@@ -34,8 +34,6 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
             ?>
                 <a class="btn button-green btn-lg btn-block" href="partials/log_out.php">Logga ut</a>
 
-                <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
-
                 <?php
             }
                 else{
