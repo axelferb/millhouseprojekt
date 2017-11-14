@@ -23,10 +23,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     <div class="index_login hidden-xs hidden-sm col-md-4">
         <h1 style="text-align:center;">LOGGA IN</h1>
         <hr>
-    <div class="hidden-xs hidden-sm col-md-4 index_login">
-        <h1 style="text-align:center;">Logga in</h1>
     </div>
-
     <div class="hidden-xs hidden-sm col-md-4 login-wrap">
     <div class="login-field">
         <?php
