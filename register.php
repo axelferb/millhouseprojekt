@@ -22,9 +22,9 @@ $emailStatement->execute();
 if($usernameStatement->rowCount() > 0){
     header("Location: ../registration_login_form.php?username_already_taken=true");
     
-}elseif($emailStatement->rowCount('email') > 0){
+}elseif($emailStatement->rowCount() > 0){
     header("Location: ../registration_login_form.php?email_already_taken=true");
-
+    
 }elseif   ((!empty($_POST["username"]))
             && (!empty($_POST["password"]))
             && (!empty($_POST["email"])) 
