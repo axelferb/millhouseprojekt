@@ -1,7 +1,8 @@
 <?php
     session_start();
-    require 'partials/head.php';
+    require 'head.php';
     require 'partials/database.php';
+    require 'nav.php';
 
 
 // OM INLOGGNING SKETT FÖR ÖVER 10 MIN (10 * 60 sekunder = 600) SEDAN SKER AUTOMATISKT UTLOGGNING:
@@ -20,28 +21,50 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
                     "</h1>";
                 
                     ?>
-                    <a href="partials/log_out.php">Logga ut</a>
-                    <?php   
+	<a href="partials/log_out.php">Logga ut</a>
+	<?php   
             }     
 }
 
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
+
+
+
   
 // OM MAN ÅTERVÄNDER TILL INDEX EFTER ETT MISSLYCKAT REGISRERINGSFÖRSÖK:
-    if(isset($_GET["registration_error"])){
-        echo "Din registrering misslyckades då du inte fyllt i alla fält.";
-    }
+    if(isset($_GET["registration_error"])){ ?>
+        <div class="alert alert-danger">
+          <p>Din registrering misslyckades då du inte fyllt i alla fält.</p>
+        </div>
+    <?PHP }
+
+    if(isset($_GET["username_already_taken"])){?>
+        <div class="alert alert-danger">
+          <p>Användarnamnet är upptaget, vänligen välj ett annat användarnamn</p>
+        </div>
+    <?PHP }
+
+   
+
+    if(isset($_GET["email_already_taken"])){?>
+        <div class="alert alert-danger">
+          <p>En användare är redan registrerad på den här mailadressen</p>
+        </div>
+    <?PHP }
+        
+    
 
 ?>
+
 
 
 <!--REGISTER FORM-->
 
 <div class="container mt-5">
   <h4>Register</h4>
-  <form action="partials/register.php" method="POST">
+  <form action="register.php" method="POST">
    
     <div class="form-group">
       <label for="username"> Username </label>
@@ -77,34 +100,4 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 <!--END OF REGISTER FORM-->
 
-
-
-<!--LOGIN FORM-->
-
-<div class="container mt-5">
-  <h4>Login</h4>
-  
-  <form action="partials/login.php" method="POST">
-   
-    <div class="form-group">
-      <label for="username"> Username </label>
-      <input type="text" name="username" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <label for="password"> Password </label>
-      <input type="password" name="password" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary">
-    </div>
-    
-  </form>
-</div>
-
-<!--END OF LOGIN FORM-->
-
-
-    
-<?php require 'partials/footer.php'; ?>
+<?php require 'footer.php'; ?>

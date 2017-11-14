@@ -1,31 +1,36 @@
 <?php
-    require 'database.php';
+    require 'partials/database.php';
 
-//FUNGERANDE FÖR username och password:
+// MAN SKA INTE KUNNA REGISTRERA FLERA ANVÄNDARE MED SAMMA USERNAME 
+$checkUsername = $_POST["username"];
 
-//if((!empty($_POST["username"])) && (!empty($_POST["password"]))){
-//
-//    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-//    $username = $_POST["username"];
-//
-//    $statement = $pdo->prepare("
-//      INSERT INTO users (username, password)
-//      VALUES (:username, :password)");
-//
-//    $statement->execute(array(
-//      ":username" => $username,
-//      ":password" => $password
-//    )); 
-//
-//    header("Location: ../registration_success.php");
-//    
-//} else {
-//    header("Location: ../index.php?registration_error=true");
-//    
-//}
+$usernameStatement = $pdo->prepare("SELECT username FROM users WHERE username = :name");
+$usernameStatement->bindParam(':name', $checkUsername);
+$usernameStatement->execute();
 
-if((!empty($_POST["username"])) && (!empty($_POST["password"])) && (!empty($_POST["email"])) && (!empty($_POST["firstname"])) && (!empty($_POST["lastname"]))){
+//SLUT USERNAME-KOLL
 
+// MAN SKA INTE KUNNA REGISTRERA SAMMA EMAIL FLER ÄN EN GÅNG 
+$checkEmail = $_POST["email"];
+
+$emailStatement = $pdo->prepare("SELECT email FROM users WHERE email = :email");
+$emailStatement->bindParam(':email', $checkEmail);
+$emailStatement->execute();
+
+// SLUT EMAIL-KOLL
+
+if($usernameStatement->rowCount() > 0){
+    header("Location: ../registration_login_form.php?username_already_taken=true");
+    
+}elseif($emailStatement->rowCount() > 0){
+    header("Location: ../registration_login_form.php?email_already_taken=true");
+    
+}elseif   ((!empty($_POST["username"]))
+            && (!empty($_POST["password"]))
+            && (!empty($_POST["email"])) 
+            && (!empty($_POST["firstname"]))
+            && (!empty($_POST["lastname"]))){
+    
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -44,9 +49,9 @@ if((!empty($_POST["username"])) && (!empty($_POST["password"])) && (!empty($_POS
       ":lastname" => $lastname
     )); 
 
-    header("Location: register_success.php");
+    header("Location: partials/registration_success.php");
     
-} else {
-    header("Location: ../registration_login_form.php?registration_error=true");
-    
+}else{
+        header("Location: ../registration_login_form.php?registration_error=true");
+
 }
