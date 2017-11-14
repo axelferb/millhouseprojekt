@@ -28,15 +28,32 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
+
+
+
   
 // OM MAN ÅTERVÄNDER TILL INDEX EFTER ETT MISSLYCKAT REGISRERINGSFÖRSÖK:
-    if(isset($_GET["registration_error"])){
-        echo "Din registrering misslyckades då du inte fyllt i alla fält.";
-    }
+    if(isset($_GET["registration_error"])){ ?>
+        <div class="alert alert-danger">
+          <p>Din registrering misslyckades då du inte fyllt i alla fält.</p>
+        </div>
+    <?PHP }
 
-    if(isset($_GET["username_already_taken"])){
-        echo "Användarnamnet är upptaget, vänligen välj ett annat användarnamn";
-    }
+    if(isset($_GET["username_already_taken"])){?>
+        <div class="alert alert-danger">
+          <p>Användarnamnet är upptaget, vänligen välj ett annat användarnamn</p>
+        </div>
+    <?PHP }
+
+   
+
+    if(isset($_GET["email_already_taken"])){?>
+        <div class="alert alert-danger">
+          <p>En användare är redan registrerad på den här mailadressen</p>
+        </div>
+    <?PHP }
+        
+    
 
 ?>
 
