@@ -54,7 +54,7 @@ $posttoedit = $_GET["posttoedit"];
    
     <div class="form-group">
       <label for="new_post"> Inlägg: </label>
-        <textarea type="text" name="new_post" value="<?= $poster["post"]; ?>" id="editor">
+        <textarea type="text" name="new_post" id="editor">
             <?= $poster["post"]; ?>
         </textarea>
     </div>
