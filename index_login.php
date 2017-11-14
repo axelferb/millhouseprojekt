@@ -25,44 +25,43 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         <hr>
     </div>
     <div class="hidden-xs hidden-sm col-md-4 login-wrap">
-    <div class="login-field">
-        <?php
+        <div class="login-field">
+            <?php
             if(isset($_SESSION["user"])){
                 echo "<h1 class='text-center white-text'>Välkommen:<br/>" . 
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
             ?>
-            <a class="btn button-green btn-lg btn-block" href="partials/log_out.php">Logga ut</a>
-            echo "<h1 class='text-center'>Välkommen:<br/>" . 
-            $_SESSION["user"]["username"] . 
-            "</h1>";   
-        ?>
-            <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
+                <a class="btn button-green btn-lg btn-block" href="partials/log_out.php">Logga ut</a>
 
-            <?php
+                <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
+
+                <?php
             }
                 else{
             ?>
 
-                <form class="index-form" action="partials/login.php" method="POST">
+                    <form class="index-form" action="partials/login.php" method="POST">
 
-                    <div class="form-group">
-                        <input type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
-                    </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
+                        </div>
 
-                    <div class="form-group">
-                        <input type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
-                    </div>
-                    <p>Har du inget konto?</p>
-                    <a href="registration_login_form.php"><h3>Registrera dig</h3></a>
-    <?php
+                        <div class="form-group">
+                            <input type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
+                        </div>
+                        <p>Har du inget konto?</p>
+                        <a href="registration_login_form.php">
+                            <h3>Registrera dig</h3>
+                        </a>
+                        <?php
             }
          ?>
         </div>
-        </div>
+    </div>
 
-        </form>
+    </form>
