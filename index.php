@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <?php
 require 'head.php';
 require 'partials/database.php';
@@ -10,8 +10,7 @@ $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
 $statement->execute();
 $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 ?>
-  
-<body>
+    <body>
 
   <!-- NAVIGATION -->
   <?php
@@ -38,29 +37,65 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
       <button class="btn btn-default" type="submit" name="all" value="Allt">Allt</button>
       </form>
     </div>
-
-    <!-- LOGIN FIELD -->
-    <?php
-    require 'index_login.php';
-    ?>
-
-    <!-- SHOW BLOGPOSTS -->
-    <?php
-    if (isset($_POST['Klockor'])) {
-    handleCategories($_POST["Klockor"], 5);
-    }
-    elseif (isset($_POST['Glasögon'])) {
-    handleCategories($_POST["Glasögon"], 5);
-    }
-    elseif (isset($_POST['Inredning'])) {
-    handleCategories($_POST["Inredning"], 5);
-    }
-    else {
-    allCatergories(5);
-    }
-    ?>
-
-  </div>  <!-- END DIV-ROW -->
+                        <div class="btn-group">
+                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                <span>
+                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                </span>
+                                KATEGORI
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" type="submit" name="all" value="Allt">Allt</a>
+                                </li>
+                                <li>
+                                    <a href="#" type="submit" name="Klockor" value="Klockor">Klockor</a>
+                                </li>
+                                <li>
+                                    <a href="#" type="submit" name="Glasögon" value="Glasögon">Glasögon</a>
+                                </li>
+                                <li>
+                                    <a href="#" type="submit" name="Inredning" value="Inredning">Inredning</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                <span>
+                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                </span>
+                                DATUM
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Klockor</a>
+                                </li>
+                                <li>
+                                    <a href="#">Glasögon</a>
+                                </li>
+                                <li>
+                                    <a href="#">Inredning</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php
+                require 'index_login.php';
+                if (isset($_POST['Klockor'])) {
+                    handleCategories($_POST["Klockor"], 5);
+                }
+                elseif (isset($_POST['Glasögon'])) {
+                    handleCategories($_POST["Glasögon"], 5);
+                }
+                elseif (isset($_POST['Inredning'])) {
+                    handleCategories($_POST["Inredning"], 5);
+                }
+                else {
+                    allCatergories(5);
+                }
+                ?>
+                </div>
+                </div>  <!-- END DIV-ROW -->
 
   
   <div class="row">
@@ -78,20 +113,4 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
   ?>
 
 </body>
-</html>
-
-<!-- SHOW "CATEGORY" as DROPDOWN MIGHT USE LATER
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Välj kategori
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <form action="index.php" method="POST">
-      <li><input type="submit" name="Klockor" value="Klockor"></li>
-      <li><input type="submit" name="Glasögon" value="Glasögon"></li>
-      <li><input type="submit" name="Inredning" value="Inredning"></li>
-      <li><input type="submit" name="all" value="allt"></li>
-    </form>
-  </ul>
-</div>
--->
+</html>  

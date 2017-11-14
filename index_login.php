@@ -20,7 +20,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         echo "Din registrering misslyckades då du inte fyllt i alla fält.";
     }
 ?>
-    
+    <div class="index_login hidden-xs hidden-sm col-md-4">
+        <h1 style="text-align:center;">LOGGA IN</h1>
+        <hr>
     <div class="hidden-xs hidden-sm col-md-4 index_login">
         <h1 style="text-align:center;">Logga in</h1>
     </div>
@@ -29,6 +31,11 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     <div class="login-field">
         <?php
             if(isset($_SESSION["user"])){
+                echo "<h1 class='text-center white-text'>Välkommen:<br/>" . 
+                $_SESSION["user"]["username"] . 
+                "</h1>";   
+            ?>
+            <a class="btn button-green btn-lg btn-block" href="partials/log_out.php">Logga ut</a>
             echo "<h1 class='text-center'>Välkommen:<br/>" . 
             $_SESSION["user"]["username"] . 
             "</h1>";   
@@ -52,10 +59,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     <br>
                     <div class="form-group">
                         <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
-                        <br>
                     </div>
                     <p>Har du inget konto?</p>
-                    <a href="#"><h3>Registrera dig</h3></a>
+                    <a href="registration_login_form.php"><h3>Registrera dig</h3></a>
     <?php
             }
          ?>
