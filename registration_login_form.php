@@ -34,6 +34,10 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         echo "Din registrering misslyckades då du inte fyllt i alla fält.";
     }
 
+    if(isset($_GET["username_already_taken"])){
+        echo "Användarnamnet är upptaget, vänligen välj ett annat användarnamn";
+    }
+
 ?>
 	<?php
 	require 'nav.php';

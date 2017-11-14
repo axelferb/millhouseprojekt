@@ -1,67 +1,104 @@
 body {
-    background-color: #dbdbdb;    
+    background-color: #dbdbdb; 
+    margin: 0 auto;   
 }
 
-.navbar-inverse .navbar-nav li a {
-    color: black;
-}
-.navbar-inverse .navbar-brand {
-    color: black;
-}
-.navbar {
-    border-radius: 0;
-    background-color: #d0e6ff;
-    border: 0;
-    margin-bottom: 0px;
-}
+
 .jumbotron {
-    background-color: #1c3144;
+    background: black;
     color: white;
     text-align: center;
     margin-bottom: 0px;
+    height: 280px;
 }
-/* DIVERSE MARGINALER*/
-.row {
-    padding-top: 15px;
-    max-width: 960px;
-}
-/**/
+
 /* INDEX LOGINFORM STYLING */
-.index-login form {
-    margin-top: 15px;
+
+.login-field form {
+    margin-top: 20px;
     text-align: center;
     color: white;
 }
+
 
 .white-text {
     color: #fafafa;
 }
 
 .index-login h3 {
+.login-field .form-group{
+    margin: 2px;
+    color: white;   
+}
+
+.form-control {
+    border-radius: 2px;
+}
+
+.btn {
+    border-radius: 2px;
+}
+
+.login-wrap {
+    padding-right: 15px;
+}
+
+.login-field {
+    background: #1c3144;
+    padding: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    min-height: 300px;
+}
+
+.login-field p {
+    margin-bottom: 4px;
+    color: #FFFFFF;
+}
+
+.login-field h3 {
     text-align: center;
     color: white;
     text-decoration: underline;
-}
-
-.index-login {
-    background-color: #1c3144;
+    margin-top: 0px;
 }
 
 input {
     font-family: FontAwesome;
+    font-size: 1.5em;
 }
+
 /**/
 /*Navbar styling*/
+
+.navbar-inverse .navbar-nav li a {
+    color: #FFFFFF;
+}
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
+.navbar {
+    border-radius: 0;
+    background-color: #1c3144;
+    border: 0;
+    margin-bottom: 0px;
+    color: #FFFFFF;
+}
+
 .navbar-toggle {
     border: #d0e6ff;
 }
+
 .navbar-toggle:hover {
     border: #333;
     color: #d0e6ff;
 }
+
 .navbar-inverse .navbar-collapse {
-    border-color: #d0e6ff;
+    border-color: black;
 }
+
+
 .profilbild-big {
     margin: 15px 0 0 0;
     height: 280px;
@@ -101,11 +138,11 @@ h3 {
     text-transform: uppercase;
 }
 
-
 p {
     font-family: 'EB Garamond', serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 600;
+    color: #606060;
 }
 
 .author {
@@ -151,16 +188,19 @@ hr {
     text-align: center;
 }
 
+/* FOOTER */
+
 footer {
     width: 100%;
     background: #1c3145;
     color: #FFFFFF;
     min-height: 200px;
+    padding-bottom: 40px;
 }
 
 footer h2 {
     color: #FFFFFF;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 
 footer h3 {
@@ -168,48 +208,82 @@ footer h3 {
     font-size: 1.2em;
 }
 
+footer li{
+    list-style: none;
+    font-size: 1.2em;
+    color: #FFFFFF;
+}
+
+footer a{
+    color: lightgrey;
+}
+
+footer a:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer p {
+    color: lightgrey;
+}
+footer .fa {
+    margin-right: 10px;
+}
 footer .row {
     max-width: 960px;
     margin: 0 auto;
 }
+
+.copyright {
+    background: #102030;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px;
+}
+.copyright p {
+    color: #324d67;
+    margin: 5px 0 5px 0;
+}
+
 /* FÄRG/KATEGORISTYLING */
 .klocka {
-    height: 15px;
+    height: 7px;
     width: 450px;
     background-color: #48843a;
 }
 
 .klocka-big {
-    height: 15px;
+    height: 7px;
     width: 600px;
     background-color: #48843a;
 }
 
 .glasögon {
-    height: 15px;
+    height: 7px;
     width: 450px;
     background-color: #d28a00;
 }
 
 .glasögon-big {
-    height: 15px;
+    height: 7px;
     width: 600px;
     background-color: #d28a00;
 }
 
 .inredning {
-    height: 15px;
+    height: 7px;
     width: 450px;
     background-color: #3e50bc;
 }
 
 .inredning-big {
-    height: 15px;
+    height: 7px;
     width: 600px;
     background-color: #3e50bc;
 }
 /**/
 /*  KNAPPAR */
+
 .button-blue {
     color: white;
     background-color: #3e50bc;
@@ -234,16 +308,21 @@ footer .row {
 }
 
 /* För desktop profil*/
-@media screen and (min-width: 800px){
-/* MARGINAL FÖR ATT FÅ FÖRSTA INLÄGGET ATT "FLYTA UPP"    
+@media screen and (min-width: 768px){
+
+/* MARGINAL FÖR ATT FÅ FÖRSTA INLÄGGET ATT "FLYTTA UPP"    
 .minusmargin {
+
     margin-top: -100px;
 }
 */
+
 .container{
     max-width: 960px;
-    padding: 15px;
+    padding: 20px;
     margin: 0px auto;
+    padding-bottom: 40px;
 }
+
     
 }/* Media stängs! */
