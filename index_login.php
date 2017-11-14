@@ -22,17 +22,17 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
 
     <div class="index_login hidden-xs hidden-sm col-md-4">
-        <h1 style="text-align:center;">Logga in</h1>
+        <h1 style="text-align:center;">LOGGA IN</h1>
         <hr>
     </div>
     <div class="hidden-xs hidden-sm col-md-4 index-login">
         <?php
             if(isset($_SESSION["user"])){
-                echo "<h1 class='text-center'>Välkommen:<br/>" . 
+                echo "<h1 class='text-center white-text'>Välkommen:<br/>" . 
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
             ?>
-            <a class="btn btn-primary" href="partials/log_out.php">Logga ut</a>
+            <a class="btn button-green btn-lg btn-block" href="partials/log_out.php">Logga ut</a>
             <?php
             }
                 else{
@@ -49,10 +49,10 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Logga in" class="btn button-green btn-lg btn-block">
+                        <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
                     </div>
                     <p>Har du inget konto?</p>
-                    <a href="#"><h3>Registrera dig</h3></a>
+                    <a href="registration_login_form.php"><h3>Registrera dig</h3></a>
     <?php
             }
          ?>

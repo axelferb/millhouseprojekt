@@ -33,6 +33,10 @@ body {
     color: white;
 }
 
+.white-text {
+    color: #fafafa;
+}
+
 .index-login h3 {
     text-align: center;
     color: white;

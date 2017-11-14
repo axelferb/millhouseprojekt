@@ -20,8 +20,8 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
                     "</h1>";
                 
                     ?>
-                    <a href="partials/log_out.php">Logga ut</a>
-                    <?php   
+	<a href="partials/log_out.php">Logga ut</a>
+	<?php   
             }     
 }
 
@@ -35,76 +35,74 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     }
 
 ?>
+	<?php
+	require 'nav.php';
+?>
+		<!--REGISTER FORM-->
+		<div class="container">
+			<div class="col-xs-12 col-sm-8">
+				<h1>
+					Registrera ny användare
+				</h1>
+				<hr>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<h1>
+					Logga in
+				</h1>
+				<hr>
+			</div>
+			<div class="col-xs-12 col-sm-8">
+				<form action="register.php" method="POST">
+					<div class="form-group">
+						<label for="username">Användarnamn: </label>
+						<input type="text" name="username" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="password">Lösenord: </label>
+						<input type="password" name="password" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="email">Epost: </label>
+						<input type="email" name="email" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="firstname">Förnamn: </label>
+						<input type="text" name="firstname" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="lastname">Efternamn: </label>
+						<input type="text" name="lastname" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Registrera" class="btn btn-primary">
+					</div>
+				</form>
+			</div>
+			<!--END OF REGISTER FORM-->
 
 
-<!--REGISTER FORM-->
 
-<div class="container mt-5">
-  <h4>Register</h4>
-  <form action="register.php" method="POST">
-   
-    <div class="form-group">
-      <label for="username"> Username </label>
-      <input type="text" name="username" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <label for="password"> Password </label>
-      <input type="password" name="password" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <label for="email"> Email </label>
-      <input type="email" name="email" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <label for="firstname"> First name </label>
-      <input type="text" name="firstname" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <label for="lastname"> Last name </label>
-      <input type="text" name="lastname" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary">
-    </div>
-    
-  </form>
-</div>
+			<!--LOGIN FORM-->
+			<div class="col-xs-12 col-sm-4">
+				<form action="partials/login.php" method="POST">
+					<div class="form-group">
+						<label for="username"> Username </label>
+						<input type="text" name="username" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="password"> Password </label>
+						<input type="password" name="password" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary">
+					</div>
+				</form>
+			</div>
+		</div>
 
-<!--END OF REGISTER FORM-->
+		<!--END OF LOGIN FORM-->
 
 
 
-<!--LOGIN FORM-->
-
-<div class="container mt-5">
-  <h4>Login</h4>
-  
-  <form action="partials/login.php" method="POST">
-   
-    <div class="form-group">
-      <label for="username"> Username </label>
-      <input type="text" name="username" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <label for="password"> Password </label>
-      <input type="password" name="password" class="form-control">
-    </div>
-    
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary">
-    </div>
-    
-  </form>
-</div>
-
-<!--END OF LOGIN FORM-->
-
-
-    
-<?php require 'footer.php'; ?>
+		<?php require 'footer.php'; ?>
