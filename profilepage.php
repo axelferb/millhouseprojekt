@@ -2,7 +2,7 @@
     session_start();
     require 'head.php';
     require 'partials/database.php';
-    require 'nav.php';
+
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
         // last request was more than 30 minutes ago
         session_unset();     // unset $_SESSION variable for the run-time 
@@ -26,6 +26,25 @@
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     
 ?>
+
+<body>
+    <?php
+    require 'nav.php';
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+            
+            
+            
+            <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
+    
+
+
+            </div>  
+        </div>
+    </div> <!-- END DIV / CONTAINER -->
+    
 
 <?php
     include 'footer.php';
