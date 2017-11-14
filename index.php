@@ -30,55 +30,49 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
       <h1>Våra blogginlägg</h1>
       <hr>
       <span class="filter">Filtrera efter:</span>
-      <form action="index.php" method="POST" class="filter">
-      <button class="btn button-green" type="submit" name="Klockor" value="Klockor">Klockor</button>
-      <button class="btn button-orange" type="submit" name="Glasögon" value="Glasögon">Glasögon</button>
-      <button class="btn button-blue" type="submit" name="Inredning" value="Inredning">Inredning</button>
-      <button class="btn btn-default" type="submit" name="all" value="Allt">Allt</button>
-      </form>
+      <div class="btn-group">
+            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                </span>
+                KATEGORI
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="#" type="submit" name="all" value="Allt">Allt</a>
+                </li>
+                <li>
+                    <a href="#" type="submit" name="Klockor" value="Klockor">Klockor</a>
+                </li>
+                <li>
+                    <a href="#" type="submit" name="Glasögon" value="Glasögon">Glasögon</a>
+                </li>
+                <li>
+                    <a href="#" type="submit" name="Inredning" value="Inredning">Inredning</a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                <span>
+                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                </span>
+                DATUM
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="#">Klockor</a>
+                </li>
+                <li>
+                    <a href="#">Glasögon</a>
+                </li>
+                <li>
+                    <a href="#">Inredning</a>
+                </li>
+            </ul>
+        </div>
     </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                <span>
-                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                </span>
-                                KATEGORI
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="#" type="submit" name="all" value="Allt">Allt</a>
-                                </li>
-                                <li>
-                                    <a href="#" type="submit" name="Klockor" value="Klockor">Klockor</a>
-                                </li>
-                                <li>
-                                    <a href="#" type="submit" name="Glasögon" value="Glasögon">Glasögon</a>
-                                </li>
-                                <li>
-                                    <a href="#" type="submit" name="Inredning" value="Inredning">Inredning</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                <span>
-                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                </span>
-                                DATUM
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="#">Klockor</a>
-                                </li>
-                                <li>
-                                    <a href="#">Glasögon</a>
-                                </li>
-                                <li>
-                                    <a href="#">Inredning</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            
                     <?php
                 require 'index_login.php';
                 if (isset($_POST['Klockor'])) {
@@ -94,7 +88,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     allCatergories(5);
                 }
                 ?>
-                </div>
                 </div>  <!-- END DIV-ROW -->
 
   
