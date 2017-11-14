@@ -1,22 +1,36 @@
 <?php
     require 'partials/database.php';
 
+// MAN SKA INTE KUNNA REGISTRERA FLERA ANVÄNDARE MED SAMMA USERNAME 
 $checkUsername = $_POST["username"];
 
-$statement = $pdo->prepare("SELECT username FROM users WHERE username = :name");
-$statement->bindParam(':name', $checkUsername);
-$statement->execute();
+$usernameStatement = $pdo->prepare("SELECT username FROM users WHERE username = :name");
+$usernameStatement->bindParam(':name', $checkUsername);
+$usernameStatement->execute();
 
-if($statement->rowCount() > 0){
+//SLUT USERNAME-KOLL
+
+// MAN SKA INTE KUNNA REGISTRERA SAMMA EMAIL FLER ÄN EN GÅNG 
+$checkEmail = $_POST["email"];
+
+$emailStatement = $pdo->prepare("SELECT email FROM users WHERE email = :email");
+$emailStatement->bindParam(':email', $checkEmail);
+$emailStatement->execute();
+
+// SLUT EMAIL-KOLL
+
+if($usernameStatement->rowCount() > 0){
     header("Location: ../registration_login_form.php?username_already_taken=true");
-    }elseif   ((!empty($_POST["username"]))
+    
+}elseif($emailStatement->rowCount('email') > 0){
+    header("Location: ../registration_login_form.php?email_already_taken=true");
+
+}elseif   ((!empty($_POST["username"]))
             && (!empty($_POST["password"]))
             && (!empty($_POST["email"])) 
             && (!empty($_POST["firstname"]))
             && (!empty($_POST["lastname"]))){
     
-    
-
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -38,6 +52,6 @@ if($statement->rowCount() > 0){
     header("Location: partials/registration_success.php");
     
 }else{
-    header("Location: ../registration_login_form.php?registration_error=true");
-    
+        header("Location: ../registration_login_form.php?registration_error=true");
+
 }
