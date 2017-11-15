@@ -64,7 +64,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 <div class="container mt-5">
   <h4>Register</h4>
-  <form action="register.php" method="POST">
+  <form action="partials/register.php" method="POST">
    
     <div class="form-group">
       <label for="username"> Username </label>
