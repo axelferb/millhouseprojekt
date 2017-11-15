@@ -15,7 +15,8 @@ body {
 /* INDEX LOGINFORM STYLING */
 
 .login-field form {
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-bottom: 20px;
     text-align: center;
     color: white;
 }
