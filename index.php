@@ -32,8 +32,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     <h1>Våra blogginlägg</h1>
                     <hr>
                 </div>
-                <div class="col-xs-12">
-                </div>
+                <div class="row">
                 <?php
                 require 'index_login.php';
                     ?>
