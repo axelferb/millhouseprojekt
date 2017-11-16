@@ -5,11 +5,13 @@ body {
 
 
 .jumbotron {
-    background: black;
+    background: url("../img/headerimage.png");
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     text-align: center;
     margin-bottom: 0px;
-    height: 280px;
+    height: 370px;
 }
 
 /* INDEX LOGINFORM STYLING */
