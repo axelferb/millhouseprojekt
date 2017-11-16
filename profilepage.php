@@ -24,6 +24,23 @@
     }
     
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+
+// BELOW FETCHES 5 LATEST BLOGPOSTS
+    $user = $_SESSION["user"]["id"];
+    $statement = $pdo->prepare("
+    SELECT title 
+    FROM posts 
+    WHERE user = :user
+    ORDER BY date ASC
+    LIMIT 5
+    ");
+    $statement->execute(array(
+    ":user" => $user
+    )); 
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+  
+?>
     
 ?>
 
@@ -88,11 +105,13 @@
             </div>
             <div class="col-xs-12">
                     <div class="posts">
-                    <p>Inlägg 1</p>
-                    <p>Inlägg 2</p>
-                    <p>Inlägg 3</p>
-                    <p>Inlägg 4</p>
-                    <p>Inlägg 5</p>
+                    
+                <?php                
+                foreach($posts as $blogposts){   
+                    echo $blogposts["title"] . '<br>';
+                }
+                ?>
+                   
                     </div>
             </div>
                 
