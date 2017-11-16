@@ -13,7 +13,7 @@
         <ul class="nav navbar-nav">
             <li> <a href="index.php">HEM</a> </li>
             <li> <a href="blog.php">BLOG</a> </li>
-            <li> <a href="#">OM OSS</a> </li>
+            <li> <a href="om_oss.php">OM OSS</a> </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
