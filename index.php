@@ -20,7 +20,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 
             <!-- HERO IMAGE -->
             <div class="jumbotron">
-                <h1>[ HEROIMAGE ]</h1>
             </div>
             <div class="container">
                 <div class="row">
