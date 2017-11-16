@@ -1,6 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
+session_start();
+
+//<!DOCTYPE html>
+//<html lang="en">
+
+
 require 'head.php';
 require 'partials/database.php';
 require 'partials/functions.php';       
@@ -24,6 +28,10 @@ require 'partials/functions.php';
   <h4>Nytt inlägg:</h4>
   
   <form action="partials/new_post.php" method="POST">
+  
+    <div class="form-group">
+      <input type="hidden" name="user" value="<?= $_SESSION["user"]["id"]; ?> " class="form-control">
+    </div>
   
     <div class="form-group">
       <label for="post_title"> Rubrik: </label>
