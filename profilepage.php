@@ -40,12 +40,16 @@
                         <div class="col-md-8">
                 <div class="col-xs-12 ">
                     <h1 class="text-center">Profilsida 
-                    <?php echo $_SESSION["user"] ?>
-                    $username</h1>
+
+                    <?php echo $_SESSION["user"]["username"]; ?>
+                    </h1>
                 </div>
 
                 <div class="col-xs-4">
                     <div class="profilbild">IMG</div>
+
+                    <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
+
                </div>
                 <div class="col-xs-8">
                     <div class="info_profile">
@@ -59,7 +63,11 @@
             
             <div class="col-md-4">
                 <div class="col-xs-8">
-                    <h2>$username Statistik</h2>
+
+                    <h2>
+                    <?php echo $_SESSION["user"]["username"]; ?>
+                    Statistik</h2>
+
                 </div>
 
                 <div class="col-xs-6 col-md-12">
@@ -102,8 +110,6 @@
                 </div>
             
             
-            
-            <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
     
 
 
