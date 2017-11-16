@@ -37,6 +37,72 @@
             
             
             
+                        <div class="col-md-8">
+                <div class="col-xs-12 ">
+                    <h1 class="text-center">Profilsida 
+                    <?php echo $_SESSION["user"] ?>
+                    $username</h1>
+                </div>
+
+                <div class="col-xs-4">
+                    <div class="profilbild">IMG</div>
+               </div>
+                <div class="col-xs-8">
+                    <div class="info_profile">
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="col-xs-8">
+                    <h2>$username Statistik</h2>
+                </div>
+
+                <div class="col-xs-6 col-md-12">
+                    <div class="antal_posts">
+                    <p>Totalt antal inlägg</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-12">
+                    <div class="antal_kommentarer">
+                    <p>Totalt antal kommentarer</p>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class="col-xs-12">
+                <h1 class="text-center">Senaste 5 blogginlägg</h1>
+            </div>
+            <div class="col-xs-12">
+                    <div class="posts">
+                    <p>Inlägg 1</p>
+                    <p>Inlägg 2</p>
+                    <p>Inlägg 3</p>
+                    <p>Inlägg 4</p>
+                    <p>Inlägg 5</p>
+                    </div>
+            </div>
+                
+            <div class="col-xs-12">
+                <h1 class="text-center">Senaste 5 Kommentarer</h1>
+            </div>
+            <div class="col-xs-12">
+                    <div class="kommentarer">
+                    <p>Kommentar 1</p>
+                    <p>Kommentar 2</p>
+                    <p>Kommentar 3</p>
+                    <p>Kommentar 4</p>
+                    <p>Kommentar 5</p>
+                    </div>
+                </div>
+            
+            
+            
             <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
     
 

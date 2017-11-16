@@ -28,8 +28,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
             ?>
-                <a class="btn-default btn-lg btn-block" href="profile.php">Till Profilsida</a>
-                <a class="btn button-green btn-lg btn-block" href="#">Skriv inlägg</a><br>
+                <a class="btn-default btn-lg btn-block" href="profilepage.php">Till Profilsida</a>
+                <a class="btn button-green btn-lg btn-block" href="new_post_form.php">Skriv inlägg</a><br>
                 <a href="partials/log_out.php"><h3>Logga ut</h3></a>
 
                 <?php
