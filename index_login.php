@@ -51,7 +51,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
                         </div>
                         <p>Har du inget konto?</p>
-                        <a href="registration_login_form.php">
+                        <a href="register_form.php">
                             <h3>Registrera dig</h3>
                         </a>
                         <?php
