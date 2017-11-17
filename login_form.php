@@ -37,4 +37,4 @@
 </div>
 
 <!--END OF LOGIN FORM-->
-<?php require '../footer.php'; ?>
+<?php require 'footer.php'; ?>

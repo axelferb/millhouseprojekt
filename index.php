@@ -103,10 +103,15 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 <div class="row">
                     <div class="col-xs-12">
                         <hr>
+                            <p style="text-align:center;">
+                                <a href="blog.php">Läs alla inlägg här</a>
+                            </p>
+                        <!--- KNAPPAR SOM SKA ANVÄNDAS VID VG-KRITERIER
                         <p style="text-align:center;">
                             <i class="fa fa-3x fa-chevron-circle-left" aria-hidden="true"></i> button previous | button next
                             <i class="fa fa-3x fa-chevron-circle-right" aria-hidden="true"></i>
                         </p>
+                        -->
                     </div>
                     <!-- END DIV-ROW -->
                 </div>
