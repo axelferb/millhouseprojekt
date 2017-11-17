@@ -13,7 +13,7 @@ require 'partials/functions.php';
     ?>
 
             <div class="jumbotron">
-                <h1>[ HEROIMAGE ]</h1>
+                
             </div>
             <div class="container">
 
@@ -23,7 +23,18 @@ require 'partials/functions.php';
                     <div class="col-xs-12 col-md-12">
                         <h1>Millhouse</h1>
                         <p>
-                            massa text om millhouse
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis iure animi eos iste illo neque ut, laborum natus. Dolorem tempore nisi, odit iusto eaque accusantium aliquam illo praesentium blanditiis doloremque.
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis iure animi eos iste illo neque ut, laborum natus. Dolorem tempore nisi, odit iusto eaque accusantium aliquam illo praesentium blanditiis doloremque.
+                        </p> 
+                        
+                        <p>   
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id in laborum unde, ab ipsam magni commodi. Earum, incidunt facere delectus fugit ab autem sint eaque. Qui ipsa numquam iusto ratione!
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id in laborum unde, ab ipsam magni commodi. Earum, incidunt facere delectus fugit ab autem sint eaque. Qui ipsa numquam iusto ratione!
+                        </p>
+                        
+                        <p> 
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id in laborum unde, ab ipsam magni commodi. Earum, incidunt facere delectus fugit ab autem sint eaque. Qui ipsa numquam iusto ratione!
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id in laborum unde, ab ipsam magni commodi. Earum, incidunt facere delectus fugit ab autem sint eaque. Qui ipsa numquam iusto ratione!
                         </p>
                     </div>
                 </div>
