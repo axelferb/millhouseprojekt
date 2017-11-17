@@ -46,18 +46,20 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                     KATEGORI
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
+                                <form action="index.php" method="POST" class="filter">
                                     <li>
-                                        <a href="#" type="submit" name="all" value="Allt">Allt</a>
+                                        <input href="#" type="submit" name="all" value="Allt"></input>
                                     </li>
                                     <li>
-                                        <a href="#" type="submit" name="Klockor" value="Klockor">Klockor</a>
+                                        <input href="#" type="submit" name="Klockor" value="Klockor"></input>
                                     </li>
                                     <li>
-                                        <a href="#" type="submit" name="Glasögon" value="Glasögon">Glasögon</a>
+                                        <input href="#" type="submit" name="Glasögon" value="Glasögon"></input>
                                     </li>
                                     <li>
-                                        <a href="#" type="submit" name="Inredning" value="Inredning">Inredning</a>
+                                        <input href="#" type="submit" name="Inredning" value="Inredning"></input>
                                     </li>
+                                    </form>
                                 </ul>
                             </div>
                             <div class="btn-group">
