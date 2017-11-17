@@ -13,7 +13,7 @@ require 'partials/functions.php';
     ?>
 
             <div class="jumbotron">
-                <h1>[ HEROIMAGE ]</h1>
+                
             </div>
             <div class="container">
 
