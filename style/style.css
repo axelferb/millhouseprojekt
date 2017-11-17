@@ -5,18 +5,17 @@ body {
 
 
 .jumbotron {
-    background: black;
+    background: url("../img/headerimage.png");
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     text-align: center;
     margin-bottom: 0px;
-    height: 280px;
+    height: 370px;
 }
 
 /* INDEX LOGINFORM STYLING */
-
 .login-field form {
-    margin-top: 60px;
-    margin-bottom: 20px;
     text-align: center;
     color: white;
 }
@@ -48,7 +47,8 @@ body {
     padding: 15px;
     color: #FFFFFF;
     text-align: center;
-    min-height: 300px;
+    min-height: 287px;
+    margin-top: 15px;
 }
 
 .login-field p {
@@ -306,7 +306,10 @@ footer .row {
     font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
-
+/**/
+.right-align {
+    text-align: right;
+}
 /* För desktop profil*/
 @media screen and (min-width: 768px){
 

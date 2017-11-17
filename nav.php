@@ -16,10 +16,6 @@
             <li> <a href="om_oss.php">OM OSS</a> </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li> <a href="registration_login_form.php"> <i class="fa fa-user-plus" aria-hidden="true"> </i> REGISTRERA DIG</a> </li>
-            <li> <a href="login_form.php"> <i class="fa fa-sign-in" aria-hidden="true"></i> LOGGA IN</a> </li>
-        </ul>
 </div> <!-- END CONTAINER-FLUID -->
 
 </div>

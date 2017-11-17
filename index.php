@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +24,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 
             <!-- HERO IMAGE -->
             <div class="jumbotron">
-                <h1>[ HEROIMAGE ]</h1>
             </div>
             <div class="container">
                 <div class="row">
@@ -33,10 +36,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     <hr>
                 </div>
                 <div class="row">
-                    <?php
-                require 'index_login.php';
-                    ?>
-                        <div class="col-xs-12 col-md-8">
+                        <div class="col-xs-12 right-align">
                             <span class="filter">Filtrera efter:</span>
                             <div class="btn-group">
                                 <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
@@ -80,6 +80,9 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                 </ul>
                             </div>
                         </div>
+                        <?php
+                        require 'index_login.php';
+                            ?>
                         <?php
                 if (isset($_POST['Klockor'])) {
                     handleCategories($_POST["Klockor"], 5);

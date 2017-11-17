@@ -1,5 +1,5 @@
 <?php
-    session_start();
+//    session_start();
     require 'partials/database.php';
     // OM INLOGGNING SKETT FÖR ÖVER 10 MIN (10 * 60 sekunder = 600) SEDAN SKER AUTOMATISKT UTLOGGNING:
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
@@ -28,7 +28,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
             ?>
-                <a class="btn button-green btn-lg btn-block" href="partials/log_out.php">Logga ut</a>
+                <a class="btn-default btn-lg btn-block" href="profilepage.php">Till Profilsida</a>
+                <a class="btn button-green btn-lg btn-block" href="new_post_form.php">Skriv inlägg</a><br>
+                <a href="partials/log_out.php"><h3>Logga ut</h3></a>
 
                 <?php
             }
@@ -49,7 +51,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
                         </div>
                         <p>Har du inget konto?</p>
-                        <a href="registration_login_form.php">
+                        <a href="register_form.php">
                             <h3>Registrera dig</h3>
                         </a>
                         <?php

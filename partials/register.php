@@ -1,5 +1,5 @@
 <?php
-    require 'partials/database.php';
+    require 'database.php';
 
 // MAN SKA INTE KUNNA REGISTRERA FLERA ANVÄNDARE MED SAMMA USERNAME 
 $checkUsername = $_POST["username"];
@@ -20,10 +20,10 @@ $emailStatement->execute();
 // SLUT EMAIL-KOLL
 
 if($usernameStatement->rowCount() > 0){
-    header("Location: ../registration_login_form.php?username_already_taken=true");
+    header("Location: ../register_form.php?username_already_taken=true");
     
 }elseif($emailStatement->rowCount() > 0){
-    header("Location: ../registration_login_form.php?email_already_taken=true");
+    header("Location: ../register_form.php?email_already_taken=true");
     
 }elseif   ((!empty($_POST["username"]))
             && (!empty($_POST["password"]))
@@ -49,7 +49,7 @@ if($usernameStatement->rowCount() > 0){
       ":lastname" => $lastname
     )); 
 
-    header("Location: partials/registration_success.php");
+    header("Location: ../login_form.php?register_success=Grattis! Du är nu registrerad och kan logga in:");
     
 }else{
         header("Location: ../registration_login_form.php?registration_error=true");

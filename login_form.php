@@ -8,6 +8,13 @@
 <!--LOGIN FORM-->
 
 <div class="container mt-5">
+ <?php
+ if(isset($_GET["register_success"])){
+     echo $_GET["register_success"];
+ }
+ ?>
+ 
+ 
   <h4>Login</h4>
   
   <form action="partials/login.php" method="POST">
