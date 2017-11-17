@@ -70,13 +70,21 @@ input {
 
 /**/
 /*Navbar styling*/
+.blue-line {
+    height: 5px;
+    width: 100%;
+    background-color: #3e50bc
+}
 
 .navbar-inverse .navbar-nav li a {
     color: #FFFFFF;
+    text-align: center;
 }
+
 .navbar-inverse .navbar-brand {
     color: #FFFFFF;
 }
+
 .navbar {
     border-radius: 0;
     background-color: #1c3144;
@@ -102,7 +110,7 @@ input {
 .profilbild-big {
     margin: 15px 0 0 0;
     height: 280px;
-    width: 600px;
+    width: 100%;
     background-color: #000000;
     text-align: center;
 } 
@@ -110,7 +118,7 @@ input {
 .profilbild-small {
     margin: 15px 0 0 0;
     height: 200px;
-    width: 450px;
+    width: 100%;
     background-color: #000000;
     text-align: center;
 } 
@@ -155,7 +163,7 @@ p {
 
 hr {
     margin: 5px 0 15px 0;
-    height: 5px;
+    height: 2px;
     background-color: #1c3145;
     border: 0px;
 }
@@ -248,41 +256,44 @@ footer .row {
 /* FÄRG/KATEGORISTYLING */
 .klocka {
     height: 7px;
-    width: 450px;
+    width: 100%;
     background-color: #48843a;
 }
 
 .klocka-big {
     height: 7px;
-    width: 600px;
+    width: 100%;
     background-color: #48843a;
 }
 
 .glasögon {
     height: 7px;
-    width: 450px;
+    width: 100%;
     background-color: #d28a00;
 }
 
 .glasögon-big {
     height: 7px;
-    width: 600px;
+    width: 100%;
     background-color: #d28a00;
 }
 
 .inredning {
     height: 7px;
-    width: 450px;
+    width: 100%;
     background-color: #3e50bc;
 }
 
 .inredning-big {
     height: 7px;
-    width: 600px;
+    width: 100%;
     background-color: #3e50bc;
 }
 /**/
 /*  KNAPPAR */
+.btn-block {
+    border-radius: 0px;
+}
 
 .button-blue {
     color: white;
@@ -301,6 +312,7 @@ footer .row {
 
 .button-test {
     border-radius: 0px;
+    box-sizing: border-box;
     border: 2px solid black;
     background-color: #fafafa;
     font-family: 'Lato', sans-serif;

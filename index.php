@@ -25,15 +25,17 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
             <!-- HERO IMAGE -->
             <div class="jumbotron">
             </div>
+            <div class="blue-line"></div>
             <div class="container">
                 <div class="row">
                     <div class="index_login hidden-xs hidden-sm col-md-4">
                         <h1 style="text-align:center;">LOGGA IN</h1>
                         <hr>
                     </div>
-                    <div class="index_login hidden-xs hidden-sm col-md-8"></div>
+                    <div class="index_login hidden-xs hidden-sm col-md-8">
                     <h1>Våra blogginlägg</h1>
                     <hr>
+                </div>
                 </div>
                 <div class="row">
                         <div class="col-xs-12 right-align">
