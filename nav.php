@@ -5,10 +5,10 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+
             </button>
             <a class="navbar-brand" href="#">Millhouse</a>
         </div>
-
         <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li>

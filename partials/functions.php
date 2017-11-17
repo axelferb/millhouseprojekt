@@ -107,7 +107,6 @@ function handleCategories($category, $amount) {
                             <p>
                                 <?php echo $list["post"]; ?> </p>
                     </div>
-
                     <?php
         }
          else {
