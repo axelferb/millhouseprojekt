@@ -33,11 +33,14 @@ foreach($posts as $blogposts){
 ?>
       <form action="delete.php" method="POST">
             <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
-        
-            <?php
-            echo $blogposts["title"];
-            ?>
-          <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
+            
+                       
+                       
+            <a href="post.php?post=<?=$blogposts["id"];?>">
+                <?php echo $blogposts["title"]; ?>
+          </a>
+            
+          <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">| Redigera</a><br>
            <?php
 
 } 
