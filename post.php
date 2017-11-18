@@ -28,8 +28,22 @@ require 'partials/functions.php';
     ":post" => $post
     )); 
     $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
+    
+    // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING USER
+    // NOT WORKING YET!!!!!!!!!! :(
+    $statement3 = $pdo->prepare("
+    SELECT users.id, users.firstname, users.lastname, users.email, posts.user FROM posts 
+    INNER JOIN users 
+    ON users.id = posts.user
+    WHERE posts.id = :post
+    ");
+    $statement3->execute(array(
+    ":post" => $post
+    ));
+    $userinfo = $statement3->fetchAll(PDO::FETCH_ASSOC);
+    
+    var_dump($userinfo);  
 
-?>
 
 ?>
 
@@ -59,7 +73,17 @@ require 'partials/functions.php';
                 foreach($posts as $poster){
                     echo $poster["title"] . '<br />';
                     echo $poster["post"] . '<br />';
-                    echo $poster["date"];
+                    echo $poster["date"] . '<br />';
+                }
+                ?>
+                </div>
+                <div class="#" style="padding:20px">
+                   
+                <?php
+                foreach($userinfo as $info){
+                    echo $info["firstname"] . ' ';
+                    echo $info["lastname"] . ' ';
+                    echo $info["email"];
                 }
                 ?>
                 
@@ -67,13 +91,14 @@ require 'partials/functions.php';
                 
                 <div class="#" style="padding:20px">
                 
+                
                 <?php
                     foreach($comments as $kommentarer){ 
                         echo $kommentarer["comment"] . '<br>';
                         echo $kommentarer["date"] . '<br>';
                     }
                     
-                    ?>
+                ?>
                
                 </div>
                 
