@@ -26,8 +26,9 @@
 //    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
-// BELOW FETCHES 5 LATEST BLOGPOSTS
+
     $user = $_SESSION["user"]["id"];
+// BELOW FETCHES 5 LATEST BLOGPOSTS
     $statement = $pdo->prepare("
     SELECT title 
     FROM posts 
@@ -39,6 +40,19 @@
     ":user" => $user
     )); 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// BELOW FETCHES 5 LATEST COMMENTS
+    $statement2 = $pdo->prepare("
+    SELECT comment 
+    FROM comments
+    WHERE user = :user
+    ORDER BY date ASC
+    LIMIT 5
+    ");
+    $statement2->execute(array(
+    ":user" => $user
+    )); 
+    $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
   
     
 ?>
@@ -64,7 +78,7 @@
                 <div class="col-xs-4">
                     <div class="profilbild">IMG</div>
 
-                    <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
+                    <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a><br><br>
                     
                     <a href="list_single_users_posts.php">Visa alla inlägg och redigera eller ta bort</a>
 
@@ -120,13 +134,27 @@
                 <h1 class="text-center">Senaste 5 Kommentarer</h1>
             </div>
             <div class="col-xs-12">
-                    <div class="kommentarer">
+                   
+                    <div class="comments">
+                    
+                <?php                
+                foreach($comments as $blogcomments){   
+                    echo $blogcomments["comment"] . '<br>';
+                }
+                ?>
+                   
+                    </div>
+<!--
+                    
+                <div class="kommentarer">
                     <p>Kommentar 1</p>
                     <p>Kommentar 2</p>
                     <p>Kommentar 3</p>
                     <p>Kommentar 4</p>
                     <p>Kommentar 5</p>
                     </div>
+-->
+                    
                 </div>
             
             

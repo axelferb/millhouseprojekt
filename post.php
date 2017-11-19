@@ -114,6 +114,9 @@ require 'partials/functions.php';
 
                     <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
                         <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
+                        
+                    <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
+                        <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
 
                         <div class="form-group">
                           <input type="submit" name="knapp" class="btn btn-primary">
