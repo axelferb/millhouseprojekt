@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -5,11 +8,18 @@ require 'head.php';
 require 'partials/database.php';
 require 'partials/functions.php'; 
     
+    $user = $_SESSION["user"]["id"];
+    
     $statement = $pdo->prepare("
-      SELECT id, title FROM posts WHERE user = 4 ORDER BY date ASC"
+      SELECT id, title 
+      FROM posts 
+      WHERE user = :user 
+      ORDER BY date ASC"
     );
 
-    $statement->execute(); 
+    $statement->execute(array(
+    ":user" => $user
+    )); 
 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
@@ -25,13 +35,13 @@ require 'partials/functions.php';
 
         <div class="row">
             <div class="col-xs-12 col-md-12">
-            <h4>Redigera eller ta bort dina inlägg:</h4>
+
             
-<?php
-    
-foreach($posts as $blogposts){ 
-?>
-      <form action="delete.php" method="POST">
+            <?php
+            foreach($posts as $blogposts){ 
+            ?>
+            
+          <form action="delete.php" method="POST">
             <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
             
                        

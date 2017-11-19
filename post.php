@@ -105,7 +105,7 @@ require 'partials/functions.php';
                 <div class="#" style="padding:20px">
                       <h4>Ny kommentar:</h4>
 
-                      <form action="new_comment.php" method="POST">
+                      <form action="partials/new_comment.php" method="POST">
 
                         <div class="form-group">
                           <label for="new_comment"> Kommentar: </label>
@@ -113,7 +113,7 @@ require 'partials/functions.php';
                         </div>
 
                     <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
-                        <input type="hidden" name="originalid" value="<?= $kommentarer["id"]; ?>">
+                        <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
 
                         <div class="form-group">
                           <input type="submit" name="knapp" class="btn btn-primary">

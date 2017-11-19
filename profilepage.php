@@ -65,6 +65,8 @@
                     <div class="profilbild">IMG</div>
 
                     <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
+                    
+                    <a href="list_single_users_posts.php">Visa alla inlägg och redigera eller ta bort</a>
 
                </div>
                 <div class="col-xs-8">
