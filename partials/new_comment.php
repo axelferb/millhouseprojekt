@@ -3,7 +3,7 @@
     require 'database.php';
 
     $comment = $_POST["new_comment"];
-    $idoriginalpost = $_POST["originalid"];
+    $idoriginalpost = $_POST["idoriginalpost"];
 
     $statement = $pdo->prepare("
       INSERT INTO comments (comment, idoriginalpost)
