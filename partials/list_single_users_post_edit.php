@@ -19,9 +19,8 @@ foreach($posts as $blogposts){
       <form action="edit_post_form.php" method="POST">
             <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
         
-            <?php
-            echo $blogposts["title"];
-            ?>
+            <a href="post.php?post=<?php $blogposts["id"]; ?>"><?= echo $blogposts["title"]; ?></a>
+
           <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
            <?php
             
