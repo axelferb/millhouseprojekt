@@ -52,6 +52,6 @@ if(($usernameStatement->rowCount() > 0 ) && (!empty($_POST["username"]))){
     header("Location: ../login_form.php?register_success=Grattis! Du är nu registrerad och kan logga in:");
     
 }else{
-        header("Location: register_form.php?registration_error=true");
+        header("Location: ../register_form.php?registration_error=true");
 
 }

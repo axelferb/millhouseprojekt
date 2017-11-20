@@ -172,7 +172,13 @@ function allCatergories($amount) {
                                 <h2>
                                     <?php echo $list["title"]; ?> </h2>
                                 <p>
-                                    <?php echo $list["post"]; ?> </p>
+                                        <?php 
+                                        $bigText = $list["post"];
+                                        $smallText = substr($bigText, 0, 70);
+            
+                                        echo "$smallText" . "..."; ?>            
+                                </p>
+                                   
 
                         </div>
                         <?php
@@ -200,7 +206,12 @@ function allCatergories($amount) {
                                     <h2>
                                         <?php echo $list["title"]; ?> </h2>
                                     <p>
-                                        <?php echo $list["post"]; ?> </p>
+                                        <?php 
+                                        $bigText = $list["post"];
+                                        $smallText = substr($bigText, 0, 100);
+            
+                                        echo "$smallText" . "..."; ?>            
+                                    </p>
 
                             </div>
 
