@@ -15,8 +15,8 @@
       ":user" => $user
     )); 
 
-    // denna funkar inte, varför???
-   //header("Location: ../post.php?post=<?=$idoriginalpost?>");
+
+   header("Location: ../post.php?post=$idoriginalpost");
 
 
 ?>

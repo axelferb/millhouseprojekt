@@ -33,7 +33,7 @@
     SELECT title 
     FROM posts 
     WHERE user = :user
-    ORDER BY date ASC
+    ORDER BY date DESC
     LIMIT 5
     ");
     $statement->execute(array(
@@ -46,7 +46,7 @@
     SELECT comment 
     FROM comments
     WHERE user = :user
-    ORDER BY date ASC
+    ORDER BY date DESC
     LIMIT 5
     ");
     $statement2->execute(array(
