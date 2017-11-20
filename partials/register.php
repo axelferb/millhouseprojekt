@@ -19,10 +19,10 @@ $emailStatement->execute();
 
 // SLUT EMAIL-KOLL
 
-if($usernameStatement->rowCount() > 0){
+if(($usernameStatement->rowCount() > 0 ) && (!empty($_POST["username"]))){
     header("Location: ../register_form.php?username_already_taken=true");
     
-}elseif($emailStatement->rowCount() > 0){
+}elseif(($emailStatement->rowCount() > 0) && (!empty($_POST["email"]))){
     header("Location: ../register_form.php?email_already_taken=true");
     
 }elseif   ((!empty($_POST["username"]))
@@ -52,6 +52,6 @@ if($usernameStatement->rowCount() > 0){
     header("Location: ../login_form.php?register_success=Grattis! Du är nu registrerad och kan logga in:");
     
 }else{
-        header("Location: ../registration_login_form.php?registration_error=true");
+        header("Location: register_form.php?registration_error=true");
 
 }
