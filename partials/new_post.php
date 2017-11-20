@@ -17,6 +17,7 @@
       ":category" => $category
     )); 
 
-    header("Location: ../registration_login_form.php");
+
+   header("Location: ../list_single_users_posts.php?new_post=true");
 
 ?>
