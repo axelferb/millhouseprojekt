@@ -176,7 +176,7 @@ function allCatergories($amount) {
                                         $bigText = $list["post"];
                                         $smallText = substr($bigText, 0, 70);
             
-                                        echo "$smallText" . "..."; ?>            
+                                        echo "$smallText ..."; ?>            
                                 </p>
                                    
 
@@ -208,9 +208,9 @@ function allCatergories($amount) {
                                     <p>
                                         <?php 
                                         $bigText = $list["post"];
-                                        $smallText = substr($bigText, 0, 100);
+                                        $smallText = substr($bigText, 0, 70);
             
-                                        echo "$smallText" . "..."; ?>            
+                                        echo "$smallText ..."; ?>            
                                     </p>
 
                             </div>
