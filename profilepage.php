@@ -24,18 +24,6 @@
 //    }
 //    
 //    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-//  USER STATISTICS
-    $statement_posts = $pdo->prepare("
-    SELECT COUNT(DISTINCT post) as total
-    FROM posts
-    WHERE user = :user
-    ");
-    $statement_posts->execute(array(
-    ":user" => $user
-    ));
-    $p_count = $statement_posts->fetch(PDO::FETCH_ASSOC);
-    var_dump($p_count);
-
 // BELOW FETCHES 5 LATEST BLOGPOSTS
     $user = $_SESSION["user"]["id"];
     $statement = $pdo->prepare("
