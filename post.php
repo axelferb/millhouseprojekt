@@ -29,8 +29,7 @@ require 'partials/functions.php';
     )); 
     $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
     
-    // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING USER
-    // NOT WORKING YET!!!!!!!!!! :(
+    // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING BLOGGING USER
     $statement3 = $pdo->prepare("
     SELECT users.id, users.firstname, users.lastname, users.email, posts.user FROM posts 
     INNER JOIN users 
@@ -42,7 +41,19 @@ require 'partials/functions.php';
     ));
     $userinfo = $statement3->fetchAll(PDO::FETCH_ASSOC);
     
-    var_dump($userinfo);  
+    // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING COMMENTING USER
+    $statement4 = $pdo->prepare("
+    SELECT users.id, users.username, comments.idoriginalpost FROM comments 
+    INNER JOIN users 
+    ON users.id = comments.user
+    WHERE comments.idoriginalpost = :post
+    ");
+    $statement4->execute(array(
+    ":post" => $post
+    ));
+    $comment_userinfo = $statement4->fetchAll(PDO::FETCH_ASSOC);
+    
+    var_dump($comment_userinfo);  
 
 
 ?>
@@ -93,10 +104,39 @@ require 'partials/functions.php';
                 
                 
                 <?php
+                    
+//                    
+//                    foreach($comments as $kommentarer){ 
+//                        echo $kommentarer["comment"] . '<br>';
+//                        echo $kommentarer["date"] . '<br>';  
+//                    }
+//                    
+//                                foreach($comment_userinfo as $cui){ 
+//                                    echo $cui["username"] . '<br>';
+//                                }
+                    
+                    
+                    $counter = 0;
+                    
                     foreach($comments as $kommentarer){ 
                         echo $kommentarer["comment"] . '<br>';
                         echo $kommentarer["date"] . '<br>';
+                        
+                                foreach($comment_userinfo as $cui){ 
+                                    echo $cui["username"] . '<br>';
+                                    
+                                       if ($counter = 1) 
+                                        break;
+                                       $counter++;
+                                }
+                
+
                     }
+                    
+                    
+
+                    
+
                     
                 ?>
                
