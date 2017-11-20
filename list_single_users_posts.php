@@ -14,7 +14,7 @@ require 'partials/functions.php';
       SELECT id, title 
       FROM posts 
       WHERE user = :user 
-      ORDER BY date ASC"
+      ORDER BY date DESC"
     );
 
     $statement->execute(array(
@@ -35,6 +35,12 @@ require 'partials/functions.php';
 
         <div class="row">
             <div class="col-xs-12 col-md-12">
+            
+            <?php
+            if(isset($_GET["new_post"])){
+                echo "Ditt nya inlägg har skapats";
+            }
+            ?>
 
             
             <?php
