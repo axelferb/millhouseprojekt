@@ -18,13 +18,23 @@
 //                        "</h1>";
 //                    
 //                        ?>
-        <!-- <a href="partials/log_out.php">Logga ut</a> -->
-        <?php   
+    <!-- <a href="partials/log_out.php">Logga ut</a> -->
+    <?php   
 //                }     
 //    }
 //    
 //    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-
+//  USER STATISTICS
+    $statement_posts = $pdo->prepare("
+    SELECT COUNT(DISTINCT post) as total
+    FROM posts
+    WHERE user = :user
+    ");
+    $statement_posts->execute(array(
+    ":user" => $user
+    ));
+    $p_count = $statement_posts->fetch(PDO::FETCH_ASSOC);
+    var_dump($p_count);
 
 // BELOW FETCHES 5 LATEST BLOGPOSTS
     $user = $_SESSION["user"]["id"];
@@ -32,110 +42,99 @@
     SELECT title 
     FROM posts 
     WHERE user = :user
-    ORDER BY date ASC
+    ORDER BY date DESC
     LIMIT 5
     ");
     $statement->execute(array(
     ":user" => $user
     )); 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-  
-    
 ?>
-
-<body>
-    <?php
+    <body>
+        <?php
     require 'nav.php';
     ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-            
-            
-            
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
                         <div class="col-md-8">
-                <div class="col-xs-12 ">
-                    <h1 class="text-center">Profilsida 
+                            <div class="col-xs-12 ">
+                                <h1 class="text-center">Profilsida
+                                    <?php echo $_SESSION["user"]["username"]; ?>
+                                </h1>
+                                <hr>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="profilbild">IMG</div>
+                                <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="info_profile">
+                                    <?php
+                                        echo '<p>' . $_SESSION["user"]["firstname"] . '</p>';
+                                        echo '<p>' . $_SESSION["user"]["lastname"] . '</p>';
+                                        echo '<p>' . $_SESSION["user"]["email"] . '</p>';
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-xs-8">
+                                <h2>
+                                    <?php echo $_SESSION["user"]["username"] . ' Statistik'; ?>
+                                </h2>
+                                <hr>
+                            </div>
+                            <div class="col-xs-6 col-md-12">
+                                <div class="antal_posts">
+                                    <p>Totalt antal inlägg</p>
+                                    <?php
+                                    echo $p_count["total"];
+                                ?>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-12">
+                                <div class="antal_kommentarer">
+                                    <p>Totalt antal kommentarer</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <?php echo $_SESSION["user"]["username"]; ?>
-                    </h1>
-                </div>
-
-                <div class="col-xs-4">
-                    <div class="profilbild">IMG</div>
-
-                    <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
-
-               </div>
-                <div class="col-xs-8">
-                    <div class="info_profile">
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="col-xs-8">
-
-                    <h2>
-                    <?php echo $_SESSION["user"]["username"]; ?>
-                    Statistik</h2>
-
-                </div>
-
-                <div class="col-xs-6 col-md-12">
-                    <div class="antal_posts">
-                    <p>Totalt antal inlägg</p>
-                    </div>
-                </div>
-
-                <div class="col-xs-6 col-md-12">
-                    <div class="antal_kommentarer">
-                    <p>Totalt antal kommentarer</p>
-                    </div>
-                </div> 
-            </div>
-            
-            <div class="col-xs-12">
-                <h1 class="text-center">Senaste 5 blogginlägg</h1>
-            </div>
-            <div class="col-xs-12">
-                    <div class="posts">
-                    
-                <?php                
-                foreach($posts as $blogposts){   
-                    echo $blogposts["title"] . '<br>';
+                        <div class="col-xs-12">
+                            <h1 class="text-center">Senaste 5 blogginlägg</h1>
+                            <hr>
+                        </div>
+                        
+                            <?php                
+                foreach($posts as $blogposts){
+                    echo '<div class="col-xs-12">' . '<p>' . $blogposts["title"] . '</p>' . '</div>';
                 }
                 ?>
-                   
-                    </div>
-            </div>
-                
-            <div class="col-xs-12">
-                <h1 class="text-center">Senaste 5 Kommentarer</h1>
-            </div>
-            <div class="col-xs-12">
-                    <div class="kommentarer">
-                    <p>Kommentar 1</p>
-                    <p>Kommentar 2</p>
-                    <p>Kommentar 3</p>
-                    <p>Kommentar 4</p>
-                    <p>Kommentar 5</p>
+                        </div>
+                        <div class="col-xs-12">
+                            <h1 class="text-center">Senaste 5 Kommentarer</h1>
+                            <hr>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="kommentarer">
+                                <p>Kommentar 1</p>
+                                <p>Kommentar 2</p>
+                                <p>Kommentar 3</p>
+                                <p>Kommentar 4</p>
+                                <p>Kommentar 5</p>
+                            </div>
+                        </div>
+
+
+
+
+
                     </div>
                 </div>
-            
-            
-    
+            </div>
+            <!-- END DIV / CONTAINER -->
 
 
-            </div>  
-        </div>
-    </div> <!-- END DIV / CONTAINER -->
-    
-
-<?php
+            <?php
     include 'footer.php';
 ?>

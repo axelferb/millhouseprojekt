@@ -37,7 +37,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                             <hr>
                         </div>
                     </div>
-                    <div class="row">
                         <div class="col-xs-12 right-align">
                             <span class="filter">Filtrera efter:</span>
                             <div class="btn-group">
@@ -63,27 +62,9 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                         </li>
                                     </form>
                                 </ul>
-                            </div>
-                            <div class="btn-group">
-                                <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                    <span>
-                                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                    </span>
-                                    DATUM
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="#">Klockor</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Glasögon</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Inredning</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <?php
                         require 'index_login.php';
                             ?>
@@ -101,7 +82,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     allCatergories(5);
                 }
                 ?>
-
+                    </div>
                     </div>
                     <!-- END DIV-ROW -->
                     <div class="row">
