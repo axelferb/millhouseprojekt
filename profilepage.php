@@ -25,9 +25,31 @@
 //    
 //    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
-
-
     $user = $_SESSION["user"]["id"];
+// USER POSTS STATISTICS
+
+    $statement_posts = $pdo->prepare("
+    SELECT COUNT(DISTINCT post) as total
+    FROM posts
+    WHERE user = :user
+    ");
+    $statement_posts->execute(array(
+    ":user" => $user
+    ));
+    $p_count = $statement_posts->fetch(PDO::FETCH_ASSOC);
+
+// USER COMMENT STATISTICS
+
+    $statement_comments = $pdo->prepare("
+    SELECT COUNT(DISTINCT comment) as total
+    FROM comments
+    WHERE user = :user
+    ");
+    $statement_comments->execute(array(
+    ":user" => $user
+    ));
+    $c_count = $statement_comments->fetch(PDO::FETCH_ASSOC);
+
 // BELOW FETCHES 5 LATEST BLOGPOSTS
     $statement = $pdo->prepare("
     SELECT title 
@@ -64,13 +86,9 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12">
-            
-            
-            
                         <div class="col-md-8">
                 <div class="col-xs-12 ">
                     <h1 class="text-center">Profilsida 
-
                     <?php echo $_SESSION["user"]["username"]; ?>
                     </h1>
                 </div>
@@ -85,10 +103,11 @@
                </div>
                 <div class="col-xs-8">
                     <div class="info_profile">
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
+                    <?php
+                    echo "Förnamn: " . $_SESSION["user"]["firstname"] . "<br>";
+                    echo "Efternamn: " . $_SESSION["user"]["lastname"] . "<br>";
+                    echo "Email: " . $_SESSION["user"]["email"];
+                    ?>
                     </div>
                 </div>
             </div>
@@ -105,12 +124,21 @@
                 <div class="col-xs-6 col-md-12">
                     <div class="antal_posts">
                     <p>Totalt antal inlägg</p>
+                    <?php
+                        foreach ($p_count as $totalposts){
+                            echo $totalposts;
+                        }
+                    ?>
                     </div>
                 </div>
-
                 <div class="col-xs-6 col-md-12">
                     <div class="antal_kommentarer">
                     <p>Totalt antal kommentarer</p>
+                    <?php
+                        foreach ($c_count as $totalcomments){
+                            echo $totalcomments;
+                        }
+                    ?>
                     </div>
                 </div> 
             </div>
@@ -156,11 +184,6 @@
 -->
                     
                 </div>
-            
-            
-    
-
-
             </div>  
         </div>
     </div> <!-- END DIV / CONTAINER -->
