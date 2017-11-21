@@ -49,16 +49,16 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                 <ul class="dropdown-menu" role="menu">
                                     <form action="index.php" method="POST" class="filter">
                                         <li>
-                                            <input href="#" type="submit" name="all" value="Allt"></input>
+                                            <input href="#" type="submit" name="all" value="Allt">
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Klockor" value="Klockor"></input>
+                                            <input href="#" type="submit" name="Klockor" value="Klockor">
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Glasögon" value="Glasögon"></input>
+                                            <input href="#" type="submit" name="Glasögon" value="Glasögon">
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Inredning" value="Inredning"></input>
+                                            <input href="#" type="submit" name="Inredning" value="Inredning">
                                         </li>
                                     </form>
                                 </ul>
