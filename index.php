@@ -85,25 +85,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                 </form>
                             </ul>
                         </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                <span>
-                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                </span>
-                                DATUM
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="#">Klockor</a>
-                                </li>
-                                <li>
-                                    <a href="#">Glasögon</a>
-                                </li>
-                                <li>
-                                    <a href="#">Inredning</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <?php
                         require 'index_login.php';
