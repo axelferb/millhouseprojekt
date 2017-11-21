@@ -3,7 +3,6 @@ body {
     margin: 0 auto;   
 }
 
-
 .jumbotron {
     background: url("../img/headerimage.png");
     background-repeat: no-repeat;
@@ -15,11 +14,11 @@ body {
 }
 
 /* INDEX LOGINFORM STYLING */
+
 .login-field form {
     text-align: center;
     color: white;
 }
-
 
 .white-text {
     color: #fafafa;
@@ -69,7 +68,9 @@ input {
 }
 
 /**/
+
 /*Navbar styling*/
+
 .blue-line {
     height: 5px;
     width: 100%;
@@ -106,7 +107,6 @@ input {
     border-color: black;
 }
 
-
 .profilbild-big {
     margin: 15px 0 0 0;
     height: 280px;
@@ -122,20 +122,23 @@ input {
     background-color: #000000;
     text-align: center;
 } 
+
 /**/
 
 h1 {
     font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     color: #1c3145;
     text-transform: uppercase;
+    font-size: 2.1em;
 }
 
 h2 {
     font-family: 'Raleway', sans-serif;
     color: #1c3145;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
+    font-size: 1.7em;
 }
 
 h3 {
@@ -153,6 +156,18 @@ p {
     color: #606060;
 }
 
+.right-align {
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
 .author {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
@@ -163,17 +178,13 @@ p {
 
 hr {
     margin: 5px 0 15px 0;
-    height: 2px;
+    height: 1.5px;
     background-color: #1c3145;
     border: 0px;
 }
 
 .filter {
     display: inline;
-}
-
-.text-center{
-    text-align: center;
 }
 
 .antal_posts, .antal_kommentarer {
@@ -192,9 +203,6 @@ hr {
     min-height: 600px;
 }
 
-.text-center {
-    text-align: center;
-}
 
 /* FOOTER */
 
@@ -234,9 +242,11 @@ footer a:hover{
 footer p {
     color: lightgrey;
 }
+
 footer .fa {
     margin-right: 10px;
 }
+
 footer .row {
     max-width: 960px;
     margin: 0 auto;
@@ -248,12 +258,14 @@ footer .row {
     text-align: center;
     padding: 5px;
 }
+
 .copyright p {
     color: #324d67;
     margin: 5px 0 5px 0;
 }
 
 /* FÄRG/KATEGORISTYLING */
+
 .klocka {
     height: 7px;
     width: 100%;
@@ -289,8 +301,15 @@ footer .row {
     width: 100%;
     background-color: #3e50bc;
 }
+
 /**/
+
 /*  KNAPPAR */
+
+.btn {
+    text-transform: uppercase;
+}
+
 .btn-block {
     border-radius: 0px;
 }
@@ -313,16 +332,71 @@ footer .row {
 .button-test {
     border-radius: 0px;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 1.3px solid black;
     background-color: #fafafa;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
+
 /**/
-.right-align {
-    text-align: right;
+
+/** PROFILE-RELATED **/
+
+.profile {
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+    display: flex;
+}
+
+.profile-img {
+    width: 35%;
+}
+
+.profile-info {
+    padding-top: 20px;
+    padding-left: 5px;
+    width: 65%;
+}
+
+.profile-name {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #1c3144;
+    font-size: 1.8em;
+    margin-bottom: -5px;
+}
+
+.profile-email {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #3c3c3c;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+}
+
+.profile-info .btn {
+    height: 35px;
+    font-size: 1.1em;
+    padding: 7px; 
+}
+
+.statistics {
+    padding: 10px;
+    background: #1c3144;
+    color: #FFFFFF;
+    width: 100%;
+    min-height: 120px;
+}
+
+.statistics p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-bottom: 4px;
 }
 /* För desktop profil*/
+
 @media screen and (min-width: 768px){
 
 /* MARGINAL FÖR ATT FÅ FÖRSTA INLÄGGET ATT "FLYTTA UPP"    
