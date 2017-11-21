@@ -1,9 +1,5 @@
 <?php
-// server should keep session data for AT LEAST 1 hour
-ini_set('session.gc_maxlifetime', 600);
-// each client should remember their session id for EXACTLY 1 hour
-session_set_cookie_params(600);
-session_start();
+require 'partials/session.php';
 ?>
 
     <!DOCTYPE html>
@@ -51,6 +47,29 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <form action="index.php" method="POST" class="filter">
+                                        <li>
+                                            <input href="#" type="submit" name="all" value="Allt">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Klockor" value="Klockor">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Glasögon" value="Glasögon">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Inredning" value="Inredning">
+                                        </li>
+                                    </form>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                    </span>
+                                    DATUM
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <input href="#" type="submit" name="all" value="Allt"></input>
                                     </li>

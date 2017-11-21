@@ -60,7 +60,94 @@ require 'partials/functions.php';
     <?php
     require 'nav.php';
     ?>
-    <div class="container">
+    
+    
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                   <div class="inlägg">
+                       
+                       <?php
+                
+                        if (isset($_POST['Klockor'])) {
+                            TESTAR($_POST["Klockor"], count($posts));
+                           }
+                        elseif (isset($_POST['Glasögon'])) {
+                            TESTAR($_POST["Glasögon"], count($posts));
+                            }
+                        elseif (isset($_POST['Inredning'])) {
+                            TESTAR($_POST["Inredning"], count($posts));
+                           }
+                        else {
+                            TESTAR(count($posts));
+                        }  
+                                  
+                                          foreach($userinfo as $info){
+                    echo $info["firstname"] . ' ';
+                    echo $info["lastname"] . ' ';
+                    echo $info["email"];
+                }     
+                                   
+                    ?>
+                </div>
+                    
+                    
+                <div class="comment_on_post">
+                         <h4>Kommentera</h4>
+
+                      <form action="partials/new_comment.php" method="POST">
+
+                        <div class="form-group">
+                          <label for="new_comment"> Kommentar: </label>
+                          <input type="text" name="new_comment" class="form-control">
+                        </div>
+
+                    <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
+                        <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
+                        
+                    <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
+                        <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
+
+                        <div class="form-group">
+                          <input type="submit" name="knapp" class="btn btn-primary">
+                        </div>
+
+                      </form>
+                </div>
+                    
+                    
+                    
+                <div class="comments_post">
+                    <h2>Kommentarer</h2>
+                    <?php
+                    
+                    $counter = 0;
+                    
+                    foreach($comments as $kommentarer){ 
+                        echo $kommentarer["comment"] . '<br>';
+                        echo $kommentarer["date"] . '<br>';
+                        echo "<hr>";
+                        
+                                foreach($comment_userinfo as $cui){ 
+                                    echo $cui["username"] . '<br>';
+                                    echo $cui["email"] . '<br>';
+                                    
+                                       if ($counter = 1) 
+                                        break;
+                                       $counter++;
+                                }
+                    }   
+                ?>
+                </div>
+                </div>
+            </div>
+  
+                  
+                  
+              
+            
+    
 <!--
 
         <div class="row">
@@ -151,7 +238,18 @@ require 'partials/functions.php';
         </div>
 
     </div> <!-- END DIV / CONTAINER -->
-
+</main>
+   
+<aside>
+    <div class="row">
+        <div class="col-md-4">
+            <?php require "index_login.php";
+            ?>
+        </div>
+    </div>
+</aside>
+   
+   
     <?php
     require "footer.php";
     ?>
