@@ -46,7 +46,7 @@ require 'partials/functions.php';
     <div class="form-group">
   <label for="sel1">Select list:</label>
   <select class="form-control" name="category" id="sel1">
-    <option>Glasögon</option>
+    <option>Solglasögon</option>
     <option>Klockor</option>
     <option>Inredning</option>
   </select>

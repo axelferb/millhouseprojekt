@@ -46,22 +46,22 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                     </span>
                                     KATEGORI
                                 </button>
-                                <form action="index.php" method="POST" class="filter">
                                 <ul class="dropdown-menu" role="menu">
+                                    <form action="index.php" method="POST" class="filter">
                                         <li>
-                                            <input href="#" type="submit" name="all" value="Allt">
+                                            <input href="#" type="submit" name="all" value="Allt"></input>
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Klockor" value="Klockor">
+                                            <input href="#" type="submit" name="Klockor" value="Klockor"></input>
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Glasögon" value="Glasögon">
+                                            <input href="#" type="submit" name="Glasögon" value="Glasögon"></input>
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Inredning" value="Inredning">
+                                            <input href="#" type="submit" name="Inredning" value="Inredning"></input>
                                         </li>
+                                    </form>
                                 </ul>
-                                </form>
                             </div>
                             <div class="btn-group">
                                 <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
@@ -82,8 +82,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                     </li>
                                 </ul>
                             </div>
-                            </div>
-                            </div>
+                        </div>
                         <?php
                         require 'index_login.php';
                             ?>
@@ -101,7 +100,9 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     allCatergories(5);
                 }
                 ?>
-                   
+
+                    </div>
+                    <!-- END DIV-ROW -->
                     <div class="row">
                         <div class="col-xs-12">
                             <hr>
@@ -121,4 +122,5 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
   require "footer.php";
   ?>
         </body>
+
     </html>
