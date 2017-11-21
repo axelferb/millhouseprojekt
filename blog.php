@@ -15,7 +15,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     require 'nav.php';
     ?>
     <div class="jumbotron">
-        <h1>HEROIMAGE</h1>
     </div>
     <div class="container">
         <div class="row">
@@ -45,8 +44,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 ?>
 
     </div>
-    </div>
-
     <?php
     include "footer.php";
     ?>

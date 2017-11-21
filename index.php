@@ -6,10 +6,10 @@ session_set_cookie_params(600);
 session_start();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<?php
+    <?php
 require 'head.php';
 require 'partials/database.php';
 require 'partials/functions.php';    
@@ -19,27 +19,28 @@ $statement->execute();
 $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 ?>
 
-    <body>
+        <body>
 
-        <!-- NAVIGATION -->
-        <?php
+            <!-- NAVIGATION -->
+            <?php
   require 'nav.php';
   ?>
 
-            <!-- HERO IMAGE -->
-            <div class="jumbotron">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="index_login hidden-xs hidden-sm col-md-4">
-                        <h1 style="text-align:center;">LOGGA IN</h1>
-                        <hr>
+                <!-- HERO IMAGE -->
+                <div class="jumbotron"></div>
+                <div class="blue-line"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="index_login hidden-xs hidden-sm col-md-4">
+                            <h1 style="text-align:center;">LOGGA IN</h1>
+                            <hr>
+                        </div>
+                        <div class="index_login hidden-xs hidden-sm col-md-8">
+                            <h1>Våra blogginlägg</h1>
+                            <hr>
+                        </div>
                     </div>
-                    <div class="index_login hidden-xs hidden-sm col-md-8"></div>
-                    <h1>Våra blogginlägg</h1>
-                    <hr>
-                </div>
-                <div class="row">
+                    <div class="row">
                         <div class="col-xs-12 right-align">
                             <span class="filter">Filtrera efter:</span>
                             <div class="btn-group">
@@ -50,18 +51,20 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                     KATEGORI
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="#" type="submit" name="all" value="Allt">Allt</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" type="submit" name="Klockor" value="Klockor">Klockor</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" type="submit" name="Glasögon" value="Glasögon">Glasögon</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" type="submit" name="Inredning" value="Inredning">Inredning</a>
-                                    </li>
+                                    <form action="index.php" method="POST" class="filter">
+                                        <li>
+                                            <input href="#" type="submit" name="all" value="Allt"></input>
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Klockor" value="Klockor"></input>
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Glasögon" value="Glasögon"></input>
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Inredning" value="Inredning"></input>
+                                        </li>
+                                    </form>
                                 </ul>
                             </div>
                             <div class="btn-group">
@@ -87,7 +90,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         <?php
                         require 'index_login.php';
                             ?>
-                        <?php
+                            <?php
                 if (isset($_POST['Klockor'])) {
                     handleCategories($_POST["Klockor"], 5);
                 }
@@ -102,23 +105,26 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 }
                 ?>
 
-                </div>
-                <!-- END DIV-ROW -->
-                <div class="row">
-                    <div class="col-xs-12">
-                        <hr>
+                    </div>
+                    <!-- END DIV-ROW -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <hr>
+                            <a class="btn button-green btn-lg btn-block" href="blog.php">Läs alla inlägg här</a>
+                            <!--- KNAPPAR SOM SKA ANVÄNDAS VID VG-KRITERIER
                         <p style="text-align:center;">
                             <i class="fa fa-3x fa-chevron-circle-left" aria-hidden="true"></i> button previous | button next
                             <i class="fa fa-3x fa-chevron-circle-right" aria-hidden="true"></i>
                         </p>
+                        -->
+                        </div>
+                        <!-- END DIV-ROW -->
                     </div>
-                    <!-- END DIV-ROW -->
+                    <!-- END DIV-CONTAINER -->
                 </div>
-                <!-- END DIV-CONTAINER -->
-            </div>
-            <?php
+                <?php
   require "footer.php";
   ?>
-    </body>
+        </body>
 
-</html>
+    </html>

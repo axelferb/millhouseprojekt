@@ -93,9 +93,9 @@ function handleCategories($category, $amount) {
                             echo '<div class="klocka-big"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
@@ -107,7 +107,6 @@ function handleCategories($category, $amount) {
                             <p>
                                 <?php echo $list["post"]; ?> </p>
                     </div>
-
                     <?php
         }
          else {
@@ -120,9 +119,9 @@ function handleCategories($category, $amount) {
                             echo '<div class="klocka"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
@@ -161,9 +160,9 @@ function allCatergories($amount) {
                             echo '<div class="klocka-big"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
@@ -173,7 +172,13 @@ function allCatergories($amount) {
                                 <h2>
                                     <?php echo $list["title"]; ?> </h2>
                                 <p>
-                                    <?php echo $list["post"]; ?> </p>
+                                        <?php 
+                                        $bigText = $list["post"];
+                                        $smallText = substr($bigText, 0, 70);
+            
+                                        echo "$smallText" . "..."; ?>            
+                                </p>
+                                   
 
                         </div>
                         <?php
@@ -189,9 +194,9 @@ function allCatergories($amount) {
                             echo '<div class="klocka"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
@@ -201,7 +206,12 @@ function allCatergories($amount) {
                                     <h2>
                                         <?php echo $list["title"]; ?> </h2>
                                     <p>
-                                        <?php echo $list["post"]; ?> </p>
+                                        <?php 
+                                        $bigText = $list["post"];
+                                        $smallText = substr($bigText, 0, 100);
+            
+                                        echo "$smallText" . "..."; ?>            
+                                    </p>
 
                             </div>
 
