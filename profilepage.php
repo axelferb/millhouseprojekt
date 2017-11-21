@@ -63,100 +63,98 @@ session_start();
     
 ?>
 
-    <body>
-        <?php
-    require 'nav.php';
-    ?>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-md-12">
-                        <div class="col-md-8">
-                            <div class="col-xs-12 ">
-                                <h1 class="text-center">Profilsida
-                                    <?php echo $_SESSION["user"]["username"]; ?>
-                                </h1>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="profilbild">IMG</div>
-                                <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
-                                <a href="list_single_users_posts.php">Visa alla inlägg och redigera eller ta bort</a>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="info_profile">
-                                    <?php
-                    echo "Förnamn: " . $_SESSION["user"]["firstname"] . "<br>";
-                    echo "Efternamn: " . $_SESSION["user"]["lastname"] . "<br>";
-                    echo "Email: " . $_SESSION["user"]["email"];
-                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-xs-8">
-                                <h2>
-                                    <?php echo $_SESSION["user"]["username"]; ?> Statistik
-                                </h2>
-                            </div>
-                            <div class="col-xs-6 col-md-12">
-                                <div class="antal_posts">
-                                    <p>Totalt antal inlägg</p>
-                                    <?php
-                        foreach ($p_count as $totalposts){
-                            echo $totalposts;
-                        }
-                    ?>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-md-12">
-                                <div class="antal_kommentarer">
-                                    <p>Totalt antal kommentarer</p>
-                                    <?php
-                        foreach ($c_count as $totalcomments){
-                            echo $totalcomments;
-                        }
-                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <h1 class="text-center">Senaste 5 blogginlägg</h1>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="posts">
-                                <?php                
-                foreach($posts as $blogposts){   
-                    echo $blogposts["title"] . '<br>';
-                }
-                ?>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <h1 class="text-center">Senaste 5 Kommentarer</h1>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="comments">
-                                <?php                
-                foreach($comments as $blogcomments){   
-                    echo $blogcomments["comment"] . '<br>';
-                }
-                ?>
-                            </div>
-                            <!--
-                    
-                <div class="kommentarer">
-                    <p>Kommentar 1</p>
-                    <p>Kommentar 2</p>
-                    <p>Kommentar 3</p>
-                    <p>Kommentar 4</p>
-                    <p>Kommentar 5</p>
-                    </div>
--->
+<body>
+<?php
+require 'nav.php';
+?>
 
-                        </div>
-                    </div>
-                </div>
+<div class="container">
+
+    <!-- MAIN CONTENT -->
+    <main class="col-md-8">
+
+        <h1>Profilsida <span class="text-bold"><?php echo $_SESSION["user"]["username"]; ?></span></h1>
+
+        <hr>
+
+        <!-- PROFILINFO -->
+        <div class="profile">
+
+            <div class="profile-img text-center">
+                <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+                <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
             </div>
-            <!-- END DIV / CONTAINER -->
+
+            <div class="profile-info">
+                <?php
+                    echo '<p class="profile-name">';
+                    echo  $_SESSION["user"]["firstname"] . " " . $_SESSION["user"]["lastname"] . "<br />";
+                    echo "</p>";
+                    echo '<p class="profile-email">';
+                    echo  $_SESSION["user"]["email"];
+                    echo "</p>";
+                ?>
+                <a class="btn button-green btn-lg btn-block" href="new_post_form.php">Skriv inlägg</a><br>
+            </div>
+
+        </div>
+        <!-- END PROFILINFO --> 
+
+        <h2>Senaste 5 blogginlägg</h2>
+        <hr>
+
+        <div class="posts">
+            <?php                
+                foreach($posts as $blogposts){   
+                echo $blogposts["title"] . '<br>';
+                }
+            ?>
+            <br>
+            <button type="button" class="btn button-test btn-block" href="list_single_users_posts.php">Se alla inlägg / Ta bort inlägg</button>
+        
+        </div>
+
+        <h2>Senaste 5 Kommentarer</h2>
+        <hr>
+
+        <div class="comments">
+            <?php                
+                foreach($comments as $blogcomments){   
+                echo $blogcomments["comment"] . '<br>';
+                }
+            ?>
+        </div>
+    </main><!-- END MAIN CONTENT -->
+
+
+    <!-- SECONDARY CONTENT "ASIDE" -->
+    <aside class="col-md-4">
+
+        <h2 class="text-center"><span class="text-bold"><?php echo $_SESSION["user"]["username"]; ?></span> Statistik</h2>
+        
+        <div class="statistics text-center">
+            <p class="text-bold">Totalt antal inlägg</p>
             <?php
-    include 'footer.php';
+                foreach ($p_count as $totalposts){
+                echo $totalposts;
+                }
+                echo "st";
+            ?>
+            <br><br>
+            <p class="text-bold">Totalt antal kommentarer</p>
+            <?php
+                foreach ($c_count as $totalcomments){
+                echo $totalcomments;
+                }
+                echo "st";
+            ?>
+        </div>
+
+    </aside>
+    <!-- END SECONDARY CONTENT "ASIDE" -->
+
+</div>
+<!-- END DIV / CONTAINER -->
+<?php
+include 'footer.php';
 ?>
