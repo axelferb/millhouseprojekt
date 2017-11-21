@@ -93,9 +93,9 @@ function handleCategories($category, $amount) {
                             echo '<div class="klocka-big"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
@@ -119,9 +119,9 @@ function handleCategories($category, $amount) {
                             echo '<div class="klocka"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
@@ -160,9 +160,9 @@ function allCatergories($amount) {
                             echo '<div class="klocka-big"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
@@ -194,9 +194,9 @@ function allCatergories($amount) {
                             echo '<div class="klocka"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
