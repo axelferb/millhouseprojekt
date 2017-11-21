@@ -43,7 +43,7 @@ require 'partials/functions.php';
     
     // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING COMMENTING USER
     $statement4 = $pdo->prepare("
-    SELECT users.id, users.username, comments.idoriginalpost FROM comments 
+    SELECT users.id, users.username, users.email, comments.idoriginalpost FROM comments 
     INNER JOIN users 
     ON users.id = comments.user
     WHERE comments.idoriginalpost = :post
@@ -53,9 +53,7 @@ require 'partials/functions.php';
     ));
     $comment_userinfo = $statement4->fetchAll(PDO::FETCH_ASSOC);
     
-    var_dump($comment_userinfo);  
-
-
+    //var_dump($comment_userinfo);  
 ?>
 
 <body>
@@ -105,17 +103,6 @@ require 'partials/functions.php';
                 
                 <?php
                     
-//                    
-//                    foreach($comments as $kommentarer){ 
-//                        echo $kommentarer["comment"] . '<br>';
-//                        echo $kommentarer["date"] . '<br>';  
-//                    }
-//                    
-//                                foreach($comment_userinfo as $cui){ 
-//                                    echo $cui["username"] . '<br>';
-//                                }
-                    
-                    
                     $counter = 0;
                     
                     foreach($comments as $kommentarer){ 
@@ -124,20 +111,14 @@ require 'partials/functions.php';
                         
                                 foreach($comment_userinfo as $cui){ 
                                     echo $cui["username"] . '<br>';
+                                    echo $cui["email"] . '<br>';
                                     
                                        if ($counter = 1) 
                                         break;
                                        $counter++;
                                 }
-                
-
                     }
-                    
-                    
-
-                    
-
-                    
+                      
                 ?>
                
                 </div>
