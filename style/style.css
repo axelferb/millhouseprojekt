@@ -322,6 +322,9 @@ footer .row {
 .right-align {
     text-align: right;
 }
+.div-max-height {
+    max-height: 350px;
+}
 /* För desktop profil*/
 @media screen and (min-width: 768px){
 

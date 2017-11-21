@@ -73,7 +73,6 @@ function allCategories() {
 }
 } 
 */
-
 function handleCategories($category, $amount) {
     $i = 0;
     global $posts;
@@ -110,9 +109,8 @@ function handleCategories($category, $amount) {
                     <?php
         }
          else {
-             ?>
-                        <div class='col-xs-12 col-md-6'>
-
+                ?>
+                        <div class='col-xs-12 col-md-6 div-max-height'>
                             <div class="profilbild-small"></div>
                             <?php
                         if($list["category"] == 'Klockor'){
@@ -186,7 +184,7 @@ function allCatergories($amount) {
         }
         else{
             ?>
-                            <div class='col-xs-12 col-md-6'>
+                            <div class='col-xs-12 col-md-6 div-max-height'>
 
                                 <div class="profilbild-small"></div>
                                 <?php
@@ -222,5 +220,5 @@ function allCatergories($amount) {
 }
 }
 
-
     ?>
+    

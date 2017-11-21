@@ -83,6 +83,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                 </ul>
                             </div>
                         </div>
+                    </div>
                         <?php
                         require 'index_login.php';
                             ?>
@@ -101,7 +102,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 }
                 ?>
 
-                    </div>
+                    
                     <!-- END DIV-ROW -->
                     <div class="row">
                         <div class="col-xs-12">
