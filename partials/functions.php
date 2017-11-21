@@ -148,7 +148,7 @@ function allCatergories($amount) {
     foreach($posts as $list){
         if($i==$amount) break;
 
-        if ($i == 0){adsf4
+        if ($i == 0){
             ?>
                         <div class='col-xs-12 col-md-8'>
 

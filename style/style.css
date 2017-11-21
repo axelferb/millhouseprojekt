@@ -319,11 +319,17 @@ footer .row {
     font-weight: bold;
 }
 /**/
+
 .right-align {
     text-align: right;
 }
+
 .div-max-height {
     max-height: 350px;
+}
+
+.hr-margin-top {
+    margin-top: 50px;
 }
 /* För desktop profil*/
 @media screen and (min-width: 768px){
