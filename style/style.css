@@ -340,6 +340,7 @@ footer .row {
 
 /**/
 
+
 /** PROFILE-RELATED **/
 
 .profile {
@@ -394,6 +395,15 @@ footer .row {
     font-weight: 400;
     color: #FFFFFF;
     margin-bottom: 4px;
+
+}
+
+.div-max-height {
+    max-height: 350px;
+}
+
+.hr-margin-top {
+    margin-top: 50px;
 }
 /* För desktop profil*/
 

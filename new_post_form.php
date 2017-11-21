@@ -1,5 +1,6 @@
 <?php
-session_start();
+require 'partials/session.php';
+
 
 //<!DOCTYPE html>
 //<html lang="en">

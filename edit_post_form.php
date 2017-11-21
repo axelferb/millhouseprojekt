@@ -1,3 +1,7 @@
+<?php
+require 'partials/session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -66,7 +70,7 @@ $posttoedit = $_GET["posttoedit"];
 <div class="form-group">
   <label for="sel1">Select list:</label>
   <select class="form-control" name="category" value="<?= $poster["category"]; ?>" id="sel1">
-    <option>Glasögon</option>
+    <option>Solglasögon</option>
     <option>Klockor</option>
     <option>Inredning</option>
   </select>

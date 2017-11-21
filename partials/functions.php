@@ -73,7 +73,6 @@ function allCategories() {
 }
 } 
 */
-
 function handleCategories($category, $amount) {
     $i = 0;
     global $posts;
@@ -110,9 +109,8 @@ function handleCategories($category, $amount) {
                     <?php
         }
          else {
-             ?>
-                        <div class='col-xs-12 col-md-6'>
-
+                ?>
+                        <div class='col-xs-12 col-md-6 div-max-height'>
                             <div class="profilbild-small"></div>
                             <?php
                         if($list["category"] == 'Klockor'){
@@ -186,7 +184,7 @@ function allCatergories($amount) {
         }
         else{
             ?>
-                            <div class='col-xs-12 col-md-6'>
+                            <div class='col-xs-12 col-md-6 div-max-height'>
 
                                 <div class="profilbild-small"></div>
                                 <?php
@@ -218,6 +216,50 @@ function allCatergories($amount) {
                             <?php
             
         }
+        $i++;
+}
+}
+
+    ?>
+    
+<?php
+function specificPost($amount) {
+
+
+    $i = 0;
+    global $posts;
+    foreach($posts as $list){
+        if($i==$amount) break;
+
+        if ($i == 0){
+            ?>
+                        <div class='col-xs-12'>
+
+                            <div class="profilbild-big"></div>
+                            <?php
+                        if($list["category"] == 'Klockor'){
+                            echo '<div class="klocka-big"></div>';
+                            echo '<p>Klockor</p>';
+                        }
+                        if($list["category"] == 'Glasögon'){
+                            echo '<div class="glasögon-big"></div>';
+                            echo '<p>Glasögon</p>';
+                        }
+                        if($list["category"] == 'Inredning'){
+                            echo '<div class="inredning-big"></div>';
+                            echo '<p>Inredning</p>';
+                        }
+                    ?>
+                        </div>
+                        <h2>
+                                    <?php echo $list["title"]; ?>
+                                </h2>
+                                <p>
+                                    <?php echo $list["post"]; ?> </p>
+                        <?php
+            
+        }
+
         $i++;
 }
 }
