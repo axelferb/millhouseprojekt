@@ -354,6 +354,21 @@ footer .row {
     width: 35%;
 }
 
+table th {
+    background: #1c3144;
+    color: #FFFFFF;
+    font-size: 0.9em;
+}
+
+table td {
+    font-size: 0.9em;
+}
+
+table td a{
+    text-decoration: underline;
+    color: #000000;
+}
+
 .profile-info {
     padding-top: 20px;
     padding-left: 5px;

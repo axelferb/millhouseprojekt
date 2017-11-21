@@ -36,7 +36,7 @@ session_start();
 
 // BELOW FETCHES 5 LATEST BLOGPOSTS
     $statement = $pdo->prepare("
-    SELECT title 
+    SELECT title, category 
     FROM posts 
     WHERE user = :user
     ORDER BY date DESC
@@ -104,11 +104,24 @@ require 'nav.php';
         <hr>
 
         <div class="posts">
-            <?php                
-                foreach($posts as $blogposts){   
-                echo $blogposts["title"] . '<br>';
-                }
-            ?>
+            
+                <?php
+                    echo '<table class="table table-striped full-width">';
+                    echo '<thead><tr>';
+                    echo '<th scope="col">' . "Kategori" . '</th>';
+                    echo '<th scope="col">' . "Inlägg". '</th>';
+                    echo '</thead></tr>';                
+                    foreach($posts as $blogposts){
+                    echo '<tr><td>';       
+                    echo $blogposts["category"];
+                    echo '</td><td>';
+                    echo '<a href="#">';
+                    echo $blogposts["title"];
+                    echo '</a>';
+                    }
+                    echo '</td></tr></table>';
+                ?>
+            </table>
             <br>
             <button type="button" class="btn button-test btn-block" href="list_single_users_posts.php">Se alla inlägg / Ta bort inlägg</button>
         
