@@ -18,6 +18,6 @@
     )); 
 
 
-   header("Location: ../list_single_users_posts.php?new_post=true");
+      header("Location: ../list_single_users_posts.php?new_post=true");
 
 ?>
