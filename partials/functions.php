@@ -219,9 +219,12 @@ function allCatergories($amount) {
         $i++;
 }
 }
+
     ?>
+    
 <?php
-function TESTAR($amount) {
+function specificPost($amount) {
+
 
     $i = 0;
     global $posts;
@@ -230,7 +233,7 @@ function TESTAR($amount) {
 
         if ($i == 0){
             ?>
-                        <div class='col-xs-12 col-md-12'>
+                        <div class='col-xs-12'>
 
                             <div class="profilbild-big"></div>
                             <?php
