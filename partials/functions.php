@@ -73,7 +73,6 @@ function allCategories() {
 }
 } 
 */
-
 function handleCategories($category, $amount) {
     $i = 0;
     global $posts;
@@ -93,9 +92,9 @@ function handleCategories($category, $amount) {
                             echo '<div class="klocka-big"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
@@ -110,18 +109,17 @@ function handleCategories($category, $amount) {
                     <?php
         }
          else {
-             ?>
-                        <div class='col-xs-12 col-md-6'>
-
+                ?>
+                        <div class='col-xs-12 col-md-6 div-max-height'>
                             <div class="profilbild-small"></div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
@@ -160,9 +158,9 @@ function allCatergories($amount) {
                             echo '<div class="klocka-big"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
@@ -186,7 +184,7 @@ function allCatergories($amount) {
         }
         else{
             ?>
-                            <div class='col-xs-12 col-md-6'>
+                            <div class='col-xs-12 col-md-6 div-max-height'>
 
                                 <div class="profilbild-small"></div>
                                 <?php
@@ -194,9 +192,9 @@ function allCatergories($amount) {
                             echo '<div class="klocka"></div>';
                             echo '<p>Klockor</p>';
                         }
-                        if($list["category"] == 'Glasögon'){
+                        if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Glasögon</p>';
+                            echo '<p>Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
@@ -222,11 +220,11 @@ function allCatergories($amount) {
 }
 }
 
-
+    ?>
     
-    
-   
+<?php
 function specificPost($amount) {
+
 
     $i = 0;
     global $posts;

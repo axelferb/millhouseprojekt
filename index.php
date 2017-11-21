@@ -1,5 +1,5 @@
 <?php
-    session_start();
+require 'partials/session.php';
 ?>
 
     <!DOCTYPE html>
@@ -36,18 +36,17 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                             <hr>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 right-align">
-                            <span class="filter">Filtrera efter:</span>
-                            <div class="btn-group">
-                                <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                    <span>
-                                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                    </span>
-                                    KATEGORI
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <form action="index.php" method="POST" class="filter">
+                    <div class="col-xs-12 right-align">
+                        <span class="filter">Filtrera efter:</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                <span>
+                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                </span>
+                                KATEGORI
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <form action="index.php" method="POST" class="filter">
                                         <li>
                                             <input href="#" type="submit" name="all" value="Allt">
                                         </li>
@@ -72,21 +71,25 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="#">Klockor</a>
+                                        <input href="#" type="submit" name="all" value="Allt"></input>
                                     </li>
                                     <li>
-                                        <a href="#">Glasögon</a>
+                                        <input href="#" type="submit" name="Klockor" value="Klockor"></input>
                                     </li>
                                     <li>
-                                        <a href="#">Inredning</a>
+                                        <input href="#" type="submit" name="Glasögon" value="Glasögon"></input>
                                     </li>
-                                </ul>
-                            </div>
+                                    <li>
+                                        <input href="#" type="submit" name="Inredning" value="Inredning"></input>
+                                    </li>
+                                </form>
+                            </ul>
                         </div>
-                        <?php
+                    </div>
+                    <?php
                         require 'index_login.php';
                             ?>
-                            <?php
+                        <?php
                 if (isset($_POST['Klockor'])) {
                     handleCategories($_POST["Klockor"], 5);
                 }
@@ -100,23 +103,13 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                     allCatergories(5);
                 }
                 ?>
-
-                    </div>
-                    <!-- END DIV-ROW -->
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <hr>
-                            <a class="btn button-green btn-lg btn-block" href="blog.php">Läs alla inlägg här</a>
-                            <!--- KNAPPAR SOM SKA ANVÄNDAS VID VG-KRITERIER
-                        <p style="text-align:center;">
-                            <i class="fa fa-3x fa-chevron-circle-left" aria-hidden="true"></i> button previous | button next
-                            <i class="fa fa-3x fa-chevron-circle-right" aria-hidden="true"></i>
-                        </p>
-                        -->
-                        </div>
-                        <!-- END DIV-ROW -->
-                    </div>
-                    <!-- END DIV-CONTAINER -->
+                            <div class="col-xs-12 hr-margin-top">
+                                <hr>
+                            </div>
+                            <div class="col-xs-12">
+                                <a class="btn button-green btn-lg btn-block" href="blog.php">Läs alla inlägg här</a>
+                            </div>
+                            <!--Container End-->
                 </div>
                 <?php
   require "footer.php";
