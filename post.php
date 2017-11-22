@@ -127,7 +127,7 @@ require 'partials/functions.php';
                     <h3>Kommentarer</h3>
                     <hr>
                     <?php
-                    
+                   /*
                     $counter = 0;
                             foreach($comment_userinfo as $cui){ 
                                 echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
@@ -147,8 +147,46 @@ require 'partials/functions.php';
                                         $counter++;
                                 }
                     }   
-                ?>
+                    
+                    */
+                    
+      
+                    
+                    $counter = 0;
+                    
+                    foreach($comment_userinfo as $cui){ 
+                        echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
+                        echo $cui["email"] . '<br>';
+
+                           if ($counter = 1)
+                            break;
+                           $counter++;
+                               
+                    } 
+                    
+                    foreach($comments as $kommentarer){ 
+                        echo $kommentarer["date"] . '<br>'; ?>
+                            <p>
+                            <?php echo $kommentarer["comment"] . '<br>'; ?>
+                            </p>
+                               
+                                <?php
+                                echo "<hr>";
+                    }
+        
+            ?>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                   
+                
                     </div>
+                    
+                
                 </div>
             </div>
     </div> <!-- END DIV / CONTAINER -->
