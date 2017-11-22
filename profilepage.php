@@ -96,8 +96,9 @@ require 'nav.php';
                 ?>
                 <a class="btn button-green btn-lg btn-block" href="new_post_form.php">Skriv inlägg</a><br>
             </div>
-
+            
         </div>
+        <br>
         <!-- END PROFILINFO --> 
 
         <h2>Senaste 5 blogginlägg</h2>
@@ -113,7 +114,7 @@ require 'nav.php';
                     echo '</thead></tr>';                
                     foreach($posts as $blogposts){
                     echo '<tr><td>';       
-                    echo $blogposts["category"];
+                    echo '<span class="uppercase text-bold">' . $blogposts["category"] . '</span>';
                     echo '</td><td>';
                     echo '<a href="#">';
                     echo $blogposts["title"];
@@ -124,19 +125,30 @@ require 'nav.php';
             </table>
             <br>
             <button type="button" class="btn button-test btn-block" href="list_single_users_posts.php">Se alla inlägg / Ta bort inlägg</button>
-        
+            <br>
         </div>
 
         <h2>Senaste 5 Kommentarer</h2>
         <hr>
 
         <div class="comments">
-            <?php                
-                foreach($comments as $blogcomments){   
+            <?php  
+                print_r($comments);
+                echo '<table class="table table-striped full-width">';
+                echo '<thead><tr>';
+                echo '<th scope="col">' . "Inlägg" . '</th>';
+                echo '<th scope="col">' . "Kommentar". '</th>';
+                echo '</thead></tr>';             
+                foreach($comments as $blogcomments){
+                echo '<tr><td>';
+                echo 'LÄNKBAR INLÄGGSRUBRIK';
+                echo '</td><td>';   
                 echo $blogcomments["comment"] . '<br>';
                 }
+                echo '</td></tr></table>';
             ?>
         </div>
+
     </main><!-- END MAIN CONTENT -->
 
 
@@ -146,7 +158,7 @@ require 'nav.php';
         <h2 class="text-center"><span class="text-bold"><?php echo $_SESSION["user"]["username"]; ?></span> Statistik</h2>
         
         <div class="statistics text-center">
-            <p class="text-bold">Totalt antal inlägg</p>
+            <p class="small uppercase text-bold">Totalt antal inlägg:</p>
             <?php
                 foreach ($p_count as $totalposts){
                 echo $totalposts;
@@ -154,7 +166,7 @@ require 'nav.php';
                 echo "st";
             ?>
             <br><br>
-            <p class="text-bold">Totalt antal kommentarer</p>
+            <p class="small uppercase text-bold">Totalt antal kommentarer:</p>
             <?php
                 foreach ($c_count as $totalcomments){
                 echo $totalcomments;
