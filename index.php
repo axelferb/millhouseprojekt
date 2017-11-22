@@ -27,12 +27,13 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                 <div class="blue-line"></div>
                 <div class="container">
                     <div class="row">
-                        <div class="index_login hidden-xs hidden-sm col-md-4">
-                            <h1 style="text-align:center;">LOGGA IN</h1>
-                            <hr>
-                        </div>
+                        
                         <div class="index_login hidden-xs hidden-sm col-md-8">
                             <h1>Våra blogginlägg</h1>
+                            <hr>
+                        </div>
+                        <div class="index_login hidden-xs hidden-sm col-md-4">
+                            <h1 style="text-align:center;">LOGGA IN</h1>
                             <hr>
                         </div>
                     </div>
@@ -87,7 +88,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     <?php
-                        require 'index_login.php';
+                        //require 'index_login.php';
                             ?>
                         <?php
                 if (isset($_POST['Klockor'])) {

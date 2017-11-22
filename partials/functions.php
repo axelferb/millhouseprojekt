@@ -73,6 +73,20 @@ function allCategories() {
 }
 } 
 */
+
+function handleImage($category){
+    if ($category == 'Klockor'){
+         echo '<img src="images/klockor_profil.png" alt="Klockor">';
+}
+    if ($category == 'Solglasögon'){
+         echo '<img src="../images/glasses_profil.png" alt="Solglasögon">';
+}
+    if ($category == 'Inredning'){
+         echo '<img src="../images/inredning_profil.png" alt="Inredning">';
+}
+    }
+
+
 function handleCategories($category, $amount) {
     $i = 0;
     global $posts;
@@ -84,9 +98,9 @@ function handleCategories($category, $amount) {
             
         if($i == 0){    
 ?>
-                    <div class='col-xs-12 col-md-8'>
+                    <article class='col-xs-12 col-md-8'>
 
-                        <div class="profilbild-big"></div>
+                        <div class="profilbild-big"><?php handleImage($list['category']); ?></div>
                         <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
@@ -105,13 +119,14 @@ function handleCategories($category, $amount) {
                                 <?php echo $list["title"]; ?> </h2>
                             <p>
                                 <?php echo $list["post"]; ?> </p>
-                    </div>
+                    </article>
                     <?php
+                    require 'index_login.php';
         }
          else {
                 ?>
-                        <div class='col-xs-12 col-md-6 div-max-height'>
-                            <div class="profilbild-small"></div>
+                        <article class='col-xs-12 col-md-6 div-max-height'>
+                            <div class="profilbild-small"><?php handleImage($list['category']); ?></div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
@@ -131,7 +146,7 @@ function handleCategories($category, $amount) {
                                 </h2>
                                 <p>
                                     <?php echo $list["post"]; ?> </p>
-                        </div>
+                        </article>
                         <?php 
          }
             $i++;
@@ -150,9 +165,9 @@ function allCatergories($amount) {
 
         if ($i == 0){
             ?>
-                        <div class='col-xs-12 col-md-8'>
+                        <article class='col-xs-12 col-md-8'>
 
-                            <div class="profilbild-big"></div>
+                            <div class="profilbild-big"><?php handleImage($list['category']); ?></div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
@@ -178,15 +193,16 @@ function allCatergories($amount) {
                                 </p>
                                    
 
-                        </div>
+                        </article>
                         <?php
+                        require 'index_login.php';
             
         }
         else{
             ?>
-                            <div class='col-xs-12 col-md-6 div-max-height'>
+                            <article class='col-xs-12 col-md-6 div-max-height'>
 
-                                <div class="profilbild-small"></div>
+                                <div class="profilbild-small"><?php handleImage($list['category']); ?></div>
                                 <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
@@ -211,7 +227,7 @@ function allCatergories($amount) {
                                         echo "$smallText" . "..."; ?>            
                                     </p>
 
-                            </div>
+                            </article>
 
                             <?php
             
@@ -233,7 +249,7 @@ function specificPost($amount) {
 
         if ($i == 0){
             ?>
-                        <div class='col-xs-12'>
+                        <article class='col-xs-12'>
 
                             <div class="profilbild-big"></div>
                             <?php
@@ -250,7 +266,7 @@ function specificPost($amount) {
                             echo '<p>Inredning</p>';
                         }
                     ?>
-                        </div>
+                        </article>
                         <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
