@@ -125,6 +125,8 @@ input {
 
 /**/
 
+/** FONT STYLES **/
+
 h1 {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
@@ -168,6 +170,13 @@ p {
     font-weight: 700;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
+.small {
+    font-size: 1em;
+}
 .author {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
@@ -175,6 +184,8 @@ p {
     color: #1c3145;
     text-transform: uppercase;
 }
+
+/**/
 
 hr {
     margin: 5px 0 15px 0;
@@ -362,6 +373,7 @@ table th {
 
 table td {
     font-size: 0.9em;
+    color: #1c3144;
 }
 
 table td a{
@@ -398,7 +410,7 @@ table td a{
 }
 
 .statistics {
-    padding: 10px;
+    padding: 20px 10px 20px 10px;
     background: #1c3144;
     color: #FFFFFF;
     width: 100%;
