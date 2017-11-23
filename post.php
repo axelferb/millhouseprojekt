@@ -153,12 +153,13 @@ require 'partials/functions.php';
                         echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
                         echo $cui["email"] . '<br>';
 
-                           if ($counter = 1)
+                           
+                               
+                     if ($counter = 1)
                             break;
                            $counter++;
-                               
-                    } 
-                    
+                        
+                        }
                     foreach($comments as $kommentarer){ 
                         echo $kommentarer["date"] . '<br>'; ?>
                             <p>
@@ -166,9 +167,13 @@ require 'partials/functions.php';
                             </p>
                                
                                 <?php
+                        
                                 echo "<hr>";
-                    }
-        
+                       
+                    
+                        
+                            } 
+
             ?>
                     
                     
