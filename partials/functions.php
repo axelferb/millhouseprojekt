@@ -239,11 +239,13 @@ function allCatergories($amount) {
     ?>
     
 <?php
+
 function specificPost($amount) {
 
 
     $i = 0;
     global $posts;
+    global $userinfo;
     foreach($posts as $list){
         if($i==$amount) break;
 
@@ -265,11 +267,25 @@ function specificPost($amount) {
                             echo '<div class="inredning-big"></div>';
                             echo '<p>Inredning</p>';
                         }
-                    ?>
+                            ?>
                         </article>
-                        <h2>
+                        
+<!--- Lists the specific blog post with created-date and name of the author --->
+                                <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
+                                
+                                <?php 
+                                    echo $list["date"] . ' | ';
+            
+                                foreach($userinfo as $userInformation){
+                                    echo $userInformation["firstname"] . ' ';
+                                    echo $userInformation["lastname"] . ' ' . ' | ';
+                                    echo $userInformation["email"];
+                                }
+                                ?>
+            
+            
                                 <p>
                                     <?php echo $list["post"]; ?> </p>
                         <?php
@@ -279,6 +295,4 @@ function specificPost($amount) {
         $i++;
 }
 }
-
-
-    ?>
+?>

@@ -57,36 +57,99 @@ require 'partials/functions.php';
 ?>
 
 <body>
-<?php
-require 'nav.php';
-?>
 
+    <?php
+    require 'nav.php';
+    ?>
+    
+    
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                   <div class="inlägg">
+                       
+                       <?php
+                
+                        if (isset($_POST['Klockor'])) {
+                            specificPost($_POST["Klockor"], count($posts));
+                           }
+                        elseif (isset($_POST['Glasögon'])) {
+                            specificPost($_POST["Glasögon"], count($posts));
+                            }
+                        elseif (isset($_POST['Inredning'])) {
+                            specificPost($_POST["Inredning"], count($posts));
+                           }
+                        else {
+                            specificPost(count($posts));
+                        }  
+                     
+                                   
+                    ?>
+                </div>
+                    
+                    <br/>
+                    
+                <div class="comment_on_post">
+                         <h3>Kommentera</h3>
+                         <hr>
 
+                      <form action="partials/new_comment.php" method="POST">
 
-<div class="container" style="border: 2px solid red;">
+                        <div class="form-group">
+                          <label for="new_comment"> Kommentar: </label>
+                          <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
+                        </div>
 
-    <main class="col-md-8" style="border: 1px solid green;">
+                    <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
+                        <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
+                        
+                    <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
+                        <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
 
-        <div class="inlägg">
-            <?php
-                if (isset($_POST['Klockor'])) {
-                specificPost($_POST["Klockor"], count($posts));
-                }
-                elseif (isset($_POST['Glasögon'])) {
-                specificPost($_POST["Glasögon"], count($posts));
-                }
-                elseif (isset($_POST['Inredning'])) {
-                specificPost($_POST["Inredning"], count($posts));
-                }
-                else {
-                specificPost(count($posts));
-                }  
+                        <div class="form-group">
+                          <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
+                        </div>
+                        
+                        
+                        
 
-                foreach($userinfo as $info){
-                echo $info["firstname"] . ' ';
-                echo $info["lastname"] . ' ';
-                echo $info["email"];
-                }     
+                      </form>
+                </div>
+                    
+                    
+                    
+                <div class="comments_post">
+                    <h3>Kommentarer</h3>
+                    <hr>
+                    <?php
+                
+      
+                    
+                    $counter = 0;
+                    
+                    foreach($comment_userinfo as $cui){ 
+                        echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
+                        echo $cui["email"] . '<br>';
+       
+                         if ($counter = 1)
+                                break;
+                               $counter++;
+                        }
+                    
+                    foreach($comments as $kommentarer){ 
+                            echo $kommentarer["date"] . '<br>'; ?>
+                            <p>
+                            <?php echo $kommentarer["comment"] . '<br>'; ?>
+                            </p>
+                               
+                                <?php
+                        
+                                echo "<hr>";
+                       
+                    
+                        
+                            } 
             ?>
         </div>
 
