@@ -57,155 +57,134 @@ require 'partials/functions.php';
 ?>
 
 <body>
-    <?php
-    require 'nav.php';
-    ?>
-    
-    
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                   <div class="inlägg">
-                       
-                       <?php
-                
-                        if (isset($_POST['Klockor'])) {
-                            specificPost($_POST["Klockor"], count($posts));
-                           }
-                        elseif (isset($_POST['Glasögon'])) {
-                            specificPost($_POST["Glasögon"], count($posts));
-                            }
-                        elseif (isset($_POST['Inredning'])) {
-                            specificPost($_POST["Inredning"], count($posts));
-                           }
-                        else {
-                            specificPost(count($posts));
-                        }  
-                                  
-                                          foreach($userinfo as $info){
-                    echo $info["firstname"] . ' ';
-                    echo $info["lastname"] . ' ';
-                    echo $info["email"];
+<?php
+require 'nav.php';
+?>
+
+
+
+<div class="container" style="border: 2px solid red;">
+
+    <main class="col-md-8" style="border: 1px solid green;">
+
+        <div class="inlägg">
+            <?php
+                if (isset($_POST['Klockor'])) {
+                specificPost($_POST["Klockor"], count($posts));
+                }
+                elseif (isset($_POST['Glasögon'])) {
+                specificPost($_POST["Glasögon"], count($posts));
+                }
+                elseif (isset($_POST['Inredning'])) {
+                specificPost($_POST["Inredning"], count($posts));
+                }
+                else {
+                specificPost(count($posts));
+                }  
+
+                foreach($userinfo as $info){
+                echo $info["firstname"] . ' ';
+                echo $info["lastname"] . ' ';
+                echo $info["email"];
                 }     
-                                   
-                    ?>
-                </div>
-                    
-                    <br/>
-                    
-                <div class="comment_on_post">
-                         <h3>Kommentera</h3>
-                         <hr>
-
-                      <form action="partials/new_comment.php" method="POST">
-
-                        <div class="form-group">
-                          <label for="new_comment"> Kommentar: </label>
-                          <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
-                        </div>
-
-                    <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
-                        <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
-                        
-                    <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
-                        <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
-
-                        <div class="form-group">
-                          <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
-                        </div>
-                        
-                        
-                        
-
-                      </form>
-                </div>
-                    
-                    
-                    
-                <div class="comments_post">
-                    <h3>Kommentarer</h3>
-                    <hr>
-                    <?php
-                   /*
-                    $counter = 0;
-                            foreach($comment_userinfo as $cui){ 
-                                echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
-                                    //echo $cui["email"] . '<br>';
-                                    
-                                foreach($comments as $kommentarer){ 
-                                    echo $kommentarer["date"] . '<br>'; ?>
-                                    <p>
-                                    <?php echo $kommentarer["comment"] . '<br>'; ?>
-                                    </p>
-                                    <?php
-                        
-                                        echo "<hr>";
-                                    
-                                        if ($counter = 1) 
-                                        break;
-                                        $counter++;
-                                }
-                    }   
-                    
-                    */
-                    
-      
-                    
-                    $counter = 0;
-                    
-                    foreach($comment_userinfo as $cui){ 
-                        echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
-                        echo $cui["email"] . '<br>';
-
-                           if ($counter = 1)
-                            break;
-                           $counter++;
-                               
-                    } 
-                    
-                    foreach($comments as $kommentarer){ 
-                        echo $kommentarer["date"] . '<br>'; ?>
-                            <p>
-                            <?php echo $kommentarer["comment"] . '<br>'; ?>
-                            </p>
-                               
-                                <?php
-                                echo "<hr>";
-                    }
-        
-            ?>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                   
-                
-                    </div>
-                    
-                
-                </div>
-            </div>
-    </div> <!-- END DIV / CONTAINER -->
-</main>
-   
-<aside>
-    <div class="row">
-        <div class="col-md-4">
-            <?php require "index_login.php";
             ?>
         </div>
-    </div>
-</aside>
-   
-   
-    <?php
-    require "footer.php";
-    ?>
-    
+
+        <br/>
+
+        <div class="comment_on_post">
+            
+            <h3>Kommentera</h3>
+
+            <hr>
+            
+            <form action="partials/new_comment.php" method="POST">
+                <div class="form-group">
+                    <label for="new_comment"> Kommentar: </label>
+                    <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
+                </div>
+
+                <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
+                <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
+
+                <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
+                <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
+
+                <div class="form-group">
+                    <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
+                </div>
+            </form>
+        </div>
+
+
+        <div class="comments_post">
+        
+        <h3>Kommentarer</h3>
+        
+        <hr>
+
+        <?php
+/*
+$counter = 0;
+foreach($comment_userinfo as $cui){ 
+echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
+//echo $cui["email"] . '<br>';
+
+foreach($comments as $kommentarer){ 
+echo $kommentarer["date"] . '<br>'; ?>
+<p>
+<?php echo $kommentarer["comment"] . '<br>'; ?>
+</p>
+<?php
+
+echo "<hr>";
+
+if ($counter = 1) 
+break;
+$counter++;
+}
+}   
+
+*/
+
+        $counter = 0;
+
+        foreach($comment_userinfo as $cui){ 
+        echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
+        echo $cui["email"] . '<br>';
+
+        if ($counter = 1)
+        break;
+        $counter++;
+        } 
+
+        foreach($comments as $kommentarer){ 
+        echo $kommentarer["date"] . '<br>'; ?>
+
+        <p> <?php echo $kommentarer["comment"] . '<br>'; ?> </p>
+
+        <?php
+            echo "<hr>";
+            }
+        ?>
+
+    </main>
+
+    <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
+    <aside class="col-md-4" style="border: 1px solid green;">
+        <?php require "index_login.php";
+        ?>
+    </aside>
+    <!-- END ASIDE -->
+
+</div> <!-- END DIV / CONTAINER -->
+
+
+
+<?php
+require "footer.php";
+?>
+
 </body>
 
 </html>
