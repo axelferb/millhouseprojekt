@@ -122,29 +122,7 @@ require 'partials/functions.php';
                     <h3>Kommentarer</h3>
                     <hr>
                     <?php
-                   /*
-                    $counter = 0;
-                            foreach($comment_userinfo as $cui){ 
-                                echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
-                                    //echo $cui["email"] . '<br>';
-                                    
-                                foreach($comments as $kommentarer){ 
-                                    echo $kommentarer["date"] . '<br>'; ?>
-                                    <p>
-                                    <?php echo $kommentarer["comment"] . '<br>'; ?>
-                                    </p>
-                                    <?php
-                        
-                                        echo "<hr>";
-                                    
-                                        if ($counter = 1) 
-                                        break;
-                                        $counter++;
-                                }
-                    }   
-                    
-                    */
-                    
+                
       
                     
                     $counter = 0;
@@ -152,16 +130,14 @@ require 'partials/functions.php';
                     foreach($comment_userinfo as $cui){ 
                         echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
                         echo $cui["email"] . '<br>';
-
-                           
-                               
-                     if ($counter = 1)
-                            break;
-                           $counter++;
-                        
+       
+                         if ($counter = 1)
+                                break;
+                               $counter++;
                         }
+                    
                     foreach($comments as $kommentarer){ 
-                        echo $kommentarer["date"] . '<br>'; ?>
+                            echo $kommentarer["date"] . '<br>'; ?>
                             <p>
                             <?php echo $kommentarer["comment"] . '<br>'; ?>
                             </p>
