@@ -82,12 +82,7 @@ require 'partials/functions.php';
                         else {
                             specificPost(count($posts));
                         }  
-                                  
-                                          foreach($userinfo as $info){
-                    echo $info["firstname"] . ' ';
-                    echo $info["lastname"] . ' ';
-                    echo $info["email"];
-                }     
+                     
                                    
                     ?>
                 </div>
