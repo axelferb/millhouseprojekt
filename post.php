@@ -20,40 +20,37 @@ require 'partials/functions.php';
     )); 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-    // PARAGRAPH BELOW FOR FETCHING COMMENTS
-    $statement2 = $pdo->prepare("
-      SELECT comment, date FROM comments WHERE idoriginalpost = :post ORDER BY date ASC"
-    );
-    $statement2->execute(array(
-    ":post" => $post
-    )); 
-    $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
-    
     // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING BLOGGING USER
-    $statement3 = $pdo->prepare("
+    $statement2 = $pdo->prepare("
     SELECT users.id, users.firstname, users.lastname, users.email, posts.user FROM posts 
     INNER JOIN users 
     ON users.id = posts.user
     WHERE posts.id = :post
     ");
+    $statement2->execute(array(
+    ":post" => $post
+    ));
+    $userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
+    
+// TEST-PARAGRAPH BELOW FOR FETCHING COMMENT & INFO ABOUT PUBLISHING COMMENTING USER
+    $statement3 = $pdo->prepare("
+    SELECT users.id, 
+    users.username AS username, 
+    users.email AS email, 
+    comments.comment AS comment, 
+    comments.date AS date, 
+    comments.idoriginalpost 
+    FROM comments 
+    INNER JOIN users 
+	ON users.id = comments.user
+    WHERE comments.idoriginalpost = :post
+    ORDER BY date ASC
+    ");
     $statement3->execute(array(
     ":post" => $post
     ));
-    $userinfo = $statement3->fetchAll(PDO::FETCH_ASSOC);
-    
-    // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING COMMENTING USER
-    $statement4 = $pdo->prepare("
-    SELECT users.id, users.username, users.email, comments.idoriginalpost FROM comments 
-    INNER JOIN users 
-    ON users.id = comments.user
-    WHERE comments.idoriginalpost = :post
-    ");
-    $statement4->execute(array(
-    ":post" => $post
-    ));
-    $comment_userinfo = $statement4->fetchAll(PDO::FETCH_ASSOC);
-    
-    //var_dump($comment_userinfo);  
+    $comments_info = $statement3->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <body>
@@ -111,125 +108,27 @@ require 'partials/functions.php';
                           <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
                         </div>
                         
-                        
-                        
-
                       </form>
                 </div>
                     
                     
                     
-                <div class="comments_post">
-                    <h3>Kommentarer</h3>
-                    <hr>
-                    <?php
-                
-      
-                    
-                    $counter = 0;
-                    
-                    foreach($comment_userinfo as $cui){ 
-                        echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
-                        echo $cui["email"] . '<br>';
-       
-                         if ($counter = 1)
-                                break;
-                               $counter++;
-                        }
-                    
-                    foreach($comments as $kommentarer){ 
-                            echo $kommentarer["date"] . '<br>'; ?>
-                            <p>
-                            <?php echo $kommentarer["comment"] . '<br>'; ?>
-                            </p>
-                               
-                                <?php
-                        
-                                echo "<hr>";
-                       
-                    
-                        
-                            } 
-            ?>
-        </div>
-
-        <br/>
-
-        <div class="comment_on_post">
-            
-            <h3>Kommentera</h3>
-
-            <hr>
-            
-            <form action="partials/new_comment.php" method="POST">
-                <div class="form-group">
-                    <label for="new_comment"> Kommentar: </label>
-                    <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
-                </div>
-
-                <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
-                <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
-
-                <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
-                <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
-
-                <div class="form-group">
-                    <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
-                </div>
-            </form>
-        </div>
-
-
         <div class="comments_post">
-        
-        <h3>Kommentarer</h3>
-        
-        <hr>
+            <h3>Kommentarer</h3>
+            <hr>
 
-        <?php
-/*
-$counter = 0;
-foreach($comment_userinfo as $cui){ 
-echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
-//echo $cui["email"] . '<br>';
+            <?php
+                foreach($comments_info as $ci){ 
+                    echo $ci["username"]. '<br>';
+                    echo $ci["email"] . '<br>';
+                    echo $ci["date"] . '<br>';
+                    echo $ci["comment"] . '<br>';
+                }
 
-foreach($comments as $kommentarer){ 
-echo $kommentarer["date"] . '<br>'; ?>
-<p>
-<?php echo $kommentarer["comment"] . '<br>'; ?>
-</p>
-<?php
+            ?>
 
-echo "<hr>";
+        </div>
 
-if ($counter = 1) 
-break;
-$counter++;
-}
-}   
-
-*/
-
-        $counter = 0;
-
-        foreach($comment_userinfo as $cui){ 
-        echo $cui["username"] . ' ' . 'skriver:' . '<br/> ';
-        echo $cui["email"] . '<br>';
-
-        if ($counter = 1)
-        break;
-        $counter++;
-        } 
-
-        foreach($comments as $kommentarer){ 
-        echo $kommentarer["date"] . '<br>'; ?>
-
-        <p> <?php echo $kommentarer["comment"] . '<br>'; ?> </p>
-
-        <?php
-            echo "<hr>";
-            }
-        ?>
 
     </main>
 
