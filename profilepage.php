@@ -49,7 +49,7 @@ session_start();
 
 // BELOW FETCHES 5 LATEST COMMENTS
     $statement2 = $pdo->prepare("
-    SELECT comment 
+    SELECT comment, idoriginalpost 
     FROM comments
     WHERE user = :user
     ORDER BY date DESC
@@ -124,7 +124,7 @@ require 'nav.php';
                 ?>
             </table>
             <br>
-            <button type="button" class="btn button-test btn-block" href="list_single_users_posts.php">Se alla inlägg / Ta bort inlägg</button>
+            <a class="btn button-test btn-block" href="list_single_users_posts.php" target="_self">Se alla</a>
             <br>
         </div>
 
@@ -133,17 +133,27 @@ require 'nav.php';
 
         <div class="comments">
             <?php  
-                print_r($comments);
                 echo '<table class="table table-striped full-width">';
                 echo '<thead><tr>';
                 echo '<th scope="col">' . "Inlägg" . '</th>';
                 echo '<th scope="col">' . "Kommentar". '</th>';
                 echo '</thead></tr>';             
                 foreach($comments as $blogcomments){
-                echo '<tr><td>';
-                echo 'LÄNKBAR INLÄGGSRUBRIK';
-                echo '</td><td>';   
-                echo $blogcomments["comment"] . '<br>';
+                    $statement_posts = $pdo->prepare("
+                    SELECT title
+                    FROM posts
+                    WHERE id = :id
+                    ");
+                    $statement_posts->execute(array(
+                    ":id" =>$blogcomments["idoriginalpost"]  
+                    ));
+                    $comment_post = $statement_posts->fetch(PDO::FETCH_ASSOC);
+                    echo '<tr><td>';
+                    echo '<a href="#">';
+                    echo $comment_post['title'];
+                    echo '</a>';
+                    echo '</td><td>';   
+                    echo $blogcomments["comment"] . '<br>';
                 }
                 echo '</td></tr></table>';
             ?>
