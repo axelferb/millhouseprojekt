@@ -76,13 +76,13 @@ function allCategories() {
 
 function handleImage($category){
     if ($category == 'Klockor'){
-         echo '<img src="images/klockor_profil.png" alt="Klockor">';
+         echo '<img class="img-fluid" src="images/klockor_profil.png" alt="Klockor">';
 }
     if ($category == 'Solglasögon'){
-         echo '<img src="../images/glasses_profil.png" alt="Solglasögon">';
+         echo '<img class="img-fluid" src="../images/glasses_profil.png" alt="Solglasögon">';
 }
     if ($category == 'Inredning'){
-         echo '<img src="../images/inredning_profil.png" alt="Inredning">';
+         echo '<img class="img-fluid" src="../images/inredning_profil.png" alt="Inredning">';
 }
     }
 
@@ -100,7 +100,7 @@ function handleCategories($category, $amount) {
 ?>
                     <article class='col-xs-12 col-md-8'>
 
-                        <div class="profilbild-big"><?php handleImage($list['category']); ?></div>
+                        <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
                         <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
@@ -126,7 +126,7 @@ function handleCategories($category, $amount) {
          else {
                 ?>
                         <article class='col-xs-12 col-md-6 div-max-height'>
-                            <div class="profilbild-small"><?php handleImage($list['category']); ?></div>
+                            <div class="img-wrap-small"><?php handleImage($list['category']); ?></div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
@@ -167,7 +167,7 @@ function allCatergories($amount) {
             ?>
                         <article class='col-xs-12 col-md-8'>
 
-                            <div class="profilbild-big"><?php handleImage($list['category']); ?></div>
+                            <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
@@ -202,7 +202,7 @@ function allCatergories($amount) {
             ?>
                             <article class='col-xs-12 col-md-6 div-max-height'>
 
-                                <div class="profilbild-small"><?php handleImage($list['category']); ?></div>
+                                <div class="img-wrap-small"><?php handleImage($list['category']); ?></div>
                                 <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
@@ -251,7 +251,7 @@ function specificPost($amount) {
             ?>
                         <article class='col-xs-12'>
 
-                            <div class="profilbild-big"></div>
+                            <div class="img-wrap-big"></div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';

@@ -27,7 +27,7 @@
 
 
 ?>
-    <div class="hidden-xs hidden-sm col-md-4 push-md-8 login-wrap">
+    <div class="hidden-xs hidden-sm col-md-4 login-wrap">
         <div class="login-field">
             <?php
             if(isset($_SESSION["user"])){
