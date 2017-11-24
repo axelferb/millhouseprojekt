@@ -185,6 +185,7 @@ function allCatergories($amount) {
                                 <h2>
                                     <?php echo $list["title"]; ?> </h2>
                                 <p>
+                                       
                                         <?php 
                                         $bigText = $list["post"];
                                         $smallText = substr($bigText, 0, 70);
