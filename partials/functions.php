@@ -275,20 +275,22 @@ function specificPost($amount) {
                                     <?php echo $list["title"]; ?>
                                 </h2>
                                 
-                                <?php 
-                                    echo $list["date"] . ' | ';
+                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+                            <?php   echo $list["date"] . ' | ';
             
-                                foreach($userinfo as $userInformation){
-                                    echo $userInformation["firstname"] . ' ';
-                                    echo $userInformation["lastname"] . ' ' . ' | ';
-                                    echo $userInformation["email"];
+                                foreach($userinfo as $userInformation){ ?> 
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                            <?php   echo $userInformation["firstname"] . ' ';
+                                    echo $userInformation["lastname"] . ' ' . ' | '; ?>
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            <?php   echo ' ' . $userInformation["email"];
                                 }
                                 ?>
             
-            
                                 <p>
-                                    <?php echo $list["post"]; ?> </p>
-                        <?php
+                                    <?php echo $list["post"]; ?> 
+                                </p>
+                            <?php
             
         }
 

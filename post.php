@@ -119,13 +119,17 @@ require 'partials/functions.php';
 
             <?php
                 foreach($comments_info as $ci){ 
-                    echo $ci["username"]. '<br>';
-                    echo $ci["email"] . '<br>';
-                    echo $ci["date"] . '<br>';
-                    echo $ci["comment"] . '<br>';
+                    echo $ci["username"]. ' ' . 'skriver:' . '<br>';
+                    echo $ci["date"] . '<br>'; ?>
+                    <p>
+                    <?php echo $ci["comment"] . '<br>'; ?>
+                    </p>
+                    <?php echo "<hr>";
+                    
                 }
 
             ?>
+                    
 
         </div>
 
