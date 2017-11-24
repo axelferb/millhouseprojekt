@@ -17,15 +17,57 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     <div class="jumbotron">
     </div>
     <div class="container">
-        <div class="row">
-        <span class="filter">Filtrera efter:</span>
-            <form action="index.php" method="POST" class="filter">
-                <input type="submit" name="Klockor" value="Klockor">
-                <input type="submit" name="Glasögon" value="Glasögon">
-                <input type="submit" name="Inredning" value="Inredning">
-                <input type="submit" name="all" value="allt">
-            </form>
-    </div>
+        <div class="col-xs-12 right-align">
+                        <span class="filter">Filtrera efter:</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                <span>
+                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                </span>
+                                KATEGORI
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <form action="index.php" method="POST" class="filter">
+                                        <li>
+                                            <input href="#" type="submit" name="all" value="Allt">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Klockor" value="Klockor">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Glasögon" value="Glasögon">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Inredning" value="Inredning">
+                                        </li>
+                                    </form>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                    </span>
+                                    DATUM
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                   <form action="index.php" method="POST" class="filter">
+                                    <li>
+                                        <input href="#" type="submit" name="all" value="Allt">
+                                    </li>
+                                    <li>
+                                        <input href="#" type="submit" name="Klockor" value="Klockor">
+                                    </li>
+                                    <li>
+                                        <input href="#" type="submit" name="Glasögon" value="Glasögon">
+                                    </li>
+                                    <li>
+                                        <input href="#" type="submit" name="Inredning" value="Inredning">
+                                    </li>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
                  <?php
                 
                 if (isset($_POST['Klockor'])) {
