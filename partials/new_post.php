@@ -6,6 +6,26 @@
     $post = $_POST["new_post"];
     $category = $_POST["category"];
 
+    $path = $_FILES["uploaded_file"]["tmp_name"];
+    $filename = $_FILES["uploaded_file"]["name"];
+
+if(move_uploaded_file($path, "../blog_img/" . $filename)){
+    var_dump($_FILES);
+    
+    $statement = $pdo->prepare("
+        INSERT INTO posts (user, title, post, category, image) 
+        VALUES (:user, :title, :post, :category, :image) ");
+    
+        $statement->execute(array(
+        ":user" => $user,
+        ":title" => $title,
+        ":post" => $post,
+        ":category" => $category,
+        ":image" => "blog_img/" . $filename
+    ));
+      header("Location: ../list_single_users_posts.php?new_post=true");
+
+} else {
     $statement = $pdo->prepare("
       INSERT INTO posts (user, title, post, category)
       VALUES (:user, :title, :post, :category)");
@@ -16,8 +36,8 @@
       ":post" => $post,
       ":category" => $category
     )); 
-
-
       header("Location: ../list_single_users_posts.php?new_post=true");
+    
+}
 
 ?>

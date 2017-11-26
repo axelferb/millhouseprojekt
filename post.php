@@ -13,7 +13,7 @@ require 'partials/functions.php';
     
     // PARAGRAPH BELOW FOR FETCHING POST
     $statement = $pdo->prepare("
-    SELECT id, title, post, date, category FROM posts WHERE id = :post
+    SELECT id, title, post, date, category, image FROM posts WHERE id = :post
     ");
     $statement->execute(array(
     ":post" => $post
@@ -154,3 +154,8 @@ require "footer.php";
 </body>
 
 </html>
+
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique eum ipsa, magnam aut amet tempora distinctio nam incidunt itaque sit odit deleniti consectetur delectus in sapiente, temporibus quo laborum! Consequuntur neque, quasi iure id sunt! Distinctio dolorum quos possimus blanditiis.
