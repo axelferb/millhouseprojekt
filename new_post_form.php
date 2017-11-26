@@ -28,7 +28,7 @@ require 'partials/functions.php';
 <!--<div class="container mt-5">-->
   <h4>Nytt inlägg:</h4>
   
-  <form action="partials/new_post.php" method="POST">
+  <form action="partials/new_post.php" method="POST" enctype="multipart/form-data">
   
     <div class="form-group">
       <input type="hidden" name="user" value="<?= $_SESSION["user"]["id"]; ?> " class="form-control">
@@ -45,13 +45,19 @@ require 'partials/functions.php';
     </div>
     
     <div class="form-group">
-  <label for="sel1">Select list:</label>
-  <select class="form-control" name="category" id="sel1">
-    <option>Solglasögon</option>
-    <option>Klockor</option>
-    <option>Inredning</option>
-  </select>
-</div>
+      <label for="sel1">Select list:</label>
+      <select class="form-control" name="category" id="sel1">
+        <option>Solglasögon</option>
+        <option>Klockor</option>
+        <option>Inredning</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="new_post"> Bild (valfritt): </label>
+       <input type="file" name="uploaded_file">
+    </div>
+   
     
     <div class="form-group">
       <input type="submit" class="btn btn-primary">

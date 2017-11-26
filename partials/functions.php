@@ -84,7 +84,8 @@ function handleImage($category){
     if ($category == 'Inredning'){
          echo '<img class="img-fluid" src="../images/inredning_profil.png" alt="Inredning">';
 }
-    }
+
+}
 
 
 function handleCategories($category, $amount) {
@@ -100,7 +101,11 @@ function handleCategories($category, $amount) {
 ?>
                     <article class='col-xs-12 col-md-8'>
 
-                        <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
+                        <div class="img-wrap-big">
+                        
+                        <?php                          
+                        handleImage($list['category']); 
+                            ?></div>
                         <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
@@ -126,7 +131,11 @@ function handleCategories($category, $amount) {
          else {
                 ?>
                         <article class='col-xs-12 col-md-6 div-max-height'>
-                            <div class="img-wrap-small"><?php handleImage($list['category']); ?></div>
+                            <div class="img-wrap-small">
+                            <?php 
+                                handleImage($list['category']);   
+                            ?>
+                            </div>
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
@@ -243,6 +252,7 @@ function allCatergories($amount) {
 function specificPost($amount) {
 
 
+
     $i = 0;
     global $posts;
     global $userinfo;
@@ -255,22 +265,33 @@ function specificPost($amount) {
 
                             <div class="img-wrap-big"></div>
                             <?php
-                        if($list["category"] == 'Klockor'){
-                            echo '<div class="klocka-big"></div>';
-                            echo '<p>Klockor</p>';
-                        }
-                        if($list["category"] == 'Glasögon'){
-                            echo '<div class="glasögon-big"></div>';
-                            echo '<p>Glasögon</p>';
-                        }
-                        if($list["category"] == 'Inredning'){
-                            echo '<div class="inredning-big"></div>';
-                            echo '<p>Inredning</p>';
-                        }
+            
+                                    if($list["category"] == 'Klockor'){
+                                        echo '<div class="klocka-big"></div>';
+                                        echo '<p>Klockor</p>';
+                                    }
+                                    if($list["category"] == 'Glasögon'){
+                                        echo '<div class="glasögon-big"></div>';
+                                        echo '<p>Glasögon</p>';
+                                    }
+                                    if($list["category"] == 'Inredning'){
+                                        echo '<div class="inredning-big"></div>';
+                                        echo '<p>Inredning</p>';
+                                    }
+     
                             ?>
                         </article>
                         
 <!--- Lists the specific blog post with created-date and name of the author --->
+                               
+                               <?php
+                                // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
+                                if(!($list["image"] == NULL)){
+                                ?>
+                                <img src="<?=$list["image"];?>" width="400"> 
+                                <?php    
+                                } ?>
+                                
                                 <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
@@ -295,4 +316,5 @@ function specificPost($amount) {
         $i++;
 }
 }
+
 ?>
