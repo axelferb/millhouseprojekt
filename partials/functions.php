@@ -122,8 +122,13 @@ function handleCategories($category, $amount) {
                     ?>
                             <h2>
                                 <?php echo $list["title"]; ?> </h2>
-                            <p>
-                                <?php echo $list["post"]; ?> </p>
+                            <p>      
+                                <?php 
+                                $bigText = $list["post"];
+                                $smallText = substr($bigText, 0, 70);
+
+                                echo "$smallText" . "..."; ?>            
+                            </p>
                     </article>
                     <?php
                     require 'index_login.php';
@@ -153,8 +158,13 @@ function handleCategories($category, $amount) {
                                 <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
-                                <p>
-                                    <?php echo $list["post"]; ?> </p>
+                                 <p>  
+                                    <?php 
+                                    $bigText = $list["post"];
+                                    $smallText = substr($bigText, 0, 70);
+
+                                    echo "$smallText" . "..."; ?>            
+                                </p>
                         </article>
                         <?php 
          }
