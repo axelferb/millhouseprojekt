@@ -8,7 +8,6 @@ require 'partials/session.php';
     $user = $_SESSION["user"]["id"];
     
 // USER POSTS STATISTICS
-
     $statement_posts = $pdo->prepare("
     SELECT COUNT(DISTINCT post) as total
     FROM posts
@@ -20,7 +19,6 @@ require 'partials/session.php';
     $p_count = $statement_posts->fetch(PDO::FETCH_ASSOC);
 
 // USER COMMENT STATISTICS
-
     $statement_comments = $pdo->prepare("
     SELECT COUNT(DISTINCT comment) as total
     FROM comments
@@ -56,19 +54,19 @@ require 'partials/session.php';
     ":user" => $user
     )); 
     $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
-  
-// BELOW FETCHES USER IMAGE
-    $statement_img = $pdo->prepare("
+
+// BELOW FETCHES PROFILE PICTURE
+    $statement3 = $pdo->prepare("
     SELECT image 
-    FROM users
-    WHERE user = :user
+    FROM users 
+    WHERE id = :user
     ");
-    $statement_img->execute(array(
+    $statement3->execute(array(
     ":user" => $user
-    ));
-    $user_pic = $statement_img->fetchAll(PDO::FETCH_ASSOC);
-var_dump($user_pic);
-    
+    )); 
+    $profile_img = $statement3->fetchAll(PDO::FETCH_ASSOC);
+      
+                    var_dump($profile_img);
 ?>
 
 <body>
@@ -90,9 +88,18 @@ require 'nav.php';
 
             <div class="profile-img text-center">
             
-<!--                <img src="<?=$_SESSION["user"]["image"];?>" width="160">-->
-                <img src="location: <?=user_pic["image"];?>" width="160">
-                <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+           <?php foreach($profile_img as $img){ 
+                if($img["image"] == NULL){ ?>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <?php
+                    }else{ ?>
+                     <img src="<?=$img["image"];?>" width="160">
+                    <?php } 
+            }?>
+
+                
+
+                <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i><br><br>
                 <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
             </div>
 
