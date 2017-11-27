@@ -55,82 +55,76 @@ require 'partials/functions.php';
 
 <body>
 
-    <?php
-    require 'nav.php';
-    ?>
-    
-    
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                   <div class="inlägg">
-                       
-                       <?php
-                
-                        if (isset($_POST['Klockor'])) {
-                            specificPost($_POST["Klockor"], count($posts));
-                           }
-                        elseif (isset($_POST['Glasögon'])) {
-                            specificPost($_POST["Glasögon"], count($posts));
-                            }
-                        elseif (isset($_POST['Inredning'])) {
-                            specificPost($_POST["Inredning"], count($posts));
-                           }
-                        else {
-                            specificPost(count($posts));
-                        }  
-                     
-                                   
-                    ?>
+<?php
+require 'nav.php';
+?>
+
+<div class="container">
+
+    <main class="col-md-8">
+        <h1>Blogginlägg</h1>
+        <hr>
+        <div class="inlägg">
+            <?php
+                if (isset($_POST['Klockor'])) {
+                    specificPost($_POST["Klockor"], count($posts));
+                }
+                elseif (isset($_POST['Glasögon'])) {
+                    specificPost($_POST["Glasögon"], count($posts));
+                }
+                elseif (isset($_POST['Inredning'])) {
+                    specificPost($_POST["Inredning"], count($posts));
+                }
+                else {
+                    specificPost(count($posts));
+                }  
+            ?>
+        </div>
+
+        <br/>
+
+        <div class="comment_on_post">
+            <h2>Kommentera</h2>
+
+            <hr>
+
+            <form action="partials/new_comment.php" method="POST">
+                <div class="form-group">
+                    <label for="new_comment"> Kommentar: </label>
+                    <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
                 </div>
-                    
-                    <br/>
-                    
-                <div class="comment_on_post">
-                         <h3>Kommentera</h3>
-                         <hr>
 
-                      <form action="partials/new_comment.php" method="POST">
+                <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
+                <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
 
-                        <div class="form-group">
-                          <label for="new_comment"> Kommentar: </label>
-                          <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
-                        </div>
+                <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
+                <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
 
-                    <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
-                        <input type="hidden" name="idoriginalpost" value="<?= $post; ?>">
-                        
-                    <!-- SKICKAR MED UNIKT ID PÅ ANVÄNDAREN: -->
-                        <input type="hidden" name="commenting_user" value="<?= $_SESSION["user"]["id"]; ?>">
-
-                        <div class="form-group">
-                          <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
-                        </div>
-                        
-                      </form>
+                <div class="form-group">
+                    <input type="submit" name="knapp" class="btn button-green btn-lg btn-block">
                 </div>
-                    
-                    
-                    
+            </form>
+        </div>
+
+
+
         <div class="comments_post">
-            <h3>Kommentarer</h3>
+            <h2>Kommentarer</h2>
+
             <hr>
 
             <?php
                 foreach($comments_info as $ci){ 
                     echo $ci["username"]. ' ' . 'skriver:' . '<br>';
-                    echo $ci["date"] . '<br>'; ?>
-                    <p>
-                    <?php echo $ci["comment"] . '<br>'; ?>
-                    </p>
-                    <?php echo "<hr>";
-                    
-                }
-
+                    echo $ci["date"] . '<br>';
             ?>
-                    
+            <p>
+            <?php echo $ci["comment"] . '<br>'; ?>
+            </p>
+            <?php echo "<hr>";
 
+            }
+            ?>
         </div>
 
 
@@ -138,7 +132,10 @@ require 'partials/functions.php';
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
     <aside class="col-md-4" style="border: 1px solid green;">
-        <?php require "index_login.php";
+        <h1 class="text-center">Användare</h1>
+        <hr>
+        <?php 
+            require "index_login.php";
         ?>
     </aside>
     <!-- END ASIDE -->
@@ -154,8 +151,3 @@ require "footer.php";
 </body>
 
 </html>
-
-
-
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique eum ipsa, magnam aut amet tempora distinctio nam incidunt itaque sit odit deleniti consectetur delectus in sapiente, temporibus quo laborum! Consequuntur neque, quasi iure id sunt! Distinctio dolorum quos possimus blanditiis.
