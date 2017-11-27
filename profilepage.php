@@ -36,7 +36,7 @@ session_start();
 
 // BELOW FETCHES 5 LATEST BLOGPOSTS
     $statement = $pdo->prepare("
-    SELECT title, category 
+    SELECT id, title, category 
     FROM posts 
     WHERE user = :user
     ORDER BY date DESC
@@ -116,7 +116,7 @@ require 'nav.php';
                     echo '<tr><td>';       
                     echo '<span class="uppercase text-bold">' . $blogposts["category"] . '</span>';
                     echo '</td><td>';
-                    echo '<a href="#">';
+                    echo '<a href="post.php?post=' . $blogposts["id"] . '">';
                     echo $blogposts["title"];
                     echo '</a>';
                     }
