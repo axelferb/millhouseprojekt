@@ -278,16 +278,19 @@ function specificPost($amount) {
             ?>
                         <article class='col-xs-12'>
 
-                            <div class="img-wrap-big"></div>
-                            <?php
+                            <div class="img-wrap-big">
+                                  <?php
                                 // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
                                 if(!($list["image"] == NULL)){
                                 ?>
                                 <img src="<?=$list["image"];?>" width="400"> 
                                 <?php    
                                 }else{
-                                    handleImage();
-                                } 
+                                    handleImage($list['category']);
+                                } ?>
+                                
+                            
+                          <?php
             
                                     if($list["category"] == 'Klockor'){
                                         echo '<div class="klocka-big"></div>';
@@ -303,6 +306,8 @@ function specificPost($amount) {
                                     }
      
                             ?>
+                            
+                            </div>
                         </article>
                         
 <!--- Lists the specific blog post with created-date and name of the author --->
