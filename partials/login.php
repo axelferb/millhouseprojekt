@@ -23,6 +23,6 @@ if( password_verify($password, $fetched_user["password"]) ){
 
 } else {
 
-  header("Location: ../registration_login_form.php?error=Wrong username&success=false");
+  header("Location: ../index.php?wrong_password=true");
   
 }

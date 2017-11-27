@@ -1,9 +1,7 @@
 <?php
 require 'partials/session.php';
-
-
-    require 'head.php';
-    require 'partials/database.php';
+require 'head.php';
+require 'partials/database.php';
 
     $user = $_SESSION["user"]["id"];
     
@@ -66,7 +64,28 @@ require 'partials/session.php';
     )); 
     $profile_img = $statement3->fetchAll(PDO::FETCH_ASSOC);
       
-                    var_dump($profile_img);
+ // BELOW FETCHES 5 LATEST COMMENTS AND ASSOCIATED BLOG TITLE
+    $statement4 = $pdo->prepare("
+    SELECT comments.comment AS comment, 
+    comments.idoriginalpost,
+    comments.date,
+    posts.id AS id, 
+    posts.title AS title
+    FROM comments
+    INNER JOIN posts
+	ON posts.id = comments.idoriginalpost
+    INNER JOIN users
+    WHERE users.id = :user
+    ORDER BY comments.date DESC
+    LIMIT 5
+    ");
+    $statement4->execute(array(
+    ":user" => $user
+    )); 
+    $commentz = $statement4->fetchAll(PDO::FETCH_ASSOC);
+
+  
+
 ?>
 
 <body>
@@ -97,8 +116,6 @@ require 'nav.php';
                     <?php } 
             }?>
 
-                
-
                 <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i><br><br>
                 <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
             </div>
@@ -123,22 +140,37 @@ require 'nav.php';
         <hr>
 
         <div class="posts">
+           <table class="table table-striped full-width">
+               <thead><tr>
+               <th scope="col">Kategori</th>
+               <th scope="col">Inlägg</th>
+               </tr></thead>
+               <?php
+                foreach($posts as $blogposts){ ?>
+                    <tr><td>
+                        <span class="uppercase text-bold"><?= $blogposts["category"]; ?></span>
+                    </td><td>
+                        <a href="post.php?post=<?=$blogposts["id"];?>"><?=$blogposts["title"];?></a>
+                </td></tr>
+                <?php } ?>
+           
+           
             
                 <?php
-                    echo '<table class="table table-striped full-width">';
-                    echo '<thead><tr>';
-                    echo '<th scope="col">' . "Kategori" . '</th>';
-                    echo '<th scope="col">' . "Inlägg". '</th>';
-                    echo '</thead></tr>';                
-                    foreach($posts as $blogposts){
-                    echo '<tr><td>';       
-                    echo '<span class="uppercase text-bold">' . $blogposts["category"] . '</span>';
-                    echo '</td><td>';
-                    echo '<a href="post.php?post=' . $blogposts["id"] . '">';
-                    echo $blogposts["title"];
-                    echo '</a>';
-                    }
-                    echo '</td></tr></table>';
+//                    echo '<table class="table table-striped full-width">';
+//                    echo '<thead><tr>';
+//                    echo '<th scope="col">' . "Kategori" . '</th>';
+//                    echo '<th scope="col">' . "Inlägg". '</th>';
+//                    echo '</thead></tr>';                
+//                    foreach($posts as $blogposts){
+//                    echo '<tr><td>';       
+//                    echo '<span class="uppercase text-bold">' . $blogposts["category"] . '</span>';
+//                    echo '</td><td>';
+//                    echo '<a href="post.php?post=' . $blogposts["id"] . '">';
+//                    echo $blogposts["title"];
+//                    echo '</a>';
+//                    }
+//                    echo '</td></tr></table>';
                 ?>
             </table>
             <br>
@@ -150,6 +182,8 @@ require 'nav.php';
         <hr>
 
         <div class="comments">
+      
+           
             <?php  
                 echo '<table class="table table-striped full-width">';
                 echo '<thead><tr>';
@@ -183,7 +217,9 @@ require 'nav.php';
     <!-- SECONDARY CONTENT "ASIDE" -->
     <aside class="col-md-4">
 
-        <h2 class="text-center"><span class="text-bold"><?php echo $_SESSION["user"]["username"]; ?></span> Statistik</h2>
+        <h2 class="text-center"><span class="text-bold">
+        <?php echo $_SESSION["user"]["username"]; ?>
+        </span> Statistik</h2>
         
         <div class="statistics text-center">
             <p class="small uppercase text-bold">Totalt antal inlägg:</p>
