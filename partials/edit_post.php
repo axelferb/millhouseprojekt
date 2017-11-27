@@ -25,7 +25,7 @@
       ":id" => $id
     )); 
 
-    header("Location: ../registration_login_form.php");
+      header("Location: ../list_single_users_posts.php?edit_post=true");
 
 ?>
 

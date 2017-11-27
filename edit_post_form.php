@@ -49,7 +49,7 @@ $posttoedit = $_GET["posttoedit"];
  <div class="container mt-5">
   <h4>Redigera inlägg:</h4>
   
-  <form action="edit_post.php" method="POST">
+  <form action="partials/edit_post.php" method="POST">
   
     <div class="form-group">
       <label for="post_title"> Rubrik: </label>

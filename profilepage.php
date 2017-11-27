@@ -1,9 +1,6 @@
 <?php
-// server should keep session data for AT LEAST 1 hour
-ini_set('session.gc_maxlifetime', 600);
-// each client should remember their session id for EXACTLY 1 hour
-session_set_cookie_params(600);
-session_start();
+require 'partials/session.php';
+
 
     require 'head.php';
     require 'partials/database.php';
@@ -60,6 +57,17 @@ session_start();
     )); 
     $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
   
+// BELOW FETCHES USER IMAGE
+    $statement_img = $pdo->prepare("
+    SELECT image 
+    FROM users
+    WHERE user = :user
+    ");
+    $statement_img->execute(array(
+    ":user" => $user
+    ));
+    $user_pic = $statement_img->fetchAll(PDO::FETCH_ASSOC);
+var_dump($user_pic);
     
 ?>
 
@@ -81,6 +89,9 @@ require 'nav.php';
         <div class="profile">
 
             <div class="profile-img text-center">
+            
+<!--                <img src="<?=$_SESSION["user"]["image"];?>" width="160">-->
+                <img src="location: <?=user_pic["image"];?>" width="160">
                 <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
                 <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
             </div>
