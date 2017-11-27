@@ -192,7 +192,11 @@ function allCatergories($amount) {
                         }
                     ?>
                                 <h2>
-                                    <?php echo $list["title"]; ?> </h2>
+                                 <?php
+                            
+                                    echo $list["title"];  
+                                ?>
+                               </h2>
                                 <p>
                                        
                                         <?php 
@@ -266,6 +270,14 @@ function specificPost($amount) {
 
                             <div class="img-wrap-big"></div>
                             <?php
+                                // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
+                                if(!($list["image"] == NULL)){
+                                ?>
+                                <img src="<?=$list["image"];?>" width="400"> 
+                                <?php    
+                                }else{
+                                    handleImage();
+                                } 
             
                                     if($list["category"] == 'Klockor'){
                                         echo '<div class="klocka-big"></div>';
@@ -284,16 +296,10 @@ function specificPost($amount) {
                         </article>
                         
 <!--- Lists the specific blog post with created-date and name of the author --->
-                               
-                               <?php
-                                // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
-                                if(!($list["image"] == NULL)){
-                                ?>
-                                <img src="<?=$list["image"];?>" width="400"> 
-                                <?php    
-                                } ?>
+                            
                                 
                                 <h2>
+
                                     <?php echo $list["title"]; ?>
                                 </h2>
                                 

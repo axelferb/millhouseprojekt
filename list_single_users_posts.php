@@ -44,6 +44,10 @@ require 'partials/functions.php';
             if(isset($_GET["new_post"])){
                 echo "Ditt nya inlägg har skapats";
             }
+                
+            if(isset($_GET["edit_post"])){
+                echo "Ditt inlägg har redigerats";
+            }
             ?>
 
             
