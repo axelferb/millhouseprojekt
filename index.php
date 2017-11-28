@@ -34,10 +34,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         </div>
                         <div class="index_login hidden-xs hidden-sm col-md-4">
                             <h1 style="text-align:center;">LOGGA IN</h1>
-                            <?php 
-                                if(isset($_GET["wrong_password"])){
-                                echo "Du angav fel lösenord.";
-                            } ?>
                             <hr>
                         </div>
                     </div>

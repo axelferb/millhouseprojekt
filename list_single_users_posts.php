@@ -42,11 +42,15 @@ require 'partials/functions.php';
             
             <?php
             if(isset($_GET["new_post"])){
-                echo "Ditt nya inlägg har skapats";
+                echo "Ditt nya inlägg har skapats.";
             }
                 
             if(isset($_GET["edit_post"])){
-                echo "Ditt inlägg har redigerats";
+                echo "Ditt inlägg har redigerats.";
+            }
+            
+            if(isset($_GET["delete_post"])){
+                echo "Inlägget har raderats.";
             }
             ?>
 
@@ -55,7 +59,7 @@ require 'partials/functions.php';
             foreach($posts as $blogposts){ 
             ?>
             
-          <form action="delete.php" method="POST">
+          <form action="partials/delete.php" method="POST">
             <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
             
                        

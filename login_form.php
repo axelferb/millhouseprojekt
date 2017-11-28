@@ -12,6 +12,10 @@
  if(isset($_GET["register_success"])){
      echo $_GET["register_success"];
  }
+                     
+if(isset($_GET["wrong_password"])){
+    echo "Du angav fel lösenord. Prova att logga in igen:";
+} 
  ?>
  
  
