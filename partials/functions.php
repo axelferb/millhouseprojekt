@@ -185,7 +185,7 @@ function allCatergories($amount) {
         if ($i == 0){
             ?>
                         <article class='col-xs-12 col-md-8'>
-
+                    
                             <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
                             <?php
                         if($list["category"] == 'Klockor'){

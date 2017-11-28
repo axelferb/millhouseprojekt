@@ -29,64 +29,66 @@ require 'partials/functions.php';
     
     ?>
     
+
 <body>
+
     <?php
-    require 'nav.php';
+        require 'nav.php';
     ?>
+
     <div class="container">
 
+            <main class="col-xs-12 col-md-12">
 
-
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-            
             <?php
-            if(isset($_GET["new_post"])){
-                echo "Ditt nya inlägg har skapats";
-            }
+                if(isset($_GET["new_post"])){
+                    echo "Ditt nya inlägg har skapats";
+                }
+
+                if(isset($_GET["edit_post"])){
+                    echo "Ditt inlägg har redigerats";
+                }
+            ?>
+
+            <h1>Alla blogginlägg </h1>
+            <hr class="full-length">
+            <form action="delete.php" method="POST">
+            
+            <table class="table table-striped full-width">
+                <thead><tr>
+                <th scope="col">Blogginlägg</th>
+                <th scope="col">Redigera inlägg</th>
+                <th scope="col">Ta bort inlägg</th>
+                </thead></tr>
+           
+                <?php
+                    foreach($posts as $blogposts){ 
+                ?>
                 
-            if(isset($_GET["edit_post"])){
-                echo "Ditt inlägg har redigerats";
-            }
-            ?>
+                <tr><td>
+                <a href="post.php?post=<?=$blogposts["id"];?>"><?php echo $blogposts["title"]; ?></a>
+                </td><td>
+                <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
+                </td><td>
+                <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
+                </td>
+                <?php
+                    } 
+                ?>
+                </tr></table>
+                <button type="submit" value="Ta bort" name="delete"> Ta bort </button>
+           
+            </form>
+            <br><br>
+            <a class="btn button-test btn-block" href="profilepage.php" target="_self">Tillbaka till profilsidan</a>
 
-            
-            <?php
-            foreach($posts as $blogposts){ 
-            ?>
-            
-          <form action="delete.php" method="POST">
-            <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
-            
-                       
-                       
-            <a href="post.php?post=<?=$blogposts["id"];?>">
-                <?php echo $blogposts["title"]; ?>
-          </a>
-            
-          <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">| Redigera</a><br>
-           <?php
-
-} 
-?>
-
-            <button type="submit" value="Ta bort" name="delete">
-                Ta bort
-            </button>
-        </form>
-
-
-
-
-            </div>  
         </div>
-
 
     </div> <!-- END DIV / CONTAINER -->
 
-    <?php
-    require "footer.php";
-    ?>
+<?php
+require "footer.php";
+?>
 
 
 
