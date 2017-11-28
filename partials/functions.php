@@ -101,10 +101,16 @@ function handleCategories($category, $amount) {
                     <article class='col-xs-12 col-md-8'>
 
                         <div class="img-wrap-big">
-                        
-                        <?php                          
-                        handleImage($list['category']); 
-                            ?></div>
+                            <?php 
+                                if(!($list["image"] == NULL)){
+                            ?>
+                            <img class="img-fluid" src="<?=$list["image"];?>"> 
+                            <?php    
+                                }else{
+                                    handleImage($list['category']);
+                                } 
+                            ?>
+                        </div>
                         <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
@@ -137,7 +143,13 @@ function handleCategories($category, $amount) {
                         <article class='col-xs-12 col-md-6'>
                             <div class="img-wrap-small">
                             <?php 
-                                handleImage($list['category']);   
+                                if(!($list["image"] == NULL)){
+                            ?>
+                            <img class="img-fluid" src="<?=$list["image"];?>"> 
+                            <?php    
+                                }else{
+                                    handleImage($list['category']);
+                                } 
                             ?>
                             </div>
                             <?php
@@ -186,7 +198,17 @@ function allCatergories($amount) {
             ?>
                         <article class='col-xs-12 col-md-8'>
                     
-                            <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
+                            <div class="img-wrap-big">                                
+                                <?php 
+                                if(!($list["image"] == NULL)){
+                                ?>
+                                <img class="img-fluid" src="<?=$list["image"];?>"> 
+                                <?php    
+                                    }else{
+                                        handleImage($list['category']);
+                                    } 
+                                ?>
+                            </div>
                             <div class="article-text">
                             <?php
                                 if($list["category"] == 'Klockor'){
@@ -232,7 +254,17 @@ function allCatergories($amount) {
             ?>
                             <article class='col-xs-12 col-md-6'>
 
-                                <div class="img-wrap-small"><?php handleImage($list['category']); ?></div>
+                                <div class="img-wrap-small">
+                                <?php 
+                                    if(!($list["image"] == NULL)){
+                                ?>
+                                <img class="img-fluid" src="<?=$list["image"];?>"> 
+                                <?php    
+                                    }else{
+                                        handleImage($list['category']);
+                                    } 
+                                ?>
+                                </div>
                                 <div class="article-text">
                                 <?php
                                     if($list["category"] == 'Klockor'){
