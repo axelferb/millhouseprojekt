@@ -212,11 +212,11 @@ function allCatergories($amount) {
 
                                 <p>
                                        
-                                        <?php 
-                                        $bigText = $list["post"];
-                                        $smallText = substr($bigText, 0, 100);
-            
-                                        echo "$smallText" . "..."; ?>            
+                                    <?php 
+                                    $bigText = $list["post"];
+                                    $smallText = substr($bigText, 0, 100);
+
+                                    echo "$smallText" . "..."; ?>            
                                 </p>
                                    
 
