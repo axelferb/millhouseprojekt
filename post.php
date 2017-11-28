@@ -62,9 +62,10 @@ require 'nav.php';
 <div class="container">
 
     <main class="col-md-8">
+       <div class="inlagg">
         <h1>Blogginlägg</h1>
         <hr>
-        <div class="inlägg">
+        
             <?php
                 if (isset($_POST['Klockor'])) {
                     specificPost($_POST["Klockor"], count($posts));
@@ -89,7 +90,7 @@ require 'nav.php';
             <hr>
 
             <form action="partials/new_comment.php" method="POST">
-                <div class="form-group">
+                <div class="commentArea">
                     <label for="new_comment"> Kommentar: </label>
                     <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
                 </div>

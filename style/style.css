@@ -225,6 +225,10 @@ hr {
     overflow: hidden;
   }
 
+.full-width{
+    width: 100%;
+}
+
 /* ARTICLE*/
 
 article {
@@ -298,6 +302,10 @@ footer .row {
     color: #FFFFFF;
     margin: 5px 0 5px 0;
     font-size: 0.85em;
+}
+
+.contact form {
+    
 }
 
 /* FÄRG/KATEGORISTYLING */
@@ -459,6 +467,41 @@ table td a{
 .hr-margin-top {
     margin-top: 50px;
 }
+
+/*SPESIFIC POST*/
+
+.comment_on_post .form-control{
+    height:50px;
+    border-radius: 2px;
+    width: 92%;
+    border-color: #1c3144;
+    border-width: medium;
+}
+
+.comment_on_post .form-group{
+    width: 92%;
+    margin-top: 20px;
+}
+
+.comment_on_post hr{
+    height: 2px;
+}
+
+.inlagg h2{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.inlagg hr{
+    height: 2px;    
+}
+
+.comments_post hr{
+    height: 2px;
+    
+}
+
+
 /* För desktop profil*/
 
 @media screen and (min-width: 768px){
