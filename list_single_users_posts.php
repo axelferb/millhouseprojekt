@@ -50,32 +50,10 @@ require 'partials/functions.php';
                 echo "Inlägget har raderats.";
             }
             ?>
-            
-            <?php
-            foreach($posts as $blogposts){ 
-            ?>
-
-          <form action="partials/delete.php" method="POST">
-            <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
-               
-            <a href="post.php?post=<?=$blogposts["id"];?>">
-                <?php echo $blogposts["title"]; ?>
-          </a>
-            
-          <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">| Redigera</a><br>
-           <?php
-
-} 
-?>
-            <button type="submit" value="Ta bort" name="delete">
-                Ta bort
-            </button>
-        </form>
-
 
             <h1>Alla blogginlägg </h1>
             <hr class="full-length">
-            <form action="delete.php" method="POST">
+            <form action="partials/delete.php" method="POST">
             
             <table class="table table-striped full-width">
                 <thead><tr>
