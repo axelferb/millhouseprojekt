@@ -122,8 +122,13 @@ function handleCategories($category, $amount) {
                     ?>
                             <h2>
                                 <?php echo $list["title"]; ?> </h2>
-                            <p>
-                                <?php echo $list["post"]; ?> </p>
+                            <p>      
+                                <?php 
+                                $bigText = $list["post"];
+                                $smallText = substr($bigText, 0, 70);
+
+                                echo "$smallText" . "..."; ?>            
+                            </p>
                     </article>
                     <?php
                     require 'index_login.php';
@@ -153,8 +158,13 @@ function handleCategories($category, $amount) {
                                 <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
-                                <p>
-                                    <?php echo $list["post"]; ?> </p>
+                                 <p>  
+                                    <?php 
+                                    $bigText = $list["post"];
+                                    $smallText = substr($bigText, 0, 70);
+
+                                    echo "$smallText" . "..."; ?>            
+                                </p>
                         </article>
                         <?php 
          }
@@ -175,7 +185,7 @@ function allCatergories($amount) {
         if ($i == 0){
             ?>
                         <article class='col-xs-12 col-md-8'>
-
+                    
                             <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
                             <?php
                         if($list["category"] == 'Klockor'){
@@ -268,16 +278,19 @@ function specificPost($amount) {
             ?>
                         <article class='col-xs-12'>
 
-                            <div class="img-wrap-big"></div>
-                            <?php
+                            <div class="img-wrap-big">
+                                  <?php
                                 // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
                                 if(!($list["image"] == NULL)){
                                 ?>
                                 <img src="<?=$list["image"];?>" width="400"> 
                                 <?php    
                                 }else{
-                                    handleImage();
-                                } 
+                                    handleImage($list['category']);
+                                } ?>
+                                
+                            
+                          <?php
             
                                     if($list["category"] == 'Klockor'){
                                         echo '<div class="klocka-big"></div>';
@@ -293,6 +306,8 @@ function specificPost($amount) {
                                     }
      
                             ?>
+                            
+                            </div>
                         </article>
                         
 <!--- Lists the specific blog post with created-date and name of the author --->

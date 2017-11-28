@@ -38,12 +38,9 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     <div class="col-xs-12 right-align">
-                        <span class="filter">Filtrera efter:</span>
+                        <span class="filter uppercase">Filtrera efter:</span>
                         <div class="btn-group">
                             <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                <span>
-                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                </span>
                                 KATEGORI
                             </button>
                             <ul class="dropdown-menu" role="menu">
@@ -65,9 +62,6 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                             </div>
                             <div class="btn-group">
                                 <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
-                                    <span>
-                                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                    </span>
                                     DATUM
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
