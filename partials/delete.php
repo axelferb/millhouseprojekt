@@ -9,6 +9,8 @@ foreach ($_POST as $key => $value){
        $statement->execute();
    }    
 }
+
+header("Location: ../list_single_users_posts.php?delete_post=true");
     
 ?>
 

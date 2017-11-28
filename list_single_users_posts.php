@@ -1,9 +1,5 @@
 <?php
-// server should keep session data for AT LEAST 1 hour
-ini_set('session.gc_maxlifetime', 600);
-// each client should remember their session id for EXACTLY 1 hour
-session_set_cookie_params(600);
-session_start();
+require 'partials/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,14 +37,37 @@ require 'partials/functions.php';
             <main class="col-xs-12 col-md-12">
 
             <?php
-                if(isset($_GET["new_post"])){
-                    echo "Ditt nya inlägg har skapats";
-                }
 
-                if(isset($_GET["edit_post"])){
-                    echo "Ditt inlägg har redigerats";
-                }
+            if(isset($_GET["new_post"])){
+                echo "Ditt nya inlägg har skapats.";
+            }
+                
+            if(isset($_GET["edit_post"])){
+                echo "Ditt inlägg har redigerats.";
+            }
+            
+            if(isset($_GET["delete_post"])){
+                echo "Inlägget har raderats.";
+            }
             ?>
+
+          <form action="partials/delete.php" method="POST">
+            <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
+               
+            <a href="post.php?post=<?=$blogposts["id"];?>">
+                <?php echo $blogposts["title"]; ?>
+          </a>
+            
+          <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">| Redigera</a><br>
+           <?php
+
+} 
+?>
+            <button type="submit" value="Ta bort" name="delete">
+                Ta bort
+            </button>
+        </form>
+
 
             <h1>Alla blogginlägg </h1>
             <hr class="full-length">
@@ -62,17 +81,15 @@ require 'partials/functions.php';
                 </thead></tr>
            
                 <?php
-                    foreach($posts as $blogposts){ 
-                ?>
-                
-                <tr><td>
-                <a href="post.php?post=<?=$blogposts["id"];?>"><?php echo $blogposts["title"]; ?></a>
-                </td><td>
-                <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
-                </td><td>
-                <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
-                </td>
-                <?php
+                    foreach($posts as $blogposts){ ?>
+                      <tr><td>
+                      <a href="post.php?post=<?=$blogposts["id"];?>"><?php echo $blogposts["title"]; ?></a>
+                      </td><td>
+                      <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
+                      </td><td>
+                      <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
+                      </td>
+                      <?php
                     } 
                 ?>
                 </tr></table>

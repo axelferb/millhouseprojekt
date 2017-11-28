@@ -9,8 +9,18 @@
     $path = $_FILES["uploaded_file"]["tmp_name"];
     $filename = $_FILES["uploaded_file"]["name"];
 
+    // FETCHING LAST INSERTED ID FOR REDIRECTING
+    $stmt = $pdo->prepare("
+    SELECT id
+    FROM posts
+    WHERE user = :user 
+    ");
+    $stmt->execute(array(
+    ":user" => $user
+    ));
+
 if(move_uploaded_file($path, "../blog_img/" . $filename)){
-    var_dump($_FILES);
+    // var_dump($_FILES);
     
     $statement = $pdo->prepare("
         INSERT INTO posts (user, title, post, category, image) 
@@ -23,7 +33,11 @@ if(move_uploaded_file($path, "../blog_img/" . $filename)){
         ":category" => $category,
         ":image" => "blog_img/" . $filename
     ));
-      header("Location: ../list_single_users_posts.php?new_post=true");
+    
+    $blog_id = $pdo->lastInsertId();
+
+    header("Location: ../post.php?post=" . $blog_id);
+    
 
 } else {
     $statement = $pdo->prepare("
@@ -35,9 +49,12 @@ if(move_uploaded_file($path, "../blog_img/" . $filename)){
       ":title" => $title,
       ":post" => $post,
       ":category" => $category
-    )); 
-      header("Location: ../list_single_users_posts.php?new_post=true");
+    ));
     
+    $blog_id = $pdo->lastInsertId();
+
+    header("Location: ../post.php?post=" . $blog_id);
 }
+
 
 ?>
