@@ -8,7 +8,8 @@ require 'partials/session.php';
     <?php
 require 'head.php';
 require 'partials/database.php';
-require 'partials/functions.php';    
+require 'partials/functions.php';
+
 
 $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
 $statement->execute();

@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 function handleCategory($category) {
 
@@ -125,7 +124,7 @@ function handleCategories($category, $amount) {
                             <p>      
                                 <?php 
                                 $bigText = $list["post"];
-                                $smallText = substr($bigText, 0, 70);
+                                $smallText = substr($bigText, 0, 100);
 
                                 echo "$smallText" . "..."; ?>            
                             </p>
@@ -161,7 +160,7 @@ function handleCategories($category, $amount) {
                                  <p>  
                                     <?php 
                                     $bigText = $list["post"];
-                                    $smallText = substr($bigText, 0, 70);
+                                    $smallText = substr($bigText, 0, 100);
 
                                     echo "$smallText" . "..."; ?>            
                                 </p>
@@ -179,6 +178,7 @@ function allCatergories($amount) {
 
     $i = 0;
     global $posts;
+    global $userinfo;
     foreach($posts as $list){
         if($i==$amount) break;
 
@@ -207,11 +207,23 @@ function allCatergories($amount) {
                                     echo $list["title"];  
                                 ?>
                                </h2>
+                               
+                               <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+                            <?php   echo $list["date"] . ' | ';
+            
+                                foreach($userinfo as $userInformationBig){ ?> 
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                            <?php   echo $userInformationBig["firstname"] . ' ';
+                                    echo $userInformationBig["lastname"] . ' ' . ' | '; ?>
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            <?php   echo ' ' . $userInformationBig["email"];
+                                }?>
+                               
                                 <p>
                                        
                                         <?php 
                                         $bigText = $list["post"];
-                                        $smallText = substr($bigText, 0, 70);
+                                        $smallText = substr($bigText, 0, 100);
             
                                         echo "$smallText" . "..."; ?>            
                                 </p>
@@ -243,6 +255,20 @@ function allCatergories($amount) {
                     ?>
                                     <h2>
                                         <?php echo $list["title"]; ?> </h2>
+                                        
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+                            <?php   echo $list["date"] . ' | ';
+            
+                                foreach($userinfo as $userInformationSmall){ ?> 
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                            <?php   echo $userInformationSmall["firstname"] . ' ';
+                                    echo $userInformationSmall["lastname"] . ' ' . ' | '; ?>
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            <?php   echo ' ' . $userInformationSmall["email"];
+                                }?>
+                                        
+                                        
+                                        
                                     <p>
                                         <?php 
                                         $bigText = $list["post"];
@@ -310,9 +336,7 @@ function specificPost($amount) {
                             </div>
                         </article>
                         
-<!--- Lists the specific blog post with created-date and name of the author --->
-                            
-                                
+<!--- Lists the specific blog post with created-date and name of the author --->                            
                                 <h2>
 
                                     <?php echo $list["title"]; ?>

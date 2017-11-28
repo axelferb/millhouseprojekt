@@ -9,7 +9,7 @@
         </div>
 
     
-        <div class="col-xs-12 col-sm-4">
+        <div class="contact col-xs-12 col-sm-4">
             <h2>Kontakta oss</h2>
             <form action="partials/login.php" method="POST">
    
