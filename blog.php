@@ -14,8 +14,8 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
     <?php
     require 'nav.php';
     ?>
-    <div class="jumbotron">
-    </div>
+    <div class="jumbotron"></div>
+    <div class="blue-line"></div>
     <div class="container">
         <div class="col-xs-12 right-align">
                         <span class="filter">Filtrera efter:</span>
