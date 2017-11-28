@@ -115,13 +115,16 @@ require 'nav.php';
             <hr>
 
             <?php
-                foreach($comments_info as $ci){ 
-                    echo $ci["username"]. ' ' . 'skriver:' . '<br>';
-                    echo $ci["date"] . '<br>';
-            ?>
-            <p>
+                foreach($comments_info as $ci){ ?>
+                   <span class="author">
+                    <?php   echo $ci["username"] ?> </span> 
+                    <?php   echo ' ' . 'skriver:' . '<br>'; ?>
+                    <span class="date">
+                    <?php        echo $ci["date"] . '<br>';?></span>
+            
+            <span class="specificComment">
             <?php echo $ci["comment"] . '<br>'; ?>
-            </p>
+            </span>
             <?php echo "<hr>";
 
             }
