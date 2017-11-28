@@ -145,7 +145,6 @@ h3 {
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
-   
     color: #606060;
 }
 
@@ -510,6 +509,9 @@ comments_post{
     font-size: 0.9em;
 }
 
+.glyphicon{
+    font-size: 0.8em;
+}
 /* För desktop profil*/
 
 @media screen and (min-width: 768px){
