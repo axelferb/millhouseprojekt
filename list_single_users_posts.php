@@ -50,6 +50,10 @@ require 'partials/functions.php';
                 echo "Inlägget har raderats.";
             }
             ?>
+            
+            <?php
+            foreach($posts as $blogposts){ 
+            ?>
 
           <form action="partials/delete.php" method="POST">
             <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
