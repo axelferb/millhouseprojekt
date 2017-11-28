@@ -178,7 +178,6 @@ function allCatergories($amount) {
 
     $i = 0;
     global $posts;
-    global $userinfo;
     foreach($posts as $list){
         if($i==$amount) break;
 
@@ -209,16 +208,8 @@ function allCatergories($amount) {
                                </h2>
                                
                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-                            <?php   echo $list["date"] . ' | ';
-            
-                                foreach($userinfo as $userInformationBig){ ?> 
-                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                            <?php   echo $userInformationBig["firstname"] . ' ';
-                                    echo $userInformationBig["lastname"] . ' ' . ' | '; ?>
-                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            <?php   echo ' ' . $userInformationBig["email"];
-                                }?>
-                               
+                            <?php   echo $list["date"] . ' | '; ?>
+
                                 <p>
                                        
                                         <?php 
@@ -257,17 +248,7 @@ function allCatergories($amount) {
                                         <?php echo $list["title"]; ?> </h2>
                                         
                                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-                            <?php   echo $list["date"] . ' | ';
-            
-                                foreach($userinfo as $userInformationSmall){ ?> 
-                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                            <?php   echo $userInformationSmall["firstname"] . ' ';
-                                    echo $userInformationSmall["lastname"] . ' ' . ' | '; ?>
-                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            <?php   echo ' ' . $userInformationSmall["email"];
-                                }?>
-                                        
-                                        
+                            <?php   echo $list["date"] . ' | ';?>
                                         
                                     <p>
                                         <?php 
