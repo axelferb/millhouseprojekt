@@ -19,6 +19,11 @@ body {
     padding-right: 0px;
 }
 
+main .col-md-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 /* INDEX LOGINFORM STYLING */
 
 .login-field form {
@@ -142,12 +147,23 @@ h3 {
     text-transform: uppercase;
 }
 
+article h2{
+    color: #1c3145;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
     color: #606060;
 }
 
+.blogpost-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+}
 .right-align {
     text-align: right;
 }
@@ -165,7 +181,7 @@ p {
 }
 
 .small {
-    font-size: 1em;
+    font-size: 0.95em;
 }
 .author {
     font-family: 'Lato', sans-serif;
@@ -189,8 +205,9 @@ hr {
     border: 0px;
 }
 
+
 .filter {
-    display: inline;
+    margin-bottom: 5px;
 }
 
 .antal_posts, .antal_kommentarer {
@@ -211,14 +228,14 @@ hr {
 
 .img-wrap-big {
     background: black;
-    width: 92%;
+    width: 95%;
     height: 300px;
     overflow: hidden;
 }
 
 .img-wrap-small {
     background: black;
-    width: 92%;
+    width: 95%;
     height: 220px;
     overflow: hidden;
 }
@@ -234,8 +251,27 @@ hr {
 
 /* ARTICLE*/
 
+.flex {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex
+}
+
 article {
     margin-bottom: 35px;
+    min-height: 400px;
+}
+
+.half-width {
+    width: 45%;
+}
+
+article .col-md-6 {
+    width: 95%;
+}
+
+.article-text {
+    width: 95%;
 }
 
 /* FOOTER */
@@ -307,46 +343,62 @@ footer .row {
     font-size: 0.85em;
 }
 
-.contact form {
-    
-}
 
 /* FÄRG/KATEGORISTYLING */
 
 .klocka {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #48843a;
 }
 
 .klocka-big {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #48843a;
+}
+
+.watch-label {
+    color: #48843a;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .glasögon {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #d28a00;
 }
 
 .glasögon-big {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #d28a00;
+}
+
+.sunglasses-label {
+    color: #d28a00;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .inredning {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #3e50bc;
 }
 
 .inredning-big {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #3e50bc;
+}
+
+.furnish-label {
+    color: #3e50bc;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
 }
 
 /**/
@@ -461,10 +513,6 @@ table td a{
     color: #FFFFFF;
     margin-bottom: 4px;
 
-}
-
-.div-max-height {
-    max-height: 350px;
 }
 
 .hr-margin-top {

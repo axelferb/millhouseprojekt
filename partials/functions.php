@@ -108,33 +108,33 @@ function handleCategories($category, $amount) {
                         <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka-big"></div>';
-                            echo '<p>Klockor</p>';
+                            echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                         }
                         if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon-big"></div>';
-                            echo '<p>Solglasögon</p>';
+                            echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning-big"></div>';
-                            echo '<p>Inredning</p>';
+                            echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
                         }
                     ?>
                             <h2>
-                                <?php echo $list["title"]; ?> </h2>
-                            <p>      
+                                <?php echo $list["title"]; ?> </h2>    
                                 <?php 
                                 $bigText = $list["post"];
                                 $smallText = substr($bigText, 0, 100);
-
-                                echo "$smallText" . "..."; ?>            
-                            </p>
+                                echo '<p class="blogpost-text">';
+                                echo "$smallText" . " ..."; 
+                                echo '</p>';
+                                ?>            
                     </article>
                     <?php
                     require 'index_login.php';
         }
          else {
                 ?>
-                        <article class='col-xs-12 col-md-6 div-max-height'>
+                        <article class='col-xs-12 col-md-6'>
                             <div class="img-wrap-small">
                             <?php 
                                 handleImage($list['category']);   
@@ -143,27 +143,28 @@ function handleCategories($category, $amount) {
                             <?php
                         if($list["category"] == 'Klockor'){
                             echo '<div class="klocka"></div>';
-                            echo '<p>Klockor</p>';
+                            echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                         }
                         if($list["category"] == 'Solglasögon'){
                             echo '<div class="glasögon"></div>';
-                            echo '<p>Solglasögon</p>';
+                            echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                         }
                         if($list["category"] == 'Inredning'){
                             echo '<div class="inredning"></div>';
-                            echo '<p>Inredning</p>';
+                            echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
                         }
                     ?>
                                 <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
-                                 <p>  
                                     <?php 
                                     $bigText = $list["post"];
                                     $smallText = substr($bigText, 0, 100);
 
-                                    echo "$smallText" . "..."; ?>            
-                                </p>
+                                    echo '<p class="blogpost-text">';
+                                    echo "$smallText" . "...";    
+                                    echo '</p>';
+                                    ?>         
                         </article>
                         <?php 
          }
@@ -186,20 +187,22 @@ function allCatergories($amount) {
                         <article class='col-xs-12 col-md-8'>
                     
                             <div class="img-wrap-big"><?php handleImage($list['category']); ?></div>
+                            <div class="article-text">
                             <?php
-                        if($list["category"] == 'Klockor'){
-                            echo '<div class="klocka-big"></div>';
-                            echo '<p>Klockor</p>';
-                        }
-                        if($list["category"] == 'Solglasögon'){
-                            echo '<div class="glasögon-big"></div>';
-                            echo '<p>Solglasögon</p>';
-                        }
-                        if($list["category"] == 'Inredning'){
-                            echo '<div class="inredning-big"></div>';
-                            echo '<p>Inredning</p>';
-                        }
-                    ?>
+                                if($list["category"] == 'Klockor'){
+                                    echo '<div class="klocka-big"></div>';
+                                    echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
+                                }
+                                if($list["category"] == 'Solglasögon'){
+                                    echo '<div class="glasögon-big"></div>';
+                                    echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
+                                }
+                                if($list["category"] == 'Inredning'){
+                                    echo '<div class="inredning-big"></div>';
+                                    echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
+                                }
+                            ?>
+                            
                                 <h2>
                                  <?php
                             
@@ -208,17 +211,17 @@ function allCatergories($amount) {
                                </h2>
                                
                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-                            <?php   echo $list["date"] . ' | '; ?>
+                                     <?php   echo $list["date"] . ' | '; ?>
 
-                                <p>
-                                       
                                     <?php 
                                     $bigText = $list["post"];
                                     $smallText = substr($bigText, 0, 100);
 
-                                    echo "$smallText" . "..."; ?>            
-                                </p>
-                                   
+                                    echo '<p class="blogpost-text">';
+                                    echo "$smallText" . "..."; 
+                                    echo '</p>';
+                                    ?>            
+                                </div> 
 
                         </article>
                         <?php
@@ -227,37 +230,38 @@ function allCatergories($amount) {
         }
         else{
             ?>
-                            <article class='col-xs-12 col-md-6 div-max-height'>
+                            <article class='col-xs-12 col-md-6'>
 
                                 <div class="img-wrap-small"><?php handleImage($list['category']); ?></div>
+                                <div class="article-text">
                                 <?php
-                        if($list["category"] == 'Klockor'){
-                            echo '<div class="klocka"></div>';
-                            echo '<p>Klockor</p>';
-                        }
-                        if($list["category"] == 'Solglasögon'){
-                            echo '<div class="glasögon"></div>';
-                            echo '<p>Solglasögon</p>';
-                        }
-                        if($list["category"] == 'Inredning'){
-                            echo '<div class="inredning"></div>';
-                            echo '<p>Inredning</p>';
-                        }
-                    ?>
+                                    if($list["category"] == 'Klockor'){
+                                        echo '<div class="klocka"></div>';
+                                        echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
+                                    }
+                                    if($list["category"] == 'Solglasögon'){
+                                        echo '<div class="glasögon"></div>';
+                                        echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
+                                    }
+                                    if($list["category"] == 'Inredning'){
+                                        echo '<div class="inredning"></div>';
+                                        echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
+                                    }
+                                ?>
                                     <h2>
                                         <?php echo $list["title"]; ?> </h2>
                                         
                                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-                            <?php   echo $list["date"] . ' | ';?>
+                                        <?php   echo $list["date"] . ' | ';?>
                                         
-                                    <p>
                                         <?php 
                                         $bigText = $list["post"];
                                         $smallText = substr($bigText, 0, 100);
-            
-                                        echo "$smallText" . "..."; ?>            
-                                    </p>
-
+                                        echo '<p class="blogpost-text">';
+                                        echo "$smallText" . " ..."; 
+                                        echo '</p>';
+                                        ?>            
+                                </div>
                             </article>
 
                             <?php
@@ -285,36 +289,36 @@ function specificPost($amount) {
             ?>
                         <article class='col-xs-12'>
 
-                            <div class="img-wrap-big">
+                            <div class="img-wrap-big full-width">
                                   <?php
                                 // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
                                 if(!($list["image"] == NULL)){
                                 ?>
-                                <img src="<?=$list["image"];?>" width="400"> 
+                                <img class="img-fluid" src="<?=$list["image"];?>"> 
                                 <?php    
                                 }else{
                                     handleImage($list['category']);
                                 } ?>
-                                
+                            </div>   
                             
                           <?php
             
                                     if($list["category"] == 'Klockor'){
                                         echo '<div class="klocka-big"></div>';
-                                        echo '<p>Klockor</p>';
+                                        echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                                     }
                                     if($list["category"] == 'Glasögon'){
                                         echo '<div class="glasögon-big"></div>';
-                                        echo '<p>Glasögon</p>';
+                                        echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                                     }
                                     if($list["category"] == 'Inredning'){
                                         echo '<div class="inredning-big"></div>';
-                                        echo '<p>Inredning</p>';
+                                        echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
                                     }
      
                             ?>
                             
-                            </div>
+                            
                         </article>
                         
 <!--- Lists the specific blog post with created-date and name of the author --->                            
