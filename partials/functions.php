@@ -134,7 +134,7 @@ function handleCategories($category, $amount) {
                                 echo "$smallText" . " ..."; 
                                 echo '</p>';
                                 ?> 
-                                <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>          
+                                <a class="btn button-test" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>          
                     </article>
                     <?php
                     require 'index_login.php';
@@ -168,7 +168,11 @@ function handleCategories($category, $amount) {
                         }
                     ?>
                                 <h2>
-                                    <?php echo $list["title"]; ?>
+                                    <?php 
+                                        echo '<a href="post.php?post=' . $list["id"] . '">';
+                                        echo $list["title"]; 
+                                        echo '</a>';
+                                    ?>
                                 </h2>
                                     <?php 
                                     $bigText = $list["post"];
@@ -178,7 +182,7 @@ function handleCategories($category, $amount) {
                                     echo "$smallText" . "...";    
                                     echo '</p>';
                                     ?>
-                                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>         
+                                    <a class="btn button-test" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>         
                         </article>
                         <?php 
          }
@@ -214,25 +218,27 @@ function allCatergories($amount) {
                             <div class="article-text">
                             <?php
                                 if($list["category"] == 'Klockor'){
-                                    echo '<div class="klocka-big"></div>';
+                                    echo '<div class="klocka"></div>';
                                     echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                                 }
                                 if($list["category"] == 'Solglasögon'){
-                                    echo '<div class="glasögon-big"></div>';
+                                    echo '<div class="glasögon"></div>';
                                     echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                                 }
                                 if($list["category"] == 'Inredning'){
-                                    echo '<div class="inredning-big"></div>';
+                                    echo '<div class="inredning"></div>';
                                     echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
                                 }
                             ?>
-                            
+
+                               
                                 <h2>
-                                 <?php
-                            
-                                    echo $list["title"];  
+                                <?php
+                                    echo '<a href="post.php?post=' . $list["id"] . '">';
+                                    echo $list["title"]; 
+                                    echo '</a>';
                                 ?>
-                               </h2>
+                                </h2>
                                
                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
                                      <?php   echo $list["date"] . ' | '; ?>
@@ -245,7 +251,7 @@ function allCatergories($amount) {
                                     echo "$smallText" . "..."; 
                                     echo '</p>';
                                     ?> 
-                                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>  
+                                    <a class="btn button-test" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>  
                                             
                                 </div> 
 
@@ -285,7 +291,11 @@ function allCatergories($amount) {
                                     }
                                 ?>
                                     <h2>
-                                        <?php echo $list["title"]; ?> </h2>
+                                        <?php 
+                                            echo '<a href="post.php?post=' . $list["id"] . '">';
+                                            echo $list["title"]; 
+                                            echo '</a>';
+                                        ?> </h2>
                                         
                                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
                                         <?php   echo $list["date"] . ' | ';?>
@@ -297,7 +307,7 @@ function allCatergories($amount) {
                                         echo "$smallText" . " ..."; 
                                         echo '</p>';
                                         ?>  
-                                        <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>           
+                                        <a class="btn button-test" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>           
                                 </div>
                             </article>
 
@@ -341,15 +351,15 @@ function specificPost($amount) {
                           <?php
             
                                     if($list["category"] == 'Klockor'){
-                                        echo '<div class="klocka-big"></div>';
+                                        echo '<div class="klocka"></div>';
                                         echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                                     }
                                     if($list["category"] == 'Glasögon'){
-                                        echo '<div class="glasögon-big"></div>';
+                                        echo '<div class="glasögon"></div>';
                                         echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                                     }
                                     if($list["category"] == 'Inredning'){
-                                        echo '<div class="inredning-big"></div>';
+                                        echo '<div class="inredning"></div>';
                                         echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
                                     }
      

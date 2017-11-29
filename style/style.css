@@ -157,17 +157,31 @@ article h2{
     margin-top: 4px;
 }
 
+article a {
+    color: #1c3145;
+}
+
+article h2 a:hover {
+    text-decoration: none;
+}
+
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
     color: #606060;
 }
 
+a {
+    color: #000000;
+}
+
+
 .blogpost-text {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 1em;
 }
+
 .right-align {
     text-align: right;
 }
@@ -361,12 +375,6 @@ footer .row {
     background-color: #48843a;
 }
 
-.klocka-big {
-    height: 7px;
-    width: 100%;
-    background-color: #48843a;
-}
-
 .watch-label {
     color: #48843a;
     margin-top: 5px;
@@ -379,12 +387,6 @@ footer .row {
     background-color: #d28a00;
 }
 
-.glasögon-big {
-    height: 7px;
-    width: 100%;
-    background-color: #d28a00;
-}
-
 .sunglasses-label {
     color: #d28a00;
     margin-top: 5px;
@@ -392,12 +394,6 @@ footer .row {
 }
 
 .inredning {
-    height: 7px;
-    width: 100%;
-    background-color: #3e50bc;
-}
-
-.inredning-big {
     height: 7px;
     width: 100%;
     background-color: #3e50bc;
@@ -416,6 +412,10 @@ footer .row {
 
 .btn {
     text-transform: uppercase;
+}
+
+.btn a{
+    color: #000000;
 }
 
 .dropdown-toggle {
@@ -448,6 +448,10 @@ footer .row {
     background-color: #fafafa;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
+}
+
+article .button-test{
+    font-size: 0.85em;
 }
 
 /**/
