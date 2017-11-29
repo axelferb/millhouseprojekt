@@ -133,7 +133,8 @@ function handleCategories($category, $amount) {
                                 echo '<p class="blogpost-text">';
                                 echo "$smallText" . " ..."; 
                                 echo '</p>';
-                                ?>            
+                                ?> 
+                                <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>          
                     </article>
                     <?php
                     require 'index_login.php';
@@ -176,7 +177,8 @@ function handleCategories($category, $amount) {
                                     echo '<p class="blogpost-text">';
                                     echo "$smallText" . "...";    
                                     echo '</p>';
-                                    ?>         
+                                    ?>
+                                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>         
                         </article>
                         <?php 
          }
@@ -242,7 +244,9 @@ function allCatergories($amount) {
                                     echo '<p class="blogpost-text">';
                                     echo "$smallText" . "..."; 
                                     echo '</p>';
-                                    ?>            
+                                    ?> 
+                                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>  
+                                            
                                 </div> 
 
                         </article>
@@ -292,7 +296,8 @@ function allCatergories($amount) {
                                         echo '<p class="blogpost-text">';
                                         echo "$smallText" . " ..."; 
                                         echo '</p>';
-                                        ?>            
+                                        ?>  
+                                        <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>           
                                 </div>
                             </article>
 

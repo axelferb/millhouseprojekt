@@ -278,6 +278,11 @@ article .col-md-6 {
     width: 95%;
 }
 
+.article-text .btn-block {
+    width: 50%;
+
+}
+
 /* FOOTER */
 
 footer .col-sm-4 {
@@ -529,7 +534,7 @@ table td a{
     margin-top: 50px;
 }
 
-/*SPESIFIC POST*/
+/*SPECIFIC POST*/
 
 .comment_on_post .form-control{
     height:60px;
