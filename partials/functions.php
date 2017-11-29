@@ -134,7 +134,10 @@ function handleCategories($category, $amount) {
                                 echo "$smallText" . " ..."; 
                                 echo '</p>';
                                 ?> 
-                                <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>          
+                                <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>  
+                                
+                                        
+                                                
                     </article>
                     <?php
                     require 'index_login.php';
@@ -181,6 +184,8 @@ function handleCategories($category, $amount) {
                                     <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>         
                         </article>
                         <?php 
+             
+             
          }
             $i++;
 }
@@ -247,6 +252,7 @@ function allCatergories($amount) {
                                     ?> 
                                     <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>  
                                             
+                                                                                    
                                 </div> 
 
                         </article>
