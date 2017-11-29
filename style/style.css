@@ -27,7 +27,8 @@ main .col-md-8 {
 /* INDEX LOGINFORM STYLING */
 
 .ck-editor__editable {
-    min-height: 150px;
+    min-height: 170px;
+    resize: vertical;
 }
 
 .login-field form {
@@ -277,7 +278,7 @@ hr {
 
 article {
     margin-bottom: 35px;
-    min-height: 400px;
+    min-height: 450px;
 }
 
 .half-width {
