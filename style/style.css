@@ -58,7 +58,6 @@ main .col-md-8 {
     color: #FFFFFF;
     text-align: center;
     min-height: 287px;
-    margin-top: 15px;
 }
 
 .login-field p {
@@ -88,9 +87,14 @@ input {
     background-color: #3e50bc
 }
 
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
 .navbar-inverse .navbar-nav li a {
     color: #FFFFFF;
-    text-align: center;
 }
 
 .navbar-inverse .navbar-brand {
@@ -117,7 +121,6 @@ input {
 .navbar-inverse .navbar-collapse {
     border-color: black;
 }
-
 
 /**/
 

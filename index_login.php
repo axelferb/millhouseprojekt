@@ -1,36 +1,38 @@
 <?php
+require 'partials/database.php';
 
-// session_start();
-    require 'partials/database.php';
+// FETCHING USER
+$user = $_SESSION["user"]["id"];
 
-
-// DETTA ÄR GAMLA SESSION-GREJEN:
-//// OM INLOGGNING SKETT FÖR ÖVER 10 MIN (10 * 60 sekunder = 600) SEDAN SKER AUTOMATISKT UTLOGGNING:
-//if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-//    // last request was more than 30 minutes ago
-//    session_unset();     // unset $_SESSION variable for the run-time 
-//    session_destroy();   // destroy session data in storage
-//    
-//// ANNARS VISAS SIDAN I INLOGGAT LÄGE MED ANVÄNDARNAMN OCH LOG OUT-LÄNK:
-//} else {  
-//}
-//
-//$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-//
-//
-//  
-//// OM MAN ÅTERVÄNDER TILL INDEX EFTER ETT MISSLYCKAT REGISRERINGSFÖRSÖK:
-//    if(isset($_GET["registration_error"])){
-//        echo "Din registrering misslyckades då du inte fyllt i alla fält.";
-//    }
-
-
+// BELOW FETCHES PROFILE PICTURE
+$statement3 = $pdo->prepare("
+SELECT image 
+FROM users 
+WHERE id = :user
+");
+$statement3->execute(array(
+":user" => $user
+)); 
+$profile_img = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
     <div class="hidden-xs hidden-sm col-md-4 login-wrap">
         <div class="login-field">
             <?php
             if(isset($_SESSION["user"])){
+                foreach($profile_img as $img){ 
+                    if($img["image"] == NULL){ ?>
+                    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                    <?php
+                    }
+                    else{ 
+                    ?>
+                    <img src="<?=$img["image"];?>" width="160">
+                    <?php
+                    } 
+                    }
+                    ?>
+                <?php
                 echo "<h1 class='text-center white-text'>Välkommen:<br/>" . 
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
