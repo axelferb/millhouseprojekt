@@ -26,6 +26,10 @@ main .col-md-8 {
 
 /* INDEX LOGINFORM STYLING */
 
+.ck-editor__editable {
+    min-height: 150px;
+}
+
 .login-field form {
     text-align: center;
     color: white;
@@ -412,6 +416,7 @@ footer .row {
 .dropdown-toggle {
     font-size: 0.8em;
 }
+
 .btn-block {
     border-radius: 0px;
 }
@@ -453,6 +458,11 @@ footer .row {
 
 .profile-img {
     width: 35%;
+}
+
+.profile-img .glyphicon {
+    font-size: 5em;
+    margin-top: 20px;
 }
 
 table th {
