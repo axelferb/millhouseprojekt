@@ -46,7 +46,7 @@ function handleCategories($category, $amount, $big_div, $small_div) {
                         echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                     }
                     if($list["category"] == 'Solglasögon'){
-                        echo '<div class="glasögon-big"></div>';
+                        echo '<div class="solglasögon-big"></div>';
                         echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                     }
                     if($list["category"] == 'Inredning'){
@@ -107,7 +107,7 @@ function allCatergories($amount, $big_div, $small_div) {
                         echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                     }
                     if($list["category"] == 'Solglasögon'){
-                        echo '<div class="glasögon-big"></div>';
+                        echo '<div class="solglasögon-big"></div>';
                         echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                     }
                     if($list["category"] == 'Inredning'){
@@ -173,8 +173,8 @@ function specificPost($amount) {
                                         echo '<div class="klocka-big"></div>';
                                         echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                                     }
-                                    if($list["category"] == 'Glasögon'){
-                                        echo '<div class="glasögon-big"></div>';
+                                    if($list["category"] == 'Solglasögon'){
+                                        echo '<div class="solglasögon-big"></div>';
                                         echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                                     }
                                     if($list["category"] == 'Inredning'){
