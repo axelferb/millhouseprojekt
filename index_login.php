@@ -5,7 +5,7 @@ require 'partials/database.php';
 
 ?>
     <div class="hidden-xs hidden-sm col-md-4 login-wrap">
-        <div class="login-field">
+           <div class="login-field">
             <?php
             if(isset($_SESSION["user"])){
                 // FETCHING USER
