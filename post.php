@@ -83,8 +83,8 @@ require 'nav.php';
                 if (isset($_POST['Klockor'])) {
                     specificPost($_POST["Klockor"], count($posts));
                 }
-                elseif (isset($_POST['Glasögon'])) {
-                    specificPost($_POST["Glasögon"], count($posts));
+                elseif (isset($_POST['Solglasögon'])) {
+                    specificPost($_POST["Solglasögon"], count($posts));
                 }
                 elseif (isset($_POST['Inredning'])) {
                     specificPost($_POST["Inredning"], count($posts));

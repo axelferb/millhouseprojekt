@@ -85,11 +85,18 @@ input {
 /**/
 
 /*Navbar styling*/
-
 .blue-line {
     height: 5px;
     width: 100%;
-    background-color: #3e50bc
+    background-color: #3e50bc;
+}
+
+.brand-logo {
+    background: url("../img/millhouse_logo.svg");
+    background-size: cover;
+    height: 110px;
+    width: 200px;
+    margin: 0 auto;
 }
 
 .navbar .navbar-nav {
@@ -127,15 +134,14 @@ input {
     border-color: black;
 }
 
-
 .navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
 }
-
+   
 .navbar .navbar-collapse {
-  text-align: center;
+    text-align: center;
 }
 
 /**/
@@ -396,7 +402,7 @@ footer .row {
     margin-bottom: 5px;
 }
 
-.glasögon {
+.solglasögon {
     height: 7px;
     width: 100%;
     background-color: #d28a00;

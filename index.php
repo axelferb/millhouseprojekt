@@ -14,6 +14,18 @@ require 'partials/functions.php';
 $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
 $statement->execute();
 $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
+
+// PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING BLOGGING USER
+$statement2 = $pdo->prepare("
+SELECT users.id, users.firstname, users.lastname, users.email, posts.user FROM posts 
+INNER JOIN users 
+ON users.id = posts.user
+WHERE posts.id = :post
+");
+$statement2->execute(array(
+":post" => $post
+));
+$userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <body>
@@ -33,33 +45,57 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 
             <h1>Våra blogginlägg</h1>
             <hr style="width: 97%;">
-            <div class="filter">
-                <span class="filter uppercase">Filtrera efter:</span>
-
-                <div class="btn-group right-align">
-                    <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">KATEGORI</button>
-                    <ul class="dropdown-menu" role="menu">
-                        <form action="index.php" method="POST" class="filter">
-                            <li><input href="#" type="submit" name="all" value="Allt"></li>
-                            <li><input href="#" type="submit" name="Klockor" value="Klockor"></li>
-                            <li><input href="#" type="submit" name="Glasögon" value="Glasögon"></li>
-                            <li><input href="#" type="submit" name="Inredning" value="Inredning"></li>
-                        </form>
-                    </ul>
-                </div>
-
-                <div class="btn-group">
-                <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">DATUM</button>
-                    <ul class="dropdown-menu" role="menu">
-                        <form action="index.php" method="POST" class="filter">
-                            <li><input href="#" type="submit" name="all" value="Allt"></li>
-                            <li><input href="#" type="submit" name="Klockor" value="Klockor"></li>
-                            <li><input href="#" type="submit" name="Glasögon" value="Glasögon"></li>
-                            <li><input href="#" type="submit" name="Inredning" value="Inredning"></li>
-                        </form>
-                    </ul>
-                </div>
-            </div>
+            <div class="col-xs-12 right-align">
+                        <span class="filter">Filtrera efter:</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                <span>
+                                    <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                </span>
+                                KATEGORI
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <form action="index.php" method="POST" class="filter">
+                                        <li>
+                                            <input href="#" type="submit" name="all" value="Allt">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Klockor" value="Klockor">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Solglasögon" value="Solglasögon">
+                                        </li>
+                                        <li>
+                                            <input href="#" type="submit" name="Inredning" value="Inredning">
+                                        </li>
+                                    </form>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn button-test dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
+                                    </span>
+                                    DATUM
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                   <form action="index.php" method="POST" class="filter">
+                                    <li>
+                                        <input href="#" type="submit" name="all" value="Allt">
+                                    </li>
+                                    <li>
+                                        <input href="#" type="submit" name="Klockor" value="Klockor">
+                                    </li>
+                                    <li>
+                                        <input href="#" type="submit" name="Solglasögon" value="Solglasögon">
+                                    </li>
+                                    <li>
+                                        <input href="#" type="submit" name="Inredning" value="Inredning">
+                                    </li>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
         </div>
 
         <div class="index_login hidden-xs hidden-sm col-md-4">
@@ -75,8 +111,8 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
             if (isset($_POST['Klockor'])) {
                 handleCategories($_POST["Klockor"],  5 , 'col-md-8', 'col-md-6');
             }
-            elseif (isset($_POST['Glasögon'])) {
-                handleCategories($_POST["Glasögon"], 5 , 'col-md-8', 'col-md-6');
+            elseif (isset($_POST['Solglasögon'])) {
+                handleCategories($_POST["Solglasögon"], 5 , 'col-md-8', 'col-md-6');
             }
             elseif (isset($_POST['Inredning'])) {
                 handleCategories($_POST["Inredning"], 5 , 'col-md-8', 'col-md-6');
