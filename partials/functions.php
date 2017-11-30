@@ -1,5 +1,4 @@
 <?php
-
 function handleImage($category, $image_source){
     
     
@@ -8,8 +7,6 @@ function handleImage($category, $image_source){
         <img class="img-fluid" src="<?= $image_source; ?>">
         <?php    
     }else{
-
-
         if ($category == 'Klockor'){
         echo '<img class="img-fluid" src="images/klockor_profil.png" alt="Klockor">';
         }
@@ -20,11 +17,7 @@ function handleImage($category, $image_source){
         echo '<img class="img-fluid" src="../images/inredning_profil.png" alt="Inredning">';
 }
 }
-
 }
-
-
-
 function handleCategories($category, $amount, $big_div, $small_div) {
     $i = 0; 
     global $posts; 
@@ -70,7 +63,6 @@ function handleCategories($category, $amount, $big_div, $small_div) {
                     <?php 
                     $bigText = $list["post"];
                     $smallText = substr($bigText, 0, 100);
-
                     echo '<p class="blogpost-text">';
                     echo "$smallText" . "..."; 
                     echo '</p>';
@@ -83,13 +75,11 @@ function handleCategories($category, $amount, $big_div, $small_div) {
                     require 'index_login.php';
                     }
             
-
             $i++;
             }
             }
             }
     
-
 function allCatergories($amount, $big_div, $small_div) {
     $i = 0; 
     global $posts; 
@@ -133,7 +123,6 @@ function allCatergories($amount, $big_div, $small_div) {
                     <?php 
                     $bigText = $list["post"];
                     $smallText = substr($bigText, 0, 100);
-
                     echo '<p class="blogpost-text">';
                     echo "$smallText" . "..."; 
                     echo '</p>';
@@ -146,23 +135,16 @@ function allCatergories($amount, $big_div, $small_div) {
                     require 'index_login.php';
                     }
             
-
             $i++;
             }
-
             }
     
-
 function specificPost($amount) {
-
-
-
     $i = 0;
     global $posts;
     global $userinfo;
     foreach($posts as $list){
     if($i==$amount) break;
-
     if ($i == 0){
     ?>
     <article class='col-xs-12'>
@@ -194,7 +176,6 @@ function specificPost($amount) {
     echo '<div class="inredning-big"></div>';
     echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
     }
-
     ?>
 
 
@@ -202,13 +183,10 @@ function specificPost($amount) {
 
     <!--- Lists the specific blog post with created-date and name of the author --->
     <h2>
-
     <?php echo $list["title"]; ?>
     </h2>
-
     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
     <?php   echo $list["date"] . ' | ';
-
     foreach($userinfo as $userInformation){ ?>
     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
     <?php   echo $userInformation["firstname"] . ' ';
@@ -217,15 +195,11 @@ function specificPost($amount) {
     <?php   echo ' ' . $userInformation["email"];
     }
     ?>
-
     <p>
     <?php echo $list["post"]; ?>
     </p>
     <?php
-
     }
-
     $i++;
     }
     }
-

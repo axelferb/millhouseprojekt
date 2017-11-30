@@ -1,3 +1,7 @@
+<?php
+require 'partials/session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
