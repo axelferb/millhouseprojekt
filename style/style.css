@@ -19,6 +19,11 @@ body {
     padding-right: 0px;
 }
 
+main .col-md-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 /* INDEX LOGINFORM STYLING */
 
 .login-field form {
@@ -53,7 +58,6 @@ body {
     color: #FFFFFF;
     text-align: center;
     min-height: 287px;
-    margin-top: 15px;
 }
 
 .login-field p {
@@ -83,9 +87,14 @@ input {
     background-color: #3e50bc
 }
 
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
 .navbar-inverse .navbar-nav li a {
     color: #FFFFFF;
-    text-align: center;
 }
 
 .navbar-inverse .navbar-brand {
@@ -112,7 +121,6 @@ input {
 .navbar-inverse .navbar-collapse {
     border-color: black;
 }
-
 
 /**/
 
@@ -142,13 +150,23 @@ h3 {
     text-transform: uppercase;
 }
 
+article h2{
+    color: #1c3145;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
 p {
-    font-family: 'EB Garamond', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
-    font-weight: 600;
     color: #606060;
 }
 
+.blogpost-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+}
 .right-align {
     text-align: right;
 }
@@ -166,7 +184,7 @@ p {
 }
 
 .small {
-    font-size: 1em;
+    font-size: 0.95em;
 }
 .author {
     font-family: 'Lato', sans-serif;
@@ -176,17 +194,23 @@ p {
     text-transform: uppercase;
 }
 
+.date {
+    color:#4f4f4f;
+}
+
 /**/
 
 hr {
     margin: 5px 0 15px 0;
-    height: 1.5px;
+    width: 100%;
+    height: 2px;
     background-color: #1c3145;
     border: 0px;
 }
 
+
 .filter {
-    display: inline;
+    margin-bottom: 5px;
 }
 
 .antal_posts, .antal_kommentarer {
@@ -207,14 +231,14 @@ hr {
 
 .img-wrap-big {
     background: black;
-    width: 92%;
-    height: 280px;
+    width: 95%;
+    height: 300px;
     overflow: hidden;
 }
 
 .img-wrap-small {
     background: black;
-    width: 92%;
+    width: 95%;
     height: 220px;
     overflow: hidden;
 }
@@ -224,7 +248,42 @@ hr {
     overflow: hidden;
   }
 
+.full-width{
+    width: 100%;
+}
+
+/* ARTICLE*/
+
+.flex {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex
+}
+
+article {
+    margin-bottom: 35px;
+    min-height: 400px;
+}
+
+.half-width {
+    width: 45%;
+}
+
+article .col-md-6 {
+    width: 95%;
+}
+
+.article-text {
+    width: 95%;
+}
+
 /* FOOTER */
+
+footer .col-sm-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 
 footer {
     width: 100%;
@@ -237,6 +296,8 @@ footer {
 footer h2 {
     color: #FFFFFF;
     font-size: 1.7em;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 footer h3 {
@@ -280,39 +341,53 @@ footer .row {
 }
 
 .copyright p {
-    color: #324d67;
+    color: #FFFFFF;
     margin: 5px 0 5px 0;
+    font-size: 0.85em;
 }
+
 
 /* FÄRG/KATEGORISTYLING */
 
 .klocka {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #48843a;
 }
 
 .klocka-big {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #48843a;
+}
+
+.watch-label {
+    color: #48843a;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .glasögon {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #d28a00;
 }
 
 .glasögon-big {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #d28a00;
+}
+
+.sunglasses-label {
+    color: #d28a00;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .inredning {
     height: 7px;
-    width: 92%;
+    width: 100%;
     background-color: #3e50bc;
 }
 
@@ -320,6 +395,13 @@ footer .row {
     height: 7px;
     width: 100%;
     background-color: #3e50bc;
+}
+
+.furnish-label {
+    color: #3e50bc;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
 }
 
 /**/
@@ -330,6 +412,9 @@ footer .row {
     text-transform: uppercase;
 }
 
+.dropdown-toggle {
+    font-size: 0.8em;
+}
 .btn-block {
     border-radius: 0px;
 }
@@ -359,12 +444,6 @@ footer .row {
 }
 
 /**/
-
-.img-wrap {
-    width: 100%;
-    height 280px;
-    background: #000000;
-}
 
 /** PROFILE-RELATED **/
 
@@ -439,12 +518,50 @@ table td a{
 
 }
 
-.div-max-height {
-    max-height: 350px;
-}
-
 .hr-margin-top {
     margin-top: 50px;
+}
+
+/*SPESIFIC POST*/
+
+.comment_on_post .form-control{
+    height:60px;
+    border-color: #1c3144;
+    border-width: medium;
+}
+
+.comment_on_post .form-group{
+    margin-top: 20px;
+}
+
+.comment_on_post hr{
+    height: 2px;
+}
+
+.inlagg h2{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.specificComment{
+   font-family: 'Raleway', sans-serif; 
+    font-size: 1.1em;
+}
+
+.comments_post .author{
+    font-size: 1.2em;
+    text-transform:none;
+}
+comments_post{
+    font-size: 1.2em;
+}
+
+.date{
+    font-size: 0.9em;
+}
+
+.glyphicon{
+    font-size: 0.8em;
 }
 /* För desktop profil*/
 

@@ -12,9 +12,8 @@ require 'partials/functions.php';
     require 'nav.php';
     ?>
 
-            <div class="jumbotron">
-                
-            </div>
+            <div class="jumbotron"></div>
+            <div class="blue-line"></div>
             <div class="container">
 
 

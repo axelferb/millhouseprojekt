@@ -9,48 +9,45 @@ require 'partials/database.php';
     $statement_posts = $pdo->prepare("
     SELECT COUNT(DISTINCT post) as total
     FROM posts
-    WHERE user = :user
     ");
-    $statement_posts->execute(array(
-    ":user" => $user
-    ));
+    $statement_posts->execute(
+    );
     $p_count = $statement_posts->fetch(PDO::FETCH_ASSOC);
 
 // USER COMMENT STATISTICS
     $statement_comments = $pdo->prepare("
     SELECT COUNT(DISTINCT comment) as total
     FROM comments
-    WHERE user = :user
     ");
-    $statement_comments->execute(array(
-    ":user" => $user
-    ));
+    $statement_comments->execute(
+    );
     $c_count = $statement_comments->fetch(PDO::FETCH_ASSOC);
 
 // BELOW FETCHES 5 LATEST BLOGPOSTS
     $statement = $pdo->prepare("
     SELECT id, title, category 
     FROM posts 
-    WHERE user = :user
+
     ORDER BY date DESC
     LIMIT 5
     ");
-    $statement->execute(array(
-    ":user" => $user
-    )); 
+    // WHERE user = :user
+    $statement->execute(
+      //  array(":user" => $user)
+    ); 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 // BELOW FETCHES 5 LATEST COMMENTS
     $statement2 = $pdo->prepare("
     SELECT comment, idoriginalpost 
     FROM comments
-    WHERE user = :user
     ORDER BY date DESC
     LIMIT 5
     ");
-    $statement2->execute(array(
-    ":user" => $user
-    )); 
+    //WHERE user = :user
+    $statement2->execute(
+    //array(":user" => $user)
+    ); 
     $comments = $statement2->fetchAll(PDO::FETCH_ASSOC);
 
 // BELOW FETCHES PROFILE PICTURE
@@ -174,7 +171,7 @@ require 'nav.php';
                 ?>
             </table>
             <br>
-            <a class="btn button-test btn-block" href="list_single_users_posts.php" target="_self">Se alla / Redigera / ta bort</a>
+            <a class="btn button-test btn-block" href="list_single_users_posts.php" target="_self">Se alla</a>
             <br>
         </div>
 

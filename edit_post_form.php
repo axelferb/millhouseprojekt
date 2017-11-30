@@ -1,33 +1,31 @@
 <?php
 require 'partials/session.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <?php
 require 'head.php';
 require 'partials/database.php';
-require 'partials/functions.php';   
-    
+require 'partials/functions.php'; 
+
+$user = $_SESSION["user"]["id"];
 $posttoedit = $_GET["posttoedit"];
 
     $statement = $pdo->prepare("
-    SELECT id, title, post, category FROM posts WHERE id = :posttoedit
+    SELECT id, user, title, post, category FROM posts WHERE id = :posttoedit
     ");
-
-
     $statement->execute(array(
     ":posttoedit" => $posttoedit
-    )); 
-    
-    
+    ));
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
     
-    ?>
-    
+    // CHECKING IF SESSION ID IS MATCHING ID OF THE USER WHO WROTE THE BLOGPOST
+    // IF NOT, USER IS REDIRECTED
+    foreach($posts as $safe_check){
+        if(!($_SESSION["user"]["id"] == $safe_check["user"])){
+          echo "Du har inte behörighet till denna sida.";
+            //header("Location: ../error.php");
+        }else{ ?>
 <body>
     <?php
     require 'nav.php';
@@ -49,7 +47,7 @@ $posttoedit = $_GET["posttoedit"];
  <div class="container mt-5">
   <h4>Redigera inlägg:</h4>
   
-  <form action="edit_post.php" method="POST">
+  <form action="partials/edit_post.php" method="POST">
   
     <div class="form-group">
       <label for="post_title"> Rubrik: </label>
@@ -116,5 +114,10 @@ $posttoedit = $_GET["posttoedit"];
 
 
 </body>
+
+<?php
+        }
+    }
+?>
 
 </html>
