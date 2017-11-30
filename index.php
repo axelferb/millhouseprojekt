@@ -27,9 +27,9 @@ $statement2->execute(array(
 ));
 $userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <body>
-
+    <?php
+?>
     <!-- NAVIGATION -->
     <?php
         require 'nav.php';
@@ -104,10 +104,8 @@ $userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
         </div>
         
         <?php
-            //require 'index_login.php';
-        ?>
-
-        <?php
+            //require 'index_login.php'
+        
             if (isset($_POST['Klockor'])) {
                 handleCategories($_POST["Klockor"],  5 , 'col-md-8', 'col-md-6');
             }
