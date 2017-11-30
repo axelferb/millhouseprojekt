@@ -75,16 +75,16 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                  <?php
                 
                 if (isset($_POST['Klockor'])) {
-                    handleCategories($_POST["Klockor"], count($posts));
+                    handleCategories($_POST["Klockor"], count($posts), 'col-md-6','col-md-6');
                    }
                 elseif (isset($_POST['Glasögon'])) {
-                    handleCategories($_POST["Glasögon"], count($posts));
+                    handleCategories($_POST["Glasögon"], count($posts, 'col-md-6'), 'col-md-6');
                     }
                 elseif (isset($_POST['Inredning'])) {
-                    handleCategories($_POST["Inredning"], count($posts));
+                    handleCategories($_POST["Inredning"], count($posts, 'col-md-6'), 'col-md-6');
                    }
                 else {
-                    allCatergories(count($posts));
+                    allCatergories(count($posts), 'col-md-6', 'col-md-6');
                 }    
 
                 ?>

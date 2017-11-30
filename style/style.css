@@ -27,7 +27,8 @@ main .col-md-8 {
 /* INDEX LOGINFORM STYLING */
 
 .ck-editor__editable {
-    min-height: 150px;
+    min-height: 170px;
+    resize: vertical;
 }
 
 .login-field form {
@@ -62,7 +63,6 @@ main .col-md-8 {
     color: #FFFFFF;
     text-align: center;
     min-height: 287px;
-    margin-top: 15px;
 }
 
 .login-field p {
@@ -92,9 +92,14 @@ input {
     background-color: #3e50bc
 }
 
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
 .navbar-inverse .navbar-nav li a {
     color: #FFFFFF;
-    text-align: center;
 }
 
 .navbar-inverse .navbar-brand {
@@ -122,6 +127,7 @@ input {
     border-color: black;
 }
 
+
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -131,7 +137,6 @@ input {
 .navbar .navbar-collapse {
   text-align: center;
 }
-
 
 /**/
 
@@ -167,17 +172,31 @@ article h2{
     margin-top: 4px;
 }
 
+article a {
+    color: #1c3145;
+}
+
+article h2 a:hover {
+    text-decoration: none;
+}
+
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
     color: #606060;
 }
 
+a {
+    color: #000000;
+}
+
+
 .blogpost-text {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 1em;
 }
+
 .right-align {
     text-align: right;
 }
@@ -273,7 +292,7 @@ hr {
 
 article {
     margin-bottom: 35px;
-    min-height: 400px;
+    min-height: 450px !important;
 }
 
 .half-width {
@@ -371,12 +390,6 @@ footer .row {
     background-color: #48843a;
 }
 
-.klocka-big {
-    height: 7px;
-    width: 100%;
-    background-color: #48843a;
-}
-
 .watch-label {
     color: #48843a;
     margin-top: 5px;
@@ -389,12 +402,6 @@ footer .row {
     background-color: #d28a00;
 }
 
-.glasögon-big {
-    height: 7px;
-    width: 100%;
-    background-color: #d28a00;
-}
-
 .sunglasses-label {
     color: #d28a00;
     margin-top: 5px;
@@ -402,12 +409,6 @@ footer .row {
 }
 
 .inredning {
-    height: 7px;
-    width: 100%;
-    background-color: #3e50bc;
-}
-
-.inredning-big {
     height: 7px;
     width: 100%;
     background-color: #3e50bc;
@@ -426,6 +427,10 @@ footer .row {
 
 .btn {
     text-transform: uppercase;
+}
+
+.btn a{
+    color: #000000;
 }
 
 .dropdown-toggle {
@@ -458,6 +463,10 @@ footer .row {
     background-color: #fafafa;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
+}
+
+article .button-test{
+    font-size: 0.85em;
 }
 
 /**/

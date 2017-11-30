@@ -51,6 +51,19 @@ require 'partials/functions.php';
     ));
     $comments_info = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
+    $statement4 = $pdo->prepare("
+    SELECT COUNT(comment) as totalComments
+    FROM comments 
+    ");
+    $statement4->execute();
+    $numbersOfComments = $statement4->fetchAll(PDO::FETCH_ASSOC);
+
+            
+    foreach($numbersOfComments as $amountOfComments){
+    echo $amountOfComments["totalComments"];
+} 
+
+    
 ?>
 
 <body>

@@ -73,16 +73,16 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
 
         <?php
             if (isset($_POST['Klockor'])) {
-                handleCategories($_POST["Klockor"], 5);
+                handleCategories($_POST["Klockor"],  5 , 'col-md-8', 'col-md-6');
             }
             elseif (isset($_POST['Glasögon'])) {
-                handleCategories($_POST["Glasögon"], 5);
+                handleCategories($_POST["Glasögon"], 5 , 'col-md-8', 'col-md-6');
             }
             elseif (isset($_POST['Inredning'])) {
-                handleCategories($_POST["Inredning"], 5);
+                handleCategories($_POST["Inredning"], 5 , 'col-md-8', 'col-md-6');
             }
             else {
-                allCatergories(5);
+                allCatergories(5, 'col-md-8', 'col-md-6');
             }
         ?>
 
