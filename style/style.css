@@ -80,11 +80,18 @@ input {
 /**/
 
 /*Navbar styling*/
-
 .blue-line {
     height: 5px;
     width: 100%;
-    background-color: #3e50bc
+    background-color: #3e50bc;
+}
+
+.brand-logo {
+    background: url("../img/millhouse_logo.svg");
+    background-size: cover;
+    height: 110px;
+    width: 200px;
+    margin: 0 auto;
 }
 
 .navbar .navbar-nav {
