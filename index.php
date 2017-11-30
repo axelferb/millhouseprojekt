@@ -14,6 +14,18 @@ require 'partials/functions.php';
 $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
 $statement->execute();
 $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
+
+// PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING BLOGGING USER
+$statement2 = $pdo->prepare("
+SELECT users.id, users.firstname, users.lastname, users.email, posts.user FROM posts 
+INNER JOIN users 
+ON users.id = posts.user
+WHERE posts.id = :post
+");
+$statement2->execute(array(
+":post" => $post
+));
+$userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <body>
