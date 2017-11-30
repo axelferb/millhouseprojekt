@@ -1,312 +1,146 @@
 <?php
-
-/*
-function handleCategory($category) {
-
-    global $posts;
-    foreach($posts as $list){
-
-        if ($category == $list['category']){
-?>
-    <div class='col-xs-12 col-md-6'>
-
-        <<<<<<< HEAD <<<<<<< HEAD <div class="profilbild-small">
-    </div>
-    <h2>
-        <?php echo $list["title"]; ?> </h2>
-    <p>
-        <?php echo $list["post"]; ?> </p>
-    =======
-    <div class="profilbild"></div>
-    <h2>
-        <?php echo $list["title"]; ?> </h2>
-    <p>
-        <?php echo $list["post"]; ?> </p>
-    >>>>>>> master =======
-
-    <div class="profilbild-small"></div>
-    <h2>
-        <?php echo $list["title"]; ?> </h2>
-    <p>
-        <?php echo $list["post"]; ?> </p>
-    >>>>>>> 364c8ab95225fa271c8721328a506528a532ffa0
-
-
-    </div>
-    <?php
-                                    
-}
-}
-}
-
-
-
-function allCategories() {
-
-    global $posts;
-    foreach($posts as $list){
-
-?>
-        <<<<<<< HEAD <<<<<<< HEAD <div class='col-xs-12 col-md-6'>
-            <div class="profilbild-small"></div>
-            <h2>
-                <?php echo $list["title"]; ?> </h2>
-            <span class="author">DATUM | NAMN | EMAILADRESS</span>
-            <p>
-                <?php echo $list["post"]; ?> </p>
-            </div>
-            ======= ======= >>>>>>> 364c8ab95225fa271c8721328a506528a532ffa0
-            <div class='col-xs-12 col-md-6'>
-
-                <div class="profilbild-small"></div>
-                <h2>
-                    <?php echo $list["title"]; ?> </h2>
-                <span class="author">DATUM | NAMN | EMAILADRESS</span>
-                <p>
-                    <?php echo $list["post"]; ?> </p>
-
-            </div>
-            <<<<<<< HEAD>>>>>>> master ======= >>>>>>> 364c8ab95225fa271c8721328a506528a532ffa0
-                <?php
-                                    
-}
-} 
-*/
-
-function handleImage($category){
-    if ($category == 'Klockor'){
-         echo '<img class="img-fluid" src="images/klockor_profil.png" alt="Klockor">';
-}
-    if ($category == 'Solglasögon'){
-         echo '<img class="img-fluid" src="../images/glasses_profil.png" alt="Solglasögon">';
-}
-    if ($category == 'Inredning'){
-         echo '<img class="img-fluid" src="../images/inredning_profil.png" alt="Inredning">';
-}
-
-}
-
-
-function handleCategories($category, $amount) {
-    $i = 0;
-    global $posts;
-    foreach($posts as $list){
-
-    if($i==$amount) break;
-
-        if ($category == $list['category']){
-            
-        if($i == 0){    
-?>
-                    <article class='col-xs-12 col-md-8'>
-
-                        <div class="img-wrap-big">
-                            <?php 
-                                if(!($list["image"] == NULL)){
-                            ?>
-                            <img class="img-fluid" src="<?=$list["image"];?>"> 
-                            <?php    
-                                }else{
-                                    handleImage($list['category']);
-                                } 
-                            ?>
-                        </div>
-                        <?php
-                        if($list["category"] == 'Klockor'){
-                            echo '<div class="klocka-big"></div>';
-                            echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
-                        }
-                        if($list["category"] == 'Solglasögon'){
-                            echo '<div class="glasögon-big"></div>';
-                            echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
-                        }
-                        if($list["category"] == 'Inredning'){
-                            echo '<div class="inredning-big"></div>';
-                            echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
-                        }
-                    ?>
-                            <h2>
-                                <?php echo $list["title"]; ?> </h2>    
-                                <?php 
-                                $bigText = $list["post"];
-                                $smallText = substr($bigText, 0, 100);
-                                echo '<p class="blogpost-text">';
-                                echo "$smallText" . " ..."; 
-                                echo '</p>';
-                                ?>            
-                    </article>
-                    <?php
-                    require 'index_login.php';
-        }
-         else {
-                ?>
-                        <article class='col-xs-12 col-md-6'>
-                            <div class="img-wrap-small">
-                            <?php 
-                                if(!($list["image"] == NULL)){
-                            ?>
-                            <img class="img-fluid" src="<?=$list["image"];?>"> 
-                            <?php    
-                                }else{
-                                    handleImage($list['category']);
-                                } 
-                            ?>
-                            </div>
-                            <?php
-                        if($list["category"] == 'Klockor'){
-                            echo '<div class="klocka"></div>';
-                            echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
-                        }
-                        if($list["category"] == 'Solglasögon'){
-                            echo '<div class="glasögon"></div>';
-                            echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
-                        }
-                        if($list["category"] == 'Inredning'){
-                            echo '<div class="inredning"></div>';
-                            echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
-                        }
-                    ?>
-                                <h2>
-                                    <?php echo $list["title"]; ?>
-                                </h2>
-                                    <?php 
-                                    $bigText = $list["post"];
-                                    $smallText = substr($bigText, 0, 100);
-
-                                    echo '<p class="blogpost-text">';
-                                    echo "$smallText" . "...";    
-                                    echo '</p>';
-                                    ?>         
-                        </article>
-                        <?php 
-         }
-            $i++;
-}
-}
-}
-
-
-
-function allCatergories($amount) {
-
-    $i = 0;
-    global $posts;
-    foreach($posts as $list){
-        if($i==$amount) break;
-
-        if ($i == 0){
-            ?>
-                        <article class='col-xs-12 col-md-8'>
-                    
-                            <div class="img-wrap-big">                                
-                                <?php 
-                                if(!($list["image"] == NULL)){
-                                ?>
-                                <img class="img-fluid" src="<?=$list["image"];?>"> 
-                                <?php    
-                                    }else{
-                                        handleImage($list['category']);
-                                    } 
-                                ?>
-                            </div>
-                            <div class="article-text">
-                            <?php
-                                if($list["category"] == 'Klockor'){
-                                    echo '<div class="klocka-big"></div>';
-                                    echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
-                                }
-                                if($list["category"] == 'Solglasögon'){
-                                    echo '<div class="glasögon-big"></div>';
-                                    echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
-                                }
-                                if($list["category"] == 'Inredning'){
-                                    echo '<div class="inredning-big"></div>';
-                                    echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
-                                }
-                            ?>
-                            
-                                <h2>
-                                 <?php
-                            
-                                    echo $list["title"];  
-                                ?>
-                               </h2>
-                               
-                               <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-                                     <?php   echo $list["date"] . ' | '; ?>
-
-                                    <?php 
-                                    $bigText = $list["post"];
-                                    $smallText = substr($bigText, 0, 100);
-
-                                    echo '<p class="blogpost-text">';
-                                    echo "$smallText" . "..."; 
-                                    echo '</p>';
-                                    ?>            
-                                </div> 
-
-                        </article>
-                        <?php
-                        require 'index_login.php';
-            
-        }
-        else{
-            ?>
-                            <article class='col-xs-12 col-md-6'>
-
-                                <div class="img-wrap-small">
-                                <?php 
-                                    if(!($list["image"] == NULL)){
-                                ?>
-                                <img class="img-fluid" src="<?=$list["image"];?>"> 
-                                <?php    
-                                    }else{
-                                        handleImage($list['category']);
-                                    } 
-                                ?>
-                                </div>
-                                <div class="article-text">
-                                <?php
-                                    if($list["category"] == 'Klockor'){
-                                        echo '<div class="klocka"></div>';
-                                        echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
-                                    }
-                                    if($list["category"] == 'Solglasögon'){
-                                        echo '<div class="glasögon"></div>';
-                                        echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
-                                    }
-                                    if($list["category"] == 'Inredning'){
-                                        echo '<div class="inredning"></div>';
-                                        echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
-                                    }
-                                ?>
-                                    <h2>
-                                        <?php echo $list["title"]; ?> </h2>
-                                        
-                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-                                        <?php   echo $list["date"] . ' | ';?>
-                                        
-                                        <?php 
-                                        $bigText = $list["post"];
-                                        $smallText = substr($bigText, 0, 100);
-                                        echo '<p class="blogpost-text">';
-                                        echo "$smallText" . " ..."; 
-                                        echo '</p>';
-                                        ?>            
-                                </div>
-                            </article>
-
-                            <?php
-            
-        }
-        $i++;
-}
-}
-
-    ?>
+function handleImage($category, $image_source){
     
-<?php
+    
+    if(!$image_source == NULL){
+        ?>
+        <img class="img-fluid" src="<?= $image_source; ?>">
+        <?php    
+    }else{
+        if ($category == 'Klockor'){
+        echo '<img class="img-fluid" src="images/klockor_profil.png" alt="Klockor">';
+        }
+        if ($category == 'Solglasögon'){
+        echo '<img class="img-fluid" src="../images/glasses_profil.png" alt="Solglasögon">';
+        }
+        if ($category == 'Inredning'){
+        echo '<img class="img-fluid" src="../images/inredning_profil.png" alt="Inredning">';
+}
+}
+}
+function handleCategories($category, $amount, $big_div, $small_div) {
+    $i = 0; 
+    global $posts; 
+    foreach($posts as $list){ 
+        if($i==$amount) break; 
+        
+        if ($category == $list['category']){
+        
+        if ($i == 0 && $big_div == 'col-md-8'){ ?>
+            <article class='col-xs-12 <?php echo $big_div; ?> '>
+            <div class="img-wrap-big"><?php handleImage($list["category"], $list["image"])?></div>
 
+        <?php
+       
+                    }else { 
+                            ?>
+            <article class='col-xs-12 <?php echo $small_div; ?>'>
+
+                    <div class="img-wrap-small"><?php handleImage($list["category"], $list["image"]) ?></div>
+            <?php } ?>
+                <div class="article-text">
+
+                    <?php
+                    if($list["category"] == 'Klockor'){
+                        echo '<div class="klocka-big"></div>';
+                        echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
+                    }
+                    if($list["category"] == 'Solglasögon'){
+                        echo '<div class="solglasögon-big"></div>';
+                        echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
+                    }
+                    if($list["category"] == 'Inredning'){
+                        echo '<div class="inredning-big"></div>';
+                        echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
+                    }
+                    ?>
+
+                    <h2><?php echo $list["title"];  ?></h2>
+
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    <?php echo $list["date"] . ' | '; ?>
+
+                    <?php 
+                    $bigText = $list["post"];
+                    $smallText = substr($bigText, 0, 100);
+                    echo '<p class="blogpost-text">';
+                    echo "$smallText" . "..."; 
+                    echo '</p>';
+                    ?>
+                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>
+                </div>
+
+                </article>
+                <?php
+                if ($i == 0 && $big_div == 'col-md-8'){ 
+                    require 'index_login.php';
+                    }
+            
+            $i++;
+            }
+            }
+            }
+    
+function allCatergories($amount, $big_div, $small_div) {
+    $i = 0; 
+    global $posts; 
+    foreach($posts as $list){ 
+        if($i==$amount) break; 
+        
+        if ($i == 0 && $big_div == 'col-md-8'){ ?>
+            <article class='col-xs-12 <?php echo $big_div; ?> '>
+            <div class="img-wrap-big"><?php handleImage($list["category"], $list["image"])?></div>
+
+        <?php
+       
+                    }else { 
+                            ?>
+            <article class='col-xs-12 <?php echo $small_div; ?>'>
+
+                    <div class="img-wrap-small"><?php handleImage($list["category"], $list["image"]) ?></div>
+            <?php } ?>
+                <div class="article-text">
+
+                    <?php
+                    if($list["category"] == 'Klockor'){
+                        echo '<div class="klocka-big"></div>';
+                        echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
+                    }
+                    if($list["category"] == 'Solglasögon'){
+                        echo '<div class="solglasögon-big"></div>';
+                        echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
+                    }
+                    if($list["category"] == 'Inredning'){
+                        echo '<div class="inredning-big"></div>';
+                        echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
+                    }
+                    ?>
+
+                    <h2><?php echo $list["title"];  ?></h2>
+
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    <?php echo $list["date"] . ' | '; ?>
+
+                    <?php 
+                    $bigText = $list["post"];
+                    $smallText = substr($bigText, 0, 100);
+                    echo '<p class="blogpost-text">';
+                    echo "$smallText" . "..."; 
+                    echo '</p>'; ?>
+                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>
+                    
+                </div>
+
+                </article>
+                <?php
+                if ($i == 0 && $big_div == 'col-md-8'){ 
+                    require 'index_login.php';
+                    }
+            
+            $i++;
+            }
+            }
+    
 function specificPost($amount) {
 
 
@@ -339,8 +173,8 @@ function specificPost($amount) {
                                         echo '<div class="klocka-big"></div>';
                                         echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
                                     }
-                                    if($list["category"] == 'Glasögon'){
-                                        echo '<div class="glasögon-big"></div>';
+                                    if($list["category"] == 'Solglasögon'){
+                                        echo '<div class="solglasögon-big"></div>';
                                         echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
                                     }
                                     if($list["category"] == 'Inredning'){

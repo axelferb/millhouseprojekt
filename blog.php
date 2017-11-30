@@ -1,3 +1,7 @@
+<?php
+require 'partials/session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -35,7 +39,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                             <input href="#" type="submit" name="Klockor" value="Klockor">
                                         </li>
                                         <li>
-                                            <input href="#" type="submit" name="Glasögon" value="Glasögon">
+                                            <input href="#" type="submit" name="Solglasögon" value="Solglasögon">
                                         </li>
                                         <li>
                                             <input href="#" type="submit" name="Inredning" value="Inredning">
@@ -59,7 +63,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                                         <input href="#" type="submit" name="Klockor" value="Klockor">
                                     </li>
                                     <li>
-                                        <input href="#" type="submit" name="Glasögon" value="Glasögon">
+                                        <input href="#" type="submit" name="Solglasögon" value="Solglasögon">
                                     </li>
                                     <li>
                                         <input href="#" type="submit" name="Inredning" value="Inredning">
@@ -71,16 +75,16 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                  <?php
                 
                 if (isset($_POST['Klockor'])) {
-                    handleCategories($_POST["Klockor"], count($posts));
+                    handleCategories($_POST["Klockor"], count($posts), 'col-md-6','col-md-6');
                    }
-                elseif (isset($_POST['Glasögon'])) {
-                    handleCategories($_POST["Glasögon"], count($posts));
+                elseif (isset($_POST['Solglasögon'])) {
+                    handleCategories($_POST["Solglasögon"], count($posts, 'col-md-6'), 'col-md-6');
                     }
                 elseif (isset($_POST['Inredning'])) {
-                    handleCategories($_POST["Inredning"], count($posts));
+                    handleCategories($_POST["Inredning"], count($posts, 'col-md-6'), 'col-md-6');
                    }
                 else {
-                    allCatergories(count($posts));
+                    allCatergories(count($posts), 'col-md-6', 'col-md-6');
                 }    
 
                 ?>

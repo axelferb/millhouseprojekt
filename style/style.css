@@ -26,6 +26,11 @@ main .col-md-8 {
 
 /* INDEX LOGINFORM STYLING */
 
+.ck-editor__editable {
+    min-height: 170px;
+    resize: vertical;
+}
+
 .login-field form {
     text-align: center;
     color: white;
@@ -173,17 +178,31 @@ article h2{
     margin-top: 4px;
 }
 
+article a {
+    color: #1c3145;
+}
+
+article h2 a:hover {
+    text-decoration: none;
+}
+
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
     color: #606060;
 }
 
+a {
+    color: #000000;
+}
+
+
 .blogpost-text {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 1em;
 }
+
 .right-align {
     text-align: right;
 }
@@ -279,7 +298,7 @@ hr {
 
 article {
     margin-bottom: 35px;
-    min-height: 400px;
+    min-height: 450px !important;
 }
 
 .half-width {
@@ -292,6 +311,11 @@ article .col-md-6 {
 
 .article-text {
     width: 95%;
+}
+
+.article-text .btn-block {
+    width: 50%;
+
 }
 
 /* FOOTER */
@@ -372,25 +396,13 @@ footer .row {
     background-color: #48843a;
 }
 
-.klocka-big {
-    height: 7px;
-    width: 100%;
-    background-color: #48843a;
-}
-
 .watch-label {
     color: #48843a;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.glasögon {
-    height: 7px;
-    width: 100%;
-    background-color: #d28a00;
-}
-
-.glasögon-big {
+.solglasögon {
     height: 7px;
     width: 100%;
     background-color: #d28a00;
@@ -403,12 +415,6 @@ footer .row {
 }
 
 .inredning {
-    height: 7px;
-    width: 100%;
-    background-color: #3e50bc;
-}
-
-.inredning-big {
     height: 7px;
     width: 100%;
     background-color: #3e50bc;
@@ -429,9 +435,14 @@ footer .row {
     text-transform: uppercase;
 }
 
+.btn a{
+    color: #000000;
+}
+
 .dropdown-toggle {
     font-size: 0.8em;
 }
+
 .btn-block {
     border-radius: 0px;
 }
@@ -460,6 +471,10 @@ footer .row {
     font-weight: bold;
 }
 
+article .button-test{
+    font-size: 0.85em;
+}
+
 /**/
 
 /** PROFILE-RELATED **/
@@ -473,6 +488,11 @@ footer .row {
 
 .profile-img {
     width: 35%;
+}
+
+.profile-img .glyphicon {
+    font-size: 5em;
+    margin-top: 20px;
 }
 
 table th {
@@ -539,7 +559,7 @@ table td a{
     margin-top: 50px;
 }
 
-/*SPESIFIC POST*/
+/*SPECIFIC POST*/
 
 .comment_on_post .form-control{
     height:60px;
@@ -580,6 +600,8 @@ comments_post{
 .glyphicon{
     font-size: 0.8em;
 }
+
+
 /* För desktop profil*/
 
 @media screen and (min-width: 768px){

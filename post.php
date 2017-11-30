@@ -51,6 +51,19 @@ require 'partials/functions.php';
     ));
     $comments_info = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
+    $statement4 = $pdo->prepare("
+    SELECT COUNT(comment) as totalComments
+    FROM comments 
+    ");
+    $statement4->execute();
+    $numbersOfComments = $statement4->fetchAll(PDO::FETCH_ASSOC);
+
+            
+    foreach($numbersOfComments as $amountOfComments){
+    echo $amountOfComments["totalComments"];
+} 
+
+    
 ?>
 
 <body>
@@ -64,14 +77,14 @@ require 'nav.php';
     <main class="col-md-8">
        <div class="inlagg">
         <h1>Blogginlägg</h1>
-        <hr>
+        <div class= "span12"><hr></div>
         
             <?php
                 if (isset($_POST['Klockor'])) {
                     specificPost($_POST["Klockor"], count($posts));
                 }
-                elseif (isset($_POST['Glasögon'])) {
-                    specificPost($_POST["Glasögon"], count($posts));
+                elseif (isset($_POST['Solglasögon'])) {
+                    specificPost($_POST["Solglasögon"], count($posts));
                 }
                 elseif (isset($_POST['Inredning'])) {
                     specificPost($_POST["Inredning"], count($posts));
@@ -135,13 +148,16 @@ require 'nav.php';
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
-    <aside class="col-md-4" style="border: 1px solid green;">
+    
         <h1 class="text-center">Användare</h1>
-        <hr>
+        <div class= "col-md-4" style="margin-top:-5px;"><hr></div>
+
+        
+        
         <?php 
             require "index_login.php";
         ?>
-    </aside>
+    
     <!-- END ASIDE -->
 
 </div> <!-- END DIV / CONTAINER -->
