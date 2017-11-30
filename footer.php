@@ -3,9 +3,9 @@
 
         <div class="hidden-xs col-sm-4">
             <h2>Sitemap</h2>
-                <li><a href="#">Hem</a></li>
-                <li><a href="#">Blogg</a></li>
-                <li><a href="#">Om oss</a></li>
+                <li><a href="index.php">Hem</a></li>
+                <li><a href="blog.php">Blogg</a></li>
+                <li><a href="about.php">Om oss</a></li>
         </div>
 
     
