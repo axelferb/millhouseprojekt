@@ -42,7 +42,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         <form action="index.php" method="POST" class="filter">
                             <li><input href="#" type="submit" name="all" value="Allt"></li>
                             <li><input href="#" type="submit" name="Klockor" value="Klockor"></li>
-                            <li><input href="#" type="submit" name="Glasögon" value="Glasögon"></li>
+                            <li><input href="#" type="submit" name="Solglasögon" value="Solglasögon"></li>
                             <li><input href="#" type="submit" name="Inredning" value="Inredning"></li>
                         </form>
                     </ul>
@@ -54,7 +54,7 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
                         <form action="index.php" method="POST" class="filter">
                             <li><input href="#" type="submit" name="all" value="Allt"></li>
                             <li><input href="#" type="submit" name="Klockor" value="Klockor"></li>
-                            <li><input href="#" type="submit" name="Glasögon" value="Glasögon"></li>
+                            <li><input href="#" type="submit" name="Solglasögon" value="Solglasögon"></li>
                             <li><input href="#" type="submit" name="Inredning" value="Inredning"></li>
                         </form>
                     </ul>
@@ -75,8 +75,8 @@ $posts = $statement->fetchALL(PDO::FETCH_ASSOC);
             if (isset($_POST['Klockor'])) {
                 handleCategories($_POST["Klockor"],  5 , 'col-md-8', 'col-md-6');
             }
-            elseif (isset($_POST['Glasögon'])) {
-                handleCategories($_POST["Glasögon"], 5 , 'col-md-8', 'col-md-6');
+            elseif (isset($_POST['Solglasögon'])) {
+                handleCategories($_POST["Solglasögon"], 5 , 'col-md-8', 'col-md-6');
             }
             elseif (isset($_POST['Inredning'])) {
                 handleCategories($_POST["Inredning"], 5 , 'col-md-8', 'col-md-6');
