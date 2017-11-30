@@ -77,7 +77,7 @@ require 'nav.php';
     <main class="col-md-8">
        <div class="inlagg">
         <h1>Blogginlägg</h1>
-        <hr>
+        <div class= "span12"><hr></div>
         
             <?php
                 if (isset($_POST['Klockor'])) {
@@ -148,13 +148,16 @@ require 'nav.php';
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
-    <aside class="col-md-4" style="border: 1px solid green;">
+    
         <h1 class="text-center">Användare</h1>
-        <hr>
+        <div class= "col-md-4" style="margin-top:-5px;"><hr></div>
+
+        
+        
         <?php 
             require "index_login.php";
         ?>
-    </aside>
+    
     <!-- END ASIDE -->
 
 </div> <!-- END DIV / CONTAINER -->
