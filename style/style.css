@@ -122,6 +122,16 @@ input {
     border-color: black;
 }
 
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
 
 /**/
 
@@ -575,6 +585,8 @@ comments_post{
 .glyphicon{
     font-size: 0.8em;
 }
+
+
 /* För desktop profil*/
 
 @media screen and (min-width: 768px){
