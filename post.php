@@ -148,13 +148,13 @@ require 'nav.php';
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
-    <aside class="col-md-4" style="border: 1px solid green;">
+    
         <h1 class="text-center">Användare</h1>
-        <hr>
+        
         <?php 
             require "index_login.php";
         ?>
-    </aside>
+    
     <!-- END ASIDE -->
 
 </div> <!-- END DIV / CONTAINER -->
