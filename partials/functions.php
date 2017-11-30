@@ -67,6 +67,7 @@ function handleCategories($category, $amount, $big_div, $small_div) {
                     echo "$smallText" . "..."; 
                     echo '</p>';
                     ?>
+                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>
                 </div>
 
                 </article>
@@ -125,8 +126,9 @@ function allCatergories($amount, $big_div, $small_div) {
                     $smallText = substr($bigText, 0, 100);
                     echo '<p class="blogpost-text">';
                     echo "$smallText" . "..."; 
-                    echo '</p>';
-                    ?>
+                    echo '</p>'; ?>
+                    <a class="btn button-test btn-block" href="post.php?post=<?=$list["id"];?>" target="_self">Läs mer & kommentera</a>
+                    
                 </div>
 
                 </article>
@@ -140,66 +142,78 @@ function allCatergories($amount, $big_div, $small_div) {
             }
     
 function specificPost($amount) {
+
+
+
     $i = 0;
     global $posts;
     global $userinfo;
     foreach($posts as $list){
-    if($i==$amount) break;
-    if ($i == 0){
-    ?>
-    <article class='col-xs-12'>
+        if($i==$amount) break;
 
-    <div class="img-wrap-big full-width">
-    <?php
-    // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
-    if(!($list["image"] == NULL)){
-    ?>
-    <img class="img-fluid" src="<?=$list[" image "];?>">
-    <?php    
-    }else{
-    handleImage($list['category']);
-    } ?>
-    </div>
-    
-        <?php
-        require "index_login.php";
-        
-    if($list["category"] == 'Klockor'){
-    echo '<div class="klocka-big"></div>';
-    echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
-    }
-    if($list["category"] == 'Glasögon'){
-    echo '<div class="glasögon-big"></div>';
-    echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
-    }
-    if($list["category"] == 'Inredning'){
-    echo '<div class="inredning-big"></div>';
-    echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
-    }
-    ?>
+        if ($i == 0){
+            ?>
+                        <article class='col-xs-12'>
 
+                            <div class="img-wrap-big full-width">
+                                  <?php
+                                // FETCH IMAGE FORM DATABASE, NEEDS WORK?? /IDA
+                                if(!($list["image"] == NULL)){
+                                ?>
+                                <img class="img-fluid" src="<?=$list["image"];?>"> 
+                                <?php    
+                                }else{
+                                    handleImage($list['category']);
+                                } ?>
+                            </div>   
+                            
+                          <?php
+            
+                                    if($list["category"] == 'Klockor'){
+                                        echo '<div class="klocka-big"></div>';
+                                        echo '<p class="watch-label uppercase small text-bold">Klockor</p>';
+                                    }
+                                    if($list["category"] == 'Glasögon'){
+                                        echo '<div class="glasögon-big"></div>';
+                                        echo '<p class="sunglasses-label uppercase small text-bold">Solglasögon</p>';
+                                    }
+                                    if($list["category"] == 'Inredning'){
+                                        echo '<div class="inredning-big"></div>';
+                                        echo '<p class="furnish-label uppercase small text-bold">Inredning</p>';
+                                    }
+     
+                            ?>
+                            
+                            
+                        </article>
+                        
+<!--- Lists the specific blog post with created-date and name of the author --->                            
+                                <h2>
 
-    </article>
+                                    <?php echo $list["title"]; ?>
+                                </h2>
+                                
+                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+                            <?php   echo $list["date"] . ' | ';
+            
+                                foreach($userinfo as $userInformation){ ?> 
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                            <?php   echo $userInformation["firstname"] . ' ';
+                                    echo $userInformation["lastname"] . ' ' . ' | '; ?>
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            <?php   echo ' ' . $userInformation["email"];
+                                }
+                                ?>
+            
+                                <p>
+                                    <?php echo $list["post"]; ?> 
+                                </p>
+                            <?php
+            
+        }
 
-    <!--- Lists the specific blog post with created-date and name of the author --->
-    <h2>
-    <?php echo $list["title"]; ?>
-    </h2>
-    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-    <?php   echo $list["date"] . ' | ';
-    foreach($userinfo as $userInformation){ ?>
-    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-    <?php   echo $userInformation["firstname"] . ' ';
-    echo $userInformation["lastname"] . ' ' . ' | '; ?>
-    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-    <?php   echo ' ' . $userInformation["email"];
-    }
-    ?>
-    <p>
-    <?php echo $list["post"]; ?>
-    </p>
-    <?php
-    }
-    $i++;
-    }
-    }
+        $i++;
+}
+}
+
+?>
