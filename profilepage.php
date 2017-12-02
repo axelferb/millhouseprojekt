@@ -84,11 +84,11 @@ require 'partials/database.php';
     )); 
     $commentz = $statement4->fetchAll(PDO::FETCH_ASSOC);
 
-  
 
 ?>
 
 <body>
+
 <?php
 require 'nav.php';
 ?>
@@ -247,3 +247,6 @@ require 'nav.php';
 <?php
 include 'footer.php';
 ?>
+
+
+</body>
