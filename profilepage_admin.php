@@ -171,7 +171,7 @@ require 'nav.php';
                 ?>
             </table>
             <br>
-            <a class="btn button-test btn-block" href="list_single_users_posts.php" target="_self">Se alla</a>
+            <a class="btn button-test btn-block" href="list_single_users_posts_admin.php" target="_self">Se alla</a>
             <br>
         </div>
 
