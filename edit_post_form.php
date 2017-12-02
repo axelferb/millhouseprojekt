@@ -20,11 +20,11 @@ $posttoedit = $_GET["posttoedit"];
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     // CHECKING IF SESSION ID IS MATCHING ID OF THE USER WHO WROTE THE BLOGPOST
-    // IF NOT, USER IS REDIRECTED
+    // OR IS 1 = ID OF ADMIN. IF NOT, SHOW ERROR MESSAGE
     foreach($posts as $safe_check){
-        if(!($_SESSION["user"]["id"] == $safe_check["user"])){
-          echo "Du har inte behörighet till denna sida.";
-            //header("Location: ../error.php");
+        if(!($_SESSION["user"]["id"] == ($safe_check["user"] || "1"))){
+                echo "Du har inte behörighet till denna sida.";
+                    //header("Location: ../error.php");
         }else{ ?>
 <body>
     <?php

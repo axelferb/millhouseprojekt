@@ -16,11 +16,9 @@ require 'partials/functions.php';
       WHERE user = :user 
       ORDER BY date DESC"
     );
-
     $statement->execute(array(
     ":user" => $user
     )); 
-
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     ?>
@@ -38,9 +36,9 @@ require 'partials/functions.php';
 
             <?php
 
-            if(isset($_GET["new_post"])){
-                echo "Ditt nya inlägg har skapats.";
-            }
+//            if(isset($_GET["new_post"])){
+//                echo "Ditt nya inlägg har skapats.";
+//            }
                 
             if(isset($_GET["edit_post"])){
                 echo "Ditt inlägg har redigerats.";
