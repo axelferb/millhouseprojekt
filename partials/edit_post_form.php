@@ -44,6 +44,10 @@ $posttoedit = $_GET["posttoedit"];
   <form action="edit_post.php" method="POST">
   
     <div class="form-group">
+        <input type="hidden" name="user" value="<?= $_SESSION["user"]["id"]; ?> " class="form-control">
+    </div>
+  
+    <div class="form-group">
       <label for="post_title"> Rubrik: </label>
       <input type="text" name="post_title" value="<?= $poster["title"]; ?>" class="form-control">
     </div>
