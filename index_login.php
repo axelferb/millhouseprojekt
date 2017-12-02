@@ -48,7 +48,7 @@ require 'partials/database.php';
                             <a class="btn button-green btn-lg btn-block" href="new_post_form.php">Skriv inlägg</a>
                             <br>
                             <a href="partials/log_out.php">
-                                <h3>Logga t</h3>
+                                <h3>Logga ut</h3>
                             </a>
 
                             <?php

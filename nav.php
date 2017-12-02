@@ -17,6 +17,12 @@
                 <li>
                     <a href="om_oss.php">OM OSS</a>
                 </li>
+                
+                <?php if(isset($_SESSION["user"])){ ?>
+                <li>
+                    <a href="profilepage.php">DIN PROFILSIDA</a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
         <!-- END CONTAINER-FLUID -->

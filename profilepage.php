@@ -87,6 +87,8 @@ require 'partials/database.php';
 
 ?>
 
+<?php if(isset($_SESSION["user"])){ ?>
+
 <body>
 
 <?php
@@ -250,3 +252,7 @@ include 'footer.php';
 
 
 </body>
+<?php }else{
+    echo "Du har inte behörighet till denna sida";
+}
+?>
