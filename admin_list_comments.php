@@ -11,17 +11,22 @@ require 'partials/functions.php';
     $user = $_SESSION["user"]["id"];
     
     $statement = $pdo->prepare("
-      SELECT id, title 
-      FROM posts 
-      WHERE user = :user 
+      SELECT id, comment 
+      FROM comments
       ORDER BY date DESC"
-    );
-    $statement->execute(array(
-    ":user" => $user
-    )); 
-    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    );      
+    //WHERE user = :user 
+    $statement->execute(
+       // array(":user" => $user)
+    ); 
+    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-    ?>
+    // CHECKING IF SESSION ID IS 1 = ID OF ADMIN. IF NOT, SHOW ERROR MESSAGE
+        if(!($_SESSION["user"]["id"] == "1")){
+                echo "Du har inte behörighet till denna sida.";
+                    //header("Location: ../error.php");
+        }else{ ?>
+
     
 
 <body>
@@ -45,27 +50,27 @@ require 'partials/functions.php';
             }
             
             if(isset($_GET["delete_post"])){
-                echo "Inlägget har raderats.";
+                echo "Kommentaren har raderats.";
             }
             ?>
 
-            <h1>Alla blogginlägg </h1>
+            <h1>Alla kommentarer </h1>
             <hr class="full-length">
-            <form action="partials/delete.php" method="POST">
+            <form action="partials/delete_comment.php" method="POST">
             
             <table class="table table-striped full-width">
                 <thead><tr>
-                <th scope="col">Blogginlägg</th>
-                <th scope="col">Redigera inlägg</th>
-                <th scope="col">Ta bort inlägg</th>
+                <th scope="col">Kommentar</th>
+<!--                <th scope="col">Redigera inlägg</th>-->
+                <th scope="col">Ta bort kommentar</th>
                 </thead></tr>
            
                 <?php
-                    foreach($posts as $blogposts){ ?>
+                    foreach($comments as $blogposts){ ?>
                       <tr><td>
-                      <a href="post.php?post=<?=$blogposts["id"];?>"><?php echo $blogposts["title"]; ?></a>
+                      <a href="post.php?post=<?=$blogposts["id"];?>"><?php echo $blogposts["comment"]; ?></a>
                       </td><td>
-                      <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
+<!--                      <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>-->
                       </td><td>
                       <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
                       </td>
@@ -77,7 +82,7 @@ require 'partials/functions.php';
            
             </form>
             <br><br>
-            <a class="btn button-test btn-block" href="profilepage.php" target="_self">Tillbaka till profilsidan</a>
+            <a class="btn button-test btn-block" href="profilepage_admin.php" target="_self">Tillbaka till profilsidan</a>
 
         </div>
 
@@ -90,5 +95,7 @@ require "footer.php";
 
 
 </body>
+
+<?php } ?>
 
 </html>

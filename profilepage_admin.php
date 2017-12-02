@@ -171,7 +171,7 @@ require 'nav.php';
                 ?>
             </table>
             <br>
-            <a class="btn button-test btn-block" href="list_single_users_posts_admin.php" target="_self">Se alla</a>
+            <a class="btn button-test btn-block" href="admin_list_posts.php" target="_self">Se alla</a>
             <br>
         </div>
 
@@ -206,6 +206,9 @@ require 'nav.php';
                 }
                 echo '</td></tr></table>';
             ?>
+                        <br>
+            <a class="btn button-test btn-block" href="admin_list_comments.php" target="_self">Se alla</a>
+            <br>
         </div>
 
     </main><!-- END MAIN CONTENT -->

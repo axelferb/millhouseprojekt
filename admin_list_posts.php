@@ -13,15 +13,19 @@ require 'partials/functions.php';
     $statement = $pdo->prepare("
       SELECT id, title 
       FROM posts 
-      WHERE user = :user 
       ORDER BY date DESC"
-    );
-    $statement->execute(array(
-    ":user" => $user
-    )); 
+    );      
+    //WHERE user = :user 
+    $statement->execute(
+       // array(":user" => $user)
+    ); 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-    ?>
+    // CHECKING IF SESSION ID IS 1 = ID OF ADMIN. IF NOT, SHOW ERROR MESSAGE
+        if(!($_SESSION["user"]["id"] == "1")){
+                echo "Du har inte behörighet till denna sida.";
+                    //header("Location: ../error.php");
+        }else{ ?>
     
 
 <body>
@@ -77,7 +81,7 @@ require 'partials/functions.php';
            
             </form>
             <br><br>
-            <a class="btn button-test btn-block" href="profilepage.php" target="_self">Tillbaka till profilsidan</a>
+            <a class="btn button-test btn-block" href="profilepage_admin.php" target="_self">Tillbaka till profilsidan</a>
 
         </div>
 
@@ -90,5 +94,7 @@ require "footer.php";
 
 
 </body>
+
+<?php } ?>
 
 </html>
