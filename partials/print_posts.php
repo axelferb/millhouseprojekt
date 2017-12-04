@@ -73,7 +73,7 @@ function image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"]?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
 
             </div>              
