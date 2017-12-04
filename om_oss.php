@@ -1,3 +1,6 @@
+<?php
+require 'partials/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -8,7 +11,7 @@ require 'partials/functions.php';
 
     <body>
 
-        <?php
+    <?php
     require 'nav.php';
     ?>
 
