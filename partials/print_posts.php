@@ -59,9 +59,9 @@ function image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | ' ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -142,9 +142,9 @@ function first_image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | '   ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
