@@ -32,6 +32,17 @@ require 'partials/functions.php';
     ));
     $userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
     
+    // POST COMMENT STATISTICS
+    $statement_comments = $pdo->prepare("
+    SELECT COUNT(DISTINCT comment) as total
+    FROM comments
+    WHERE idoriginalpost = :post
+    ");
+    $statement_comments->execute(array(
+    ":post" => $post
+    ));
+    $c_count = $statement_comments->fetch(PDO::FETCH_ASSOC);
+    
 // TEST-PARAGRAPH BELOW FOR FETCHING COMMENT & INFO ABOUT PUBLISHING COMMENTING USER
     $statement3 = $pdo->prepare("
     SELECT users.id, 
@@ -82,7 +93,9 @@ require 'nav.php';
         </div>
 
         <br/>
-
+        
+<?php if(isset($_SESSION["user"])){ ?>
+    
         <div class="comment_on_post">
             <h2>Kommentera</h2>
 
@@ -105,6 +118,10 @@ require 'nav.php';
                 </div>
             </form>
         </div>
+        
+<?php } ?>
+ 
+        
 
 
 
@@ -112,8 +129,9 @@ require 'nav.php';
             <h2>Kommentarer</h2>
 
             <hr>
+            <?php       
+            if(!($c_count["total"] == 0)){ 
 
-            <?php
                 foreach($comments_info as $ci){ ?>
                    <span class="author">
                     <?php   echo $ci["username"] ?> </span> 
@@ -121,14 +139,20 @@ require 'nav.php';
                     <span class="date">
                     <?php        echo $ci["date"] . '<br>';?></span>
             
-            <span class="specificComment">
-            <?php echo $ci["comment"] . '<br>'; ?>
-            </span>
-            <?php echo "<hr>";
-
+                    <span class="specificComment">
+                    <?php echo $ci["comment"] . '<br>'; ?>
+                    </span>
+                    <?php echo "<hr>";
             }
             ?>
         </div>
+        
+<?php }else{ ?>
+            <span class="specificComment">
+               Det här blogginlägget har inga kommentarer ännu. 
+            </span>
+                
+            <?php } ?>
 
 
     </main>

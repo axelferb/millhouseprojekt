@@ -84,11 +84,13 @@ require 'partials/database.php';
     )); 
     $commentz = $statement4->fetchAll(PDO::FETCH_ASSOC);
 
-  
 
 ?>
 
+<?php if(isset($_SESSION["user"])){ ?>
+
 <body>
+
 <?php
 require 'nav.php';
 ?>
@@ -246,4 +248,11 @@ require 'nav.php';
 <!-- END DIV / CONTAINER -->
 <?php
 include 'footer.php';
+?>
+
+
+</body>
+<?php }else{
+    echo "Du har inte behörighet till denna sida";
+}
 ?>

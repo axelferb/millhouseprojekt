@@ -38,7 +38,13 @@ require 'partials/database.php';
                 $_SESSION["user"]["username"] . 
                 "</h1>";   
             ?>
+                           
+                           <?php 
+                            if($_SESSION["user"]["username"] == "admin"){ ?>
+                            <a class="btn-default btn-lg btn-block" href="profilepage_admin.php">Till adminsida</a>
+                            <?php }else{ ?>
                             <a class="btn-default btn-lg btn-block" href="profilepage.php">Till Profilsida</a>
+                            <?php } ?>
                             <a class="btn button-green btn-lg btn-block" href="new_post_form.php">Skriv inlägg</a>
                             <br>
                             <a href="partials/log_out.php">

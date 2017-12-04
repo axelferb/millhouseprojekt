@@ -12,7 +12,7 @@ $user = $_SESSION["user"]["id"];
 $posttoedit = $_GET["posttoedit"];
 
     $statement = $pdo->prepare("
-    SELECT id, user, title, post, category FROM posts WHERE id = :posttoedit
+    SELECT id, user, title, post, category, image FROM posts WHERE id = :posttoedit
     ");
     $statement->execute(array(
     ":posttoedit" => $posttoedit
@@ -20,11 +20,11 @@ $posttoedit = $_GET["posttoedit"];
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     // CHECKING IF SESSION ID IS MATCHING ID OF THE USER WHO WROTE THE BLOGPOST
-    // IF NOT, USER IS REDIRECTED
+    // OR IS 1 = ID OF ADMIN. IF NOT, SHOW ERROR MESSAGE
     foreach($posts as $safe_check){
-        if(!($_SESSION["user"]["id"] == $safe_check["user"])){
-          echo "Du har inte behörighet till denna sida.";
-            //header("Location: ../error.php");
+        if(!($_SESSION["user"]["id"] == ($safe_check["user"] || "1"))){
+                echo "Du har inte behörighet till denna sida.";
+                    //header("Location: ../error.php");
         }else{ ?>
 <body>
     <?php
@@ -47,7 +47,11 @@ $posttoedit = $_GET["posttoedit"];
  <div class="container mt-5">
   <h4>Redigera inlägg:</h4>
   
-  <form action="partials/edit_post.php" method="POST">
+  <form action="partials/edit_post.php" method="POST" enctype="multipart/form-data">
+  
+    <div class="form-group">
+        <input type="hidden" name="user" value="<?= $_SESSION["user"]["id"]; ?> " class="form-control">
+    </div>
   
     <div class="form-group">
       <label for="post_title"> Rubrik: </label>
@@ -65,14 +69,19 @@ $posttoedit = $_GET["posttoedit"];
       <input type="hidden" name="blog_id" value="<?= $poster["id"]; ?>" class="form-control">
     </div>
     
-<div class="form-group">
-  <label for="sel1">Select list:</label>
-  <select class="form-control" name="category" value="<?= $poster["category"]; ?>" id="sel1">
-    <option>Solglasögon</option>
-    <option>Klockor</option>
-    <option>Inredning</option>
-  </select>
-</div>
+    <div class="form-group">
+      <label for="sel1">Select list:</label>
+      <select class="form-control" name="category" value="<?= $poster["category"]; ?>" id="sel1">
+        <option>Solglasögon</option>
+        <option>Klockor</option>
+        <option>Inredning</option>
+      </select>
+    </div>
+     
+        <div class="form-group">
+          <label for="new_post">Bild (valfritt): </label>
+          <input type="file" name="uploaded_file" value="<?= $poster["image"]; ?>">
+        </div>
       
     
     <div class="form-group">
