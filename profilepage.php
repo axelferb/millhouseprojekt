@@ -3,6 +3,10 @@ require 'partials/session.php';
 require 'head.php';
 require 'partials/database.php';
 
+if(!(isset($_SESSION["user"]))){
+    echo "Du har inte behörighet att visa denna sida.";
+}else{
+
     $user = $_SESSION["user"]["id"];
     
 // USER POSTS STATISTICS
@@ -87,7 +91,6 @@ require 'partials/database.php';
 
 ?>
 
-<?php if(isset($_SESSION["user"])){ ?>
 
 <body>
 
@@ -252,7 +255,6 @@ include 'footer.php';
 
 
 </body>
-<?php }else{
-    echo "Du har inte behörighet till denna sida";
+<?php
 }
 ?>
