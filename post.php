@@ -75,13 +75,17 @@ require 'nav.php';
         <h1>Blogginlägg</h1>
         <div class= "span12"><hr></div>
 
-        <?php foreach($posts_info as $blogdata){ 
+        <?php foreach($posts_info as $blogdata){ ?>
            
 
-//                           <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
-//                       
-//                    <div style="height: 550px; overflow: hidden;">
 
+<!--
+                          <div style="height: 600px; overflow: hidden;">
+                       class="col-xs-12, col-md-6" 
+                    <div style="height: 550px; overflow: hidden;">
+-->
+
+<?php
 
                     // IMAGE & CATEGORY: IF WATCHES
                         if($blogdata["category"] == 'Klockor'){ ?>
@@ -203,16 +207,22 @@ require 'nav.php';
 <?php } ?>
 
 
+
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
         <div class= "hidden-xs hidden-sm col-md-4">
                 <h1 class="text-center">Användare</h1>
-                <hr>
-                <?php 
+
+                <hr></div>
+    
+     
+    <div class="hidden-xs hidden-sm col-md-4" style="height: 600px; overflow: hidden;">
+            <?php 
             require "index_login.php";
         ?>
-                </div>
+    </div>
+
     <!-- END ASIDE -->
         </div> <!-- END DIV / CONTAINER -->
 

@@ -17,6 +17,10 @@ require 'partials/print_posts.php';
     }
     
     
+    $offset_number = $page * 5 - 5;
+
+    
+    
 // $last_page = ceil($p_count / 5);
 
     // POSTS STATISTICS
@@ -28,7 +32,6 @@ require 'partials/print_posts.php';
     $p_count = $statement_count->fetch(PDO::FETCH_ASSOC);
     var_dump($p_count);
     
-    $offset_number = 5;
     
     $statement = $pdo->prepare("
     SELECT users.id AS userid, 
@@ -48,7 +51,7 @@ require 'partials/print_posts.php';
 	ON users.id =  posts.user
     ORDER BY posts.id DESC
     LIMIT 5 OFFSET $offset_number
-    "); 
+    ");
     //LIMIT $p_count[total] OFFSET 1
     // LIMIT $p_count[total] OFFSET 1
     // LIMIT 5 OFFSET $offset_number
@@ -56,19 +59,13 @@ require 'partials/print_posts.php';
     $statement->execute();
     $post_info = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-        $page = $_GET["page"];
-    if(isset($_GET["page"])){
-        $page = $_GET["page"];
-    }else{
-        $page = 1;
-    }
     
 
     
-    //$offset_number = $page * 5 - 5;
+
     
     
-// $last_page = ceil($p_count / 5);
+// $last_page = ceil($p_count[total] / 5);
     
 ?>
 
