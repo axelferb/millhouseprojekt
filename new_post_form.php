@@ -34,7 +34,7 @@ require 'partials/functions.php';
 
         <div class="form-group">
           <label for="post_title"> Rubrik: </label>
-          <input type="text" name="post_title" class="form-control">
+          <input id="post_title" type="text" name="post_title" class="form-control">
         </div>
 
         <div class="form-group">
@@ -53,7 +53,7 @@ require 'partials/functions.php';
 
         <div class="form-group">
           <label for="new_post">Bild (valfritt): </label>
-          <input type="file" name="uploaded_file">
+          <input id="new_post" type="file" name="uploaded_file">
         </div>
 
 
