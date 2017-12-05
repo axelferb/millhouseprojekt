@@ -206,14 +206,13 @@ require 'nav.php';
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
-        <div class= "hidden-xs hidden-sm col-md-4" style="margin-top:-5px;">
+        <div class= "hidden-xs hidden-sm col-md-4">
                 <h1 class="text-center">Användare</h1>
-                <hr></div>
-     
-
-        <?php 
+                <hr>
+                <?php 
             require "index_login.php";
         ?>
+                </div>
     <!-- END ASIDE -->
         </div> <!-- END DIV / CONTAINER -->
 
