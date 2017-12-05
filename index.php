@@ -40,10 +40,10 @@ require 'partials/index_statements.php';
                             Kategori: <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a href="index_idas.php">Allt</a></li>
-                            <li><a href="index_idas.php?cat_glasses=true">Solglasögon</a></li>
-                            <li><a href="index_idas.php?cat_watches=true">Klockor</a></li>
-                            <li><a href="index_idas.php?cat_interior=true">Inredning</a></li>
+                            <li><a href="blog.php">Allt</a></li>
+                            <li><a href="blog.php?cat_glasses=true">Solglasögon</a></li>
+                            <li><a href="blog.php?cat_watches=true">Klockor</a></li>
+                            <li><a href="blog.php?cat_interior=true">Inredning</a></li>
                           </ul>
                         </div>
                         
@@ -93,15 +93,12 @@ require 'partials/index_statements.php';
             }else{
                 image_category($post_info);
             } ?>
-
-     
-
         </div>
             
 
        
 
-        
+        <a class="btn button-green btn-lg btn-block" href="blog.php">Läs alla inlägg här</a>    
    
     <!--main End-->
     </main>
