@@ -8,7 +8,9 @@
 
 // PRINTS OUT REGULAR BLOG POST IN INDEX.PHP/BLOG.PHP
 function image_category($print){
-            function get_comment_count($idoriginalpost){
+    
+    //COUNTS TOTAL NUMBERS OF COMMENTS ON A POST
+    function get_comment_count($idoriginalpost){
     require 'partials/database.php';
     $statement_comments_post = $pdo->prepare("
     SELECT COUNT(comment) as total
@@ -95,6 +97,7 @@ function image_category($print){
                         <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">
                         Läs mer & kommentera
                         <?php
+                            //TOTAL COMMENTS ON A POST
                             $comments_count = get_comment_count($blogdata["id"]);
                             echo '(' . $comments_count["total"] . ')';
                         ?>
@@ -116,6 +119,7 @@ function image_category($print){
 // PRINTS OUT FIRST BIGGER BLOG POST ON INDEX.PHP
 function first_image_category($print){
 
+    //COUNTS TOTAL NUMBERS OF COMMENTS ON A POST
     function get_comment_count_big($idoriginalpost){
     require 'partials/database.php';
     $statement_comments_post = $pdo->prepare("
@@ -180,7 +184,6 @@ function first_image_category($print){
                                </div>
                                <?php
                         }?>
- 
                         <div>
                             <h2><a href="post.php?post=<?=$blogdata["id"]?>"><?=$blogdata["title"]?></a></h2>
                         </div>
@@ -202,6 +205,7 @@ function first_image_category($print){
                     <div style="padding: 10px;">
                         <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera
                         <?php
+                            //TOTAL COMMENTS ON A POST
                             $comments_count = get_comment_count_big($blogdata["id"]);
                             echo '(' . $comments_count["total"] . ')';
                         ?>

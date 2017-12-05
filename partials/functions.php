@@ -207,11 +207,8 @@ function specificPost($amount) {
                                     }
      
                             ?>
-                            
-                            
-                        
-                        
-<!--- Lists the specific blog post with created-date and name of the author --->                            
+
+                                <!---LISTS THE SPECIFIC BLOG POST WITH CREATED-DATE, EMAIL AND NAME OF THE AUTHOR --->                     
                                 <h2>
                                     <?php echo $list["title"]; ?>
                                 </h2>
