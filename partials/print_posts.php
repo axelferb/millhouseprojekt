@@ -1,5 +1,6 @@
 <?php
 
+// PRINTS OUT REGULAR BLOG POST IN INDEX.PHP/BLOG.PHP
 function image_category($print){
                  
             foreach($print as $blogdata){ ?>
@@ -59,21 +60,21 @@ function image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | ' ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
                             <?php
-                               $hej = $blogdata["post"];
-                                echo substr($hej, 0, 200) . '...';
+                               $short_text = $blogdata["post"];
+                                echo substr($short_text, 0, 200) . '...';
                             ?> 
                         </p>   
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"]?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
 
             </div>              
@@ -83,18 +84,21 @@ function image_category($print){
 <?php    
 }
 
+
+
+// PRINTS OUT FIRST BIGGER BLOG POST ON INDEX.PHP
 function first_image_category($print){
                  
             foreach($print as $blogdata){ ?>
                        
-                <div style="height: 500px; overflow: hidden;">
+                <div style="height: 600px; overflow: hidden;">
                        
-                    <div style="height: 450px; overflow: hidden;">
+                    <div style="height: 550px; overflow: hidden;">
 
                         <?php
                     // IMAGE & CATEGORY: IF WATCHES
                         if($blogdata["category"] == 'Klockor'){ ?>
-                            <div class="watch2 cat"> <?php
+                            <div class="watch2 post_size"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
                                     <img src="<?=$blogdata["image"];?>"><?php    
                                 }else{ ?>
@@ -108,7 +112,7 @@ function first_image_category($print){
                             
                     // IMAGE & CATEGORY: IF SUNGLASSES
                         }elseif($blogdata["category"] == 'Solglasögon'){ ?>
-                                <div class="sunglasses2 cat"> 
+                                <div class="sunglasses2 post_size"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
@@ -123,7 +127,7 @@ function first_image_category($print){
                             
                     // IMAGE & CATEGORY: IF INTERIOR DESIGN
                         }elseif($blogdata["category"] == 'Inredning'){ ?>
-                                <div class="furnish2 cat"> 
+                                <div class="furnish2 post_size"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
@@ -142,15 +146,15 @@ function first_image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | '   ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
                             <?php
-                               $hej = $blogdata["post"];
-                                echo substr($hej, 0, 200) . '...';
+                               $short_text = $blogdata["post"];
+                                echo substr($short_text, 0, 200) . '...';
                             ?> 
                         </p>   
                     </div>
