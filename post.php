@@ -195,7 +195,7 @@ require 'nav.php';
             <hr>
             <?php       
             if(!($c_count["total"] == 0)){ 
-
+                //WRITES NAME, DATE AND THE COMMENT WHEN A USER POST A COMMENT 
                 foreach($comments_info as $ci){ ?>
                    <span class="author">
                     <?php   echo $ci["username"] ?> </span> 
