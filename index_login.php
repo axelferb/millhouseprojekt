@@ -71,7 +71,7 @@ require 'partials/database.php';
                                     </div>
                                     <p>Har du inget konto?</p>
                                     <a href="register_form.php">
-                                        <h3>Registrera dig</h3>
+                                        <h2>Registrera dig</h2>
                                     </a>
                                     </form>
                                     <?php
