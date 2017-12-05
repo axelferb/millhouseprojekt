@@ -69,10 +69,12 @@ require 'partials/database.php';
                                     <div class="form-group">
                                         <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
                                     </div>
+                                    <div class="register_login">
                                     <p>Har du inget konto?</p>
                                     <a href="register_form.php">
-                                        <h3>Registrera dig</h3>
+                                        <h2>Registrera dig</h2>
                                     </a>
+                                    </div>
                                     </form>
                                     <?php
             }
