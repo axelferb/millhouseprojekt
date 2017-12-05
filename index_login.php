@@ -60,11 +60,12 @@ require 'partials/database.php';
 
                                     <div class="form-group">
                                        <label for="username"></label>
-                                        <input type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
+                                        <input id="username" type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
+                                       <label for="password"></label>
+                                        <input id="password" type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
                                     </div>
                                     <br>
                                     <div class="form-group">
