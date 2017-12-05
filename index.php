@@ -74,7 +74,7 @@ require 'partials/index_statements.php';
                 </div>
                 <div>
                     <?php
-                        require 'index_login_idas.php';
+                        require 'index_login.php';
                     ?>
                 </div>
             </div>
