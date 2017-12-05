@@ -7,32 +7,10 @@
 require 'head.php';
 require 'partials/database.php';
 require 'partials/functions.php'; 
-    
-    
+     
     $post = $_GET["post"];
     
-    // PARAGRAPH BELOW FOR FETCHING POST
-    $statement = $pdo->prepare("
-    SELECT id, title, post, date, category, image FROM posts WHERE id = :post
-    ");
-    $statement->execute(array(
-    ":post" => $post
-    )); 
-    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
-    // PARAGRAPH BELOW FOR FETCHING INFO ABOUT PUBLISHING BLOGGING USER
-    $statement2 = $pdo->prepare("
-    SELECT users.id, users.firstname, users.lastname, users.email, posts.user FROM posts 
-    INNER JOIN users 
-    ON users.id = posts.user
-    WHERE posts.id = :post
-    ");
-    $statement2->execute(array(
-    ":post" => $post
-    ));
-    $userinfo = $statement2->fetchAll(PDO::FETCH_ASSOC);
-    
-    // POST COMMENT STATISTICS
+    // COMMENT STATISTICS TO USE IN IF
     $statement_comments = $pdo->prepare("
     SELECT COUNT(DISTINCT comment) as total
     FROM comments
@@ -60,7 +38,28 @@ require 'partials/functions.php';
     $statement3->execute(array(
     ":post" => $post
     ));
-    $comments_info = $statement3->fetchAll(PDO::FETCH_ASSOC);    
+    $comments_info = $statement3->fetchAll(PDO::FETCH_ASSOC);  
+
+    $statement = $pdo->prepare("
+    SELECT users.id AS userid, 
+    users.username AS username, 
+    users.firstname AS firstname, 
+    users.lastname AS lastname, 
+    users.email AS email,
+    posts.id AS id,
+    posts.post AS post,
+    posts.title AS title, 
+    posts.date AS date, 
+    posts.category AS category, 
+    posts.image AS image,
+    posts.user
+    FROM posts 
+    INNER JOIN users 
+	ON users.id =  posts.user
+    WHERE posts.id = $post
+    ");    
+    $statement->execute();
+    $posts_info = $statement->fetchAll(PDO::FETCH_ASSOC);    
 ?>
 
 <body>
@@ -75,21 +74,75 @@ require 'nav.php';
        <div class="inlagg">
         <h1>Blogginlägg</h1>
         <div class= "span12"><hr></div>
-        
-            <?php
-                if (isset($_POST['Klockor'])) {
-                    specificPost($_POST["Klockor"], count($posts));
-                }
-                elseif (isset($_POST['Solglasögon'])) {
-                    specificPost($_POST["Solglasögon"], count($posts));
-                }
-                elseif (isset($_POST['Inredning'])) {
-                    specificPost($_POST["Inredning"], count($posts));
-                }
-                else {
-                    specificPost(count($posts));
-                }  
-            ?>
+
+        <?php foreach($posts_info as $blogdata){ 
+           
+
+//                           <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
+//                       
+//                    <div style="height: 550px; overflow: hidden;">
+
+
+                    // IMAGE & CATEGORY: IF WATCHES
+                        if($blogdata["category"] == 'Klockor'){ ?>
+                            <div class="watch2 post_size"> <?php
+                                if(!($blogdata["image"] == NULL)){ ?>
+                                    <img src="<?=$blogdata["image"];?>"><?php    
+                                }else{ ?>
+                                    <img src="images/klockor_profil.png" alt="Klockor">'; 
+                                <?php } ?>
+                               </div>
+                                <div>
+                                <p class="watch-label uppercase small text-bold">Klockor</p>
+                               </div>
+                               <?php
+                            
+                    // IMAGE & CATEGORY: IF SUNGLASSES
+                        }elseif($blogdata["category"] == 'Solglasögon'){ ?>
+                                <div class="sunglasses2 post_size"> 
+                                   <?php
+                                    if(!($blogdata["image"] == NULL)){ ?>
+                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                    }else{ ?>
+                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                    <?php }?>
+                                   </div>
+                               <div>
+                                <p class="sunglasses-label uppercase small text-bold">Solglasögon</p>
+                               </div>
+                                   <?php
+                            
+                    // IMAGE & CATEGORY: IF INTERIOR DESIGN
+                        }elseif($blogdata["category"] == 'Inredning'){ ?>
+                                <div class="furnish2 post_size"> 
+                                    <?php
+                                    if(!($blogdata["image"] == NULL)){ ?>
+                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                    }else{ ?>
+                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                    <?php } ?>         
+                               </div>
+                               <div>
+                                <p class="furnish-label uppercase small text-bold">Inredning</p>
+                               </div>
+                               <?php
+                        }?>
+ 
+                        <div>
+                            <h2><a href="post.php?post=<?=$blogdata["id"]?>"><?=$blogdata["title"]?></a></h2>
+                        </div>
+                       
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                        <?= $blogdata["date"] . ' | '; ?>  
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
+                        <?= $blogdata["email"]; ?>  
+                        <p class="blogpost-text">
+                        <?= $blogdata["post"]; ?>  
+                        </p>   
+
+<?php } ?>
         </div>
 
         <br/>
@@ -121,10 +174,6 @@ require 'nav.php';
         
 <?php } ?>
  
-        
-
-
-
         <div class="comments_post">
             <h2>Kommentarer</h2>
 
@@ -143,34 +192,30 @@ require 'nav.php';
                     <?php echo $ci["comment"] . '<br>'; ?>
                     </span>
                     <?php echo "<hr>";
-            }
+                        }
             ?>
         </div>
         
 <?php }else{ ?>
             <span class="specificComment">
                Det här blogginlägget har inga kommentarer ännu. 
-            </span>
-                
-            <?php } ?>
+            </span>    
+<?php } ?>
 
 
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
-    
-        <h1 class="text-center">Användare</h1>
-        <div class= "col-md-4" style="margin-top:-5px;"><hr></div>
+        <div class= "hidden-xs hidden-sm col-md-4" style="margin-top:-5px;">
+                <h1 class="text-center">Användare</h1>
+                <hr></div>
+     
 
-        
-        
         <?php 
             require "index_login.php";
         ?>
-    
     <!-- END ASIDE -->
-
-</div> <!-- END DIV / CONTAINER -->
+        </div> <!-- END DIV / CONTAINER -->
 
 
 
@@ -179,5 +224,4 @@ require "footer.php";
 ?>
 
 </body>
-
-</html>
+</html>  

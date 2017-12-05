@@ -400,31 +400,40 @@ footer .row {
 /* IDA TEST */
 
 .watch2{
-    color: #48843a;
     margin-top: 5px;
     border-bottom: 7px solid #48843a;
-    overflow: hidden;
-    object-fit: cover;
-    height: 260px;
-    position:relative;
 }
 
 .sunglasses2{
     margin-top: 5px;
     border-bottom: 7px solid #d28a00;
-    overflow: hidden;
-    object-fit: cover;
-    height: 260px;
-    position:relative;
 }
 
 .furnish2{
     margin-top: 5px;
     border-bottom: 7px solid #3e50bc;
+}
+
+.post_size{
+    overflow: hidden;
+    object-fit: cover;
+    height: 350px;
+    position: relative; 
+}
+
+.post_size img{
+  position:absolute; 
+    min-height: 100%;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cat{
     overflow: hidden;
     object-fit: cover;
     height: 260px;
-    position:relative;
+    position:relative;    
 }
 
 .cat img{

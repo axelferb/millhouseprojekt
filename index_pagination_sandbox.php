@@ -9,12 +9,80 @@ require 'partials/session.php';
 require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php';
-require 'partials/index_statements.php';
+    
+    $statement5 = $pdo->prepare("
+    SELECT users.id as userid, 
+    users.username AS username, 
+    users.firstname AS firstname, 
+    users.lastname AS lastname, 
+    users.email AS email,
+    posts.id AS id,
+    posts.post AS post,
+    posts.title AS title, 
+    posts.date AS date, 
+    posts.category AS category, 
+    posts.image AS image,
+    posts.user
+    FROM posts 
+    INNER JOIN users 
+	ON users.id =  posts.user
+    ORDER BY posts.id DESC
+    LIMIT 1
+    ");
+    $statement5->execute();
+    $first_post = $statement5->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+    $page = $_GET["page"];
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+    }else{
+        $page = 1;
+    }
+    
+    
+// $last_page = ceil($p_count / 5);
+
+    // USER POSTS STATISTICS
+    $statement_count = $pdo->prepare("
+    SELECT COUNT(DISTINCT post) as total
+    FROM posts
+    ");
+    $statement_count->execute();
+    $p_count = $statement_count->fetch(PDO::FETCH_ASSOC);
+    var_dump($p_count);
+    
+    $statement = $pdo->prepare("
+    SELECT users.id AS userid, 
+    users.username AS username, 
+    users.firstname AS firstname, 
+    users.lastname AS lastname, 
+    users.email AS email,
+    posts.id AS id,
+    posts.post AS post,
+    posts.title AS title, 
+    posts.date AS date, 
+    posts.category AS category, 
+    posts.image AS image,
+    posts.user
+    FROM posts 
+    INNER JOIN users 
+	ON users.id =  posts.user
+    ORDER BY posts.id DESC
+    LIMIT $p_count[total] OFFSET 1
+    "); 
+    //LIMIT $p_count[total] OFFSET 1
+    // LIMIT $p_count[total] OFFSET 1
+    // LIMIT 5 OFFSET $offset_number
+    $statement->execute();
+    $post_info = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+    
   
 ?>
 <body>
-    <?php
-?>
+
     <!-- NAVIGATION -->
     <?php
         require 'nav.php';
@@ -30,7 +98,7 @@ require 'partials/index_statements.php';
             <div class="col-xs-12, col-md-8">
                 <div>
                     <h1>Våra blogginlägg</h1>
-                    <hr>
+                    <hr style="width: 97%;">
                 </div>
                 <div class="right-align">
                     <span class="filter">Filtrera efter:</span>
@@ -70,7 +138,7 @@ require 'partials/index_statements.php';
             <div class="hidden-xs, hidden-sm, col-md-4">
                 <div>
                     <h1>Användare:</h1>
-                    <hr>
+                    <hr style="width: 97%;">
                 </div>
                 <div>
                     <?php
@@ -95,11 +163,26 @@ require 'partials/index_statements.php';
             } ?>
         </div>
             
-
+<?php
+    $last_page = ceil($p_count["total"] / 5);
+    // $p_count[0]['COUNT(id)']
+    var_dump($p_count);
+    var_dump($last_page);
        
 
-        <a class="btn button-green btn-lg btn-block" href="blog.php">Läs alla inlägg här</a>    
+    if($page -1 >= 1){ ?>
+        <a href="index.php?page=<?=$page;?>"><?=$page;?></a>
+    <?php }
+    if($page < $last_page){ ?>
+        <a href="index_pagination_sandbox.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
+        <a href="index_pagination_sandbox.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
+        <a href="index_pagination_sandbox.php?page=<?=$page + 3?>"><?= $page + 3 ?></a>
+    <?php }
+
+
+
    
+   ?>
     <!--main End-->
     </main>
     
