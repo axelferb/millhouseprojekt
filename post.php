@@ -157,7 +157,7 @@ require 'nav.php';
             <form action="partials/new_comment.php" method="POST">
                 <div class="commentArea">
                     <label for="new_comment"> Kommentar: </label>
-                    <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
+                    <input id="new_comment" type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
                 </div>
 
                 <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
