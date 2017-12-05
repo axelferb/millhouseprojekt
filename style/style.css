@@ -78,6 +78,15 @@ input {
     font-size: 1.5em;
 }
 
+.register_login h2{
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    margin-top: 0px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+}
+
 /**/
 
 /*Navbar styling*/
