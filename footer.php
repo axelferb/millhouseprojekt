@@ -47,3 +47,4 @@
 <div class="copyright">
         <p>© 2017 Millhouse AB Alla rättigheter förbehålls</p>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/tota11y@0.1.6/build/tota11y.min.js"></script>
