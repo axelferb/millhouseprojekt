@@ -8,7 +8,6 @@
     ");
     $statement_count->execute();
     $p_count = $statement_count->fetch(PDO::FETCH_ASSOC);
-    var_dump($p_count["total"]);
     
     
     $statement = $pdo->prepare("
@@ -28,13 +27,10 @@
     INNER JOIN users 
 	ON users.id =  posts.user
     ORDER BY posts.id DESC
-    LIMIT $p_count[total] OFFSET 1
+    LIMIT 4 OFFSET 1
     ");    
-    // LIMIT $p_count[total] OFFSET 1
-    // LIMIT 5 OFFSET $offset_number
     $statement->execute();
     $post_info = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
     
     $statement2 = $pdo->prepare("
     SELECT users.id, 
@@ -100,11 +96,12 @@
     $post_info_interior = $statement4->fetchAll(PDO::FETCH_ASSOC);
     
     $statement5 = $pdo->prepare("
-    SELECT users.id, 
+    SELECT users.id as userid, 
     users.username AS username, 
     users.firstname AS firstname, 
     users.lastname AS lastname, 
     users.email AS email,
+    posts.id AS id,
     posts.post AS post,
     posts.title AS title, 
     posts.date AS date, 

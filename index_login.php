@@ -4,7 +4,6 @@ require 'partials/database.php';
 
 
 ?>
-    <div class="hidden-xs hidden-sm col-md-4 login-wrap">
            <div class="login-field">
             <?php
             if(isset($_SESSION["user"])){
@@ -21,6 +20,7 @@ require 'partials/database.php';
                 ":user" => $user
                 )); 
                 $profile_img = $statement3->fetchAll(PDO::FETCH_ASSOC);
+
                 foreach($profile_img as $img){ 
                     if($img["image"] == NULL){ ?>
                 <i class="fa fa-user fa-5x" aria-hidden="true"></i>
@@ -28,7 +28,7 @@ require 'partials/database.php';
                     }
                     else{ 
                     ?>
-                    <img src="<?=$img[" image "];?>" width="160">
+                    <img src="<?=$img["image"];?>" width="160">
                     <?php
                     } 
                     }
@@ -69,14 +69,16 @@ require 'partials/database.php';
                                     <div class="form-group">
                                         <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
                                     </div>
+                                    <div class="register_login">
                                     <p>Har du inget konto?</p>
                                     <a href="register_form.php">
-                                        <h3>Registrera dig</h3>
+                                        <h2>Registrera dig</h2>
                                     </a>
+                                    </div>
+                                    </form>
                                     <?php
             }
          ?>
         </div>
-    </div>
 
-    </form>
+

@@ -4,34 +4,10 @@ require 'partials/session.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
 require 'head.php';
 require 'partials/database.php';
-require 'partials/print_posts.php';
-    
-    $statement5 = $pdo->prepare("
-    SELECT users.id as userid, 
-    users.username AS username, 
-    users.firstname AS firstname, 
-    users.lastname AS lastname, 
-    users.email AS email,
-    posts.id AS id,
-    posts.post AS post,
-    posts.title AS title, 
-    posts.date AS date, 
-    posts.category AS category, 
-    posts.image AS image,
-    posts.user
-    FROM posts 
-    INNER JOIN users 
-	ON users.id =  posts.user
-    ORDER BY posts.id DESC
-    LIMIT 1
-    ");
-    $statement5->execute();
-    $first_post = $statement5->fetchAll(PDO::FETCH_ASSOC);
-    
+require 'partials/print_posts.php'; 
     
     $page = $_GET["page"];
     if(isset($_GET["page"])){
@@ -43,7 +19,7 @@ require 'partials/print_posts.php';
     
 // $last_page = ceil($p_count / 5);
 
-    // USER POSTS STATISTICS
+    // POSTS STATISTICS
     $statement_count = $pdo->prepare("
     SELECT COUNT(DISTINCT post) as total
     FROM posts
@@ -51,6 +27,8 @@ require 'partials/print_posts.php';
     $statement_count->execute();
     $p_count = $statement_count->fetch(PDO::FETCH_ASSOC);
     var_dump($p_count);
+    
+    $offset_number = 5;
     
     $statement = $pdo->prepare("
     SELECT users.id AS userid, 
@@ -69,20 +47,35 @@ require 'partials/print_posts.php';
     INNER JOIN users 
 	ON users.id =  posts.user
     ORDER BY posts.id DESC
-    LIMIT $p_count[total] OFFSET 1
+    LIMIT 5 OFFSET $offset_number
     "); 
     //LIMIT $p_count[total] OFFSET 1
     // LIMIT $p_count[total] OFFSET 1
     // LIMIT 5 OFFSET $offset_number
+    // LIMIT $p_count[total] OFFSET 1
     $statement->execute();
     $post_info = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+    
+        $page = $_GET["page"];
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+    }else{
+        $page = 1;
+    }
+    
 
     
-  
+    //$offset_number = $page * 5 - 5;
+    
+    
+// $last_page = ceil($p_count / 5);
+    
 ?>
-<body>
 
+
+<body>
+    <?php
+?>
     <!-- NAVIGATION -->
     <?php
         require 'nav.php';
@@ -95,7 +88,7 @@ require 'partials/print_posts.php';
     <main class="container">
 
         <div class="row">              
-            <div class="col-xs-12, col-md-8">
+            <div class="col-xs-12, col-md-12">
                 <div>
                     <h1>Våra blogginlägg</h1>
                     <hr style="width: 97%;">
@@ -127,25 +120,6 @@ require 'partials/print_posts.php';
                           </ul>
                         </div>
                 </div>
-                   
-                <div>
-                    <?php
-                first_image_category($first_post);
-                    ?>
-                </div>     
-            </div>
-            
-            <div class="hidden-xs, hidden-sm, col-md-4">
-                <div>
-                    <h1>Användare:</h1>
-                    <hr style="width: 97%;">
-                </div>
-                <div>
-                    <?php
-                        require 'index_login_idas.php';
-                    ?>
-                </div>
-            </div>
         </div>
              
         <div class="row">
@@ -161,8 +135,10 @@ require 'partials/print_posts.php';
             }else{
                 image_category($post_info);
             } ?>
+
         </div>
-            
+         
+         
 <?php
     $last_page = ceil($p_count["total"] / 5);
     // $p_count[0]['COUNT(id)']
@@ -174,15 +150,21 @@ require 'partials/print_posts.php';
         <a href="index.php?page=<?=$page;?>"><?=$page;?></a>
     <?php }
     if($page < $last_page){ ?>
-        <a href="index_pagination_sandbox.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
-        <a href="index_pagination_sandbox.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
-        <a href="index_pagination_sandbox.php?page=<?=$page + 3?>"><?= $page + 3 ?></a>
+        <a href="blog_pagination_sandbox.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
+        <a href="blog_pagination_sandbox.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
+        <a href="blog_pagination_sandbox.php?page=<?=$page + 3?>"><?= $page + 3 ?></a>
     <?php }
 
 
 
    
    ?>
+         
+          
+    </div>
+    
+
+   
     <!--main End-->
     </main>
     
