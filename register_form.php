@@ -63,32 +63,32 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 <!--REGISTER FORM-->
 
 <div class="container mt-5">
-  <h4>Register</h4>
+  <h1>Register</h1>
   <form action="partials/register.php" method="POST">
    
     <div class="form-group">
       <label for="username"> Username </label>
-      <input type="text" name="username" class="form-control">
+      <input id="username" type="text" name="username" class="form-control">
     </div>
     
     <div class="form-group">
       <label for="password"> Password </label>
-      <input type="password" name="password" class="form-control">
+      <input id="password" type="password" name="password" class="form-control">
     </div>
     
     <div class="form-group">
       <label for="email"> Email </label>
-      <input type="email" name="email" class="form-control">
+      <input id="email" type="email" name="email" class="form-control">
     </div>
     
     <div class="form-group">
       <label for="firstname"> First name </label>
-      <input type="text" name="firstname" class="form-control">
+      <input id="firstname" type="text" name="firstname" class="form-control">
     </div>
     
     <div class="form-group">
       <label for="lastname"> Last name </label>
-      <input type="text" name="lastname" class="form-control">
+      <input id="lastname" type="text" name="lastname" class="form-control">
     </div>
     
     <div class="form-group">

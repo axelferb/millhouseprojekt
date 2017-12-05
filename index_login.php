@@ -59,6 +59,7 @@ require 'partials/database.php';
                                 <form class="index-form" action="partials/login.php" method="POST">
 
                                     <div class="form-group">
+                                       <label for="username"></label>
                                         <input type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
                                     </div>
 
