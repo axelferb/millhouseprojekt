@@ -14,15 +14,18 @@
             <form action="partials/login.php" method="POST">
    
             <div class="form-group">
-              <input type="text" name="name" class="form-control" placeholder="&#xf007; Namn">
+             <label for="name"></label>
+              <input id="name" type="text" name="name" class="form-control" placeholder="&#xf007; Namn">
             </div>
 
             <div class="form-group">
-              <input type="text" name="contactEmail" class="form-control" placeholder="&#xf0e0; Email">
+             <label for="email"></label>
+              <input id="email" type="text" name="contactEmail" class="form-control" placeholder="&#xf0e0; Email">
             </div>
             
             <div class="form-group">
-              <input type="text" name="message" class="form-control" placeholder="&#xf075; Meddelande">
+             <label for="message"></label>
+              <input id="message" type="text" name="message" class="form-control" placeholder="&#xf075; Meddelande">
             </div>
 
             <div class="form-group">
@@ -47,3 +50,4 @@
 <div class="copyright">
         <p>© 2017 Millhouse AB Alla rättigheter förbehålls</p>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/tota11y@0.1.6/build/tota11y.min.js"></script>

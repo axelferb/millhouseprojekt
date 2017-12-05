@@ -60,9 +60,9 @@ function image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | ' ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -74,7 +74,7 @@ function image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"]?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
 
             </div>              
@@ -146,9 +146,9 @@ function first_image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | '   ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">

@@ -161,7 +161,7 @@ require 'nav.php';
             <form action="partials/new_comment.php" method="POST">
                 <div class="commentArea">
                     <label for="new_comment"> Kommentar: </label>
-                    <input type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
+                    <input id="new_comment" type="text" name="new_comment" class="form-control" placeholder="&#xf075; Meddelande">
                 </div>
 
                 <!-- SKICKAR MED UNIKT ID PÅ BLOGGINLÄGGET: -->
@@ -211,18 +211,18 @@ require 'nav.php';
     </main>
 
     <!-- ASIDE SECONDARY CONTENT (LOGIN-FIELD) -->
-        <div class= "hidden-xs hidden-sm col-md-4" style="margin-top:-5px;">
+        <div class= "hidden-xs hidden-sm col-md-4">
                 <h1 class="text-center">Användare</h1>
+
                 <hr></div>
     
      
-
-
     <div class="hidden-xs hidden-sm col-md-4" style="height: 600px; overflow: hidden;">
             <?php 
             require "index_login.php";
         ?>
     </div>
+
     <!-- END ASIDE -->
         </div> <!-- END DIV / CONTAINER -->
 

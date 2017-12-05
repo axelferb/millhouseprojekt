@@ -59,20 +59,24 @@ require 'partials/database.php';
                                 <form class="index-form" action="partials/login.php" method="POST">
 
                                     <div class="form-group">
-                                        <input type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
+                                       <label for="username"></label>
+                                        <input id="username" type="text" placeholder="&#xf007;  Användarnamn" name="username" class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
+                                       <label for="password"></label>
+                                        <input id="password" type="password" placeholder="&#xf023;  Lösenord" name="password" class="form-control">
                                     </div>
                                     <br>
                                     <div class="form-group">
                                         <input type="submit" value="LOGGA IN" class="btn button-green btn-lg btn-block">
                                     </div>
+                                    <div class="register_login">
                                     <p>Har du inget konto?</p>
                                     <a href="register_form.php">
-                                        <h3>Registrera dig</h3>
+                                        <h2>Registrera dig</h2>
                                     </a>
+                                    </div>
                                     </form>
                                     <?php
             }
