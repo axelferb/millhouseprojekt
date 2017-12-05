@@ -59,7 +59,18 @@ require 'partials/functions.php';
     WHERE posts.id = $post
     ");    
     $statement->execute();
-    $posts_info = $statement->fetchAll(PDO::FETCH_ASSOC);    
+    $posts_info = $statement->fetchAll(PDO::FETCH_ASSOC); 
+    
+    
+     $statement_comments_post = $pdo->prepare("
+    SELECT COUNT(DISTINCT comment) as totalComment
+    FROM comments
+    WHERE idoriginalpost = :post
+    ");
+    $statement_comments_post->execute(array(
+    ":post" => $post
+    ));
+    $count_comments = $statement_comments->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <body>

@@ -22,7 +22,7 @@ if(!(isset($_SESSION["user"]))){
 
 // USER COMMENT STATISTICS
     $statement_comments = $pdo->prepare("
-    SELECT COUNT(DISTINCT comment) as total
+    SELECT COUNT(comment) as total
     FROM comments
     WHERE user = :user
     ");
@@ -87,6 +87,8 @@ if(!(isset($_SESSION["user"]))){
     ":user" => $user
     )); 
     $commentz = $statement4->fetchAll(PDO::FETCH_ASSOC);
+    
+    
 
 
 ?>

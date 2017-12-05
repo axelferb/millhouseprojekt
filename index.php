@@ -10,7 +10,9 @@ require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php';
 require 'partials/index_statements.php';
-  
+
+           
+    
 ?>
 <body>
     <?php

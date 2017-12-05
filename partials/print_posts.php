@@ -1,8 +1,26 @@
 <?php
 
+
+
+    
+    
+
+
 // PRINTS OUT REGULAR BLOG POST IN INDEX.PHP/BLOG.PHP
 function image_category($print){
-                 
+            function get_comment_count($idoriginalpost){
+    require 'partials/database.php';
+    $statement_comments_post = $pdo->prepare("
+    SELECT COUNT(comment) as total
+    FROM comments
+    WHERE idoriginalpost = :post
+    ");
+    $statement_comments_post->execute(array(
+    ":post" => $idoriginalpost
+    ));
+    return $statement_comments_post->fetch(PDO::FETCH_ASSOC);
+}
+                  
             foreach($print as $blogdata){ ?>
                        
                 <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
@@ -74,20 +92,42 @@ function image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">
+                        Läs mer & kommentera
+                        <?php
+                            $comments_count = get_comment_count($blogdata["id"]);
+                            echo '(' . $comments_count["total"] . ')';
+                        ?>
+                        </a>
+                        
+                        
                     </div> 
 
             </div>              
         <?php
             }
+
         ?>
 <?php    
 }
-
+ 
 
 
 // PRINTS OUT FIRST BIGGER BLOG POST ON INDEX.PHP
 function first_image_category($print){
+
+    function get_comment_count_big($idoriginalpost){
+    require 'partials/database.php';
+    $statement_comments_post = $pdo->prepare("
+    SELECT COUNT(comment) as total
+    FROM comments
+    WHERE idoriginalpost = :post
+    ");
+    $statement_comments_post->execute(array(
+    ":post" => $idoriginalpost
+    ));
+    return $statement_comments_post->fetch(PDO::FETCH_ASSOC);
+}
                  
             foreach($print as $blogdata){ ?>
                        
@@ -160,7 +200,13 @@ function first_image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera
+                        <?php
+                            $comments_count = get_comment_count_big($blogdata["id"]);
+                            echo '(' . $comments_count["total"] . ')';
+                        ?>
+                        </a>   
+                                                                
                     </div> 
 
             </div>              
