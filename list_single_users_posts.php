@@ -67,7 +67,8 @@ require 'partials/functions.php';
                       </td><td>
                       <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>
                       </td><td>
-                      <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
+                      <label for="checkbox"></label>
+                      <input id="checkbox" type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
                       </td>
                       <?php
                     } 
