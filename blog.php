@@ -7,8 +7,20 @@ require 'partials/session.php';
 <?php
 require 'head.php';
 require 'partials/database.php';
+require 'partials/print_posts.php';
+    
+// FOR PAGINATION
+    
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
+    }else{
+        $page = 1;
+    }
+    
+    $offset_number = $page * 5 - 5;
+    
 require 'partials/blog_statements.php';
-require 'partials/print_posts.php';    
+    
 ?>
 
 
@@ -73,7 +85,50 @@ require 'partials/print_posts.php';
                 image_category($post_info);
             } ?>
 
-    </div>
+
+    
+<div class="pagination">    
+         
+<?php
+    $last_page = ceil($p_count["total"] / 5);
+    
+    if($page == 1){ ?>
+    <a href="blog.php?page=<?=$page;?>"><b><?=$page;?></b></a>
+        <a href="blog.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
+        <a href="blog.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
+        <a href="blog.php?page=<?=$page + 1?>">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+        </a> <?php   
+    }
+    
+    if(!($page == 1) && ($page < $last_page) && !($page == $last_page)){ ?>
+       <a href="blog.php?page=<?=$page - 1?>">
+           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       </a> 
+
+        <a href="blog_pagination_sandbox.php?page=<?=$page?>"><b><?= $page ?></b></a>
+         
+            <a href="blog.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
+        <a href="blog_pagination_sandbox.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
+
+       <a href="blog.php?page=<?=$page + 1?>">
+           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+       </a> 
+             
+    <?php 
+    }
+ 
+            
+        if($page == $last_page){ ?>
+       <a href="blog.php?page=<?=$page - 1?>">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       </a>
+        <a href="blog.php?page=<?=$page - 2?>"><?= $page - 2 ?></a> 
+        <a href="blog.php?page=<?=$page - 1?>"><?= $page - 1 ?></a> 
+        <a href="blog.php?page=<?=$page?>"><b><?= $page ?></b></a>
+    <?php } ?>
+       
+</div>  
    
     <!--main End-->
     </main>

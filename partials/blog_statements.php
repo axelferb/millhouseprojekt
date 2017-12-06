@@ -1,14 +1,5 @@
 <?php
 
-
-    
-
-
-
-
-// $last_page = ceil($p_count / 5);
-// var_dump($last_page);
-
     $statement = $pdo->prepare("
     SELECT users.id AS userid, 
     users.username AS username, 
@@ -26,10 +17,17 @@
     INNER JOIN users 
 	ON users.id =  posts.user
     ORDER BY posts.id DESC
+    LIMIT 6 OFFSET $offset_number
     ");  
-    // LIMIT 5 OFFSET $offset_number
     $statement->execute();
     $post_info = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    $statement_count = $pdo->prepare("
+    SELECT COUNT(DISTINCT id) as total
+    FROM posts
+    ");
+    $statement_count->execute();
+    $p_count = $statement_count->fetch(PDO::FETCH_ASSOC);
 
     $statement2 = $pdo->prepare("
     SELECT users.id, 
