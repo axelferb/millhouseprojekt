@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse">
-    <div class="brand-logo"></div>
+    <a href="index.php"><div class="brand-logo"></div></a>
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -12,10 +12,10 @@
                     <a href="index.php">HEM</a>
                 </li>
                 <li>
-                    <a href="blog.php">BLOG</a>
+                    <a href="blog.php">BLOGG</a>
                 </li>
                 <li>
-                    <a href="om_oss.php">OM OSS</a>
+                    <a href="about_millhouse.php">OM OSS</a>
                 </li>
                 
                 <?php if(isset($_SESSION["user"])){ ?>

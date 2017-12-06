@@ -7,6 +7,7 @@ body {
     background: url("../img/headerimage.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     color: white;
     text-align: center;
     margin-bottom: 0px;
@@ -19,13 +20,10 @@ body {
     padding-right: 0px;
 }
 
-main .col-md-8 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
 /* INDEX LOGINFORM STYLING */
-
+label {
+    display: inline;
+}
 .ck-editor__editable {
     min-height: 170px;
     resize: vertical;
@@ -62,7 +60,7 @@ main .col-md-8 {
     padding: 15px;
     color: #FFFFFF;
     text-align: center;
-    min-height: 287px;
+    min-height: 384px;
 }
 
 .login-field p {
@@ -79,6 +77,15 @@ main .col-md-8 {
 
 input {
     font-family: FontAwesome;
+    font-size: 1.5em;
+}
+
+.register_login h2{
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    margin-top: 0px;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.5em;
 }
 
@@ -237,7 +244,6 @@ a {
 /**/
 
 hr {
-    margin: 5px 0 15px 0;
     width: 100%;
     height: 2px;
     background-color: #1c3145;
@@ -447,11 +453,6 @@ footer .row {
     max-width: 100%;
     top: 0;
     left: 0;
-}
-
-.pagination{
-    width: 100%;
-    text-align: center;
 }
 
 /* SLUT IDA TEST */

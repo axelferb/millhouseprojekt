@@ -10,7 +10,9 @@ require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php';
 require 'partials/index_statements.php';
-  
+
+           
+    
 ?>
 <body>
     <?php
@@ -30,7 +32,7 @@ require 'partials/index_statements.php';
             <div class="col-xs-12, col-md-8">
                 <div>
                     <h1>Våra blogginlägg</h1>
-                    <hr style="width: 97%;">
+                    <hr>
                 </div>
                 <div class="right-align">
                     <span class="filter">Filtrera efter:</span>
@@ -70,7 +72,7 @@ require 'partials/index_statements.php';
             <div class="hidden-xs, hidden-sm, col-md-4">
                 <div>
                     <h1>Användare:</h1>
-                    <hr style="width: 97%;">
+                    <hr>
                 </div>
                 <div>
                     <?php

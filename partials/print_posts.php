@@ -1,8 +1,28 @@
 <?php
 
+
+
+    
+    
+
+
 // PRINTS OUT REGULAR BLOG POST IN INDEX.PHP/BLOG.PHP
 function image_category($print){
-                 
+    
+    //COUNTS TOTAL NUMBERS OF COMMENTS ON A POST
+    function get_comment_count($idoriginalpost){
+    require 'partials/database.php';
+    $statement_comments_post = $pdo->prepare("
+    SELECT COUNT(comment) as total
+    FROM comments
+    WHERE idoriginalpost = :post
+    ");
+    $statement_comments_post->execute(array(
+    ":post" => $idoriginalpost
+    ));
+    return $statement_comments_post->fetch(PDO::FETCH_ASSOC);
+}
+                  
             foreach($print as $blogdata){ ?>
                        
                 <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
@@ -14,7 +34,7 @@ function image_category($print){
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 cat"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>"><?php    
+                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -29,7 +49,7 @@ function image_category($print){
                                 <div class="sunglasses2 cat"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -44,9 +64,9 @@ function image_category($print){
                                 <div class="furnish2 cat"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
                                     }else{ ?>
-                                        <img src="images/inredning_profil.png" alt="Solglasögon">
+                                        <img src="images/glasses_profil.png" alt="Inredning">
                                     <?php } ?>         
                                </div>
                                <div>
@@ -60,9 +80,9 @@ function image_category($print){
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | ' ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -74,20 +94,44 @@ function image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"]?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">
+                        Läs mer & kommentera
+                        <?php
+                            //TOTAL COMMENTS ON A POST
+                            $comments_count = get_comment_count($blogdata["id"]);
+                            echo '(' . $comments_count["total"] . ')';
+                        ?>
+                        </a>
+                        
+                        
                     </div> 
 
             </div>              
         <?php
             }
+
         ?>
 <?php    
 }
-
+ 
 
 
 // PRINTS OUT FIRST BIGGER BLOG POST ON INDEX.PHP
 function first_image_category($print){
+
+    //COUNTS TOTAL NUMBERS OF COMMENTS ON A POST
+    function get_comment_count_big($idoriginalpost){
+    require 'partials/database.php';
+    $statement_comments_post = $pdo->prepare("
+    SELECT COUNT(comment) as total
+    FROM comments
+    WHERE idoriginalpost = :post
+    ");
+    $statement_comments_post->execute(array(
+    ":post" => $idoriginalpost
+    ));
+    return $statement_comments_post->fetch(PDO::FETCH_ASSOC);
+}
                  
             foreach($print as $blogdata){ ?>
                        
@@ -132,7 +176,7 @@ function first_image_category($print){
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
-                                        <img src="images/inredning_profil.png" alt="Inredning">
+                                        <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php } ?>         
                                </div>
                                <div>
@@ -140,15 +184,14 @@ function first_image_category($print){
                                </div>
                                <?php
                         }?>
- 
                         <div>
                             <h2><a href="post.php?post=<?=$blogdata["id"]?>"><?=$blogdata["title"]?></a></h2>
                         </div>
                        
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                        <?= $blogdata["date"] . ' | '; ?>  
+                        <?= $blogdata["date"] . ' | '   ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . ' | '; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -160,7 +203,14 @@ function first_image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera
+                        <?php
+                            //TOTAL COMMENTS ON A POST
+                            $comments_count = get_comment_count_big($blogdata["id"]);
+                            echo '(' . $comments_count["total"] . ')';
+                        ?>
+                        </a>   
+                                                                
                     </div> 
 
             </div>              
