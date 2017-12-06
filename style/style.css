@@ -21,7 +21,9 @@ body {
 }
 
 /* INDEX LOGINFORM STYLING */
-
+label {
+    display: inline;
+}
 .ck-editor__editable {
     min-height: 170px;
     resize: vertical;

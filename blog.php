@@ -60,8 +60,6 @@ require 'partials/print_posts.php';
                         </div>
                 </div>
         </div>
-             
-        <div class="row">
                
           <?php
         // FUNCTION FOR PRINTING OUT BLOG POST
@@ -75,8 +73,6 @@ require 'partials/print_posts.php';
                 image_category($post_info);
             } ?>
 
-        </div>
-          
     </div>
    
     <!--main End-->
