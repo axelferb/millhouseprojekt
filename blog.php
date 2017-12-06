@@ -82,14 +82,30 @@ require 'partials/blog_statements.php';
             }elseif(isset($_GET["cat_interior"])){
                 image_category($post_info_interior);               
             }else{
-                image_category($post_info);
-            } ?>
+                image_category($post_info); 
+            
+            
+//                if(isset($_GET["cat_watches"])){
+//                image_category($post_info_watches);
+//            }elseif(isset($_GET["cat_glasses"])){
+//               image_category($post_info_glasses);
+//            }elseif(isset($_GET["cat_interior"])){
+//                image_category($post_info_interior);               
+//            }elseif($_GET["month"] == january2017){
+//                image_category($post_info_month);              
+//            }else{
+//                image_category($post_info);
+//            } 
+            
+            
+         ?>
 
 
     
 <div class="pagination">    
          
 <?php
+        
     $last_page = ceil($p_count["total"] / 5);
     
     if($page == 1){ ?>
@@ -126,9 +142,12 @@ require 'partials/blog_statements.php';
         <a href="blog.php?page=<?=$page - 2?>"><?= $page - 2 ?></a> 
         <a href="blog.php?page=<?=$page - 1?>"><?= $page - 1 ?></a> 
         <a href="blog.php?page=<?=$page?>"><b><?= $page ?></b></a>
-    <?php } ?>
-       
-</div>  
+    <?php } 
+      
+ } ?> 
+            </div>
+            
+            </div> 
    
     <!--main End-->
     </main>

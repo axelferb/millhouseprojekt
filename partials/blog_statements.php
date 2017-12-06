@@ -91,5 +91,27 @@
     ");
     $statement4->execute();
     $post_info_interior = $statement4->fetchAll(PDO::FETCH_ASSOC);
+
+    $statement = $pdo->prepare("
+    SELECT users.id AS userid, 
+    users.username AS username, 
+    users.firstname AS firstname, 
+    users.lastname AS lastname, 
+    users.email AS email,
+    posts.id AS id,
+    posts.post AS post,
+    posts.title AS title, 
+    posts.date AS date, 
+    posts.category AS category, 
+    posts.image AS image,
+    posts.user
+    FROM posts 
+    INNER JOIN users 
+	ON users.id =  posts.user
+    ORDER BY posts.id DESC
+    where MONTH(FROM_UNIXTIME(`date`)) = MONTH(NOW())
+    ");  
+    $statement->execute();
+    $post_info_month = $statement->fetchAll(PDO::FETCH_ASSOC);
     
 ?>
