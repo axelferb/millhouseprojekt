@@ -4,7 +4,7 @@ body {
 }
 
 .jumbotron {
-    background: url("../img/headerimage.png");
+    background: url("../img/headerimage_preview.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -12,6 +12,51 @@ body {
     text-align: center;
     margin-bottom: 0px;
     height: 370px;
+}
+
+.jumbo_text p {
+    font-size: 2.9em;
+    color: white;
+    margin:0px;
+}
+
+.jumbo_klockor {
+    border: 2px solid green;
+
+}
+.jumbo_klockor p{
+    font-size: 1.3em;
+    color: white;
+    margin: 0px;
+
+}
+.jumbo_sol {
+    border: 2px solid orange;
+    margin: 5px 0px 5px 0px;
+
+}
+
+.jumbo_sol p{
+    font-size: 1.3em;
+    color: white;
+    margin: 0px;
+}
+
+.jumbo_inredning {
+    border: 2px solid blue;
+
+}
+.jumbo_inredning p{
+    font-size: 1.3em;
+    color: white;
+    margin: 0px;
+    
+
+}
+
+.category_wrapper {
+    margin-top: 10px;
+    text-align: center;
 }
 
 
@@ -661,6 +706,21 @@ comments_post{
 
 @media screen and (min-width: 768px){
 
+.jumbotron {
+padding-top: 100px;
+    padding-right: 20px;
+    }
+
+.jumbo_sol {
+    margin: 0px 5px 0px 5px;
+}
+
+.category_wrapper {
+    margin-top: 10px;
+    text-align: center;
+}    
+        
+    
 /* MARGINAL FÖR ATT FÅ FÖRSTA INLÄGGET ATT "FLYTTA UPP"    
 .minusmargin {
 
