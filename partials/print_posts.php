@@ -26,11 +26,12 @@ function image_category($print){
             foreach($print as $blogdata){ ?>
                       
                 <!---  THESE 2 DIV'S BELOWS NEED A LITTLE BIT OF STYLING! 
-                      AND THE INLINESTYLING NEEDS TO BE MOVED TO STYLE.CSS -->
+                      AND THE INLINESTYLING NEEDS TO BE MOVED TO STYLE.CSS
+                      THIS DIV BELOW WRAPS AROUND post(image+text) AND "Läs mer & kommentera"-BUTTON -->
                        
                 <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
                        
-                <!-- DIV BELOW CONTROL HEIGHT ON POST, THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
+                <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
                    --> 
                     <div style="height: 550px; overflow: hidden;">
 
