@@ -449,6 +449,11 @@ footer .row {
     left: 0;
 }
 
+.pagination{
+    width: 100%;
+    text-align: center;
+}
+
 /* SLUT IDA TEST */
 
 .solglasogon {

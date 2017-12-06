@@ -9,7 +9,8 @@ require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php'; 
     
-    $page = $_GET["page"];
+    // $page = $_GET["page"];
+    
     if(isset($_GET["page"])){
         $page = $_GET["page"];
     }else{
@@ -25,12 +26,12 @@ require 'partials/print_posts.php';
 
     // POSTS STATISTICS
     $statement_count = $pdo->prepare("
-    SELECT COUNT(DISTINCT post) as total
+    SELECT COUNT(DISTINCT id) as total
     FROM posts
     ");
     $statement_count->execute();
     $p_count = $statement_count->fetch(PDO::FETCH_ASSOC);
-    var_dump($p_count);
+    //var_dump($p_count);
     
     
     $statement = $pdo->prepare("
@@ -50,7 +51,7 @@ require 'partials/print_posts.php';
     INNER JOIN users 
 	ON users.id =  posts.user
     ORDER BY posts.id DESC
-    LIMIT 5 OFFSET $offset_number
+    LIMIT 6 OFFSET $offset_number
     ");
     //LIMIT $p_count[total] OFFSET 1
     // LIMIT $p_count[total] OFFSET 1
@@ -134,31 +135,72 @@ require 'partials/print_posts.php';
             } ?>
 
         </div>
-         
+     
+<div class="pagination">    
          
 <?php
     $last_page = ceil($p_count["total"] / 5);
     // $p_count[0]['COUNT(id)']
-    var_dump($p_count);
-    var_dump($last_page);
+    //var_dump($p_count["total"]);
+    // var_dump($last_page);
+        // var_dump($p_count);
        
-
-    if($page -1 >= 1){ ?>
-        <a href="index.php?page=<?=$page;?>"><?=$page;?></a>
-    <?php }
-    if($page < $last_page){ ?>
+//
+//    if($page - 1 >= 1){ ?>
+<!--        <a href="blog_pagination_sandbox.php?page=<?=$page;?>"><?=$page;?></a>-->
+  <?php  //  }
+    
+    if($page == 1){ ?>
+    <a href="blog_pagination_sandbox.php?page=<?=$page;?>"><b><?=$page;?></b></a>
         <a href="blog_pagination_sandbox.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
         <a href="blog_pagination_sandbox.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
-        <a href="blog_pagination_sandbox.php?page=<?=$page + 3?>"><?= $page + 3 ?></a>
+        <a href="blog_pagination_sandbox.php?page=<?=$page + 1?>">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+        </a> <?php   
+    }
+    
+    if(!($page == 1) && ($page < $last_page) && !($page == $last_page)){ ?>
+       <a href="blog_pagination_sandbox.php?page=<?=$page - 1?>">
+           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       </a> 
+
+        <a href="blog_pagination_sandbox.php?page=<?=$page?>"><b><?= $page ?></b></a>
+         
+          <?php         
+            // if($page + 1 < $last_page){ ?> 
+            <a href="blog_pagination_sandbox.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
+            <?php // }
+        // if($page + 2 < $last_page){ ?> 
+        <a href="blog_pagination_sandbox.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
+        <?php // } ?>
+
+       <a href="blog_pagination_sandbox.php?page=<?=$page + 1?>">
+           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+       </a> 
+             
+    <?php 
+    }
+ 
+            
+        if($page == $last_page){ ?>
+       <a href="blog_pagination_sandbox.php?page=<?=$page - 1?>">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       </a>
+        <a href="blog_pagination_sandbox.php?page=<?=$page - 2?>"><?= $page - 2 ?></a> 
+        <a href="blog_pagination_sandbox.php?page=<?=$page - 1?>"><?= $page - 1 ?></a> 
+        <a href="blog_pagination_sandbox.php?page=<?=$page?>"><b><?= $page ?></b></a>
     <?php }
 
 
 
    
    ?>
-         
+       
+</div>  
           
     </div>
+    
+
     
 
    

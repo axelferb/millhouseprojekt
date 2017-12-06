@@ -46,7 +46,7 @@ function image_category($print){
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
-                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                        <img src="images/inredning_profil.png" alt="Solglasögon">
                                     <?php } ?>         
                                </div>
                                <div>
@@ -132,7 +132,7 @@ function first_image_category($print){
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
-                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                        <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
                                </div>
                                <div>
