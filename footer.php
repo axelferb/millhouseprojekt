@@ -5,7 +5,7 @@
             <h2>Sitemap</h2>
                 <li><a href="index.php">Hem</a></li>
                 <li><a href="blog.php">Blogg</a></li>
-                <li><a href="om_oss.php">Om oss</a></li>
+                <li><a href="about_millhouse.php">Om oss</a></li>
         </div>
 
     

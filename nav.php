@@ -15,7 +15,7 @@
                     <a href="blog.php">BLOGG</a>
                 </li>
                 <li>
-                    <a href="om_oss.php">OM OSS</a>
+                    <a href="about_millhouse.php">OM OSS</a>
                 </li>
                 
                 <?php if(isset($_SESSION["user"])){ ?>
