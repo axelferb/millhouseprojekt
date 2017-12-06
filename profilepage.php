@@ -124,7 +124,7 @@ require 'nav.php';
             }?>
 
                 <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i><br><br>
-                <a href="upload_profilepic.php?user=<?= $_SESSION[" user "]["username "] ?>">Ladda upp en profilbild</a>
+                <a href="upload_profilepic.php?user=<?= $_SESSION["user"]["username"] ?>">Ladda upp en profilbild</a>
             </div>
 
             <div class="profile-info">
