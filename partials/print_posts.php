@@ -66,7 +66,7 @@ function image_category($print){
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
                                     }else{ ?>
-                                        <img src="images/glasses_profil.png" alt="Inredning">
+                                        <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
                                </div>
                                <div>
