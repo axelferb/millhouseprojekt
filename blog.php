@@ -97,6 +97,8 @@ echo $order;
                 $order = require 'partials/blog_statements_ASC.php';
             }
                
+        ?>
+        <?php
 
         // FUNCTION FOR PRINTING OUT BLOG POST
             if(isset($_GET["cat_watches"])){
