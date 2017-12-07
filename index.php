@@ -1,9 +1,13 @@
+<?php
+require 'partials/session.php';
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <?php
-require 'partials/session.php';
 require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php';
@@ -51,18 +55,18 @@ require 'partials/index_statements.php';
                             Månad: <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a href="blog.php?month=january17">Januari 2017</a></li>
-                            <li><a href="blog.php?month=february17">Februari 2017</a></li>
-                            <li><a href="blog.php?month=march17">Mars 2017</a></li>
-                            <li><a href="blog.php?month=april17">April 2017</a></li>
-                            <li><a href="blog.php?month=may17">Maj 2017</a></li>
-                            <li><a href="blog.php?month=june17">Juni 2017</a></li>
-                            <li><a href="blog.php?month=july17">Juli 2017</a></li>
-                            <li><a href="blog.php?month=august17">Augusti 2017</a></li>
-                            <li><a href="blog.php?month=september17">September 2017</a></li>
-                            <li><a href="blog.php?month=october17">Oktober 2017</a></li>
-                            <li><a href="blog.php?month=november17">November 2017</a></li>
-                            <li><a href="blog.php?month=december17">December 2017</a></li>
+                            <li><a href="blog.php?january2017=true">Januari 2017</a></li>
+                            <li><a href="blog.php?february2017=true">Februari 2017</a></li>
+                            <li><a href="blog.php?march2017=true">Mars 2017</a></li>
+                            <li><a href="blog.php?april2017=true">April 2017</a></li>
+                            <li><a href="blog.php?may2017=true">Maj 2017</a></li>
+                            <li><a href="blog.php?june2017=true">Juni 2017</a></li>
+                            <li><a href="blog.php?july2017=true">Juli 2017</a></li>
+                            <li><a href="blog.php?august2017=true">Augusti 2017</a></li>
+                            <li><a href="blog.php?september2017=true">September 2017</a></li>
+                            <li><a href="blog.php?october2017=true">Oktober 2017</a></li>
+                            <li><a href="blog.php?november2017=true">November 2017</a></li>
+                            <li><a href="blog.php?december2017=true">December 2017</a></li>
 
                           </ul>
                         </div>
