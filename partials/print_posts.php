@@ -138,7 +138,7 @@ function first_image_category($print){
                  
             foreach($print as $blogdata){ ?>
                        
-                <div style="height: 600px; overflow: hidden;">
+                <article style="height: 600px; overflow: hidden;">
                        
                     <div style="height: 550px; overflow: hidden;">
 
@@ -216,7 +216,7 @@ function first_image_category($print){
                                                                 
                     </div> 
 
-            </div>              
+            </article>              
         <?php
             }
         ?>
