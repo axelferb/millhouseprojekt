@@ -1,23 +1,19 @@
-<?php
-require 'partials/session.php';
-?>
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <?php
+require 'partials/session.php';
 require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php';
-require 'partials/index_statements.php';
+require 'partials/index_statements.php'; 
+?>
 
-           
-    
-?>
 <body>
-    <?php
-?>
+
     <!-- NAVIGATION -->
+
     <?php
         require 'nav.php';
     ?>
@@ -71,7 +67,7 @@ require 'partials/index_statements.php';
             
             <div class="hidden-xs, hidden-sm, col-md-4">
                 <div>
-                    <h1>Användare:</h1>
+                    <h1 class="text-center">Användare</h1>
                     <hr>
                 </div>
                 <div>

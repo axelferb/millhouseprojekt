@@ -29,7 +29,7 @@ function image_category($print){
                       AND THE INLINESTYLING NEEDS TO BE MOVED TO STYLE.CSS
                       THIS DIV BELOW WRAPS AROUND post(image+text) AND "Läs mer & kommentera"-BUTTON -->
                        
-                <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
+                <article class="col-xs-12, col-md-6">
                        
                 <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
                    --> 
@@ -108,11 +108,8 @@ function image_category($print){
                             echo '(' . $comments_count["total"] . ')';
                         ?>
                         </a>
-                        
-                        
                     </div> 
-
-            </div>              
+            </article>              
         <?php
             }
 
