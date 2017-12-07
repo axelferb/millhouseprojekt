@@ -438,6 +438,12 @@ footer .row {
     font-size: 0.85em;
 }
 
+.follow_us p{
+    font-size: 0.3em;
+    float:right;
+    margin-top: 15px;
+    margin-left: 10px;
+}
 
 /* FÄRG/KATEGORISTYLING */
 
