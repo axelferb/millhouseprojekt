@@ -64,40 +64,103 @@ require 'partials/blog_statements.php';
                             Månad: <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a href="index_idas.php?cat=all">Allt</a></li>
-                            <li><a href="index_idas.php?cat=sunglasses">Solglasögon</a></li>
-                            <li><a href="index_idas.php?cat=watches">Klockor</a></li>
-                            <li><a href="index_idas.php?cat=interior">Inredning</a></li>
+                            <li><a href="blog.php?january2017=true">Januari 2017</a></li>
+                            <li><a href="blog.php?february2017=true">Februari 2017</a></li>
+                            <li><a href="blog.php?march2017=true">Mars 2017</a></li>
+                            <li><a href="blog.php?april2017=true">April 2017</a></li>
+                            <li><a href="blog.php?may2017=true">Maj 2017</a></li>
+                            <li><a href="blog.php?june2017=true">Juni 2017</a></li>
+                            <li><a href="blog.php?july2017=true">Juli 2017</a></li>
+                            <li><a href="blog.php?august2017=true">Augusti 2017</a></li>
+                            <li><a href="blog.php?september2017=true">September 2017</a></li>
+                            <li><a href="blog.php?october2017=true">Oktober 2017</a></li>
+                            <li><a href="blog.php?november2017=true">November 2017</a></li>
+                            <li><a href="blog.php?december2017=true">December 2017</a></li>
                           </ul>
                         </div>
                 </div>
         </div>
                
           <?php
+            
+
+            
         // FUNCTION FOR PRINTING OUT BLOG POST
             if(isset($_GET["cat_watches"])){
                 image_category($post_info_watches);
             }elseif(isset($_GET["cat_glasses"])){
                image_category($post_info_glasses);
             }elseif(isset($_GET["cat_interior"])){
-                image_category($post_info_interior);               
+                image_category($post_info_interior);
+                
+                
+        // IF A MONTH COMES BACK AS GET GO IN TO THIS 'IF':
+            }elseif(isset($_GET["january2017"])){
+                image_category($post_info_january);
+            }elseif(isset($_GET["february2017"])){
+               image_category($post_info_february);
+            }elseif(isset($_GET["march2017"])){
+                image_category($post_info_march);  
+            }elseif(isset($_GET["april2017"])){
+                image_category($post_info_april); 
+            }elseif(isset($_GET["may2017"])){
+                image_category($post_info_may);
+            }elseif(isset($_GET["june2017"])){
+               image_category($post_info_june);
+            }elseif(isset($_GET["july2017"])){
+                image_category($post_info_july);  
+            }elseif(isset($_GET["august2017"])){
+                image_category($post_info_august);
+            }elseif(isset($_GET["september2017"])){
+               image_category($post_info_september);
+            }elseif(isset($_GET["october2017"])){
+                image_category($post_info_october);  
+            }elseif(isset($_GET["november2017"])){
+                image_category($post_info_november); 
+            }elseif(isset($_GET["december2017"])){
+                image_category($post_info_december); 
+                
+                
+                
+            
+//            }elseif(isset($_GET["month"])){   
+//                $month = $_GET["month"];
+//            
+//                    if($month = "january2017"){
+//                        
+//                        echo "hej!";
+//                        image_category($post_info_january);
+//                    }
+//                    if($month = "february2017"){
+//                        echo "hejsan!";
+//                        image_category($post_info_february);   
+//                    }elseif($month = "march2017"){
+//                        image_category($post_info_march);   
+//                    }elseif($month = "april2017"){
+//                        image_category($post_info_april);   
+//                    }elseif($month = "may2017"){
+//                        image_category($post_info_may);   
+//                    }elseif($month == "june2017"){
+//                        echo "hallå!";
+//                        image_category($post_info_june);  
+//                    }elseif($month = "july2017"){
+//                        image_category($post_info_july);   
+//                    }elseif($month = "august2017"){
+//                        image_category($post_info_august);   
+//                    }elseif($month = "september2017"){
+//                        image_category($post_info_september);   
+//                    }elseif($month = "october2017"){
+//                        image_category($post_info_october);   
+//                    }elseif($month = "november2017"){
+//                        image_category($post_info_november);   
+//                    }elseif($month = "december2017"){
+//                        image_category($post_info_december);   
+//                    }  
+            
+        // END OF MONTH
+            
             }else{
-                image_category($post_info); 
-            
-            
-//                if(isset($_GET["cat_watches"])){
-//                image_category($post_info_watches);
-//            }elseif(isset($_GET["cat_glasses"])){
-//               image_category($post_info_glasses);
-//            }elseif(isset($_GET["cat_interior"])){
-//                image_category($post_info_interior);               
-//            }elseif($_GET["month"] == january2017){
-//                image_category($post_info_month);              
-//            }else{
-//                image_category($post_info);
-//            } 
-            
-            
+                image_category($post_info);     
          ?>
 
 
@@ -145,9 +208,9 @@ require 'partials/blog_statements.php';
     <?php } 
       
  } ?> 
-            </div>
+
             
-            </div> 
+</div> 
    
     <!--main End-->
     </main>
