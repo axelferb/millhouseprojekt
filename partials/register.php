@@ -1,30 +1,30 @@
 <?php
     require 'database.php';
 
-// MAN SKA INTE KUNNA REGISTRERA FLERA ANVÄNDARE MED SAMMA USERNAME 
+//STATEMENT FOR USERNAME CHECK
 $checkUsername = $_POST["username"];
 
 $usernameStatement = $pdo->prepare("SELECT username FROM users WHERE username = :name");
 $usernameStatement->bindParam(':name', $checkUsername);
 $usernameStatement->execute();
 
-//SLUT USERNAME-KOLL
-
-// MAN SKA INTE KUNNA REGISTRERA SAMMA EMAIL FLER ÄN EN GÅNG 
+//STATMENT FOR EMAIL CHECK  
 $checkEmail = $_POST["email"];
 
 $emailStatement = $pdo->prepare("SELECT email FROM users WHERE email = :email");
 $emailStatement->bindParam(':email', $checkEmail);
 $emailStatement->execute();
 
-// SLUT EMAIL-KOLL
 
+//CHECKS IN THE DATABASE IF THE USERNAME IS ALREADY BEING USED
 if(($usernameStatement->rowCount() > 0 ) && (!empty($_POST["username"]))){
     header("Location: ../register_form.php?username_already_taken=true");
     
+//CHECKS IN THE DATABASE IF THE EMAIL IS ALREADY BEING USED    
 }elseif(($emailStatement->rowCount() > 0) && (!empty($_POST["email"]))){
     header("Location: ../register_form.php?email_already_taken=true");
     
+//IF THE USERNAME AND EMAIL IS NOT BEING USED AND ALL THE FIELDS ARE FILLED IN CORRECTLY THE DATABASE WILL BE UPDATED WITH THE USER INFORMATION.     
 }elseif   ((!empty($_POST["username"]))
             && (!empty($_POST["password"]))
             && (!empty($_POST["email"])) 
