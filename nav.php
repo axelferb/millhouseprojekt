@@ -22,6 +22,13 @@
                 <li>
                     <a href="profilepage.php">DIN PROFILSIDA</a>
                 </li>
+                <?php } else{ ?>
+                <li>
+                    <a href="login_form.php">LOGGA IN</a>
+                </li>
+                <li>
+                    <a href="register_form.php">REGISTRERA DIG</a>
+                </li>
                 <?php } ?>
             </ul>
         </div>

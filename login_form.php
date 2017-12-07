@@ -19,7 +19,8 @@ if(isset($_GET["wrong_password"])){
  ?>
  
  
-  <h4>Login</h4>
+ <h1>Logga In</h1>
+ <hr>
   
   <form action="partials/login.php" method="POST">
    
@@ -34,7 +35,7 @@ if(isset($_GET["wrong_password"])){
     </div>
     
     <div class="form-group">
-      <input type="submit" class="btn btn-primary">
+      <input type="submit" value="Logga In" class="btn btn-primary">
     </div>
     
   </form>
