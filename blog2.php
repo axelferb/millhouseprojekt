@@ -19,15 +19,13 @@ require 'partials/print_posts.php';
     
     $offset_number = $page * 5 - 5;
     
-$order = require 'partials/blog_statements.php';
-
+require 'partials/blog_statements.php';
     
 ?>
 
 
 <body>
-    <?php
-?>
+
     <!-- NAVIGATION -->
     <?php
         require 'nav.php';
@@ -81,14 +79,22 @@ $order = require 'partials/blog_statements.php';
                             <li><a href="blog.php?december2017=true">December 2017</a></li>
 
                             <li><a href="blog.php?newest=true">Nyast</a></li>
-                            <li><a href="blog.php?oldest=true">Äldst</a></li>
+                            <li><a href="blog2.php?oldest=true">Äldst</a></li>
 
                           </ul>
                         </div>
                 </div>
         </div>
+            <?php
+            
+            // SHIFTING BETWEEN ASCENDING AND DESCEN
+//            if(isset($_GET["newest"])){
+//                $order = require 'partials/blog_statements_DESC.php';
+//                
+//            }elseif(isset($_GET["oldest"])){
+//                $order = require 'partials/blog_statements_ASC.php';
+//            }
 
-        <?php
 
         // FUNCTION FOR PRINTING OUT BLOG POST
             if(isset($_GET["cat_watches"])){
