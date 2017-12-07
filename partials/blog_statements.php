@@ -145,8 +145,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 1 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = januari/1 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_january = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -170,8 +170,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 2 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = february/2 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_february = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -195,8 +195,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 3 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = march/3 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_march = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -220,8 +220,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 4 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = april/4 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_april = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -245,8 +245,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 5 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = may/5 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_may = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -269,8 +269,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 6 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = june/6 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_june = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -294,8 +294,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 7 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = july/7 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_july = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -319,8 +319,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 8 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = august/8 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_august = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -344,8 +344,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 9 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = september/9 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_september = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -369,8 +369,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 10 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = october/10 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_october = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -394,8 +394,8 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 11 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = november/11 <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_november = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -419,35 +419,11 @@
     FROM posts 
     INNER JOIN users 
 	ON users.id =  posts.user
+    WHERE MONTH(date) = 12 AND YEAR(date) = 2017
     ORDER BY posts.id DESC
-    WHERE månad = december <<<<<<<<<<<<<<<<<< insert correct syntax here
     ");  
     $statement->execute();
     $post_info_december = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-// MONTH: JANUARY
-
-    $statement = $pdo->prepare("
-    SELECT 
-    users.id AS userid, 
-    users.username AS username, 
-    users.firstname AS firstname, 
-    users.lastname AS lastname, 
-    users.email AS email,
-    posts.id AS id,
-    posts.post AS post,
-    posts.title AS title, 
-    posts.date AS date, 
-    posts.category AS category, 
-    posts.image AS image,
-    posts.user
-    FROM posts 
-    INNER JOIN users 
-	ON users.id =  posts.user
-    ORDER BY posts.id DESC
-    WHERE månad = januari/1 <<<<<<<<<<<<<<<<<< insert correct syntax here
-    ");  
-    $statement->execute();
-    $post_info_january = $statement->fetchAll(PDO::FETCH_ASSOC);
     
 ?>
