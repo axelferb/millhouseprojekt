@@ -1,29 +1,26 @@
-<?php
-require 'partials/session.php';
-?>
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <?php
+require 'partials/session.php';
 require 'head.php';
 require 'partials/database.php';
 require 'partials/print_posts.php';
-require 'partials/index_statements.php';
+require 'partials/index_statements.php'; 
+?>
 
-           
-    
-?>
 <body>
-    <?php
-?>
+
     <!-- NAVIGATION -->
+
     <?php
         require 'nav.php';
+        require 'jumbotron.php'
     ?>
 
     <!-- HERO IMAGE -->
-    <div class="jumbotron"></div>
+
     <div class="blue-line"></div>
 
     <main class="container">
@@ -48,6 +45,7 @@ require 'partials/index_statements.php';
                             <li><a href="blog.php?cat_interior=true">Inredning</a></li>
                           </ul>
                         </div>
+<<<<<<< HEAD
                         
                         <div class="btn-group">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +67,8 @@ require 'partials/index_statements.php';
 
                           </ul>
                         </div>
+=======
+>>>>>>> master
                 </div>
                    
                 <div>
@@ -78,9 +78,9 @@ require 'partials/index_statements.php';
                 </div>     
             </div>
             
-            <div class="hidden-xs, hidden-sm, col-md-4">
+            <div class="hidden-xs hidden-sm col-md-4">
                 <div>
-                    <h1>Användare:</h1>
+                    <h1 class="text-center">Användare</h1>
                     <hr>
                 </div>
                 <div>

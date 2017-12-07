@@ -19,7 +19,8 @@ require 'partials/print_posts.php';
     
     $offset_number = $page * 5 - 5;
     
-require 'partials/blog_statements.php';
+$order = require 'partials/blog_statements_desc.php';
+echo $order;
     
 ?>
 
@@ -30,10 +31,11 @@ require 'partials/blog_statements.php';
     <!-- NAVIGATION -->
     <?php
         require 'nav.php';
+        require 'jumbotron.php'
     ?>
 
     <!-- HERO IMAGE -->
-    <div class="jumbotron"></div>
+    
     <div class="blue-line"></div>
 
     <main class="container">
@@ -61,9 +63,10 @@ require 'partials/blog_statements.php';
                         
                         <div class="btn-group">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Månad: <span class="caret"></span>
+                            Relevans: <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
+
                             <li><a href="blog.php?january2017=true">Januari 2017</a></li>
                             <li><a href="blog.php?february2017=true">Februari 2017</a></li>
                             <li><a href="blog.php?march2017=true">Mars 2017</a></li>
@@ -76,15 +79,25 @@ require 'partials/blog_statements.php';
                             <li><a href="blog.php?october2017=true">Oktober 2017</a></li>
                             <li><a href="blog.php?november2017=true">November 2017</a></li>
                             <li><a href="blog.php?december2017=true">December 2017</a></li>
+
+                            <li><a href="blog.php?newest=true">Nyast</a></li>
+                            <li><a href="blog.php?oldest=true">Äldst</a></li>
+
                           </ul>
                         </div>
                 </div>
         </div>
+            <?php
+            
+            // SHIFTING BETWEEN ASCENDING AND DESCEN
+            if(isset($_GET["newest"])){
+                $order = require 'partials/blog_statements_DESC.php';
+                
+            }elseif(isset($_GET["oldest"])){
+                $order = require 'partials/blog_statements_ASC.php';
+            }
                
-          <?php
-            
 
-            
         // FUNCTION FOR PRINTING OUT BLOG POST
             if(isset($_GET["cat_watches"])){
                 image_category($post_info_watches);
@@ -118,45 +131,7 @@ require 'partials/blog_statements.php';
             }elseif(isset($_GET["november2017"])){
                 image_category($post_info_november); 
             }elseif(isset($_GET["december2017"])){
-                image_category($post_info_december); 
-                
-                
-                
-            
-//            }elseif(isset($_GET["month"])){   
-//                $month = $_GET["month"];
-//            
-//                    if($month = "january2017"){
-//                        
-//                        echo "hej!";
-//                        image_category($post_info_january);
-//                    }
-//                    if($month = "february2017"){
-//                        echo "hejsan!";
-//                        image_category($post_info_february);   
-//                    }elseif($month = "march2017"){
-//                        image_category($post_info_march);   
-//                    }elseif($month = "april2017"){
-//                        image_category($post_info_april);   
-//                    }elseif($month = "may2017"){
-//                        image_category($post_info_may);   
-//                    }elseif($month == "june2017"){
-//                        echo "hallå!";
-//                        image_category($post_info_june);  
-//                    }elseif($month = "july2017"){
-//                        image_category($post_info_july);   
-//                    }elseif($month = "august2017"){
-//                        image_category($post_info_august);   
-//                    }elseif($month = "september2017"){
-//                        image_category($post_info_september);   
-//                    }elseif($month = "october2017"){
-//                        image_category($post_info_october);   
-//                    }elseif($month = "november2017"){
-//                        image_category($post_info_november);   
-//                    }elseif($month = "december2017"){
-//                        image_category($post_info_december);   
-//                    }  
-            
+                image_category($post_info_december);      
         // END OF MONTH
             
             }else{

@@ -37,12 +37,16 @@
 
         <div class="col-xs-12 col-sm-4">
             <h2>Millhouse AB</h2>
-            <p>"Nånting kort om millhouse"</p>
+            <p>"Klockor, solglasögon och mindre inredningsartiklar till bästa pris på ett hållbart sätt!"</p>
             
+            <div class="follow_us">
             <h3>Gilla och följ oss på</h3>
-            <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
-            <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-facebook-square fa-3x" aria-hidden="true"> <p>Facebook</p></i>
+            <br/>
+            <i class="fa fa-twitter-square fa-3x" aria-hidden="true"><p>Twitter</p></i>
+            </div>
         </div>
+
 
     </div>
 

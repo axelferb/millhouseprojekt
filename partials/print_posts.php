@@ -1,11 +1,5 @@
 <?php
 
-
-
-    
-    
-
-
 // PRINTS OUT REGULAR BLOG POST IN INDEX.PHP/BLOG.PHP
 function image_category($print){
     
@@ -29,7 +23,7 @@ function image_category($print){
                       AND THE INLINESTYLING NEEDS TO BE MOVED TO STYLE.CSS
                       THIS DIV BELOW WRAPS AROUND post(image+text) AND "Läs mer & kommentera"-BUTTON -->
                        
-                <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
+                <article class="col-xs-12, col-md-6">
                        
                 <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
                    --> 
@@ -108,11 +102,8 @@ function image_category($print){
                             echo '(' . $comments_count["total"] . ')';
                         ?>
                         </a>
-                        
-                        
                     </div> 
-
-            </div>              
+            </article>              
         <?php
             }
 
@@ -141,7 +132,7 @@ function first_image_category($print){
                  
             foreach($print as $blogdata){ ?>
                        
-                <div style="height: 600px; overflow: hidden;">
+                <article style="height: 600px; overflow: hidden;">
                        
                     <div style="height: 550px; overflow: hidden;">
 
@@ -150,7 +141,7 @@ function first_image_category($print){
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 post_size"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>"><?php    
+                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -165,7 +156,7 @@ function first_image_category($print){
                                 <div class="sunglasses2 post_size"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -180,9 +171,9 @@ function first_image_category($print){
                                 <div class="furnish2 post_size"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
                                     }else{ ?>
-                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                        <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
                                </div>
                                <div>
@@ -219,7 +210,7 @@ function first_image_category($print){
                                                                 
                     </div> 
 
-            </div>              
+            </article>              
         <?php
             }
         ?>

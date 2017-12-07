@@ -69,9 +69,7 @@ require 'partials/functions.php';
                     foreach($comments as $blogposts){ ?>
                       <tr><td>
                       <a href="post.php?post=<?=$blogposts["id"];?>"><?php echo $blogposts["comment"]; ?></a>
-                      </td><td>
-<!--                      <a href="edit_post_form.php?posttoedit=<?= $blogposts["id"]; ?>">Redigera</a><br>-->
-                      </td><td>
+                      </td><td class="right-align">
                       <input type="checkbox" name="<?= $blogposts["id"]; ?>" value="<?= $blogposts["id"]; ?>">
                       </td>
                       <?php

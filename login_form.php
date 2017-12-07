@@ -19,22 +19,23 @@ if(isset($_GET["wrong_password"])){
  ?>
  
  
-  <h4>Login</h4>
+ <h1>Logga In</h1>
+ <hr>
   
   <form action="partials/login.php" method="POST">
    
     <div class="form-group">
       <label for="username"> Username </label>
-      <input type="text" name="username" class="form-control">
+      <input id="username" type="text" name="username" class="form-control">
     </div>
     
     <div class="form-group">
       <label for="password"> Password </label>
-      <input type="password" name="password" class="form-control">
+      <input id="password" type="password" name="password" class="form-control">
     </div>
     
     <div class="form-group">
-      <input type="submit" class="btn btn-primary">
+      <input type="submit" value="Logga In" class="btn btn-primary">
     </div>
     
   </form>
