@@ -12,7 +12,7 @@ require 'partials/functions.php';
     
     // COMMENT STATISTICS TO USE IN IF
     $statement_comments = $pdo->prepare("
-    SELECT COUNT(DISTINCT comment) as total
+    SELECT COUNT(DISTINCT id) as total
     FROM comments
     WHERE idoriginalpost = :post
     ");
