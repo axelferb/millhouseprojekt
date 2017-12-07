@@ -16,10 +16,11 @@ require 'partials/index_statements.php';
 
     <?php
         require 'nav.php';
+        require 'jumbotron.php'
     ?>
 
     <!-- HERO IMAGE -->
-    <div class="jumbotron"></div>
+
     <div class="blue-line"></div>
 
     <main class="container">
@@ -42,18 +43,6 @@ require 'partials/index_statements.php';
                             <li><a href="blog.php?cat_glasses=true">Solglasögon</a></li>
                             <li><a href="blog.php?cat_watches=true">Klockor</a></li>
                             <li><a href="blog.php?cat_interior=true">Inredning</a></li>
-                          </ul>
-                        </div>
-                        
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Månad: <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a href="index_idas.php?cat=all">Allt</a></li>
-                            <li><a href="index_idas.php?cat=sunglasses">Solglasögon</a></li>
-                            <li><a href="index_idas.php?cat=watches">Klockor</a></li>
-                            <li><a href="index_idas.php?cat=interior">Inredning</a></li>
                           </ul>
                         </div>
                 </div>
