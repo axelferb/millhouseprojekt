@@ -54,7 +54,7 @@ require 'partials/index_statements.php';
                 </div>     
             </div>
             
-            <div class="hidden-sm col-md-4">
+            <div class="hidden-xs hidden-sm col-md-4">
                 <div>
                     <h1 class="text-center">Användare</h1>
                     <hr>
