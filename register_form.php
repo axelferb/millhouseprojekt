@@ -63,7 +63,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 <!--REGISTER FORM-->
 
 <div class="container mt-5">
-  <h1>Register</h1>
+  <h1>Registrera dig</h1>
+  <hr>
   <form action="partials/register.php" method="POST">
    
     <div class="form-group">
@@ -92,7 +93,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     </div>
     
     <div class="form-group">
-      <input type="submit" class="btn btn-primary">
+      <input type="submit" value="Registrera dig" class="btn btn-primary">
     </div>
     
   </form>
