@@ -66,8 +66,23 @@ echo $order;
                             Relevans: <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
+
+                            <li><a href="blog.php?january2017=true">Januari 2017</a></li>
+                            <li><a href="blog.php?february2017=true">Februari 2017</a></li>
+                            <li><a href="blog.php?march2017=true">Mars 2017</a></li>
+                            <li><a href="blog.php?april2017=true">April 2017</a></li>
+                            <li><a href="blog.php?may2017=true">Maj 2017</a></li>
+                            <li><a href="blog.php?june2017=true">Juni 2017</a></li>
+                            <li><a href="blog.php?july2017=true">Juli 2017</a></li>
+                            <li><a href="blog.php?august2017=true">Augusti 2017</a></li>
+                            <li><a href="blog.php?september2017=true">September 2017</a></li>
+                            <li><a href="blog.php?october2017=true">Oktober 2017</a></li>
+                            <li><a href="blog.php?november2017=true">November 2017</a></li>
+                            <li><a href="blog.php?december2017=true">December 2017</a></li>
+
                             <li><a href="blog.php?newest=true">Nyast</a></li>
                             <li><a href="blog.php?oldest=true">Äldst</a></li>
+
                           </ul>
                         </div>
                 </div>
@@ -82,23 +97,53 @@ echo $order;
                 $order = require 'partials/blog_statements_ASC.php';
             }
                
-          
+
         // FUNCTION FOR PRINTING OUT BLOG POST
             if(isset($_GET["cat_watches"])){
                 image_category($post_info_watches);
             }elseif(isset($_GET["cat_glasses"])){
                image_category($post_info_glasses);
             }elseif(isset($_GET["cat_interior"])){
-                image_category($post_info_interior);               
+                image_category($post_info_interior);
+                
+                
+        // IF A MONTH COMES BACK AS GET GO IN TO THIS 'IF':
+            }elseif(isset($_GET["january2017"])){
+                image_category($post_info_january);
+            }elseif(isset($_GET["february2017"])){
+               image_category($post_info_february);
+            }elseif(isset($_GET["march2017"])){
+                image_category($post_info_march);  
+            }elseif(isset($_GET["april2017"])){
+                image_category($post_info_april); 
+            }elseif(isset($_GET["may2017"])){
+                image_category($post_info_may);
+            }elseif(isset($_GET["june2017"])){
+               image_category($post_info_june);
+            }elseif(isset($_GET["july2017"])){
+                image_category($post_info_july);  
+            }elseif(isset($_GET["august2017"])){
+                image_category($post_info_august);
+            }elseif(isset($_GET["september2017"])){
+               image_category($post_info_september);
+            }elseif(isset($_GET["october2017"])){
+                image_category($post_info_october);  
+            }elseif(isset($_GET["november2017"])){
+                image_category($post_info_november); 
+            }elseif(isset($_GET["december2017"])){
+                image_category($post_info_december);      
+        // END OF MONTH
+            
             }else{
-                image_category($post_info);
-            } ?>
+                image_category($post_info);     
+         ?>
 
 
     
 <div class="pagination">    
          
 <?php
+        
     $last_page = ceil($p_count["total"] / 5);
     
     if($page == 1){ ?>
@@ -135,9 +180,12 @@ echo $order;
         <a href="blog.php?page=<?=$page - 2?>"><?= $page - 2 ?></a> 
         <a href="blog.php?page=<?=$page - 1?>"><?= $page - 1 ?></a> 
         <a href="blog.php?page=<?=$page?>"><b><?= $page ?></b></a>
-    <?php } ?>
-       
-</div>  
+    <?php } 
+      
+ } ?> 
+
+            
+</div> 
    
     <!--main End-->
     </main>
