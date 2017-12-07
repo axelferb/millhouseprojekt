@@ -45,7 +45,6 @@ require 'partials/index_statements.php';
                             <li><a href="blog.php?cat_interior=true">Inredning</a></li>
                           </ul>
                         </div>
-<<<<<<< HEAD
                         
                         <div class="btn-group">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,8 +66,7 @@ require 'partials/index_statements.php';
 
                           </ul>
                         </div>
-=======
->>>>>>> master
+
                 </div>
                    
                 <div>
