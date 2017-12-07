@@ -19,7 +19,8 @@ require 'partials/print_posts.php';
     
     $offset_number = $page * 5 - 5;
     
-require 'partials/blog_statements.php';
+$order = require 'partials/blog_statements_desc.php';
+echo $order;
     
 ?>
 
@@ -30,10 +31,11 @@ require 'partials/blog_statements.php';
     <!-- NAVIGATION -->
     <?php
         require 'nav.php';
+        require 'jumbotron.php'
     ?>
 
     <!-- HERO IMAGE -->
-    <div class="jumbotron"></div>
+    
     <div class="blue-line"></div>
 
     <main class="container">
@@ -61,19 +63,26 @@ require 'partials/blog_statements.php';
                         
                         <div class="btn-group">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Månad: <span class="caret"></span>
+                            Relevans: <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a href="index_idas.php?cat=all">Allt</a></li>
-                            <li><a href="index_idas.php?cat=sunglasses">Solglasögon</a></li>
-                            <li><a href="index_idas.php?cat=watches">Klockor</a></li>
-                            <li><a href="index_idas.php?cat=interior">Inredning</a></li>
+                            <li><a href="blog.php?newest=true">Nyast</a></li>
+                            <li><a href="blog.php?oldest=true">Äldst</a></li>
                           </ul>
                         </div>
                 </div>
         </div>
+            <?php
+            
+            // SHIFTING BETWEEN ASCENDING AND DESCEN
+            if(isset($_GET["newest"])){
+                $order = require 'partials/blog_statements_DESC.php';
+                
+            }elseif(isset($_GET["oldest"])){
+                $order = require 'partials/blog_statements_ASC.php';
+            }
                
-          <?php
+          
         // FUNCTION FOR PRINTING OUT BLOG POST
             if(isset($_GET["cat_watches"])){
                 image_category($post_info_watches);
