@@ -7,7 +7,11 @@ function image_category($print){
                        
                 <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
                        
-                    <div style="height: 550px; overflow: hidden;">
+
+                <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
+                   --> 
+                    <div style="height: 520px; overflow: hidden;">
+
 
                         <?php
                     // IMAGE & CATEGORY: IF WATCHES
@@ -46,7 +50,7 @@ function image_category($print){
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
-                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                        <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
                                </div>
                                <div>
@@ -62,7 +66,7 @@ function image_category($print){
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                         <?= $blogdata["date"] . ' | ' ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '</br>'; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '<b/r>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -132,7 +136,7 @@ function first_image_category($print){
                                     if(!($blogdata["image"] == NULL)){ ?>
                                         <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
-                                        <img src="images/glasses_profil.png" alt="Solglasögon">
+                                        <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
                                </div>
                                <div>
@@ -148,7 +152,7 @@ function first_image_category($print){
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                         <?= $blogdata["date"] . ' | '   ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '</br>'; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '<br/>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">

@@ -87,10 +87,6 @@ require 'nav.php';
         <div class= "span12"><hr></div>
 
         <?php foreach($posts_info as $blogdata){ ?>
-           
-
-
-
 
 <?php
 
