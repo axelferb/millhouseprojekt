@@ -150,7 +150,7 @@ $order = require 'partials/blog_statements.php';
         <a href="blog.php?page=<?=$page + 1?>"><?= $page + 1 ?></a>
         <a href="blog.php?page=<?=$page + 2?>"><?= $page + 2 ?></a>
         <a href="blog.php?page=<?=$page + 1?>">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </a> <?php   
     }
     
