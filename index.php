@@ -49,30 +49,6 @@ require 'partials/index_statements.php';
                             <li><a href="blog.php?cat_interior=true">Inredning</a></li>
                           </ul>
                         </div>
-<!--
-                        
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Månad: <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a href="blog.php?january2017=true">Januari 2017</a></li>
-                            <li><a href="blog.php?february2017=true">Februari 2017</a></li>
-                            <li><a href="blog.php?march2017=true">Mars 2017</a></li>
-                            <li><a href="blog.php?april2017=true">April 2017</a></li>
-                            <li><a href="blog.php?may2017=true">Maj 2017</a></li>
-                            <li><a href="blog.php?june2017=true">Juni 2017</a></li>
-                            <li><a href="blog.php?july2017=true">Juli 2017</a></li>
-                            <li><a href="blog.php?august2017=true">Augusti 2017</a></li>
-                            <li><a href="blog.php?september2017=true">September 2017</a></li>
-                            <li><a href="blog.php?october2017=true">Oktober 2017</a></li>
-                            <li><a href="blog.php?november2017=true">November 2017</a></li>
-                            <li><a href="blog.php?december2017=true">December 2017</a></li>
-
-                          </ul>
-                        </div>
--->
-
                 </div>
                    
                 <div>

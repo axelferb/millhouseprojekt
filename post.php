@@ -87,14 +87,7 @@ require 'nav.php';
         <div class= "span12"><hr></div>
 
         <?php foreach($posts_info as $blogdata){ ?>
-           
 
-
-<!--
-                          <div style="height: 600px; overflow: hidden;">
-                       class="col-xs-12, col-md-6" 
-                    <div style="height: 550px; overflow: hidden;">
--->
 
 <?php
 
