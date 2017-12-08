@@ -344,12 +344,6 @@ hr {
 
 /* ARTICLE*/
 
-.flex {
-    display: flex;
-    display: -ms-flex;
-    display: -webkit-flex
-}
-
 article {
     margin-bottom: 35px;
     min-height: 450px !important;
