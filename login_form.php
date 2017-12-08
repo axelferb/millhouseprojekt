@@ -35,7 +35,7 @@ if(isset($_GET["wrong_password"])){
     </div>
     
     <div class="form-group">
-      <input type="submit" value="Logga In" class="btn btn-primary">
+      <input type="submit" value="Logga In" class="btn button-green">
     </div>
     
   </form>
