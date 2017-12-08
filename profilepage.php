@@ -160,25 +160,7 @@ require 'nav.php';
                         <a href="post.php?post=<?=$blogposts["id"];?>"><?=$blogposts["title"];?></a>
                 </td></tr>
                 <?php } ?>
-           
-           
-            
-                <?php
-//                    echo '<table class="table table-striped full-width">';
-//                    echo '<thead><tr>';
-//                    echo '<th scope="col">' . "Kategori" . '</th>';
-//                    echo '<th scope="col">' . "Inlägg". '</th>';
-//                    echo '</thead></tr>';                
-//                    foreach($posts as $blogposts){
-//                    echo '<tr><td>';       
-//                    echo '<span class="uppercase text-bold">' . $blogposts["category"] . '</span>';
-//                    echo '</td><td>';
-//                    echo '<a href="post.php?post=' . $blogposts["id"] . '">';
-//                    echo $blogposts["title"];
-//                    echo '</a>';
-//                    }
-//                    echo '</td></tr></table>';
-                ?>
+                
             </table>
             <br>
             <a class="btn button-test btn-block" href="list_single_users_posts.php" target="_self">Se alla / Redigera / ta bort</a>

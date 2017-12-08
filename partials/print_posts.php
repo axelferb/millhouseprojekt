@@ -2,39 +2,23 @@
 
 // PRINTS OUT REGULAR BLOG POST IN INDEX.PHP/BLOG.PHP
 function image_category($print){
-    
-    //COUNTS TOTAL NUMBERS OF COMMENTS ON A POST
-    function get_comment_count($idoriginalpost){
-    require 'partials/database.php';
-    $statement_comments_post = $pdo->prepare("
-    SELECT COUNT(comment) as total
-    FROM comments
-    WHERE idoriginalpost = :post
-    ");
-    $statement_comments_post->execute(array(
-    ":post" => $idoriginalpost
-    ));
-    return $statement_comments_post->fetch(PDO::FETCH_ASSOC);
-}
-                  
+                 
             foreach($print as $blogdata){ ?>
-                      
-                <!---  THESE 2 DIV'S BELOWS NEED A LITTLE BIT OF STYLING! 
-                      AND THE INLINESTYLING NEEDS TO BE MOVED TO STYLE.CSS
-                      THIS DIV BELOW WRAPS AROUND post(image+text) AND "Läs mer & kommentera"-BUTTON -->
                        
-                <article class="col-xs-12, col-md-6">
+                <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
                        
+
                 <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
                    --> 
                     <div style="height: 520px; overflow: hidden;">
+
 
                         <?php
                     // IMAGE & CATEGORY: IF WATCHES
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 cat"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
+                                    <img src="<?=$blogdata["image"];?>"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -49,7 +33,7 @@ function image_category($print){
                                 <div class="sunglasses2 cat"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
+                                        <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -64,7 +48,7 @@ function image_category($print){
                                 <div class="furnish2 cat"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
+                                        <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
                                         <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
@@ -93,46 +77,25 @@ function image_category($print){
                         </p>   
                     </div>
                     
-                    <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">
-                        Läs mer & kommentera
-                        <?php
-                            //TOTAL COMMENTS ON A POST
-                            $comments_count = get_comment_count($blogdata["id"]);
-                            echo '(' . $comments_count["total"] . ')';
-                        ?>
-                        </a>
+                    <div>
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
-            </article>              
+
+            </div>              
         <?php
             }
-
         ?>
 <?php    
 }
- 
+
 
 
 // PRINTS OUT FIRST BIGGER BLOG POST ON INDEX.PHP
 function first_image_category($print){
-
-    //COUNTS TOTAL NUMBERS OF COMMENTS ON A POST
-    function get_comment_count_big($idoriginalpost){
-    require 'partials/database.php';
-    $statement_comments_post = $pdo->prepare("
-    SELECT COUNT(comment) as total
-    FROM comments
-    WHERE idoriginalpost = :post
-    ");
-    $statement_comments_post->execute(array(
-    ":post" => $idoriginalpost
-    ));
-    return $statement_comments_post->fetch(PDO::FETCH_ASSOC);
-}
                  
             foreach($print as $blogdata){ ?>
                        
-                <article style="height: 600px; overflow: hidden;">
+                <div style="height: 600px; overflow: hidden;">
                        
                     <div style="height: 550px; overflow: hidden;">
 
@@ -141,7 +104,7 @@ function first_image_category($print){
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 post_size"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
+                                    <img src="<?=$blogdata["image"];?>"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -156,7 +119,7 @@ function first_image_category($print){
                                 <div class="sunglasses2 post_size"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
+                                        <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -171,7 +134,7 @@ function first_image_category($print){
                                 <div class="furnish2 post_size"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
+                                        <img src="<?=$blogdata["image"];?>"><?php    
                                     }else{ ?>
                                         <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
@@ -181,6 +144,7 @@ function first_image_category($print){
                                </div>
                                <?php
                         }?>
+ 
                         <div>
                             <h2><a href="post.php?post=<?=$blogdata["id"]?>"><?=$blogdata["title"]?></a></h2>
                         </div>
@@ -200,17 +164,10 @@ function first_image_category($print){
                     </div>
                     
                     <div style="padding: 10px;">
-                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera
-                        <?php
-                            //TOTAL COMMENTS ON A POST
-                            $comments_count = get_comment_count_big($blogdata["id"]);
-                            echo '(' . $comments_count["total"] . ')';
-                        ?>
-                        </a>   
-                                                                
+                        <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
 
-            </article>              
+            </div>              
         <?php
             }
         ?>

@@ -93,7 +93,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
     </div>
     
     <div class="form-group">
-      <input type="submit" value="Registrera dig" class="btn btn-primary">
+      <input type="submit" value="Registrera dig" class="btn button-green">
     </div>
     
   </form>
