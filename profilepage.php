@@ -199,7 +199,7 @@ require 'nav.php';
                 echo '</thead></tr>';             
                 foreach($comments as $blogcomments){
                     $statement_posts = $pdo->prepare("
-                    SELECT title
+                    SELECT title, id
                     FROM posts
                     WHERE id = :id
                     ");
@@ -208,7 +208,7 @@ require 'nav.php';
                     ));
                     $comment_post = $statement_posts->fetch(PDO::FETCH_ASSOC);
                     echo '<tr><td>';
-                    echo '<a href="#">';
+                    echo '<a href="post.php?post=' . $comment_post["id"] . '">';
                     echo $comment_post['title'];
                     echo '</a>';
                     echo '</td><td>';   
