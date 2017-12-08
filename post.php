@@ -90,11 +90,7 @@ require 'nav.php';
            
 
 
-<!--
-                          <div style="height: 600px; overflow: hidden;">
-                       class="col-xs-12, col-md-6" 
-                    <div style="height: 550px; overflow: hidden;">
--->
+
 
 <?php
 
@@ -102,7 +98,7 @@ require 'nav.php';
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 post_size"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>"><?php    
+                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -117,7 +113,7 @@ require 'nav.php';
                                 <div class="sunglasses2 post_size"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -132,7 +128,7 @@ require 'nav.php';
                                 <div class="furnish2 post_size"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
                                     }else{ ?>
                                         <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
