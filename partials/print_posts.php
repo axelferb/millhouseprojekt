@@ -18,7 +18,7 @@ function image_category($print){
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 cat"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>"><?php    
+                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -33,7 +33,7 @@ function image_category($print){
                                 <div class="sunglasses2 cat"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -48,7 +48,7 @@ function image_category($print){
                                 <div class="furnish2 cat"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
                                     }else{ ?>
                                         <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
@@ -104,7 +104,7 @@ function first_image_category($print){
                         if($blogdata["category"] == 'Klockor'){ ?>
                             <div class="watch2 post_size"> <?php
                                 if(!($blogdata["image"] == NULL)){ ?>
-                                    <img src="<?=$blogdata["image"];?>"><?php    
+                                    <img src="<?=$blogdata["image"];?>" alt="Klockor"><?php    
                                 }else{ ?>
                                     <img src="images/klockor_profil.png" alt="Klockor">'; 
                                 <?php } ?>
@@ -119,7 +119,7 @@ function first_image_category($print){
                                 <div class="sunglasses2 post_size"> 
                                    <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Solglasögon"><?php    
                                     }else{ ?>
                                         <img src="images/glasses_profil.png" alt="Solglasögon">
                                     <?php }?>
@@ -134,7 +134,7 @@ function first_image_category($print){
                                 <div class="furnish2 post_size"> 
                                     <?php
                                     if(!($blogdata["image"] == NULL)){ ?>
-                                        <img src="<?=$blogdata["image"];?>"><?php    
+                                        <img src="<?=$blogdata["image"];?>" alt="Inredning"><?php    
                                     }else{ ?>
                                         <img src="images/inredning_profil.png" alt="Inredning">
                                     <?php } ?>         
