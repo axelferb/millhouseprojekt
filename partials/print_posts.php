@@ -5,7 +5,7 @@ function image_category($print){
                  
             foreach($print as $blogdata){ ?>
                        
-                <div class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
+                <article class="col-xs-12, col-md-6" style="height: 600px; overflow: hidden;">
                        
 
                 <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
@@ -66,7 +66,7 @@ function image_category($print){
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                         <?= $blogdata["date"] . ' | ' ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '<b/r>'; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"]  . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -81,7 +81,7 @@ function image_category($print){
                         <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
 
-            </div>              
+            </article>              
         <?php
             }
         ?>
@@ -95,7 +95,7 @@ function first_image_category($print){
                  
             foreach($print as $blogdata){ ?>
                        
-                <div style="height: 600px; overflow: hidden;">
+                <article style="height: 600px; overflow: hidden;">
                        
                     <div style="height: 550px; overflow: hidden;">
 
@@ -152,7 +152,7 @@ function first_image_category($print){
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                         <?= $blogdata["date"] . ' | '   ; ?>  
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '<br/>'; ?> 
+                        <?= $blogdata["firstname"] . ' ' . $blogdata["lastname"] . '</br>'; ?> 
                         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
                         <?= $blogdata["email"]; ?>  
                         <p class="blogpost-text">
@@ -167,7 +167,7 @@ function first_image_category($print){
                         <a class="btn button-test btn-block" href="post.php?post=<?=$blogdata["id"];?>">Läs mer & kommentera</a>              
                     </div> 
 
-            </div>              
+            </article>              
         <?php
             }
         ?>
