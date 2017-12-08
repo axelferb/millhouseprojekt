@@ -24,7 +24,7 @@ function image_category($print){
 
                 <!-- DIV BELOW CONTROL HEIGHT ON POST (image+text), THUS ALSO PLACEMENT OF "Läs mer & kommentera"-BUTTON 
                    --> 
-                    <div style="height: 520px; overflow: hidden;">
+                    <div style="height: 560px; overflow: hidden;">
 
 
                         <?php
