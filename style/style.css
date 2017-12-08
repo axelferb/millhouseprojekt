@@ -21,7 +21,7 @@ body {
 }
 
 .jumbo_klockor {
-    border: 2px solid green;
+    border: 4px solid #48843a;
 
 }
 .jumbo_klockor p{
@@ -31,7 +31,7 @@ body {
 
 }
 .jumbo_sol {
-    border: 2px solid orange;
+    border: 4px solid #d28a00;
     margin: 5px 0px 5px 0px;
 
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .jumbo_inredning {
-    border: 2px solid blue;
+    border: 4px solid #3e50bc;
 
 }
 .jumbo_inredning p{
@@ -137,6 +137,9 @@ input {
 /**/
 
 /*Navbar styling*/
+.hidden {
+    display:
+}
 .blue-line {
     height: 5px;
     width: 100%;
@@ -462,18 +465,18 @@ footer .row {
 /* IDA TEST */
 
 .watch2{
-    margin-top: 5px;
     border-bottom: 7px solid #48843a;
+    margin-top: 10px;
 }
 
 .sunglasses2{
-    margin-top: 5px;
     border-bottom: 7px solid #d28a00;
+    margin-top: 10px;
 }
 
 .furnish2{
-    margin-top: 5px;
     border-bottom: 7px solid #3e50bc;
+    margin-top: 10px;
 }
 
 .post_size{
@@ -484,7 +487,7 @@ footer .row {
 }
 
 .post_size img{
-  position:absolute; 
+    position:absolute; 
     min-height: 100%;
     max-width: 100%;
     top: 0;
@@ -535,7 +538,15 @@ footer .row {
 
 /**/
 
-/*  KNAPPAR */
+/* PAGINATION BUTTONS */
+
+.pagination {
+    text-align: center;
+    font-size: 1.5em;
+}
+/**/
+
+/* BUTTONS */
 
 .btn {
     text-transform: uppercase;
@@ -566,6 +577,7 @@ footer .row {
 .button-green {
     color: white;
     background-color: #48843a;
+    margin-bottom: 15px;
 }
 
 .button-test {
@@ -695,8 +707,9 @@ table td a{
     font-size: 1.2em;
     text-transform:none;
 }
-comments_post{
+.comments_post{
     font-size: 1.2em;
+    padding-bottom: 15px;
 }
 
 .date{

@@ -44,7 +44,7 @@ $order = require 'partials/blog_statements.php';
             <div class="col-xs-12, col-md-12">
                 <div>
                     <h1>Våra blogginlägg</h1>
-                    <hr style="width: 97%;">
+                    <hr>
                 </div>
                 <div class="right-align">
                     <span class="filter">Filtrera efter:</span>
@@ -138,9 +138,8 @@ $order = require 'partials/blog_statements.php';
          ?>
 
 
-    
-<div class="pagination">    
-         
+<div class="col-xs-12 pagination">
+
 <?php
         
     $last_page = ceil($p_count["total"] / 5);
@@ -184,7 +183,8 @@ $order = require 'partials/blog_statements.php';
  } ?> 
 
             
-</div> 
+</div>
+</div>
    
     <!--main End-->
     </main>
